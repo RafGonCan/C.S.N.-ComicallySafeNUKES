@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Mannequin Hand
+  m_Name: Radio Button
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   startsOn: 1
-  inventoryName: Wood Hand
+  inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements: []
-  requirementsMessage: 
+  requirements:
+  - {fileID: 11400000, guid: 3565c9bc7309bed4995b6ec5f56f07da, type: 2}
+  - {fileID: 11400000, guid: 28aec73c190ed204eb13cd5825b98d32, type: 2}
+  requirementsMessage: Something missing
   interactionMessages:
-  - Try wood hand
+  - Click

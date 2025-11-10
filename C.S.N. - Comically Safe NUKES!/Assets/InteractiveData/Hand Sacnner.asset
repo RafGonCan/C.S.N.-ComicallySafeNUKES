@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Mannequin Hand
+  m_Name: Hand Sacnner
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   startsOn: 1
-  inventoryName: Wood Hand
+  inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements: []
-  requirementsMessage: 
+  requirements:
+  - {fileID: 11400000, guid: 4b677682bc2ceb64c819499a3505255a, type: 2}
+  requirementsMessage: To many fingerprints
   interactionMessages:
-  - Try wood hand
+  - Just the right amount
