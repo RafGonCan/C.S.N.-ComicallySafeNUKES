@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Nuclear Charger
+  m_Name: Capsule 1
   m_EditorClassIdentifier: 
-  type: 3
+  type: 0
   startsOn: 1
-  inventoryName: 
+  inventoryName: Plutonium
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 11400000, guid: 69d6fbe95aeb1e2478cad5319a8164e1, type: 2}
-  - {fileID: 11400000, guid: 0f3bfaccf14db5b4cafe92ff51859ed6, type: 2}
-  requirementsMessage: Need plutonium capsule!!!
-  interactionMessages: []
+  requirements: []
+  requirementsMessage: 
+  interactionMessages:
+  - Plutonium acquired
