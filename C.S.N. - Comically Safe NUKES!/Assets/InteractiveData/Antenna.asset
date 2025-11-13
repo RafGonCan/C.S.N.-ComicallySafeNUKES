@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   startsOn: 1
   inventoryName: Antenna
-  inventoryIcon: {fileID: 0}
+  inventoryIcon: {fileID: 21300000, guid: 16fe1852418514349bf3d12652678626, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:

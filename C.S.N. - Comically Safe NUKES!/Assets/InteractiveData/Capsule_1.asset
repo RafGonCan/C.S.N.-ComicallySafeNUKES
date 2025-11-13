@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   startsOn: 1
   inventoryName: Plutonium 1
-  inventoryIcon: {fileID: 0}
+  inventoryIcon: {fileID: 21300000, guid: 58b21e607b4e8044482d563c327a320f, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:
