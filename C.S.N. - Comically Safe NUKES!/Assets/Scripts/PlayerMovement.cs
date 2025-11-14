@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxBackwardSpeed;
     [SerializeField] private float _maxStrafeSpeed;
     [SerializeField] private float _jumpSpeed;
+    [SerializeField] private float _standHeight;
+    [SerializeField] private float _crouchHeight;
+    [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
     [SerializeField] private float _maxLookDownAngle;
 
@@ -18,11 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3             _velocityVer;
     private Vector3             _motion;
     private bool                _jump;
+    private bool                _crouch;
+    private Vector3 _cameraLocalPos;
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
         _head       = GetComponentInChildren<Camera>().transform;
+        _cameraLocalPos = _head.localPosition;
     }
 
     void Update()
@@ -30,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
         UpdateRotation();
         UpdateHead();
         CheckForJump();
+        CheckForCrouch();
+        UpdateCameraHeight();
     }
 
     private void UpdateRotation()
@@ -57,6 +65,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && _controller.isGrounded)  
             _jump = true;
+    }
+    private void CheckForCrouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Debug.Log("Crouch");
+            _crouch = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Debug.Log("Stand Up");
+            _crouch = false;
+        }
     }
 
     void FixedUpdate()
@@ -105,5 +126,13 @@ public class PlayerMovement : MonoBehaviour
 
         _controller.Move(_motion);
     }
+    private void UpdateCameraHeight()
+    {
+        float targetHeight = _crouch ? _crouchHeight : _standHeight;
 
-}
+        Vector3 newPos = _head.localPosition;
+        newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
+
+        _head.localPosition = newPos;
+    }
+}   
