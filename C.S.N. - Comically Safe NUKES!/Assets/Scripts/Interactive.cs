@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Interactive : MonoBehaviour
@@ -81,7 +82,7 @@ public class Interactive : MonoBehaviour
             UseRequirementFromInventory();
     }
 
-    private void InteractSelf(bool direct)
+    protected virtual void InteractSelf(bool direct)
     {
         if (direct && IsType(InteractiveData.Type.Indirect))
             return;
@@ -162,6 +163,10 @@ public class Interactive : MonoBehaviour
 
         requirement.PlayAnimation(_interactionManager.interactAnimationName);
 
+        CheckRequirements();
+    }
+    public void ForceCheckRequirements()
+    {
         CheckRequirements();
     }
 }
