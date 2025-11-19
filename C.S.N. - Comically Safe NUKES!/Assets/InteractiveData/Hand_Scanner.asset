@@ -18,6 +18,6 @@ MonoBehaviour:
   inventoryIcon: {fileID: 0}
   requirements:
   - {fileID: 11400000, guid: ce160d44d4a79884d8359baca6dafa68, type: 2}
-  requirementsMessage: To many Fingerprints
+  requirementsMessage: Too many Fingerprints
   interactionMessages:
   - Just the right amount

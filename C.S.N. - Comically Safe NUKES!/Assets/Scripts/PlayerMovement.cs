@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxStrafeSpeed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _crouchHeight;
+    [SerializeField] private float _standHeight;
     [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
     [SerializeField] private float _maxLookDownAngle;
@@ -67,16 +68,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckForCrouch()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && _crouch == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !_crouch)
         {
             Debug.Log("Crouch");
             _crouch = true;
+            return;
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl) && _crouch == true)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && _crouch)
         {
             Debug.Log("Stand Up");
             _crouch = false;
-        }
+            return;
+        }      
     }
 
     void FixedUpdate()
@@ -127,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateCameraHeight()
     {
-        float targetHeight = _crouch ? _crouchHeight : _head.localPosition.y;
+        float targetHeight = _crouch ? _crouchHeight : _standHeight;
 
         Vector3 newPos = _head.localPosition;
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
