@@ -5971,8 +5971,8 @@ MonoBehaviour:
   _maxBackwardSpeed: 2.5
   _maxStrafeSpeed: 3
   _jumpSpeed: 5
-  _standHeight: 0.6
   _crouchHeight: -0.2
+  _standHeight: 0.6
   _crouchTransitionSpeed: 5
   _maxLookUpAngle: 320
   _maxLookDownAngle: 80
