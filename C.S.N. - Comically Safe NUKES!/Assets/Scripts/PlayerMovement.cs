@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateHead();
         CheckForJump();
         CheckForCrouch();
-        UpdateCameraHeight();
+        UpdateCameraHeight();    
     }
 
     private void UpdateRotation()

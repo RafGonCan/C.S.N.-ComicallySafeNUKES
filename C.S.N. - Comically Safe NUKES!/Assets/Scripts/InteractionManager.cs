@@ -21,12 +21,14 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
+    private Interactive       _currentInspect;
 
     private List<Interactive> _interactives;
+    public bool               _isInspecting = false;
 
-    public PlayerInventory  playerInventory         => _playerInventory;
-    public string           awakeAnimationName      => _awakeAnimationName;
-    public string           interactAnimationName   => _interactAnimationName;
+    public PlayerInventory    playerInventory         => _playerInventory;
+    public string             awakeAnimationName      => _awakeAnimationName;
+    public string             interactAnimationName   => _interactAnimationName;
 
     void Awake()
     {
@@ -85,5 +87,18 @@ public class InteractionManager : MonoBehaviour
     public string GetInteractionMessage(string message)
     {
         return _interactPrefix + " " + message;
+    }
+    public void StartInspection(Interactive item)
+    {
+        _isInspecting = true;
+        _currentInspect = item;
+    }
+    public void EndInspection(Interactive item)
+    {
+        _isInspecting = false;
+    }
+    public bool IsInspecting()
+    {
+        return _isInspecting;
     }
 }

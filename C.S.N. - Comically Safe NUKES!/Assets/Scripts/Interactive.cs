@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactive : MonoBehaviour
 {
     [SerializeField] private InteractiveData _interactiveData;
+    public GameObject inspectModel;
 
     private InteractionManager  _interactionManager;
     private PlayerInventory     _playerInventory;
