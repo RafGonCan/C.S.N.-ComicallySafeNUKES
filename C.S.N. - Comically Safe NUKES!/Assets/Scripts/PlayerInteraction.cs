@@ -4,6 +4,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private UIManager  _uiManager;
     [SerializeField] private float      _maxInteractionDistance;
+    private PlayerInventory _playerInventory;
 
     private Transform   _cameraTransform;
     private Interactive _currentInteractive;
@@ -14,12 +15,22 @@ public class PlayerInteraction : MonoBehaviour
         _cameraTransform            = GetComponentInChildren<Camera>().transform;
         _currentInteractive         = null;
         _refreshCurrentInteractive  = false;
+        _playerInventory            = GetComponent<PlayerInventory>();
     }
 
     void Update()
     {
+    if (!InteractionManager.instance.IsInspecting())
+    {
         UpdateCurrentInteractive();
         CheckForPlayerInteraction();
+        CheckForInspection();
+    }
+    else
+    {
+        if (_currentInteractive != null)
+            ClearCurrentInteractive();
+    }
     }
 
     private void UpdateCurrentInteractive()
@@ -75,6 +86,19 @@ public class PlayerInteraction : MonoBehaviour
         {
             _currentInteractive.Interact();
             _refreshCurrentInteractive = true;
+        }
+    }
+    private void CheckForInspection()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            Interactive selectedItem = _playerInventory.GetSelected();
+            if (selectedItem != null)
+            {
+                InteractionManager.instance.StartInspection(selectedItem);
+            }
+            else
+            return;
         }
     }
 
