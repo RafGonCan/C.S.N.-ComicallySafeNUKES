@@ -2396,7 +2396,7 @@ Animator:
   m_GameObject: {fileID: 633564457}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f2808f585a8ab264f9a18173a2ae07e1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7a1c35409bd86334fb00582cd4bed594, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6311,6 +6311,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -402789390638544034, guid: 1d599f520e5e5b84593c2ec01ba8926b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: -402789390638544034, guid: 1d599f520e5e5b84593c2ec01ba8926b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d599f520e5e5b84593c2ec01ba8926b, type: 3}
       propertyPath: m_Name
       value: Radio
@@ -6318,6 +6326,10 @@ PrefabInstance:
     - target: {fileID: 3432475254958674198, guid: 1d599f520e5e5b84593c2ec01ba8926b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372001895347627191, guid: 1d599f520e5e5b84593c2ec01ba8926b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7196,7 +7208,7 @@ Animator:
   m_GameObject: {fileID: 1512877063}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f2808f585a8ab264f9a18173a2ae07e1, type: 2}
+  m_Controller: {fileID: 9100000, guid: f64dfeeda46db5b49b44009b301fae5e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
