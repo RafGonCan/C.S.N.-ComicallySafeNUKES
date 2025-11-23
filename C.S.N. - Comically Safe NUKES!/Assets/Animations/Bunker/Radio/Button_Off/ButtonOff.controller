@@ -17,7 +17,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4959334021396035945}
-    m_Position: {x: 30, y: 370, z: 0}
+    m_Position: {x: 30, y: 360, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -35,7 +35,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Play_Audio_3 0
+  m_Name: OFF 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -49,7 +49,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 98a74f8c3995ae34ebe83c060a4b2527, type: 2}
+  m_Motion: {fileID: 7400000, guid: ad8c0cc840c3466468766ff7eaeef293, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -86,7 +86,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Button3
+  m_Name: ButtonOff
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Awake
@@ -171,7 +171,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Play_Audio_3
+  m_Name: OFF
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -185,7 +185,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 98a74f8c3995ae34ebe83c060a4b2527, type: 2}
+  m_Motion: {fileID: 7400000, guid: ad8c0cc840c3466468766ff7eaeef293, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
