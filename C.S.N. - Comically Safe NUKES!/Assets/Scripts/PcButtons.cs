@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ClickToggleMultiple : MonoBehaviour
+public class PcButtons : MonoBehaviour
 {
     [SerializeField] private GameObject[] targetObjects;
 
