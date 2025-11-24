@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxBackwardSpeed;
     [SerializeField] private float _maxStrafeSpeed;
     [SerializeField] private float _jumpSpeed;
-    [SerializeField] private float _crouchHeight;
     [SerializeField] private float _standHeight;
+    [SerializeField] private float _crouchHeight;
     [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
     [SerializeField] private float _maxLookDownAngle;
