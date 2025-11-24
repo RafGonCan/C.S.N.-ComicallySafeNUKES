@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 325513231}
-  soundClip: {fileID: 0}
+  soundClip: {fileID: 8300000, guid: 6efd873c2e4589f4f8f1554711566b9f, type: 3}
   playOnEnable: 0
 --- !u!82 &325513231
 AudioSource:
@@ -906,7 +906,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1020,7 +1020,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3706,7 +3706,7 @@ Transform:
   m_GameObject: {fileID: 821001420}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.5, z: -0, w: -0.8660254}
-  m_LocalPosition: {x: -0.37939692, y: 1.11, z: 1.0703955}
+  m_LocalPosition: {x: -0.37939692, y: 1.078, z: 1.0703955}
   m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.099999994}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3732,7 +3732,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!23 &821001423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9701,7 +9701,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!23 &1777372571
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10696,7 +10696,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!23 &1973912248
 MeshRenderer:
   m_ObjectHideFlags: 0
