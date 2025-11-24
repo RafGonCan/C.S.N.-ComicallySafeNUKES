@@ -94,13 +94,25 @@ public class PlayerMovement : MonoBehaviour
     {
         float forwardAxis   = Input.GetAxis("Forward");
         float strafeAxis    = Input.GetAxis("Strafe");
+        if (!_crouch)
+        {
+            if (forwardAxis >= 0f)
+                _velocityHor.z = forwardAxis * _maxForwardSpeed;
+            else
+                _velocityHor.z = forwardAxis * _maxBackwardSpeed;
 
-        if (forwardAxis >= 0f)
-            _velocityHor.z = forwardAxis * _maxForwardSpeed;
+            _velocityHor.x = strafeAxis * _maxStrafeSpeed;
+        }
         else
-            _velocityHor.z = forwardAxis * _maxBackwardSpeed;
+        {
+            if (forwardAxis >= 0f)
+                _velocityHor.z = forwardAxis/2 * _maxForwardSpeed;
+            else
+                _velocityHor.z = forwardAxis/2 * _maxBackwardSpeed;
 
-        _velocityHor.x = strafeAxis * _maxStrafeSpeed;
+            _velocityHor.x = strafeAxis/2 * _maxStrafeSpeed;
+        }
+        
 
         if (_velocityHor.magnitude > _maxForwardSpeed)
             _velocityHor = _velocityHor.normalized * (forwardAxis > 0 ? _maxForwardSpeed : _maxBackwardSpeed);
