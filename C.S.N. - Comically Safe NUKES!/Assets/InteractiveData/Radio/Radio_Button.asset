@@ -20,5 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3565c9bc7309bed4995b6ec5f56f07da, type: 2}
   requirementsMessage: Something missing
   interactionMessages:
-  - Click
-  - Clack
+  - Press

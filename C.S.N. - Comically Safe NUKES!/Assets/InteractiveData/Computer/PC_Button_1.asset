@@ -19,5 +19,4 @@ MonoBehaviour:
   requirements: []
   requirementsMessage: 
   interactionMessages:
-  - tac
-  - tuc
+  - Press
