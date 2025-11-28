@@ -5,6 +5,8 @@ public class TableController : MonoBehaviour
 {
     [SerializeField] private int[] correctSequence = new int[3] { 3, 7, 11 };
     [SerializeField] private List<GameObject> buttons = new List<GameObject>();
+    [SerializeField] private Interactive _plutonium1;
+    [SerializeField] private Interactive _plutonium2;
     
     private List<int> currentSequence = new List<int>(); //sequencia que está a ser introduzida
     private bool _isSolved = false;
@@ -14,7 +16,20 @@ public class TableController : MonoBehaviour
 
     void Start()
     {
-        
+        SetButtonState(true);
+    }
+
+    private void CheckTableActivation()
+    {
+        bool onChecker = (_plutonium1 != null && _plutonium1.isOn) && (_plutonium2 != null && _plutonium2.isOn);
+        if (onChecker) SetButtonState(true);
+    }
+    private void SetButtonState(bool state)
+    {
+        foreach (GameObject button in buttons)
+        {
+            if(button != null) button.SetActive(state);
+        }
     }
 
     public void OnButtonPressed(int buttonIndex)
