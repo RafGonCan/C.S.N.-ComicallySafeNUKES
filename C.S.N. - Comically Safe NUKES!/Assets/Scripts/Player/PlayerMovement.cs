@@ -34,11 +34,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!enabled) return;
+        
         UpdateRotation();
         UpdateHead();
         CheckForJump();
         CheckForCrouch();
-        UpdateCameraHeight();    
+        UpdateCameraHeight();
+ 
     }
 
     private void UpdateRotation()
@@ -149,5 +152,21 @@ public class PlayerMovement : MonoBehaviour
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
 
         _head.localPosition = newPos;
+    }
+    public void SetControlsEnabled(bool enable)
+    {
+    enabled = enable;
+    
+    // Also reset cursor state when re-enabling controls
+    if (enable)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    else
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     }
 }   

@@ -21,14 +21,22 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
+
+    [SerializeField] private PlayerMovement _playerMovement;
     private Interactive       _currentInspect;
+    private GameObject _spawnedInspectObject;
+
+    private float             _rotationSpeed = 100f;
+    private Vector3           _lastMousePosition;
 
     private List<Interactive> _interactives;
     public bool               _isInspecting = false;
+    public bool IsInspecting => _isInspecting;
 
     public PlayerInventory    playerInventory         => _playerInventory;
     public string             awakeAnimationName      => _awakeAnimationName;
     public string             interactAnimationName   => _interactAnimationName;
+
 
     void Awake()
     {
@@ -55,6 +63,11 @@ public class InteractionManager : MonoBehaviour
     {
         ProcessDependencies();
         _interactives = null;
+    }
+    private void Update()
+    {
+        if (_isInspecting)
+            HandleInspectionInput();
     }
 
     private void ProcessDependencies()
@@ -90,15 +103,98 @@ public class InteractionManager : MonoBehaviour
     }
     public void StartInspection(Interactive item)
     {
-        _isInspecting = true;
-        _currentInspect = item;
-    }
-    public void EndInspection(Interactive item)
+    if (_isInspecting) return;
+    _currentInspect = item;
+
+    Camera mainCamera = Camera.main;
+    Vector3 inspectPosition = mainCamera.transform.position + mainCamera.transform.forward * 2f;
+
+
+    _isInspecting = true;
+    _spawnedInspectObject = Instantiate(item.gameObject, inspectPosition, Quaternion.identity);
+    _spawnedInspectObject.SetActive(true);
+    Interactive interactiveComponent = _spawnedInspectObject.GetComponent<Interactive>();
+    if (interactiveComponent != null)
     {
+        interactiveComponent.enabled = false;
+    }
+
+        Collider[] colliders = _spawnedInspectObject.GetComponents<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.isTrigger = true;
+        }
+        EnablePlayerControls(false);
+    }
+
+    private void HandleInspectionInput()
+    {
+    if (!_isInspecting) return;
+
+    if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
+    {
+        EndInspection();
+        return;
+    }
+
+    if (Input.GetMouseButton(0))
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Multiply by Time.deltaTime for frame-rate independent rotation
+        float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
+        
+        RotateInspectionObject(mouseX, mouseY);
+    }
+    else
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    }
+
+    private void RotateInspectionObject(float xRotation, float yRotation)
+    {
+    if (_spawnedInspectObject != null)
+    {
+        Debug.Log($"Rotating: X={xRotation}, Y={yRotation}");
+        
+        // Create rotation based on mouse movement
+        Vector3 rotation = new Vector3(yRotation, -xRotation, 0);
+        _spawnedInspectObject.transform.Rotate(rotation, Space.World);
+    }
+    }
+
+    public void EndInspection()
+    {
+    if (_spawnedInspectObject != null)
+        {
+            Interactive inspectedInteractive = _spawnedInspectObject.GetComponent<Interactive>();
+
+            if (inspectedInteractive != null && _currentInspect != null)
+            {
+                _playerInventory.Remove(_currentInspect);
+
+                _playerInventory.Add(inspectedInteractive);
+
+            }
+
+            Destroy(_spawnedInspectObject);
+            _spawnedInspectObject = null;
+            EnablePlayerControls(true);
+        }
+
         _isInspecting = false;
+        _currentInspect = null;
     }
-    public bool IsInspecting()
+    private void EnablePlayerControls(bool enable)
     {
-        return _isInspecting;
+        PlayerMovement playerMovement = _playerInventory.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.SetControlsEnabled(enable);
+        }
     }
 }
