@@ -10,17 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Microwave
+  m_Name: Tube4
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 11400000, guid: 2c663a817fe00724fb5a23b58ddf0774, type: 2}
-  - {fileID: 11400000, guid: 95685c26c41900b4b80b47522f949174, type: 2}
-  - {fileID: 11400000, guid: 880174794af1a964b919234cb0c9e016, type: 2}
-  - {fileID: 11400000, guid: 6689cf4baa797fc47b1b6fbcc7775ea6, type: 2}
-  - {fileID: 11400000, guid: c1ccf5979e7377e439d1449c8afbf5e1, type: 2}
+  requirements: []
   requirementsMessage: 
   interactionMessages: []

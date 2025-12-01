@@ -4315,6 +4315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactiveData: {fileID: 11400000, guid: f9335e6f37834df4aa327ab10b44eefb, type: 2}
+  inspectModel: {fileID: 0}
+  isOn: 0
   targetObjects:
   - {fileID: 1022173705}
   - {fileID: 1106710721}
@@ -4850,7 +4853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &995848707
 Transform:
   m_ObjectHideFlags: 0
@@ -4993,7 +4996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1022173706
 Transform:
   m_ObjectHideFlags: 0
@@ -9486,6 +9489,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3767870550512218026, guid: f41b5624c059edf4e83e2d175cb38011, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f41b5624c059edf4e83e2d175cb38011, type: 3}
       propertyPath: m_Name
       value: RL_Pipes
@@ -11029,10 +11036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactiveData: {fileID: 11400000, guid: 5f6ec61c8e27a4d48806b62ed58397b7, type: 2}
+  inspectModel: {fileID: 0}
+  isOn: 0
   targetObjects:
   - {fileID: 594675726}
   - {fileID: 1164659143}
-  - {fileID: 995848706}
 --- !u!114 &1777372575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12674,6 +12683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactiveData: {fileID: 11400000, guid: 3ef697cdfe1d2dc48a46eda5573ec942, type: 2}
+  inspectModel: {fileID: 0}
+  isOn: 0
   targetObjects:
   - {fileID: 995848706}
   - {fileID: 1022173705}

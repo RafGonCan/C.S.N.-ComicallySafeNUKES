@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PcButtons : MonoBehaviour
+public class PcButtons : Interactive
 {
     [SerializeField] private GameObject[] targetObjects;
 
-    private void OnMouseDown()
+    protected override void InteractSelf(bool direct)
     {
         foreach (GameObject obj in targetObjects)
         {
@@ -13,5 +13,6 @@ public class PcButtons : MonoBehaviour
                 obj.SetActive(!obj.activeSelf);
             }
         }
+        base.InteractSelf(direct);
     }
 }
