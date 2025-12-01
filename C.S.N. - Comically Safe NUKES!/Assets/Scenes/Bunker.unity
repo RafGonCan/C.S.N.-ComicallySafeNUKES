@@ -666,7 +666,7 @@ MonoBehaviour:
   _pickPrefix: Pick
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
-  _playerMovement: {fileID: 0}
+  _playerMovement: {fileID: 1349910773}
   _isInspecting: 0
 --- !u!4 &156836305
 Transform:
