@@ -5259,9 +5259,6 @@ PrefabInstance:
       addedObject: {fileID: 1188911809}
     - targetCorrespondingSourceObject: {fileID: 6951340717894854580, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1576554582}
-    - targetCorrespondingSourceObject: {fileID: 6951340717894854580, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1576554581}
     - targetCorrespondingSourceObject: {fileID: 6951340717894854580, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
       insertIndex: -1
@@ -5271,10 +5268,10 @@ PrefabInstance:
       addedObject: {fileID: 1576554579}
     - targetCorrespondingSourceObject: {fileID: 6951340717894854580, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1576554585}
+      addedObject: {fileID: 1576554584}
     - targetCorrespondingSourceObject: {fileID: 6951340717894854580, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1576554584}
+      addedObject: {fileID: 1576554586}
     - targetCorrespondingSourceObject: {fileID: -2615265953918716764, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1759389815}
@@ -9387,21 +9384,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.69000053, y: 0.69, z: 0.07}
   m_Center: {x: 0.34500027, y: 0.345, z: 0.0049998164}
---- !u!114 &1576554582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576554577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactiveData: {fileID: 11400000, guid: 8e4d72e6ad68237449bb53399c188600, type: 2}
-  inspectModel: {fileID: 0}
-  isOn: 1
 --- !u!114 &1576554584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9416,9 +9398,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentNumbers: 000000000000000000000000
   correctCombination: 070000000200000005000000
+  safeDoor: {fileID: 1576554586}
   _minNumber: 0
   _maxNumber: 9
---- !u!114 &1576554585
+--- !u!114 &1576554586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
