@@ -16,7 +16,6 @@ MonoBehaviour:
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 0}
+  requirements: []
   requirementsMessage: 
   interactionMessages: []

@@ -10329,8 +10329,8 @@ MonoBehaviour:
   - {fileID: 246574557}
   - {fileID: 1253172566}
   - {fileID: 1060944089}
-  _plutonium1: {fileID: 0}
-  _plutonium2: {fileID: 0}
+  _plutonium1: {fileID: 1493052124}
+  _plutonium2: {fileID: 1802705457}
 --- !u!1 &1710228635
 GameObject:
   m_ObjectHideFlags: 0
