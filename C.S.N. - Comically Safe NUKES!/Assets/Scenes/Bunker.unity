@@ -4578,6 +4578,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 1.7, z: 1}
   m_Center: {x: -0.46, y: 0.9, z: 0.5}
+--- !u!114 &796144010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796144002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e373f2a3676583344aaac511b44a6e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  microwave: {fileID: 2079455985}
+  numoftrue: 0
 --- !u!1 &804246023
 GameObject:
   m_ObjectHideFlags: 0
@@ -9577,6 +9592,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6668016667039442742, guid: 634e84be34ab89c4aa3f41f7be7d054a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 796144006}
+    - targetCorrespondingSourceObject: {fileID: 6668016667039442742, guid: 634e84be34ab89c4aa3f41f7be7d054a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 796144010}
   m_SourcePrefab: {fileID: 100100000, guid: 634e84be34ab89c4aa3f41f7be7d054a, type: 3}
 --- !u!1001 &1448554920
 PrefabInstance:
