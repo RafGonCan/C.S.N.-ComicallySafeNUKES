@@ -5,45 +5,47 @@ public class SafeController : MonoBehaviour
 {
     [SerializeField] private int[] currentNumbers = new int[3] {0, 0, 0};
     [SerializeField] private int[] correctCombination = new int[3] {5, 2, 7};
+    [SerializeField] private Interactive safeDoor;
+    
     public bool IsUnlocked => _unlocked;
     private bool _unlocked = false;
     public int _minNumber = 0;
     public int _maxNumber = 9;
 
-    public void IncreaseNumber(int currentNumber)
+    public void IncreaseNumber(int digitIndex)
     {
         if (_unlocked) return;
 
-        currentNumbers[currentNumber]++;
-        if (currentNumbers[currentNumber] > _maxNumber)
-            currentNumbers[currentNumber] = _minNumber;
+        currentNumbers[digitIndex]++;
+        if (currentNumbers[digitIndex] > _maxNumber)
+            currentNumbers[digitIndex] = _minNumber;
 
         CheckCombination();
     }
 
-    public void DecreaseNumber(int currentNumber)
+    public void DecreaseNumber(int digitIndex)
     {
         if (_unlocked) return;
 
-        currentNumbers[currentNumber]--;
-        if (currentNumbers[currentNumber] < _minNumber)
-            currentNumbers[currentNumber] = _maxNumber;
+        currentNumbers[digitIndex]--;
+        if (currentNumbers[digitIndex] < _minNumber)
+            currentNumbers[digitIndex] = _maxNumber;
 
         CheckCombination();
     }
 
     private void CheckCombination()
     {
-        bool correctCode = currentNumbers.SequenceEqual(correctCombination);
-        if (correctCode && !_unlocked)
+        bool isCorrect = currentNumbers.SequenceEqual(correctCombination);
+        
+        if (isCorrect && !_unlocked)
         {
-            UnlockSafe();
+            _unlocked = true;
+            
+            if (safeDoor != null)
+            {
+                safeDoor.SetRequirementsMet(true);
+            }
         }
-    }
-
-    private void UnlockSafe()
-    {
-        _unlocked = true;
-        Debug.Log("Bro it opens");
     }
 }

@@ -170,4 +170,15 @@ public class Interactive : MonoBehaviour
     {
         CheckRequirements();
     }
+     public void SetRequirementsMet(bool met)
+    {
+        _requirementsMet = met;
+        
+        if (met)
+        {
+            PlayAnimation(_interactionManager?.awakeAnimationName);
+        }
+    }
+    
+    public bool AreRequirementsMet => _requirementsMet;
 }
