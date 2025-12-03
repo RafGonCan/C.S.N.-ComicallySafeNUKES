@@ -4590,7 +4590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e373f2a3676583344aaac511b44a6e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
+  lights:
+  - {fileID: 995848706}
+  - {fileID: 594675726}
+  - {fileID: 1022173705}
+  - {fileID: 1164659143}
+  - {fileID: 1106710721}
   microwave: {fileID: 2079455985}
   numoftrue: 0
 --- !u!1 &804246023
