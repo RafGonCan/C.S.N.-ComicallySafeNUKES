@@ -2920,7 +2920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &594675727
 Transform:
   m_ObjectHideFlags: 0
@@ -7243,7 +7243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1164659144
 Transform:
   m_ObjectHideFlags: 0
@@ -14089,7 +14089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: ea7fd9081fc29dd46a1bd5fa26ac7064, type: 2}
   inspectModel: {fileID: 0}
-  isOn: 1
+  isOn: 0
 --- !u!1001 &2089734804
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,5 +17,7 @@ MonoBehaviour:
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements: []
-  requirementsMessage: 
-  interactionMessages: []
+  requirementsMessage: No power
+  interactionMessages:
+  - Open
+  - Close
