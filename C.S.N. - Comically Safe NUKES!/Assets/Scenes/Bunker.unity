@@ -14268,10 +14268,6 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: ea7fd9081fc29dd46a1bd5fa26ac7064, type: 2}
   inspectModel: {fileID: 0}
   isOn: 1
-<<<<<<< HEAD
-  isOn: 0
-=======
-  isOn: 1
 --- !u!1001 &2084623760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14423,7 +14419,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088333424}
   m_Mesh: {fileID: 2951200278936151375, guid: f0262cba8a42f4442b58b5495def574a, type: 3}
->>>>>>> 8d94bd30d1ff4353685b4cccd6976f76fe99044f
 --- !u!1001 &2089734804
 PrefabInstance:
   m_ObjectHideFlags: 0
