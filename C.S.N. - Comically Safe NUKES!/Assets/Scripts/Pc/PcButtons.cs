@@ -6,11 +6,6 @@ public class PcButtons : Interactive
     [SerializeField] private int numoftrue;
     [SerializeField] private Interactive microwave;
 
-    void Start()
-    {
-        microwave.isOn = false;
-    }
-
     protected override void InteractSelf(bool direct)
     {
         foreach (GameObject obj in targetObjects)
