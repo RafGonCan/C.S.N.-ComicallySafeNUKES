@@ -17,5 +17,5 @@ MonoBehaviour:
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements: []
-  requirementsMessage: Insert Code
+  requirementsMessage: 
   interactionMessages: []

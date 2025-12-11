@@ -62,7 +62,6 @@ public class InteractionManager : MonoBehaviour
     void Start()
     {
         ProcessDependencies();
-        _interactives = null;
     }
     private void Update()
     {
@@ -71,17 +70,62 @@ public class InteractionManager : MonoBehaviour
     }
 
     private void ProcessDependencies()
+{
+    if (_interactives == null)
     {
-        foreach (Interactive interactive in _interactives)
+        Debug.LogError("_interactives is NULL at start of ProcessDependencies!");
+        return;
+    }
+    
+    Debug.Log($"Processing dependencies. _interactives count: {_interactives.Count}");
+    
+    for (int i = 0; i < _interactives.Count; i++)
+    {
+        Interactive interactive = _interactives[i];
+        
+        // Check if the interactive object itself is null
+        if (interactive == null)
         {
-            foreach (InteractiveData requirementData in interactive.interactiveData.requirements)
+            Debug.LogWarning($"Interactive at index {i} is null");
+            continue;
+        }
+        
+        // Check if interactiveData is assigned
+        if (interactive.interactiveData == null)
+        {
+            Debug.LogWarning($"Interactive '{interactive.name}' has no InteractiveData assigned");
+            continue;
+        }
+        
+        // Check if requirements list exists
+        if (interactive.interactiveData.requirements == null)
+        {
+            Debug.LogWarning($"Interactive '{interactive.name}' has null requirements list");
+            continue;
+        }
+        
+        // Now safely iterate through requirements
+        foreach (InteractiveData requirementData in interactive.interactiveData.requirements)
+        {
+            if (requirementData == null)
             {
-                Interactive requirement = FindInteractive(requirementData);
+                Debug.LogWarning($"Interactive '{interactive.name}' has a null requirement in its list");
+                continue;
+            }
+            
+            Interactive requirement = FindInteractive(requirementData);
+            if (requirement != null)
+            {
                 interactive.AddRequirement(requirement);
                 requirement.AddDependent(interactive);
             }
+            else
+            {
+                Debug.LogWarning($"Could not find Interactive for requirement: {requirementData.name}");
+            }
         }
     }
+}
 
     public Interactive FindInteractive(InteractiveData interactiveData)
     {

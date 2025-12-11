@@ -5,10 +5,10 @@ public class TableController : MonoBehaviour
 {
     [SerializeField] private int[] correctSequence = new int[3] { 3, 7, 11 };
     [SerializeField] private List<GameObject> buttons = new List<GameObject>();
-    [SerializeField] private Interactive _plutonium1;
-    [SerializeField] private Interactive _plutonium2;
     [SerializeField] private GameObject _panel;
+    [SerializeField] private string _panelOpenAnimationName = "PanelOpen";
     [SerializeField] private AudioClip _wrongSequence;
+    [SerializeField] private Animator _panelAnimator;
     
     private List<int> currentSequence = new List<int>(); //sequencia que está a ser introduzida
     private bool _isSolved = false;
@@ -19,12 +19,6 @@ public class TableController : MonoBehaviour
     void Start()
     {
         SetButtonState(true);
-    }
-
-    private void CheckTableActivation()
-    {
-        bool onChecker = (_plutonium1 != null && _plutonium1.isOn) && (_plutonium2 != null && _plutonium2.isOn);
-        if (onChecker) SetButtonState(true);
     }
     private void SetButtonState(bool state)
     {
@@ -77,7 +71,7 @@ public class TableController : MonoBehaviour
     {
         _isSolved = true;
         Debug.Log("Tá certo");
-        _panel.SetActive(true);
+        _panelAnimator.SetBool(_panelOpenAnimationName, true);
     }
 
     private void PuzzleFailed()
