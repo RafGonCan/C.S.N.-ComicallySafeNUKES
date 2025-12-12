@@ -4,10 +4,7 @@ using UnityEngine.Events;
 public class AudioStations : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _soundClip1;
-    [SerializeField] private AudioClip _soundClip2;
-    [SerializeField] private AudioClip _soundClip3;
-    [SerializeField] private AudioClip _soundClip4;
+    [SerializeField] private AudioClip[] _soundClips;
     [SerializeField] private bool _playOnEnable;
     private UnityEvent _onButtonPressed;
     private int _currentClipIndex = 0;
@@ -33,23 +30,12 @@ public class AudioStations : MonoBehaviour
         _audioSource?.PlayOneShot(currentClip);
 
         _currentClipIndex++;
-        if (_currentClipIndex >= 4)
+        if (_currentClipIndex >= _soundClips.Length)
         {
             _currentClipIndex = 0;
         }
         
         _onButtonPressed?.Invoke();
-    }
-    private AudioClip GetClipFromIndex(int index)
-    {
-        switch (index)
-        {
-            case 0: return _soundClip1;
-            case 1: return _soundClip2;
-            case 2: return _soundClip3;
-            case 3: return _soundClip4;
-            default: return null;
-        }
     }
     void OnEnable()
     {
