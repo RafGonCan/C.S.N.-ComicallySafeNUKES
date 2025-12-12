@@ -1640,10 +1640,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 325513231}
-  _soundClip1: {fileID: 8300000, guid: 61a55b3a4e4274443a9eab854c304e01, type: 3}
-  _soundClip2: {fileID: 8300000, guid: 613e12bc5de9ce146999dc0228fd37a1, type: 3}
-  _soundClip3: {fileID: 8300000, guid: 7c222c4e94b3dc34cb455f0af4e0d4ac, type: 3}
-  _soundClip4: {fileID: 8300000, guid: c5a8b38a4f1c65f4da52c274dd92d718, type: 3}
+  _soundClips:
+  - {fileID: 8300000, guid: 61a55b3a4e4274443a9eab854c304e01, type: 3}
+  - {fileID: 8300000, guid: 613e12bc5de9ce146999dc0228fd37a1, type: 3}
+  - {fileID: 8300000, guid: 7c222c4e94b3dc34cb455f0af4e0d4ac, type: 3}
+  - {fileID: 8300000, guid: c5a8b38a4f1c65f4da52c274dd92d718, type: 3}
   _playOnEnable: 0
 --- !u!1001 &328684515
 PrefabInstance:
@@ -5576,10 +5577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 821001427}
-  _soundClip1: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip2: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip3: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip4: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  _soundClips:
+  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   _playOnEnable: 0
 --- !u!4 &822468948 stripped
 Transform:
@@ -13202,10 +13201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1777372577}
-  _soundClip1: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip2: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip3: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip4: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  _soundClips:
+  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   _playOnEnable: 0
 --- !u!1 &1789175901 stripped
 GameObject:
@@ -14899,10 +14896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1973912253}
-  _soundClip1: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip2: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip3: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _soundClip4: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  _soundClips:
+  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   _playOnEnable: 0
 --- !u!4 &1994038020 stripped
 Transform:
