@@ -15,7 +15,11 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderPassEvent: 500
+<<<<<<< HEAD
+    outlineThickness: 3
+=======
     outlineThickness: 2
+>>>>>>> c491b9e401fa5e1af99bda4b98fb0f14da1c1143
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:

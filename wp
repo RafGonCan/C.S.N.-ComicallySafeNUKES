@@ -1,0 +1,462 @@
+[33mcommit c491b9e401fa5e1af99bda4b98fb0f14da1c1143[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Dec 12 02:57:26 2025 +0000
+
+    Rework lights, initial outline shader
+
+[33mcommit 38a20397a07178fc056d3d7791c8363f899bf8cc[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Thu Dec 11 11:20:37 2025 +0000
+
+    interaction fixes
+
+[33mcommit 53e54edf559a23a4914bfe714345d2679d25ebac[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Dec 10 15:44:38 2025 +0000
+
+    Fix scene merge
+
+[33mcommit b7fd7eb49e1bcc50d4fd360f408ec7dfda836d91[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Dec 10 14:00:11 2025 +0000
+
+    Try to solve merge
+
+[33mcommit 12440dae29351c7364ed381ba5ed6454d176f776[m
+Merge: 108f24c 8d94bd3
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Wed Dec 10 13:18:36 2025 +0000
+
+    merge
+
+[33mcommit 108f24cfd3bbb2ae6ea3e4de0c4de43ef85aa098[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Wed Dec 10 13:18:14 2025 +0000
+
+    small changes to bunker
+
+[33mcommit 8d94bd30d1ff4353685b4cccd6976f76fe99044f[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Thu Dec 4 20:37:16 2025 +0000
+
+    Small changes to radio, map table spawns plutonium, antena colisions
+
+[33mcommit 5ac0d3638ec32a1c1c4052a863c3c67d26317de5[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Wed Dec 3 21:38:17 2025 +0000
+
+    Removed leftover scripts from previous radio
+
+[33mcommit 51c43c5f3b6faf6608d66e1479db8879ec7b5c23[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Wed Dec 3 21:30:07 2025 +0000
+
+    Complete rework over radio functionality, more pizza!
+
+[33mcommit 188f6398f25de945e093af87cc7037e69c61462f[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Wed Dec 3 10:44:07 2025 +0000
+
+    Pc puzzle functional
+
+[33mcommit 28740b55cd9825bdf97c0853d117639d8e7326d8[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Wed Dec 3 10:28:01 2025 +0000
+
+    small changes to microwave and TubePuzzleManager
+
+[33mcommit 91ef2a8175e3f2f0c6a0be5624fd3c2596f43603[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Tue Dec 2 14:20:10 2025 +0000
+
+    new tube manager script
+
+[33mcommit 6401b1bdaf6773262a452c5fa035d97954562f2d[m
+Merge: 25909e5 ad1f062
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Tue Dec 2 12:06:12 2025 +0000
+
+    merge issues
+
+[33mcommit 25909e57ea086c9172bfe04e4d79264ca84da1eb[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Tue Dec 2 12:04:58 2025 +0000
+
+    small changes to PC
+
+[33mcommit ad1f062995b94b0f64fcba7a47672eb236b0e9b7[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Tue Dec 2 10:52:43 2025 +0000
+
+    Added trash in the radio puzzle
+
+[33mcommit 68b8b361c40cf35c258f3cdcba057cf582d0002e[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Tue Dec 2 10:11:54 2025 +0000
+
+    Added party pack assets
+
+[33mcommit d8d06ab0b4f20535ca5798517e5e88d2aef064c4[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Mon Dec 1 17:01:04 2025 +0000
+
+    Safe works properly via code
+
+[33mcommit c4e24d4a51ba4be85f5444738f232f3d186c07e7[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Mon Dec 1 12:45:50 2025 +0000
+
+    Small changes to dependencies
+
+[33mcommit ef4f5cfa33c66a9236f9e39be71ed14db2e48b9c[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Dec 1 12:35:24 2025 +0000
+
+    player movement
+
+[33mcommit 376d27aa32c30083c0a3494a1f6f2cb13e02ea86[m
+Merge: 43cc699 f8de42c
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Dec 1 12:33:35 2025 +0000
+
+    merge microwave
+
+[33mcommit 43cc6998b4542bcb64e404efa2ffd0ac895625f8[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Dec 1 12:27:10 2025 +0000
+
+    change microwave interact name
+
+[33mcommit f8de42cef37c822c48b1e174111986ec81c8154f[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Mon Dec 1 11:57:59 2025 +0000
+
+    changes to PC logic and creat dependencies for microwave
+
+[33mcommit c82fd61a315156a62f399bf7bbb5264966b2d916[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Sat Nov 29 16:47:00 2025 +0000
+
+    Inspect mechanic prototype
+
+[33mcommit 0313da398ff2514a8b852bf07a69a5d6e2e83ed2[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Fri Nov 28 12:14:19 2025 +0000
+
+    Basic dependency logic for table
+
+[33mcommit 0da9e4bc99155106a343d089339ad712c290d57c[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 28 01:15:00 2025 +0000
+
+    adjust coolliders
+
+[33mcommit 1e711cd4f29ed989b64af1f2b01f6eb32a73451b[m
+Merge: f448c73 705a4f7
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 28 01:11:18 2025 +0000
+
+    Merge?
+
+[33mcommit f448c735616e16ce10db508b781117d52432ea6f[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 28 01:09:14 2025 +0000
+
+    Add sound to pc buttons
+
+[33mcommit 705a4f7f80bdebc420808255961e3b73226a6500[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Thu Nov 27 23:24:55 2025 +0000
+
+    Table buttons logic completed
+
+[33mcommit 9606f5fa24856b8eaafd80238f80b81cd5d12a63[m
+Merge: 864c24a b38b9ed
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 22:45:04 2025 +0000
+
+    merge solve
+
+[33mcommit 864c24a77f08c0003940782d3e743ce814f7a0d2[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 22:44:03 2025 +0000
+
+    Add one more sound and some more adjusts
+
+[33mcommit b38b9ed8a772f49d19767c163703d33c0ac3c649[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Mon Nov 24 21:55:51 2025 +0000
+
+    Crouch slows player
+
+[33mcommit e3f851044c97f024124e26971c3e8937c4dbe8f0[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 21:54:54 2025 +0000
+
+    Some more adjustments
+
+[33mcommit f2296efad658560b4f34ae6c5a5bf5a917cbd4ce[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 21:26:00 2025 +0000
+
+    Adjust colliders
+
+[33mcommit 054a584f21b143620305e382929266093237324a[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 20:56:46 2025 +0000
+
+    Add light to pipes
+
+[33mcommit 85199b11b862452b9e9d20f4f91f980e75eaf0f1[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 24 01:47:15 2025 +0000
+
+    adjust audio volume
+
+[33mcommit eb8156b1c8f0ef8e75c411c1290eb59e4a7646e9[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Sun Nov 23 23:37:59 2025 +0000
+
+    Radio off button implemented
+
+[33mcommit a7b05f909c818f353133bd6e3f3086fb3baebdc4[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Sun Nov 23 17:48:47 2025 +0000
+
+    Tube puzzle prototype 1 visual implementation
+
+[33mcommit 6ceb05c198afdcbd430f803acb97d7fae58dc513[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Sun Nov 23 17:39:26 2025 +0000
+
+    Script name change
+
+[33mcommit 6be0687945dad34b14efd3bf479bdf710c4f8c86[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 23 17:32:43 2025 +0000
+
+    Add pc butons
+
+[33mcommit 7526e491ceecaae2881f558835e2d8a283409c27[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 23 17:18:59 2025 +0000
+
+    Adjust depth of field
+
+[33mcommit db0e85a6b6b3b8d5ec9982ec3853f3828f75b1fe[m
+Author: Diogo-M-Fonseca <Diogofonseca.gamedesigner@gmail.com>
+Date:   Sun Nov 23 17:13:32 2025 +0000
+
+    first interation of Pc Tube puzzle INDEPENDENT
+
+[33mcommit 14b411dc2aef753d06800f4fac82017a971d3eb9[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 23 02:00:26 2025 +0000
+
+    Update radio animation, organize folders, visual adjustments
+
+[33mcommit 2e8d0047160a402784ee6a73cf2ce55ef64006fc[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 21 21:04:26 2025 +0000
+
+    Adjust Pos processing
+
+[33mcommit e2066dda2437f96296ca2a115b352052dfc54ae3[m
+Merge: 6f5179b 5d526a1
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 21 20:39:43 2025 +0000
+
+    Pos processing changes
+
+[33mcommit 6f5179b91657de0e6fe93fb5491874ab76d22a19[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Fri Nov 21 20:38:11 2025 +0000
+
+    Pos processing changes
+
+[33mcommit 5d526a1303e33fc3536c2b0e048e1ed8a99bafad[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Fri Nov 21 17:07:02 2025 +0000
+
+    Radio now works with REAL AUDIO
+
+[33mcommit 48407757aa6a3446566381bc8d31694df745cdb9[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 19 18:01:35 2025 +0000
+
+    Something appened
+
+[33mcommit ca46624d5de76102ab164f470d8ea312ba382cca[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 19 17:25:21 2025 +0000
+
+    Fix Nuclear charger collider trigger
+
+[33mcommit 1c64a06d58b34370ab709bdd41027128e30db139[m
+Merge: c791785 148fb83
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 19 17:01:31 2025 +0000
+
+    Merge and some text corrections
+
+[33mcommit c791785e05c1385ed4ff491ec49f5d58c9e29bde[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 19 15:38:17 2025 +0000
+
+    Test audio
+
+[33mcommit 148fb839b28a9e6415339acaaed8822fd115b70d[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Wed Nov 19 15:23:36 2025 +0000
+
+    Changes to crouch
+
+[33mcommit 4ebef5532c1a1a2843ad0a3b4dd7ac3aeffb54d8[m
+Author: Miguel Filipe <miguelfilipe.dev@gmail.com>
+Date:   Wed Nov 19 14:57:39 2025 +0000
+
+    crouch changed to toggle instead of hold, camera height variables
+
+[33mcommit e4f32654b78e4c65d49cb7a7b01b47e6d0e61a12[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 19 14:44:11 2025 +0000
+
+    Vault dependencies
+
+[33mcommit e6e0a84bd2e2fdce534e996713885fb73358eb94[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Tue Nov 18 17:47:14 2025 +0000
+
+    add Safe Code logic
+
+[33mcommit 8b15a72fccf461e85bd2645e7abb8143be3bfe35[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Tue Nov 18 02:02:45 2025 +0000
+
+    Minor adjusts
+
+[33mcommit 7304dfed1c9a323f1906604253288251d99d95a9[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Tue Nov 18 01:07:30 2025 +0000
+
+    Add pipes
+
+[33mcommit 13666c965923ff3cc7985e22760fd2ad9fb050b6[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 16 13:02:42 2025 +0000
+
+    Add cinemachine and post-processing, and adjust lighting.
+
+[33mcommit 543d191f334b46ed070086686de1e7e31fd95e89[m
+Author: Syndher <miguelfilipe.dev@gmail.com>
+Date:   Fri Nov 14 00:00:10 2025 +0000
+
+    Add crouch mechanic
+
+[33mcommit 6d67b85d25b2e55a74c7ddd76e1a8bd242ce2ede[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Thu Nov 13 02:20:35 2025 +0000
+
+    Add images placeholders for inventory
+
+[33mcommit 76de37bb35e2b2f40ab9e7a57a6b48ada0d6c5b4[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Thu Nov 13 01:34:59 2025 +0000
+
+    Add animations for Antenna and Nuclear charger
+
+[33mcommit c349bcecbcbfadc1accea44a085c48262032fafa[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Thu Nov 13 00:22:23 2025 +0000
+
+    Radio working again
+
+[33mcommit 45491834ad6fbf2a594546f2784d4fd74cef0a9d[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Thu Nov 13 00:11:14 2025 +0000
+
+    Finish first animations, done some dependencies
+
+[33mcommit 7b1671198ba13d128ab696f2b0d70ed357696854[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Wed Nov 12 14:38:57 2025 +0000
+
+    Replace URP
+
+[33mcommit 0df6874e6db7e45d660138e4d2b4c3dbb809d75b[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Tue Nov 11 01:08:02 2025 +0000
+
+    Add some animations and try to use them
+
+[33mcommit 2b007cc6c891a03a3f8271341d6df8a609336c75[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 10 18:06:29 2025 +0000
+
+    Add more dependencies and finish colliders
+
+[33mcommit c6bb56502b100db718eb5070f479e0d4e0d1ff03[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 10 14:28:27 2025 +0000
+
+    Add some dependencies and the lastest colliders
+
+[33mcommit 8e872965149801bd7b803d8deaa4db41aac6a9c7[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 10 00:43:14 2025 +0000
+
+    Add some more colliders
+
+[33mcommit 73aa2ff81aa2f81d031c1e08ada6627bb4be0a85[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Mon Nov 10 00:03:51 2025 +0000
+
+    Add Plutonium capsule and update fridge
+
+[33mcommit 839b2127c677753d3e4fada4aaa2ab6ad16bad04[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 22:46:39 2025 +0000
+
+    Add lights and some colliders
+
+[33mcommit 7d7259ef8fce80ccedf18ed1a7a8ad6be46e8551[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:53:58 2025 +0000
+
+    Last update to gitignore
+
+[33mcommit 99e6bc34fdd3565ac20138478be0c70810b74849[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:41:28 2025 +0000
+
+    last update?
+
+[33mcommit b62174b96e85c077b0f4aadef423451c1044d5be[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:38:19 2025 +0000
+
+    update again
+
+[33mcommit 9eb4543140b58cc4b414b03789d4a263c49ae898[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:31:30 2025 +0000
+
+    update gitinore
+
+[33mcommit 1aa6972a96abc815ef7feca0598ce3b443b6378a[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:24:07 2025 +0000
+
+    Add unity project
+
+[33mcommit c92fdeabc9e019e4e88ca9fd73074b885ad393a7[m
+Author: Rafael Canhoto <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:17:22 2025 +0000
+
+    Add .gitattributes
+
+[33mcommit 8c3ec14f4b7ae7931587324e3ffa9c5f47954c42[m
+Author: RafGonCan <rafgoncan99@gmail.com>
+Date:   Sun Nov 9 04:13:41 2025 +0000
+
+    Initial commit
