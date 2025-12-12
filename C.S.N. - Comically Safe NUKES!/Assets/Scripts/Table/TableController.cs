@@ -6,7 +6,6 @@ public class TableController : MonoBehaviour
     [SerializeField] private int[] correctSequence = new int[3] { 3, 7, 11 };
     [SerializeField] private List<GameObject> buttons = new List<GameObject>();
     [SerializeField] private GameObject _panel;
-    [SerializeField] private string _panelOpenAnimationName = "PanelOpen";
     [SerializeField] private AudioClip _wrongSequence;
     [SerializeField] private Animator _panelAnimator;
     
@@ -71,7 +70,7 @@ public class TableController : MonoBehaviour
     {
         _isSolved = true;
         Debug.Log("Tá certo");
-        _panelAnimator.SetBool(_panelOpenAnimationName, true);
+        _panelAnimator.SetBool("Solved", true);
     }
 
     private void PuzzleFailed()
