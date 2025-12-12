@@ -42,4 +42,8 @@ public class AudioStations : MonoBehaviour
         if (_playOnEnable)
             PressButton();
     }
+     private AudioClip GetClipFromIndex(int index)
+    {   
+        return _soundClips[index];
+    }
 }
