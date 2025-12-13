@@ -19,4 +19,4 @@ MonoBehaviour:
   requirements: []
   requirementsMessage: 
   interactionMessages:
-  - Click 3
+  - 'Click '
