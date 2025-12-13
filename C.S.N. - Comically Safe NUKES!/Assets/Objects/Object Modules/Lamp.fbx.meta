@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 32e3afbed18a19445bf8f1d72a0d5c74
+guid: 8e83869a4f424134c8422bd8b65ef696
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Nuclear_Charger_Base
-    second: {fileID: 2100000, guid: 402e2907b79931f4792600ea518fa75e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -47,7 +42,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 0
+    sortHierarchyByName: 1
     importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
@@ -56,7 +51,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
