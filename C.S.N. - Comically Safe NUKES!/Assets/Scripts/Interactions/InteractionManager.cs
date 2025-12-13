@@ -25,6 +25,9 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     private Interactive       _currentInspect;
     private GameObject _spawnedInspectObject;
+    private Interactive _originalInspectedItem;
+    private GameObject _currentInspectionModel;
+    private StatefulInteractive _currentStatefulInspection;
 
     private float             _rotationSpeed = 100f;
     private Vector3           _lastMousePosition;
@@ -66,66 +69,119 @@ public class InteractionManager : MonoBehaviour
     private void Update()
     {
         if (_isInspecting)
+        {
             HandleInspectionInput();
+        
+
+            if (Input.GetMouseButtonDown(0) && _currentStatefulInspection != null)
+            {
+                CheckForPartInteraction();
+            }
+        }
+        else
+        {
+            if (Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 
     private void ProcessDependencies()
-{
-    if (_interactives == null)
     {
-        Debug.LogError("_interactives is NULL at start of ProcessDependencies!");
-        return;
-    }
+        if (_interactives == null)
+        {
+            Debug.LogError("_interactives is NULL at start of ProcessDependencies!");
+            return;
+        }
     
-    Debug.Log($"Processing dependencies. _interactives count: {_interactives.Count}");
+        Debug.Log($"Processing dependencies. _interactives count: {_interactives.Count}");
     
-    for (int i = 0; i < _interactives.Count; i++)
-    {
-        Interactive interactive = _interactives[i];
-        
-        // Check if the interactive object itself is null
-        if (interactive == null)
+        for (int i = 0; i < _interactives.Count; i++)
         {
-            Debug.LogWarning($"Interactive at index {i} is null");
-            continue;
-        }
+            Interactive interactive = _interactives[i];
         
-        // Check if interactiveData is assigned
-        if (interactive.interactiveData == null)
-        {
-            Debug.LogWarning($"Interactive '{interactive.name}' has no InteractiveData assigned");
-            continue;
-        }
-        
-        // Check if requirements list exists
-        if (interactive.interactiveData.requirements == null)
-        {
-            Debug.LogWarning($"Interactive '{interactive.name}' has null requirements list");
-            continue;
-        }
-        
-        // Now safely iterate through requirements
-        foreach (InteractiveData requirementData in interactive.interactiveData.requirements)
-        {
-            if (requirementData == null)
+            if (interactive == null)
             {
-                Debug.LogWarning($"Interactive '{interactive.name}' has a null requirement in its list");
+                Debug.LogWarning($"Interactive at index {i} is null");
                 continue;
             }
-            
-            Interactive requirement = FindInteractive(requirementData);
-            if (requirement != null)
+        
+            if (interactive.interactiveData == null)
             {
-                interactive.AddRequirement(requirement);
-                requirement.AddDependent(interactive);
+                Debug.LogWarning($"Interactive '{interactive.name}' has no InteractiveData assigned");
+                continue;
             }
-            else
+        
+            if (interactive.interactiveData.requirements == null)
             {
-                Debug.LogWarning($"Could not find Interactive for requirement: {requirementData.name}");
+                Debug.LogWarning($"Interactive '{interactive.name}' has null requirements list");
+                continue;
+            }
+        
+            foreach (InteractiveData requirementData in interactive.interactiveData.requirements)
+            {
+                if (requirementData == null)
+                {
+                    Debug.LogWarning($"Interactive '{interactive.name}' has a null requirement in its list");
+                    continue;
+                }
+            
+                Interactive requirement = FindInteractive(requirementData);
+                if (requirement != null)
+                {
+                    interactive.AddRequirement(requirement);
+                    requirement.AddDependent(interactive);
+                }
+                else
+                {
+                    Debug.LogWarning($"Could not find Interactive for requirement: {requirementData.name}");
+                }
             }
         }
     }
-}
+    private void CheckForPartInteraction()
+    {
+        if (_currentInspectionModel == null) return;
+    
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+    
+        if (Physics.Raycast(ray, out hit, 3f))
+        {
+            if (hit.transform.IsChildOf(_currentInspectionModel.transform))
+            {
+                GameObject clickedObject = hit.transform.gameObject;
+            
+                if (_currentStatefulInspection != null)
+                {
+                    int partIndex;
+                    if (_currentStatefulInspection.IsToggleablePart(clickedObject, out partIndex))
+                    {
+                        _currentStatefulInspection.TogglePart(partIndex);
+                        return;
+                    }
+                }
+            
+                Transform parent = hit.transform.parent;
+                while (parent != null && parent != _currentInspectionModel.transform)
+                {
+                    if (_currentStatefulInspection != null)
+                    {
+                        int partIndex;
+                        if (_currentStatefulInspection.IsToggleablePart(parent.gameObject, out partIndex))
+                        {
+                            _currentStatefulInspection.TogglePart(partIndex);
+                            return;
+                        }
+                    }
+                    parent = parent.parent;
+                }
+            }
+        }
+    }
+
 
     public Interactive FindInteractive(InteractiveData interactiveData)
     {
@@ -147,91 +203,115 @@ public class InteractionManager : MonoBehaviour
     }
     public void StartInspection(Interactive item)
     {
-    if (_isInspecting) return;
-    _currentInspect = item;
-
-    Camera mainCamera = Camera.main;
-    Vector3 inspectPosition = mainCamera.transform.position + mainCamera.transform.forward * 2f;
-
-
-    _isInspecting = true;
-    _spawnedInspectObject = Instantiate(item.gameObject, inspectPosition, Quaternion.identity);
-    _spawnedInspectObject.SetActive(true);
-    Interactive interactiveComponent = _spawnedInspectObject.GetComponent<Interactive>();
-    if (interactiveComponent != null)
-    {
-        interactiveComponent.enabled = false;
-    }
-
-        Collider[] colliders = _spawnedInspectObject.GetComponents<Collider>();
-        foreach (Collider collider in colliders)
+        if (_isInspecting || item == null) return;
+    
+        _currentInspect = item;
+    
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null) return;
+    
+        _currentInspectionModel = item.CreateInspectionModel();
+        if (_currentInspectionModel == null)
         {
-            collider.isTrigger = true;
+        Debug.LogWarning("Failed to create inspection model for: " + item.name);
+        return;
+        }
+
+        Vector3 inspectPosition = mainCamera.transform.position + mainCamera.transform.forward * 1.5f;
+
+        _isInspecting = true;
+    
+        _currentInspectionModel.transform.position = inspectPosition;
+        _currentInspectionModel.transform.localScale = Vector3.one * 0.5f;
+        _currentInspectionModel.transform.LookAt(mainCamera.transform);
+        _currentInspectionModel.transform.Rotate(0, 180, 0);
+    
+        _currentStatefulInspection = _currentInspectionModel.GetComponent<StatefulInteractive>();
+        if (_currentStatefulInspection != null)
+        {
+            _currentStatefulInspection.SetupForInspection();
         }
         EnablePlayerControls(false);
     }
 
     private void HandleInspectionInput()
     {
-    if (!_isInspecting) return;
+        if (!_isInspecting) return;
 
-    if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
-    {
-        EndInspection();
-        return;
-    }
-
-    if (Input.GetMouseButton(0))
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Multiply by Time.deltaTime for frame-rate independent rotation
-        float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            EndInspection();
+            return;
+        }
         
-        RotateInspectionObject(mouseX, mouseY);
-    }
-    else
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-    }
-
-    private void RotateInspectionObject(float xRotation, float yRotation)
-    {
-    if (_spawnedInspectObject != null)
-    {
-        Debug.Log($"Rotating: X={xRotation}, Y={yRotation}");
-        
-        // Create rotation based on mouse movement
-        Vector3 rotation = new Vector3(yRotation, -xRotation, 0);
-        _spawnedInspectObject.transform.Rotate(rotation, Space.World);
-    }
+        if (_currentStatefulInspection != null)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            
+            if (Input.GetMouseButton(1))
+            {
+                float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
+                float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
+                
+                if (_currentInspectionModel != null)
+                {
+                    _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
+                    _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.World);
+                }
+            }
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            {
+                float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
+                float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
+                
+                if (_currentInspectionModel != null)
+                {
+                    _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
+                    _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.World);
+                }
+            }
+        }
     }
 
     public void EndInspection()
     {
-    if (_spawnedInspectObject != null)
+        if (_currentInspect != null && _currentInspectionModel != null)
         {
-            Interactive inspectedInteractive = _spawnedInspectObject.GetComponent<Interactive>();
-
-            if (inspectedInteractive != null && _currentInspect != null)
+            _currentInspect.UpdateFromInspectionModel(_currentInspectionModel);
+        
+            if (_currentStatefulInspection != null)
             {
-                _playerInventory.Remove(_currentInspect);
-
-                _playerInventory.Add(inspectedInteractive);
-
+            _currentStatefulInspection.CleanupAfterInspection();
             }
-
+        }
+    
+        if (_currentInspectionModel != null)
+        {
+            Destroy(_currentInspectionModel);
+            _currentInspectionModel = null;
+        }
+    
+        if (_spawnedInspectObject != null)
+        {
             Destroy(_spawnedInspectObject);
             _spawnedInspectObject = null;
-            EnablePlayerControls(true);
         }
 
         _isInspecting = false;
         _currentInspect = null;
+        _currentStatefulInspection = null;
+        _originalInspectedItem = null;
+    
+        EnablePlayerControls(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     private void EnablePlayerControls(bool enable)
     {

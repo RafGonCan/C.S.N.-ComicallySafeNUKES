@@ -155,18 +155,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetControlsEnabled(bool enable)
     {
-    enabled = enable;
-    
-    // Also reset cursor state when re-enabling controls
-    if (enable)
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-    else
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
+        enabled = enable;
     }
 }   

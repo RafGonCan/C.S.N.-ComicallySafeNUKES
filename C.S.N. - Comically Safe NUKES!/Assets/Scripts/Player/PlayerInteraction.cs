@@ -33,9 +33,10 @@ public class PlayerInteraction : MonoBehaviour
     }
     }
 
-    private void UpdateCurrentInteractive()
+     private void UpdateCurrentInteractive()
     {
-        if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out RaycastHit hitInfo, _maxInteractionDistance))
+        if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, 
+            out RaycastHit hitInfo, _maxInteractionDistance))
             CheckObjectForInteraction(hitInfo.collider);
         else if (_currentInteractive != null)
             ClearCurrentInteractive();

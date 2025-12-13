@@ -5,20 +5,23 @@ using UnityEngine;
 public class Interactive : MonoBehaviour
 {
     [SerializeField] private InteractiveData _interactiveData;
-    public GameObject inspectModel;
+    [SerializeField] private StatefulInteractive statefulPrefab;
+    [SerializeField] private GameObject inspectModelField;
 
-    private InteractionManager  _interactionManager;
-    private PlayerInventory     _playerInventory;
-    private List<Interactive>   _requirements;
-    private List<Interactive>   _dependents;
-    private Animator            _animator;
-    private bool                _requirementsMet;
-    private int                 _interactionCount;
+    private InteractionManager      _interactionManager;
+    private PlayerInventory         _playerInventory;
+    private List<Interactive>       _requirements;
+    private List<Interactive>       _dependents;
+    private Animator                _animator;
+    private bool                    _requirementsMet;
+    private int                     _interactionCount;
+     private StatefulInteractive    _statefulInstance;
 
-    public bool             isOn;
-    public InteractiveData  interactiveData => _interactiveData;
-    public string           inventoryName   => _interactiveData.inventoryName;
-    public Sprite           inventoryIcon   => _interactiveData.inventoryIcon;
+    public bool                     isOn;
+    public InteractiveData          interactiveData => _interactiveData;
+    public string                   inventoryName   => _interactiveData.inventoryName;
+    public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
+    public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
 
     void Awake()
     {
@@ -32,6 +35,29 @@ public class Interactive : MonoBehaviour
         isOn                = _interactiveData.startsOn;
 
         _interactionManager.RegisterInteractive(this);
+
+        if (statefulPrefab != null)
+        {
+            _statefulInstance = Instantiate(statefulPrefab, transform);
+            _statefulInstance.transform.localPosition = Vector3.zero;
+            _statefulInstance.transform.localRotation = Quaternion.identity;
+            _statefulInstance.gameObject.SetActive(false);
+        }
+    }
+    public GameObject inspectModel
+    {
+        get
+        {
+            if (_statefulInstance != null)
+                return _statefulInstance.gameObject;
+        
+            return inspectModelField;
+        }
+    }
+
+    public StatefulInteractive GetStatefulItem()
+    {
+        return _statefulInstance;
     }
 
     public void AddRequirement(Interactive requirement)
@@ -42,6 +68,52 @@ public class Interactive : MonoBehaviour
     public void AddDependent(Interactive dependent)
     {
         _dependents.Add(dependent);
+    }
+    public GameObject CreateInspectionModel()
+    {
+        if (_statefulInstance != null)
+        {
+            GameObject inspectionModel = Instantiate(_statefulInstance.gameObject);
+            
+
+            StatefulInteractive stateful = inspectionModel.GetComponent<StatefulInteractive>();
+            if (stateful != null)
+            {
+                StatefulInteractive.ItemState currentState = _statefulInstance.GetCurrentState();
+                stateful.ApplyState(currentState);
+                stateful.SetupForInspection();
+            }
+            
+            inspectionModel.SetActive(true);
+            return inspectionModel;
+        }
+        else if (inspectModelField != null)
+        {
+            GameObject model = Instantiate(inspectModelField);
+            model.SetActive(true);
+            return model;
+        }
+        else if (_interactiveData.inspectModel != null)
+        {
+            GameObject model = Instantiate(_interactiveData.inspectModel);
+            return model;
+        }
+        
+        return null;
+    }
+     public void UpdateFromInspectionModel(GameObject inspectionModel)
+    {
+        if (_statefulInstance != null && inspectionModel != null)
+        {
+            StatefulInteractive inspectedStateful = inspectionModel.GetComponent<StatefulInteractive>();
+            if (inspectedStateful != null)
+            {
+                StatefulInteractive.ItemState newState = inspectedStateful.GetCurrentState();
+                _statefulInstance.ApplyState(newState);
+                
+                Debug.Log("Item state updated from inspection");
+            }
+        }
     }
 
     private bool IsType(InteractiveData.Type type)
