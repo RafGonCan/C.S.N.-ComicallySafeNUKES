@@ -20,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-    if (!InteractionManager.instance._isInspecting)
+    if (!InteractionManager.instance.isInspecting)
     {
         UpdateCurrentInteractive();
         CheckForPlayerInteraction();

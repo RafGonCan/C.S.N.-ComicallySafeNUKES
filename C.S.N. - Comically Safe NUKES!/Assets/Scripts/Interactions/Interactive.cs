@@ -6,7 +6,6 @@ public class Interactive : MonoBehaviour
 {
     [SerializeField] private InteractiveData _interactiveData;
     [SerializeField] private StatefulInteractive statefulPrefab;
-    [SerializeField] private GameObject inspectModelField;
 
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
@@ -44,16 +43,6 @@ public class Interactive : MonoBehaviour
             _statefulInstance.gameObject.SetActive(false);
         }
     }
-    public GameObject inspectModel
-    {
-        get
-        {
-            if (_statefulInstance != null)
-                return _statefulInstance.gameObject;
-        
-            return inspectModelField;
-        }
-    }
 
     public StatefulInteractive GetStatefulItem()
     {
@@ -86,12 +75,6 @@ public class Interactive : MonoBehaviour
             
             inspectionModel.SetActive(true);
             return inspectionModel;
-        }
-        else if (inspectModelField != null)
-        {
-            GameObject model = Instantiate(inspectModelField);
-            model.SetActive(true);
-            return model;
         }
         else if (_interactiveData.inspectModel != null)
         {

@@ -13,4 +13,9 @@ public class InteractiveData : ScriptableObject
     public string               requirementsMessage;
     public string[]             interactionMessages;
     public GameObject           inspectModel;
+    
+    [TextArea(3, 5)]
+    public string               inspectionDescription = "";
+    [TextArea(2, 3)]
+    public string               inspectionNotes = "";
 }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using System;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -21,24 +23,22 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
-
-    [SerializeField] private PlayerMovement _playerMovement;
-    private Interactive       _currentInspect;
-    private GameObject _spawnedInspectObject;
-    private Interactive _originalInspectedItem;
-    private GameObject _currentInspectionModel;
+    [SerializeField] private PlayerMovement     _playerMovement;
+    public static event Action<bool, Interactive> OnInspectionStateChanged;
+    private Coroutine           _scaleCoroutine;
+    private float               _scaleDuration = 0.5f;
+    private Interactive         _currentInspect;
+    private GameObject          _spawnedInspectObject;
+    private GameObject          _currentInspectionModel;
     private StatefulInteractive _currentStatefulInspection;
-
-    private float             _rotationSpeed = 100f;
-    private Vector3           _lastMousePosition;
-
-    private List<Interactive> _interactives;
-    public bool               _isInspecting = false;
-    public bool IsInspecting => _isInspecting;
-
-    public PlayerInventory    playerInventory         => _playerInventory;
-    public string             awakeAnimationName      => _awakeAnimationName;
-    public string             interactAnimationName   => _interactAnimationName;
+    private float               _rotationSpeed = 100f;
+    private List<Interactive>   _interactives;
+    public bool                 isInspecting = false;
+    public bool                 IsInspecting => isInspecting;
+    public PlayerInventory      playerInventory         => _playerInventory;
+    public string               awakeAnimationName      => _awakeAnimationName;
+    public string               interactAnimationName   => _interactAnimationName;
+    
 
 
     void Awake()
@@ -68,7 +68,7 @@ public class InteractionManager : MonoBehaviour
     }
     private void Update()
     {
-        if (_isInspecting)
+        if (isInspecting)
         {
             HandleInspectionInput();
         
@@ -203,7 +203,9 @@ public class InteractionManager : MonoBehaviour
     }
     public void StartInspection(Interactive item)
     {
-        if (_isInspecting || item == null) return;
+        OnInspectionStateChanged?.Invoke(true, item);
+
+        if (isInspecting || item == null) return;
     
         _currentInspect = item;
     
@@ -219,10 +221,10 @@ public class InteractionManager : MonoBehaviour
 
         Vector3 inspectPosition = mainCamera.transform.position + mainCamera.transform.forward * 1.5f;
 
-        _isInspecting = true;
+        isInspecting = true;
     
         _currentInspectionModel.transform.position = inspectPosition;
-        _currentInspectionModel.transform.localScale = Vector3.one * 0.5f;
+        _currentInspectionModel.transform.localScale = Vector3.zero;
         _currentInspectionModel.transform.LookAt(mainCamera.transform);
         _currentInspectionModel.transform.Rotate(0, 180, 0);
     
@@ -231,12 +233,36 @@ public class InteractionManager : MonoBehaviour
         {
             _currentStatefulInspection.SetupForInspection();
         }
+        if (_scaleCoroutine != null)
+            StopCoroutine(_scaleCoroutine);
+        _scaleCoroutine = StartCoroutine(ScaleInAnimation());
         EnablePlayerControls(false);
+    }
+    private IEnumerator ScaleInAnimation()
+    {
+        if (_currentInspectionModel == null) yield break;
+        
+        float elapsedTime = 0f;
+        Vector3 targetScale = Vector3.one * 0.5f;
+        
+        while (elapsedTime < _scaleDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / _scaleDuration);
+            
+            t = 1f - Mathf.Pow(1f - t, 3);
+            
+            _currentInspectionModel.transform.localScale = Vector3.Lerp(Vector3.zero, targetScale, t);
+            yield return null;
+        }
+        
+        _currentInspectionModel.transform.localScale = targetScale;
+        _scaleCoroutine = null;
     }
 
     private void HandleInspectionInput()
     {
-        if (!_isInspecting) return;
+        if (!isInspecting) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -244,71 +270,88 @@ public class InteractionManager : MonoBehaviour
             return;
         }
         
-        if (_currentStatefulInspection != null)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
             
-            if (Input.GetMouseButton(1))
-            {
-                float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
-                float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
-                
-                if (_currentInspectionModel != null)
-                {
-                    _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
-                    _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.World);
-                }
-            }
-        }
-        else
+        if (Input.GetMouseButton(1))
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-            {
-                float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
-                float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * (_rotationSpeed*2) * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * (_rotationSpeed*2) * Time.deltaTime;
                 
-                if (_currentInspectionModel != null)
-                {
-                    _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
-                    _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.World);
-                }
+            if (_currentInspectionModel != null)
+            {
+                _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
+                _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.Self);
             }
         }
     }
 
     public void EndInspection()
     {
+        OnInspectionStateChanged?.Invoke(false, null);
+        
+
+        if (_scaleCoroutine != null)
+        {
+            StopCoroutine(_scaleCoroutine);
+            _scaleCoroutine = null;
+        }
+        
+        StartCoroutine(ScaleOutAndEnd());
+    }
+    
+    private IEnumerator ScaleOutAndEnd()
+    {
+        yield return null;
+        
+        if (_currentInspectionModel != null)
+        {
+            float elapsedTime = 0f;
+            Vector3 startScale = _currentInspectionModel.transform.localScale;
+            
+            while (elapsedTime < _scaleDuration * 0.5f)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / (_scaleDuration * 0.5f));
+                
+                t = t * t;
+                
+                _currentInspectionModel.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
+                yield return null;
+            }
+        }
+        
+        CleanupAfterScaleOut();
+    }
+    
+    private void CleanupAfterScaleOut()
+    {
         if (_currentInspect != null && _currentInspectionModel != null)
         {
             _currentInspect.UpdateFromInspectionModel(_currentInspectionModel);
-        
+            
             if (_currentStatefulInspection != null)
             {
-            _currentStatefulInspection.CleanupAfterInspection();
+                _currentStatefulInspection.CleanupAfterInspection();
             }
         }
-    
+        
         if (_currentInspectionModel != null)
         {
             Destroy(_currentInspectionModel);
             _currentInspectionModel = null;
         }
-    
+        
         if (_spawnedInspectObject != null)
         {
             Destroy(_spawnedInspectObject);
             _spawnedInspectObject = null;
         }
 
-        _isInspecting = false;
+        isInspecting = false;
         _currentInspect = null;
         _currentStatefulInspection = null;
-        _originalInspectedItem = null;
-    
+        
         EnablePlayerControls(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -320,5 +363,9 @@ public class InteractionManager : MonoBehaviour
         {
             playerMovement.SetControlsEnabled(enable);
         }
+    }
+    public Interactive GetCurrentInspectedItem()
+    {
+        return _currentInspect;
     }
 }
