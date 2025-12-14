@@ -35,13 +35,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (!enabled) return;
-        
+
         UpdateRotation();
         UpdateHead();
         CheckForJump();
         CheckForCrouch();
         UpdateCameraHeight();
- 
     }
 
     private void UpdateRotation()

@@ -1,0 +1,56 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Pause_Menu : MonoBehaviour
+{
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private PlayerMovement playerMovement;
+    private bool isPaused;
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+
+        playerMovement.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Resume()
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+
+        playerMovement.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void Exit()
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+}
