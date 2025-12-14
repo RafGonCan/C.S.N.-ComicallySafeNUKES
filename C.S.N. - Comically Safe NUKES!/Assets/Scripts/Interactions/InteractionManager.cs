@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -12,18 +13,23 @@ public class InteractionManager : MonoBehaviour
         get
         {
             if (_instance == null)
-                FindFirstObjectByType<InteractionManager>().Init();
-
+            {
+                _instance = FindFirstObjectByType<InteractionManager>();
+                if (_instance != null)
+                    _instance.Init();
+            }
             return _instance;
         }
     }
 
-    [SerializeField] private PlayerInventory    _playerInventory;
+
     [SerializeField] private string             _interactPrefix;
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
-    [SerializeField] private PlayerMovement     _playerMovement;
+    private PlayerInventory    _playerInventory;
+    private PlayerMovement     _playerMovement;
+    private Pause_Menu         _pauseMenu;
     public static event Action<bool, Interactive> OnInspectionStateChanged;
     private Coroutine           _scaleCoroutine;
     private float               _scaleDuration = 0.5f;
@@ -44,26 +50,56 @@ public class InteractionManager : MonoBehaviour
     void Awake()
     {
         if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
             Init();
+        }
         else if (_instance != this)
+        {
             Destroy(gameObject);
+            return;
+        }
     }
-    
     private void Init()
     {
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-
         _interactives = new List<Interactive>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {  
+        if (_interactives != null)
+        {
+            _interactives.RemoveAll(item => item == null);
+        }
+        
+        FindSceneReferences();      
+        ProcessDependencies();
     }
 
     public void RegisterInteractive(Interactive interactive)
     {
         _interactives.Add(interactive);
     }
+    private void FindSceneReferences()
+    {
+        if (_playerMovement == null)
+        {
+            _playerMovement = FindFirstObjectByType<PlayerMovement>();
+        }
+        if (_playerInventory == null)
+        {
+            _playerInventory = FindFirstObjectByType<PlayerInventory>();
+        }
+        if (_pauseMenu == null)
+        {
+            _pauseMenu = FindFirstObjectByType<Pause_Menu>();
+        }
+    }
 
     void Start()
     {
+        FindSceneReferences();
         ProcessDependencies();
     }
     private void Update()
@@ -78,7 +114,7 @@ public class InteractionManager : MonoBehaviour
                 CheckForPartInteraction();
             }
         }
-        else
+        else if(!isInspecting && _pauseMenu != null && !_pauseMenu.Paused)
         {
             if (Cursor.lockState != CursorLockMode.Locked)
             {
@@ -358,14 +394,28 @@ public class InteractionManager : MonoBehaviour
     }
     private void EnablePlayerControls(bool enable)
     {
-        PlayerMovement playerMovement = _playerInventory.GetComponent<PlayerMovement>();
-        if (playerMovement != null)
+        if (_playerMovement != null)
         {
-            playerMovement.SetControlsEnabled(enable);
+            _playerMovement.SetControlsEnabled(enable);
+        }
+        else if (_playerInventory != null)
+        {
+            PlayerMovement playerMovement = _playerInventory.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.SetControlsEnabled(enable);
+            }
         }
     }
     public Interactive GetCurrentInspectedItem()
     {
         return _currentInspect;
+    }
+    void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 }

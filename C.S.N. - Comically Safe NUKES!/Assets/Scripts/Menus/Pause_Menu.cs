@@ -5,13 +5,14 @@ public class Pause_Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private PlayerMovement playerMovement;
-    private bool isPaused;
+    private bool _isPaused;
+    public bool Paused => _isPaused;
 
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            if (isPaused)
+            if (_isPaused)
             {
                 Resume();
             }
@@ -24,7 +25,7 @@ public class Pause_Menu : MonoBehaviour
 
     public void Pause()
     {
-        isPaused = true;
+        _isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
 
@@ -36,7 +37,7 @@ public class Pause_Menu : MonoBehaviour
 
     public void Resume()
     {
-        isPaused = false;
+        _isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
 
@@ -48,7 +49,7 @@ public class Pause_Menu : MonoBehaviour
 
     public void Exit()
     {
-        isPaused = false;
+        _isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

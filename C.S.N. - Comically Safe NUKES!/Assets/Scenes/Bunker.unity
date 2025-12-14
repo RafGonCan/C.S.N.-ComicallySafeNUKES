@@ -1039,6 +1039,7 @@ MonoBehaviour:
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
   _playerMovement: {fileID: 1349910773}
+  _pauseMenu: {fileID: 962513431}
   isInspecting: 0
 --- !u!4 &156836305
 Transform:
@@ -8019,7 +8020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1919596334}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1349910773}
 --- !u!1 &965013907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8223159913371880371, guid: cacbade4a4574b3478dc252f6a0a0ea1, type: 3}
