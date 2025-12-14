@@ -10,7 +10,7 @@ public class Exit_Game : MonoBehaviour
 
     private IEnumerator ExitAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
         Application.Quit();
     }
 }

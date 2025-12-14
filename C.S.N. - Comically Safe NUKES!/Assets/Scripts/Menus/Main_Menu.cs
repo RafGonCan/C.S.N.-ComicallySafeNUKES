@@ -16,12 +16,6 @@ public class Main_Menu : MonoBehaviour
 
     public void QuitGame()
     {
-        StartCoroutine(QuitAfterDelay());
-    }
-
-    private IEnumerator QuitAfterDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(2);
     }
 }
