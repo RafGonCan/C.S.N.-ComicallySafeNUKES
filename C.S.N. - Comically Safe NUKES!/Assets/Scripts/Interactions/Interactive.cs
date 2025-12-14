@@ -18,30 +18,55 @@ public class Interactive : MonoBehaviour
 
     public bool                     isOn;
     public InteractiveData          interactiveData => _interactiveData;
-    public string                   inventoryName   => _interactiveData.inventoryName;
+    public string                   inventoryName   => _interactiveData?.inventoryName;
     public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
     public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
 
     void Awake()
     {
-        _interactionManager = InteractionManager.instance;
-        _playerInventory    = _interactionManager.playerInventory;
-        _requirements       = new List<Interactive>();
-        _dependents         = new List<Interactive>();
-        _animator           = GetComponent<Animator>();
-        _requirementsMet    = _interactiveData.requirements.Length == 0;
-        _interactionCount   = 0;
-        isOn                = _interactiveData.startsOn;
-
-        _interactionManager.RegisterInteractive(this);
-
-        if (statefulPrefab != null)
         {
-            _statefulInstance = Instantiate(statefulPrefab, transform);
-            _statefulInstance.transform.localPosition = Vector3.zero;
-            _statefulInstance.transform.localRotation = Quaternion.identity;
-            _statefulInstance.gameObject.SetActive(false);
+            _requirements       = new List<Interactive>();
+            _dependents         = new List<Interactive>();
+            _animator           = GetComponent<Animator>();
+            _interactionCount   = 0;
+            
+            if (_interactiveData != null)
+            {
+                _requirementsMet = _interactiveData.requirements.Length == 0;
+                isOn = _interactiveData.startsOn;
+            }
+            else
+            {
+                Debug.LogError($"Interactive {name} has no InteractiveData assigned!");
+                _requirementsMet = true;
+                isOn = true;
+            }
+
+            if (statefulPrefab != null)
+            {
+                _statefulInstance = Instantiate(statefulPrefab, transform);
+                _statefulInstance.transform.localPosition = Vector3.zero;
+                _statefulInstance.transform.localRotation = Quaternion.identity;
+                _statefulInstance.gameObject.SetActive(false);
+            }
         }
+    }
+    void Start()
+    {
+        Initialize();
+    }
+    private void Initialize()
+    {
+        _interactionManager = InteractionManager.instance;
+        if (_interactionManager == null)
+        {
+            Debug.LogWarning($"InteractionManager not found for {name}");
+            return;
+        }
+        
+        _playerInventory = _interactionManager.playerInventory;
+        
+        _interactionManager.RegisterInteractive(this);
     }
 
     public StatefulInteractive GetStatefulItem()
@@ -76,7 +101,7 @@ public class Interactive : MonoBehaviour
             inspectionModel.SetActive(true);
             return inspectionModel;
         }
-        else if (_interactiveData.inspectModel != null)
+        else if (_interactiveData.inspectModel != null && _interactiveData.inspectModel != null)
         {
             GameObject model = Instantiate(_interactiveData.inspectModel);
             return model;
@@ -101,11 +126,15 @@ public class Interactive : MonoBehaviour
 
     private bool IsType(InteractiveData.Type type)
     {
-        return _interactiveData.type == type;
+        return _interactiveData != null && _interactiveData.type == type;
     }
 
     public string GetInteractionMessage()
     {
+        if (_interactiveData == null) return null;
+        if (_playerInventory == null) return null;
+        if (_interactionManager == null) return null;
+
         if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
             return _interactionManager.GetPickMessage(_interactiveData.inventoryName);
         else if (!_requirementsMet)

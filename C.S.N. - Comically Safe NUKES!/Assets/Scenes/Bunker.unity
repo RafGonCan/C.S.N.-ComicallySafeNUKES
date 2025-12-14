@@ -1033,13 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def1216d29002a24e877981edeacec5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInventory: {fileID: 1349910772}
   _interactPrefix: '[F]'
   _pickPrefix: Pick
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
-  _playerMovement: {fileID: 1349910773}
-  _pauseMenu: {fileID: 962513431}
   isInspecting: 0
 --- !u!4 &156836305
 Transform:
@@ -4277,7 +4274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &542152241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7663,7 +7660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953001713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8514,7 +8511,7 @@ MonoBehaviour:
   statefulPrefab: {fileID: 0}
   isOn: 0
   tableController: {fileID: 275278499}
-  buttonIndex: 0
+  buttonIndex: 4
 --- !u!4 &1014109639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -915475719969689035, guid: bb28c3e230cb17d44a3fe87df90edd04, type: 3}

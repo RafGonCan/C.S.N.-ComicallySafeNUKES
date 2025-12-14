@@ -44,6 +44,7 @@ public class InteractionManager : MonoBehaviour
     public PlayerInventory      playerInventory         => _playerInventory;
     public string               awakeAnimationName      => _awakeAnimationName;
     public string               interactAnimationName   => _interactAnimationName;
+    private bool                _dependenciesProcessed  = false;
     
 
 
@@ -68,13 +69,18 @@ public class InteractionManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {  
+        Debug.Log($"OnSceneLoaded: {scene.name}");
+        
         if (_interactives != null)
         {
-            _interactives.RemoveAll(item => item == null);
+            Debug.Log($"Clearing {_interactives.Count} old interactives from previous scene");
+            _interactives.Clear();
         }
         
         FindSceneReferences();      
-        ProcessDependencies();
+        _dependenciesProcessed = false;
+        
+        Debug.Log($"Interactives count after clearing: {_interactives.Count}");
     }
 
     public void RegisterInteractive(Interactive interactive)
@@ -99,8 +105,17 @@ public class InteractionManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("InteractionManager Start called.");
         FindSceneReferences();
-        ProcessDependencies();
+    }
+    void LateUpdate()
+    {
+        if (!_dependenciesProcessed)
+        {
+            Debug.Log("Processing dependencies in LateUpdate.");
+            ProcessDependencies();
+            _dependenciesProcessed = true;
+        }
     }
     private void Update()
     {

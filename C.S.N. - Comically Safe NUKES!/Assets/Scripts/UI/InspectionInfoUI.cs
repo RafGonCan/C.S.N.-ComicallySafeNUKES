@@ -42,21 +42,21 @@ public class InspectionInfoUI : MonoBehaviour
             _itemIcon.enabled = item.inventoryIcon != null;
         }
         
-        FadePanel(true);
+        //FadePanel(true);
     }
     
     public void HideInfo()
     {
-        FadePanel(false);
+        //FadePanel(false);
     }
     
-    private void FadePanel(bool show)
+    /*private void FadePanel(bool show)
     {
         if (_fadeCoroutine != null)
             StopCoroutine(_fadeCoroutine);
         
         _fadeCoroutine = StartCoroutine(FadeRoutine(show));
-    }
+    }*/
     
     private IEnumerator FadeRoutine(bool show)
     {
