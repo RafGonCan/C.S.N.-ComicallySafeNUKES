@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: Plutonium 1
+  inventoryName: Plutonium Tube
   inventoryIcon: {fileID: 21300000, guid: e89227bd5f3646c4cb4a38db190f5499, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:
   - Insert Plutonium 1
+  inspectModel: {fileID: 919132149155446097, guid: 8fcd8fde56ea9bf4aa69727402f929d3, type: 3}
+  inspectionDescription: "Highly radioactive tube of plutonium. \n\nA couple of these
+    could probably power a whole nuke."

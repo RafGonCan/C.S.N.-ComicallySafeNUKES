@@ -16,6 +16,4 @@ public class InteractiveData : ScriptableObject
     
     [TextArea(3, 5)]
     public string               inspectionDescription = "";
-    [TextArea(2, 3)]
-    public string               inspectionNotes = "";
 }

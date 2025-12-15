@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: Wood Hand
+  inventoryName: Wooden Hand
   inventoryIcon: {fileID: 21300000, guid: 633356f0315e66b45a14a5fda65a497c, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:
   - Try Wood Hand
+  inspectModel: {fileID: 919132149155446097, guid: 43c37f9f1eb88604fb7b7d3d27797b69, type: 3}
+  inspectionDescription: 'It''s fingers seem easy to detach [WIP]
+
+
+    [Placeholder
+    Model]'

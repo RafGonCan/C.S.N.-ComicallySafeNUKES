@@ -8,8 +8,6 @@ public class InspectionInfoUI : MonoBehaviour
     [SerializeField] private CanvasGroup _infoPanel;
     [SerializeField] private TextMeshProUGUI _itemNameText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
-    [SerializeField] private TextMeshProUGUI _notesText;
-    [SerializeField] private Image _itemIcon;
     [SerializeField] private float _fadeDuration = 0.3f;
     
     private Coroutine _fadeCoroutine;
@@ -19,52 +17,59 @@ public class InspectionInfoUI : MonoBehaviour
         if (_infoPanel != null)
         {
             _infoPanel.alpha = 0f;
-            _infoPanel.gameObject.SetActive(false);
+            _infoPanel.gameObject.SetActive(true);
         }
     }
     
-    public void ShowInfo(Interactive item)
+    public void SetPanelContent(Interactive item)
     {
-        if (item == null || _infoPanel == null) return;
+        if (item == null) return;
         
         if (_itemNameText != null)
             _itemNameText.text = item.inventoryName;
         
         if (_descriptionText != null && item.interactiveData != null)
             _descriptionText.text = item.interactiveData.inspectionDescription;
+    }
+    
+    public void ShowInfo(Interactive item)
+    {
+        if (item == null) return;
         
-        if (_notesText != null && item.interactiveData != null)
-            _notesText.text = item.interactiveData.inspectionNotes;
+
+        SetPanelContent(item);
         
-        if (_itemIcon != null)
-        {
-            _itemIcon.sprite = item.inventoryIcon;
-            _itemIcon.enabled = item.inventoryIcon != null;
-        }
+
+        if (_infoPanel != null && !_infoPanel.gameObject.activeSelf)
+            _infoPanel.gameObject.SetActive(true);
         
-        //FadePanel(true);
+
+        FadePanel(true);
     }
     
     public void HideInfo()
     {
-        //FadePanel(false);
+        FadePanel(false);
     }
     
-    /*private void FadePanel(bool show)
+    private void FadePanel(bool show)
     {
+        if (_infoPanel == null) return;
+        
+
+        if (!_infoPanel.gameObject.activeSelf)
+            _infoPanel.gameObject.SetActive(true);
+        
         if (_fadeCoroutine != null)
             StopCoroutine(_fadeCoroutine);
         
         _fadeCoroutine = StartCoroutine(FadeRoutine(show));
-    }*/
+    }
     
     private IEnumerator FadeRoutine(bool show)
     {
         float startAlpha = _infoPanel.alpha;
         float targetAlpha = show ? 1f : 0f;
-        
-        if (show && !_infoPanel.gameObject.activeSelf)
-            _infoPanel.gameObject.SetActive(true);
         
         float elapsedTime = 0f;
         
@@ -79,7 +84,7 @@ public class InspectionInfoUI : MonoBehaviour
         
         _infoPanel.alpha = targetAlpha;
         
-        if (!show && _infoPanel.gameObject.activeSelf)
+        if (!show)
             _infoPanel.gameObject.SetActive(false);
         
         _fadeCoroutine = null;
