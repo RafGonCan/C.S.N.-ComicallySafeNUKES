@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Microwave
+  m_Name: Insert_Capsule
   m_EditorClassIdentifier: 
-  type: 2
+  type: 3
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements: []
-  requirementsMessage: 
+  requirements:
+  - {fileID: 11400000, guid: 449f5c1c4c4ac684ea3a90d87fdb8760, type: 2}
+  requirementsMessage: Insert something inside!
   interactionMessages: []
+  inspectModel: {fileID: 0}
+  inspectionDescription: 
+  inspectionNotes: 
