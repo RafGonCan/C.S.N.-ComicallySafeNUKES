@@ -20,7 +20,7 @@ MonoBehaviour:
   requirementsMessage: 
   interactionMessages:
   - Try Wood Hand
-  inspectModel: {fileID: 919132149155446097, guid: 43c37f9f1eb88604fb7b7d3d27797b69, type: 3}
+  inspectModel: {fileID: 919132149155446097, guid: 2c82b8b9a0ad64f4db79e92e2c14ef9a, type: 3}
   inspectionDescription: 'It''s fingers seem easy to detach [WIP]
 
 

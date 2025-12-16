@@ -1,15 +1,24 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ActivateAnimation : MonoBehaviour
 {
-    public Animator _gameObjectAnimator;
+    public Animator _awakeAnimation;
+    public Animator _interactAnimation;
     public AudioSource _audioSource;
 
     public void Activate()
     {
-        if (_gameObjectAnimator == null)
+        if (_awakeAnimation == null)
             return;
-        _gameObjectAnimator.SetTrigger("Awake");
+        _awakeAnimation.SetTrigger("Awake");
+    }
+
+    public void Interactive()
+    {
+        if (_interactAnimation == null)
+            return;
+        _interactAnimation.SetTrigger("Activate");
     }
 
     public void PlaySound()
