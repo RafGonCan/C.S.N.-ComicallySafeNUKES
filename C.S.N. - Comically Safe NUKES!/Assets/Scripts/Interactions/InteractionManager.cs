@@ -388,9 +388,8 @@ public class InteractionManager : MonoBehaviour
     public void EndInspection()
     {
         OnInspectionStateChanged?.Invoke(false, null);
-        SwitchToInspectionCamera(false);
         
-
+        
         if (_scaleCoroutine != null)
         {
             StopCoroutine(_scaleCoroutine);
@@ -420,7 +419,7 @@ public class InteractionManager : MonoBehaviour
                 yield return null;
             }
         }
-        
+        SwitchToInspectionCamera(false);
         CleanupAfterScaleOut();
     }
     
