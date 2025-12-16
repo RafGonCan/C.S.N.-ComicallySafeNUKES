@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 156836305}
   - component: {fileID: 156836304}
   m_Layer: 0
-  m_Name: Interaction Manager
+  m_Name: Interaction_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7133,7 +7133,7 @@ GameObject:
   - component: {fileID: 804246025}
   - component: {fileID: 804246024}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event_System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14419,7 +14419,7 @@ GameObject:
   - component: {fileID: 1417428271}
   - component: {fileID: 1417428272}
   m_Layer: 0
-  m_Name: InspectionRoom
+  m_Name: Inspection_Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
