@@ -78,9 +78,8 @@ public class TableController : MonoBehaviour
     private void PuzzleFailed()
     {
         Debug.Log("Tá errado");
-        Invoke(nameof(ResetPuzzle), 1f);
-        AudioSource.PlayClipAtPoint(_wrongSequence, transform.position);
-    }
+        Invoke(nameof(ResetPuzzle), 0.5f);
+    } 
 
     private void ResetPuzzle()
     {
@@ -96,6 +95,7 @@ public class TableController : MonoBehaviour
                 seqButton.ResetButton();
             }
         }
+        AudioSource.PlayClipAtPoint(_wrongSequence, transform.position);
     }
     public bool CanPressButton(int buttonIndex)
     {

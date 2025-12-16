@@ -16,9 +16,8 @@ MonoBehaviour:
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 11400000, guid: 713f2fafc7811774ab1e534d5c5babd8, type: 2}
-  - {fileID: 11400000, guid: 5e508503c3b5f774ba7fb5905d2f5d1c, type: 2}
-  - {fileID: 11400000, guid: 5bd2508244db4684884a1ea406747c4c, type: 2}
+  requirements: []
   requirementsMessage: Need Plutonium
   interactionMessages: []
+  inspectModel: {fileID: 0}
+  inspectionDescription: 
