@@ -27,10 +27,12 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
+    public static event Action<bool, Interactive> OnInspectionStateChanged;
+    private InspectionRoomData _inspectionRoom;
+    private Camera             _mainCamera;
     private PlayerInventory    _playerInventory;
     private PlayerMovement     _playerMovement;
     private Pause_Menu         _pauseMenu;
-    public static event Action<bool, Interactive> OnInspectionStateChanged;
     private Coroutine           _scaleCoroutine;
     private float               _scaleDuration = 0.5f;
     private Interactive         _currentInspect;
@@ -100,6 +102,21 @@ public class InteractionManager : MonoBehaviour
         if (_pauseMenu == null)
         {
             _pauseMenu = FindFirstObjectByType<Pause_Menu>();
+        }
+        if (_mainCamera == null)
+        {
+            try
+            {
+                _mainCamera = _playerMovement.GetComponentInChildren<Camera>();
+            }
+            catch
+            {
+                Debug.Log("Main camera not found");
+            }           
+        }    
+        if (_inspectionRoom == null)
+        {
+            _inspectionRoom = FindFirstObjectByType<InspectionRoomData>();
         }
     }
 
@@ -260,30 +277,43 @@ public class InteractionManager : MonoBehaviour
     
         _currentInspect = item;
     
-        Camera mainCamera = Camera.main;
-        if (mainCamera == null) return;
-    
         _currentInspectionModel = item.CreateInspectionModel();
         if (_currentInspectionModel == null)
         {
         Debug.LogWarning("Failed to create inspection model for: " + item.name);
         return;
         }
-
-        Vector3 inspectPosition = mainCamera.transform.position + mainCamera.transform.forward * 1.5f;
+        if (_inspectionRoom != null)
+        {
+            _currentInspectionModel.transform.SetParent(_inspectionRoom.transform);
+            _currentInspectionModel.transform.localPosition = _inspectionRoom.ObjectPosition;
+            _currentInspectionModel.transform.localEulerAngles = _inspectionRoom.ObjectRotation;
+        }
+        else
+        {
+            Camera mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                _currentInspectionModel.transform.position = mainCamera.transform.position + 
+                                                           mainCamera.transform.forward * 1.5f;
+                _currentInspectionModel.transform.LookAt(mainCamera.transform);
+                _currentInspectionModel.transform.Rotate(0, 180, 0);
+            }
+        }
+        
 
         isInspecting = true;
-    
-        _currentInspectionModel.transform.position = inspectPosition;
         _currentInspectionModel.transform.localScale = Vector3.zero;
-        _currentInspectionModel.transform.LookAt(mainCamera.transform);
-        _currentInspectionModel.transform.Rotate(0, 180, 0);
+
     
         _currentStatefulInspection = _currentInspectionModel.GetComponent<StatefulInteractive>();
         if (_currentStatefulInspection != null)
         {
             _currentStatefulInspection.SetupForInspection();
         }
+
+        SwitchToInspectionCamera(true);
+        
         if (_scaleCoroutine != null)
             StopCoroutine(_scaleCoroutine);
         _scaleCoroutine = StartCoroutine(ScaleInAnimation());
@@ -309,6 +339,24 @@ public class InteractionManager : MonoBehaviour
         
         _currentInspectionModel.transform.localScale = targetScale;
         _scaleCoroutine = null;
+    }
+    private void SwitchToInspectionCamera(bool toInspection)
+    {
+        if (_inspectionRoom.InspectionCamera == null || _mainCamera == null) return;
+
+        if (toInspection)
+        {
+            _mainCamera.enabled = false;
+
+            _inspectionRoom.InspectionCamera.enabled = true;            
+            _inspectionRoom.InspectionCamera.nearClipPlane = 0.1f;
+            _inspectionRoom.InspectionCamera.farClipPlane = 10f;
+        }
+        else
+        {
+            _mainCamera.enabled = true;
+            _inspectionRoom.InspectionCamera.enabled = false;
+        }
     }
 
     private void HandleInspectionInput()
@@ -340,6 +388,7 @@ public class InteractionManager : MonoBehaviour
     public void EndInspection()
     {
         OnInspectionStateChanged?.Invoke(false, null);
+        SwitchToInspectionCamera(false);
         
 
         if (_scaleCoroutine != null)
