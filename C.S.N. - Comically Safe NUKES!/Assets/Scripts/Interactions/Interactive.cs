@@ -177,8 +177,8 @@ public class Interactive : MonoBehaviour
             DoDirectInteraction();
         else if (IsType(InteractiveData.Type.Indirect))
             PlayAnimation(_interactionManager.interactAnimationName);
-        else if (IsType(InteractiveData.Type.Focusable))
-            TriggerCameraFocus();
+        /*else if (IsType(InteractiveData.Type.Focusable))
+            TriggerCameraFocus();*/
     }
 
     private void PickUpInteractive()

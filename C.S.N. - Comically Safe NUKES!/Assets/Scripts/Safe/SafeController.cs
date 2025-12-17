@@ -14,8 +14,6 @@ public class SafeController : MonoBehaviour
 
     public void IncreaseNumber(int digitIndex)
     {
-        if (_unlocked) return;
-
         currentNumbers[digitIndex]++;
         if (currentNumbers[digitIndex] > _maxNumber)
             currentNumbers[digitIndex] = _minNumber;
@@ -25,8 +23,6 @@ public class SafeController : MonoBehaviour
 
     public void DecreaseNumber(int digitIndex)
     {
-        if (_unlocked) return;
-
         currentNumbers[digitIndex]--;
         if (currentNumbers[digitIndex] < _minNumber)
             currentNumbers[digitIndex] = _maxNumber;
@@ -45,6 +41,15 @@ public class SafeController : MonoBehaviour
             if (safeDoor != null)
             {
                 safeDoor.SetRequirementsMet(true);
+            }
+        }
+        else if (!isCorrect && _unlocked)
+        {
+            _unlocked = false;
+            
+            if (safeDoor != null)
+            {
+                safeDoor.SetRequirementsMet(false);
             }
         }
     }
