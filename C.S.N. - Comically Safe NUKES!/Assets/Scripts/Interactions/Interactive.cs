@@ -177,6 +177,8 @@ public class Interactive : MonoBehaviour
             DoDirectInteraction();
         else if (IsType(InteractiveData.Type.Indirect))
             PlayAnimation(_interactionManager.interactAnimationName);
+        else if (IsType(InteractiveData.Type.Focusable))
+            TriggerCameraFocus();
     }
 
     private void PickUpInteractive()
@@ -263,6 +265,14 @@ public class Interactive : MonoBehaviour
             PlayAnimation(_interactionManager?.awakeAnimationName);
         }
     }
+
+    //private void TriggerCameraFocus()
+    //{
+        //if(_focusPoint  != null)
+        //{
+            //if (!InteractionManager.instance.)
+        //}
+    //}
     
     public bool AreRequirementsMet => _requirementsMet;
 }
