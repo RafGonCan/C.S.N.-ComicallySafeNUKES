@@ -83,4 +83,5 @@ public class PlayerInventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1 + i) && i != _selectedSlotIndex)
                 SelectInventorySlot(i);
     }
+    
 }

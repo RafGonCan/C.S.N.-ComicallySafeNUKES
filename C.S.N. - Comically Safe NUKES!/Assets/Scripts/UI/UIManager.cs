@@ -57,11 +57,11 @@ public class UIManager : MonoBehaviour
     }
     void OnEnable()
     {
-        InteractionManager.OnInspectionStateChanged += HandleInspectionStateChanged;
+        InspectionTool.OnInspectionStateChanged += HandleInspectionStateChanged;
     }
     void OnDisable()
     {
-        InteractionManager.OnInspectionStateChanged -= HandleInspectionStateChanged;
+        InspectionTool.OnInspectionStateChanged -= HandleInspectionStateChanged;
     }
     void HandleInspectionStateChanged(bool isInspecting, Interactive item)
     {

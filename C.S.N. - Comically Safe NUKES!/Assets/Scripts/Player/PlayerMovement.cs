@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxBackwardSpeed;
     [SerializeField] private float _maxStrafeSpeed;
     [SerializeField] private float _jumpSpeed;
-    [SerializeField] private float _standHeight;
     [SerializeField] private float _crouchHeight;
     [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
@@ -23,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3             _motion;
     private bool                _jump;
     private bool                _crouch;
-    private Vector3 _cameraLocalPos;
+    private float               _cameraLocalPos;
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
         _head       = GetComponentInChildren<Camera>().transform;
-        _cameraLocalPos = _head.localPosition;
+        _cameraLocalPos = _head.localPosition.y;
     }
 
     void Update()
@@ -71,20 +70,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckForCrouch()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !_crouch)
-        {
-            Debug.Log("Crouch");
-            _crouch = true;
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl) && _crouch)
-        {
-            Debug.Log("Stand Up");
-            _crouch = false;
-            return;
-        }      
+        if (Input.GetKeyDown(KeyCode.LeftControl))        
+            _crouch = !_crouch;
+            
     }
-
     void FixedUpdate()
     {
         UpdateVelocityHor();
@@ -145,15 +134,20 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateCameraHeight()
     {
-        float targetHeight = _crouch ? _crouchHeight : _standHeight;
+        float targetHeight = _crouch ? _crouchHeight : _cameraLocalPos;
 
         Vector3 newPos = _head.localPosition;
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
 
         _head.localPosition = newPos;
     }
+    /// <summary>
+    /// Simple setter for player controls
+    /// </summary>
+    /// <param name="enable"></param>
     public void SetControlsEnabled(bool enable)
     {
         enabled = enable;
     }
+    
 }   
