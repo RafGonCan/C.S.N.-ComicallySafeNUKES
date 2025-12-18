@@ -1243,6 +1243,7 @@ MonoBehaviour:
   _pickPrefix: Pick
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
+  _rotationSpeed: 8
   isInspecting: 0
 --- !u!4 &156836305
 Transform:
@@ -12654,7 +12655,7 @@ GameObject:
   - component: {fileID: 1240955841}
   - component: {fileID: 1240955840}
   m_Layer: 5
-  m_Name: Backgorund
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14458,9 +14459,6 @@ MonoBehaviour:
   _inspectionCamera: {fileID: 1078450083}
   _objectPosition: {x: 0, y: 0, z: 0}
   _objectRotation: {x: 0, y: -1, z: 0}
-  _cameraFOV: 40
-  _nearClipPlane: 0.3
-  _farClipPlane: 3
 --- !u!1001 &1420735521
 PrefabInstance:
   m_ObjectHideFlags: 0

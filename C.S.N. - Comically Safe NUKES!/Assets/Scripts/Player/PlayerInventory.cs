@@ -15,7 +15,6 @@ public class PlayerInventory : MonoBehaviour
         _inventory          = new List<Interactive>();
         _selectedSlotIndex  = -1;
     }
-
     public void Add(Interactive item)
     {
         _inventory.Add(item);

@@ -27,19 +27,19 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
+    [SerializeField] private float               _rotationSpeed = 100f;
     public static event Action<bool, Interactive> OnInspectionStateChanged;
-    private InspectionRoomData _inspectionRoom;
-    private Camera             _mainCamera;
-    private PlayerInventory    _playerInventory;
-    private PlayerMovement     _playerMovement;
-    private Pause_Menu         _pauseMenu;
+    private InspectionRoomData  _inspectionRoom;
+    private Camera              _mainCamera;
+    private PlayerInventory     _playerInventory;
+    private PlayerMovement      _playerMovement;
+    private Pause_Menu          _pauseMenu;
     private Coroutine           _scaleCoroutine;
     private float               _scaleDuration = 0.5f;
     private Interactive         _currentInspect;
     private GameObject          _spawnedInspectObject;
     private GameObject          _currentInspectionModel;
     private StatefulInteractive _currentStatefulInspection;
-    private float               _rotationSpeed = 100f;
     private List<Interactive>   _interactives;
     public bool                 isInspecting = false;
     public bool                 IsInspecting => isInspecting;
@@ -97,23 +97,16 @@ public class InteractionManager : MonoBehaviour
         }
         if (_playerInventory == null)
         {
-            _playerInventory = FindFirstObjectByType<PlayerInventory>();
-        }
-        if (_pauseMenu == null)
-        {
-            _pauseMenu = FindFirstObjectByType<Pause_Menu>();
+            _playerInventory = _playerMovement?.GetComponent<PlayerInventory>();
         }
         if (_mainCamera == null)
         {
-            try
-            {
-                _mainCamera = _playerMovement.GetComponentInChildren<Camera>();
-            }
-            catch
-            {
-                Debug.Log("Main camera not found");
-            }           
+            _mainCamera = _playerMovement?.GetComponentInChildren<Camera>();                 
         }    
+        if (_pauseMenu == null)
+        {
+            _pauseMenu = FindFirstObjectByType<Pause_Menu>();
+        }  
         if (_inspectionRoom == null)
         {
             _inspectionRoom = FindFirstObjectByType<InspectionRoomData>();
@@ -249,8 +242,6 @@ public class InteractionManager : MonoBehaviour
             }
         }
     }
-
-
     public Interactive FindInteractive(InteractiveData interactiveData)
     {
         foreach (Interactive interactive in _interactives)
@@ -269,6 +260,10 @@ public class InteractionManager : MonoBehaviour
     {
         return _interactPrefix + " " + message;
     }
+    /// <summary>
+    /// Inspection tool starting method
+    /// </summary>
+    /// <param name="item"></param>
     public void StartInspection(Interactive item)
     {
         OnInspectionStateChanged?.Invoke(true, item);
@@ -276,26 +271,30 @@ public class InteractionManager : MonoBehaviour
         if (isInspecting || item == null) return;
     
         _currentInspect = item;
-    
-        _currentInspectionModel = item.CreateInspectionModel();
+
+        //Based on the inventory item selected, inspects it by creating the model
+        _currentInspectionModel = item.CreateInspectionModel(); 
         if (_currentInspectionModel == null)
         {
-        Debug.LogWarning("Failed to create inspection model for: " + item.name);
-        return;
+            Debug.LogWarning("Failed to create inspection model for: " + item.name);
+            return;
         }
         if (_inspectionRoom != null)
         {
+            // Gets the position/rotation of the inspection room to set as position/rotation 
+            // of the inspected object
             _currentInspectionModel.transform.SetParent(_inspectionRoom.transform);
             _currentInspectionModel.transform.localPosition = _inspectionRoom.ObjectPosition;
             _currentInspectionModel.transform.localEulerAngles = _inspectionRoom.ObjectRotation;
         }
         else
         {
+            // In case _inspectionRoom is null, it will use the mainCamera as default for positioning the item
             Camera mainCamera = Camera.main;
             if (mainCamera != null)
             {
                 _currentInspectionModel.transform.position = mainCamera.transform.position + 
-                                                           mainCamera.transform.forward * 1.5f;
+                    mainCamera.transform.forward * 1.5f;
                 _currentInspectionModel.transform.LookAt(mainCamera.transform);
                 _currentInspectionModel.transform.Rotate(0, 180, 0);
             }
@@ -319,6 +318,10 @@ public class InteractionManager : MonoBehaviour
         _scaleCoroutine = StartCoroutine(ScaleInAnimation());
         EnablePlayerControls(false);
     }
+    /// <summary>
+    /// Animation for the "pop in" effect of the item when created
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ScaleInAnimation()
     {
         if (_currentInspectionModel == null) yield break;
@@ -340,6 +343,10 @@ public class InteractionManager : MonoBehaviour
         _currentInspectionModel.transform.localScale = targetScale;
         _scaleCoroutine = null;
     }
+    /// <summary>
+    /// Disables main camera and enables the inspection room camera (true for inspection camera on, false for off)
+    /// </summary>
+    /// <param name="toInspection"></param>
     private void SwitchToInspectionCamera(bool toInspection)
     {
         if (_inspectionRoom.InspectionCamera == null || _mainCamera == null) return;
@@ -358,11 +365,14 @@ public class InteractionManager : MonoBehaviour
             _inspectionRoom.InspectionCamera.enabled = false;
         }
     }
-
+    /// <summary>
+    /// Collects player input for object rotation or leaving inspect
+    /// </summary>
     private void HandleInspectionInput()
     {
         if (!isInspecting) return;
 
+        // Leaving inspect
         if (Input.GetKeyDown(KeyCode.E))
         {
             EndInspection();
@@ -372,19 +382,22 @@ public class InteractionManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
             
+        // Rotate the object with Mouse1
         if (Input.GetMouseButton(1))
         {
-            float mouseX = Input.GetAxis("Mouse X") * (_rotationSpeed*2) * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * (_rotationSpeed*2) * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * _rotationSpeed;
+            float mouseY = Input.GetAxis("Mouse Y") * _rotationSpeed;
                 
             if (_currentInspectionModel != null)
             {
                 _currentInspectionModel.transform.Rotate(Vector3.up, -mouseX, Space.World);
-                _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.Self);
+                _currentInspectionModel.transform.Rotate(Vector3.right, mouseY, Space.World);
             }
         }
     }
-
+    /// <summary>
+    /// Method for changing inspection state to false
+    /// </summary>
     public void EndInspection()
     {
         OnInspectionStateChanged?.Invoke(false, null);
@@ -395,10 +408,13 @@ public class InteractionManager : MonoBehaviour
             StopCoroutine(_scaleCoroutine);
             _scaleCoroutine = null;
         }
-        
+        // Coroutine for "pop out" effect of the object when the inspect ends
         StartCoroutine(ScaleOutAndEnd());
     }
-    
+    /// <summary>
+    /// Animation for the "pop out" effect of the item when leaving inspect tool
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ScaleOutAndEnd()
     {
         yield return null;
@@ -455,6 +471,10 @@ public class InteractionManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    /// <summary>
+    /// Method for changing if the player can move (false for no movement, true for movement)
+    /// </summary>
+    /// <param name="enable"></param>
     private void EnablePlayerControls(bool enable)
     {
         if (_playerMovement != null)
@@ -470,6 +490,10 @@ public class InteractionManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Simple getter for the currently inspected item
+    /// </summary>
+    /// <returns></returns>
     public Interactive GetCurrentInspectedItem()
     {
         return _currentInspect;
