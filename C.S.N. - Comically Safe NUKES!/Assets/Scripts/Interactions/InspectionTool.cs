@@ -19,6 +19,8 @@ public class InspectionTool : MonoBehaviour
     private GameObject          _spawnedInspectObject;
     private GameObject          _currentInspectionModel;
     private StatefulInteractive _currentStatefulInspection;
+    
+    private bool                _stillInAnimation;
     public bool                 isInspecting = false;
     public bool                 IsInspecting => isInspecting;
 
@@ -147,6 +149,7 @@ public class InspectionTool : MonoBehaviour
     /// <returns></returns>
     private IEnumerator ScaleInAnimation()
     {
+        _stillInAnimation = true;
         if (_currentInspectionModel == null) yield break;
         
         float elapsedTime = 0f;
@@ -165,6 +168,7 @@ public class InspectionTool : MonoBehaviour
         
         _currentInspectionModel.transform.localScale = targetScale;
         _scaleCoroutine = null;
+        _stillInAnimation = false;
     }
     /// <summary>
     /// Disables main camera and enables the inspection room camera (true for inspection camera on, false for off)
@@ -196,7 +200,7 @@ public class InspectionTool : MonoBehaviour
         if (!isInspecting) return;
 
         // Leaving inspect
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !_stillInAnimation)
         {
             EndInspection();
             return;
@@ -225,8 +229,7 @@ public class InspectionTool : MonoBehaviour
     {
         OnInspectionStateChanged?.Invoke(false, null);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;        
+              
         
         if (_scaleCoroutine != null)
         {
@@ -235,6 +238,7 @@ public class InspectionTool : MonoBehaviour
         }
         // Coroutine for "pop out" effect of the object when the inspect ends
         StartCoroutine(ScaleOutAndEnd());
+        
     }
     /// <summary>
     /// Animation for the "pop out" effect of the item when leaving inspect tool
@@ -243,7 +247,7 @@ public class InspectionTool : MonoBehaviour
     private IEnumerator ScaleOutAndEnd()
     {
         yield return null;
-        
+
         if (_currentInspectionModel != null)
         {
             float elapsedTime = 0f;
@@ -255,8 +259,9 @@ public class InspectionTool : MonoBehaviour
                 float t = Mathf.Clamp01(elapsedTime / (_scaleDuration * 0.5f));
                 
                 t = t * t;
-                
+
                 _currentInspectionModel.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
+
                 yield return null;
             }
         }

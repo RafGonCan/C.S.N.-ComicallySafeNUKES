@@ -1244,7 +1244,6 @@ MonoBehaviour:
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
   _rotationSpeed: 8
-  isInspecting: 0
 --- !u!4 &156836305
 Transform:
   m_ObjectHideFlags: 0
@@ -13966,6 +13965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 272367919}
   _maxInteractionDistance: 1.25
+  inspectionTool: {fileID: 1417428273}
 --- !u!114 &1349910772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13997,7 +13997,6 @@ MonoBehaviour:
   _maxBackwardSpeed: 2.5
   _maxStrafeSpeed: 3
   _jumpSpeed: 5
-  _standHeight: 0.6
   _crouchHeight: -0.2
   _crouchTransitionSpeed: 5
   _maxLookUpAngle: 320
@@ -14419,6 +14418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417428271}
   - component: {fileID: 1417428272}
+  - component: {fileID: 1417428273}
   m_Layer: 0
   m_Name: Inspection_Room
   m_TagString: Untagged
@@ -14459,6 +14459,21 @@ MonoBehaviour:
   _inspectionCamera: {fileID: 1078450083}
   _objectPosition: {x: 0, y: 0, z: 0}
   _objectRotation: {x: 0, y: -1, z: 0}
+--- !u!114 &1417428273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417428270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d20ac7d583f1448bb99f062509620e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 8
+  _playerInventory: {fileID: 1349910772}
+  isInspecting: 0
 --- !u!1001 &1420735521
 PrefabInstance:
   m_ObjectHideFlags: 0
