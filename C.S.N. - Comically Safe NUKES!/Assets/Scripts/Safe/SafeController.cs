@@ -11,7 +11,11 @@ public class SafeController : MonoBehaviour
     private bool _unlocked = false;
     public int _minNumber = 0;
     public int _maxNumber = 9;
-
+    /// <summary>
+    /// Increases the value of the button with this digitIndex
+    /// Checks combination
+    /// </summary>
+    /// <param name="digitIndex"></param>
     public void IncreaseNumber(int digitIndex)
     {
         currentNumbers[digitIndex]++;
@@ -20,7 +24,11 @@ public class SafeController : MonoBehaviour
 
         CheckCombination();
     }
-
+    /// <summary>
+    /// Increases the value of the button with this digitIndex, currently unused
+    /// Checks combination
+    /// </summary>
+    /// <param name="digitIndex"></param>
     public void DecreaseNumber(int digitIndex)
     {
         currentNumbers[digitIndex]--;
@@ -29,7 +37,10 @@ public class SafeController : MonoBehaviour
 
         CheckCombination();
     }
-
+    /// <summary>
+    /// Checks if the number combination is equal to the correct combination.
+    /// If it is, it will set the requirements to true, otherwise, false
+    /// </summary>
     private void CheckCombination()
     {
         bool isCorrect = currentNumbers.SequenceEqual(correctCombination);
