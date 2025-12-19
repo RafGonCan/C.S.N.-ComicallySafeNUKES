@@ -28,12 +28,14 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
     [SerializeField] private float               _rotationSpeed = 100f;
+    [SerializeField] private CameraFocusController _cameraFocusController;
     private PlayerInventory     _playerInventory;
     private PlayerMovement      _playerMovement;
     private Pause_Menu          _pauseMenu;
     private GameObject          _currentInspectionModel;
     private StatefulInteractive _currentStatefulInspection;
     private List<Interactive>   _interactives;
+    public CameraFocusController CameraFocusController => _cameraFocusController;
     public PlayerInventory      playerInventory         => _playerInventory;
     public string               awakeAnimationName      => _awakeAnimationName;
     public string               interactAnimationName   => _interactAnimationName;

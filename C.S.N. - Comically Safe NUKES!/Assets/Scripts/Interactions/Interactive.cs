@@ -6,6 +6,7 @@ public class Interactive : MonoBehaviour
 {
     [SerializeField] private InteractiveData _interactiveData;
     [SerializeField] private StatefulInteractive statefulPrefab;
+    [SerializeField] private Transform _focusPoint;
 
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
@@ -177,8 +178,11 @@ public class Interactive : MonoBehaviour
             DoDirectInteraction();
         else if (IsType(InteractiveData.Type.Indirect))
             PlayAnimation(_interactionManager.interactAnimationName);
-        /*else if (IsType(InteractiveData.Type.Focusable))
-            TriggerCameraFocus();*/
+        else if (IsType(InteractiveData.Type.Focusable))
+        {
+            TriggerCameraFocus();
+            Debug.Log("Interagi com um focusable");
+        }
     }
 
     private void PickUpInteractive()
@@ -266,13 +270,20 @@ public class Interactive : MonoBehaviour
         }
     }
 
-    //private void TriggerCameraFocus()
-    //{
-        //if(_focusPoint  != null)
-        //{
-            //if (!InteractionManager.instance.)
-        //}
-    //}
+    private void TriggerCameraFocus()
+    {
+        if(_focusPoint  != null)
+        {
+            if (!InteractionManager.instance.CameraFocusController.GetFocusing())
+            {
+                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint);
+            }
+            else
+            {
+                InteractionManager.instance.CameraFocusController.ExitFocus();
+            }
+        }
+    }
     
     public bool AreRequirementsMet => _requirementsMet;
 }
