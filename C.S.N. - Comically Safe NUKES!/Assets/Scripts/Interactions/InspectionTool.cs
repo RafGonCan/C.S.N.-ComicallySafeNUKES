@@ -141,7 +141,7 @@ public class InspectionTool : MonoBehaviour
         if (_scaleCoroutine != null)
             StopCoroutine(_scaleCoroutine);
         _scaleCoroutine = StartCoroutine(ScaleInAnimation());
-        _playerMovement.SetControlsEnabled(false);
+        _playerMovement.enabled = false;
     }
     /// <summary>
     /// Animation for the "pop in" effect of the item when created
@@ -299,7 +299,7 @@ public class InspectionTool : MonoBehaviour
         _currentInspect = null;
         _currentStatefulInspection = null;
         
-        _playerMovement.SetControlsEnabled(true);
+        _playerMovement.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
