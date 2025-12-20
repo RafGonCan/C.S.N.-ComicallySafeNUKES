@@ -4,16 +4,18 @@ using UnityEngine.Events;
 public class AudioStations : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSourceFromPlayer;
     [SerializeField] private AudioClip[] _soundClips;
+    [SerializeField] private AudioClip _playerVoiceLine;
     [SerializeField] private bool _playOnEnable;
-    private UnityEvent _onButtonPressed;
-    private int _currentClipIndex = 0;
+    private Interactive _interactive;
+    private UnityEvent  _onButtonPressed;
+    private int         _currentClipIndex = 0;
 
     void Start()
     {
+        _interactive = GetComponent<Interactive>();
         _audioSource = GetComponent<AudioSource>();
-        if (_audioSource == null)
-            _audioSource = gameObject.AddComponent<AudioSource>();
         
         _audioSource.spatialBlend = 1f;
         _audioSource.playOnAwake = false;
@@ -23,11 +25,14 @@ public class AudioStations : MonoBehaviour
     {
         if (_audioSource.isPlaying)
         {
-        _audioSource.Stop();
+            _audioSource.Stop();
         }
         AudioClip currentClip = GetClipFromIndex(_currentClipIndex);
         
         _audioSource?.PlayOneShot(currentClip);
+
+        if (_playerVoiceLine != null && _interactive.firstTime)
+            _audioSourceFromPlayer?.PlayOneShot(_playerVoiceLine);
 
         _currentClipIndex++;
         if (_currentClipIndex >= _soundClips.Length)

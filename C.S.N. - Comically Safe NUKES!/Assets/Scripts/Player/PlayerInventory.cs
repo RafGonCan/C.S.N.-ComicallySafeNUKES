@@ -57,11 +57,6 @@ public class PlayerInventory : MonoBehaviour
         _playerInteraction.RefreshCurrentInteractive();
     }
 
-    public string GetSelectedInteractionMessage()
-    {
-        return _inventory[_selectedSlotIndex].GetInteractionMessage();
-    }
-
     public bool IsSelected(Interactive item)
     {
         return GetSelected() == item;

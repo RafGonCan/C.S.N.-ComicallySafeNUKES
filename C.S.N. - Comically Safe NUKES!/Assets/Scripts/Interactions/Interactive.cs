@@ -15,12 +15,14 @@ public class Interactive : MonoBehaviour
     private bool                    _requirementsMet;
     private int                     _interactionCount;
     private StatefulInteractive    _statefulInstance;
+    private bool                    _firstTime;
     public bool                     isOn;
     public InteractiveData          interactiveData => _interactiveData;
     public string                   inventoryName   => _interactiveData?.inventoryName;
     public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
     public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
-    public bool AreRequirementsMet => _requirementsMet;
+    public bool                     AreRequirementsMet => _requirementsMet;
+    public bool                     firstTime => _firstTime;
 
     void Awake()
     {
@@ -129,26 +131,21 @@ public class Interactive : MonoBehaviour
         return _interactiveData != null && _interactiveData.type == type;
     }
 
-    public string GetInteractionMessage()
-    {
-        if (_interactiveData == null) return null;
-        if (_playerInventory == null) return null;
-        if (_interactionManager == null) return null;
-
-        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
-            return _interactionManager.GetPickMessage(_interactiveData.inventoryName);
-        else if (!_requirementsMet)
-        {
-            if (PlayerHasRequirementSelected())
-                return _playerInventory.GetSelectedInteractionMessage();
-            else
-                return _interactiveData.requirementsMessage;
-        }
-        else if (interactiveData.interactionMessages.Length > 0)
-            return _interactionManager.GetInteractionMessage(interactiveData.interactionMessages[_interactionCount % _interactiveData.interactionMessages.Length]);
-        else
-            return null;
-    }
+    public bool GetInteractionMessage()
+{
+    if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
+        return true;
+    else if (IsType(InteractiveData.Type.InteractOnce) && _requirementsMet) 
+        return true;
+    else if (IsType(InteractiveData.Type.InteractMulti) && _requirementsMet) 
+        return true;
+    else if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
+        return true;
+    else if (!_requirementsMet && PlayerHasRequirementSelected())
+        return true;
+    
+    return false;
+}
 
     private bool PlayerHasRequirementSelected()
     {
@@ -161,8 +158,11 @@ public class Interactive : MonoBehaviour
 
     public void Interact()
     {
-        if (_requirementsMet)
+        if (_requirementsMet && _firstTime)
+        {
             InteractSelf(true);
+            _firstTime = false;
+        }            
         else if (PlayerHasRequirementSelected())
             UseRequirementFromInventory();
     }

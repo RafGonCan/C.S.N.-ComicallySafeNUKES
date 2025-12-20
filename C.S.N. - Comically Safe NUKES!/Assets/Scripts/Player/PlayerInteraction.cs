@@ -68,12 +68,11 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive         = interactive;
         _refreshCurrentInteractive  = false;
 
-        string interactionMessage = interactive.GetInteractionMessage();
+        bool hasCorrectItem = interactive.GetInteractionMessage();
 
-        if (interactionMessage != null && interactionMessage.Length > 0)
+        if (hasCorrectItem)
         {
             _uiManager.ShowInteractionCrosshair();
-            _uiManager.ShowInteractionPanel(interactionMessage);
         }
         else
         {

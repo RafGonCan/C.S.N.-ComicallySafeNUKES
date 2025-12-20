@@ -10,8 +10,6 @@ public class InteractiveData : ScriptableObject
     public string               inventoryName;
     public Sprite               inventoryIcon;
     public InteractiveData[]    requirements;
-    public string               requirementsMessage;
-    public string[]             interactionMessages;
     public GameObject           inspectModel;
     
     [TextArea(3, 5)]
