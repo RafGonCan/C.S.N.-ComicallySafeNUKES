@@ -131,14 +131,5 @@ public class PlayerMovement : MonoBehaviour
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
 
         _head.localPosition = newPos;
-    }
-    /// <summary>
-    /// Simple setter for player controls
-    /// </summary>
-    /// <param name="enable"></param>
-    public void SetControlsEnabled(bool enable)
-    {
-        enabled = enable;
-    }
-    
+    }    
 }   
