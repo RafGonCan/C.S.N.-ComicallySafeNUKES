@@ -11,6 +11,8 @@ public class InteractiveData : ScriptableObject
     public Sprite               inventoryIcon;
     public InteractiveData[]    requirements;
     public GameObject           inspectModel;
+    [System.NonSerialized]
+    public bool                 hasPlayedVoiceLine = false;
     
     [TextArea(3, 5)]
     public string               inspectionDescription = "";

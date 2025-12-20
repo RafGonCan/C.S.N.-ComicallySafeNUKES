@@ -7,6 +7,7 @@ public class Interactive : MonoBehaviour
     [SerializeField] private InteractiveData _interactiveData;
     [SerializeField] private StatefulInteractive statefulPrefab;
     [SerializeField] private Transform _focusPoint;
+    
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
     private List<Interactive>       _requirements;
@@ -15,14 +16,12 @@ public class Interactive : MonoBehaviour
     private bool                    _requirementsMet;
     private int                     _interactionCount;
     private StatefulInteractive    _statefulInstance;
-    private bool                    _firstTime;
     public bool                     isOn;
     public InteractiveData          interactiveData => _interactiveData;
     public string                   inventoryName   => _interactiveData?.inventoryName;
     public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
     public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
     public bool                     AreRequirementsMet => _requirementsMet;
-    public bool                     firstTime => _firstTime;
 
     void Awake()
     {
@@ -158,10 +157,9 @@ public class Interactive : MonoBehaviour
 
     public void Interact()
     {
-        if (_requirementsMet && _firstTime)
+        if (_requirementsMet)
         {
             InteractSelf(true);
-            _firstTime = false;
         }            
         else if (PlayerHasRequirementSelected())
             UseRequirementFromInventory();

@@ -8,14 +8,13 @@ public class AudioStations : MonoBehaviour
     [SerializeField] private AudioClip[] _soundClips;
     [SerializeField] private AudioClip _playerVoiceLine;
     [SerializeField] private bool _playOnEnable;
-    private Interactive _interactive;
     private UnityEvent  _onButtonPressed;
     private int         _currentClipIndex = 0;
 
     void Start()
     {
-        _interactive = GetComponent<Interactive>();
         _audioSource = GetComponent<AudioSource>();
+        
         
         _audioSource.spatialBlend = 1f;
         _audioSource.playOnAwake = false;
@@ -31,8 +30,12 @@ public class AudioStations : MonoBehaviour
         
         _audioSource?.PlayOneShot(currentClip);
 
-        if (_playerVoiceLine != null && _interactive != null && _interactive.firstTime)
+        InteractiveData data = GetComponent<Interactive>()?.interactiveData;
+        if (data != null && !data.hasPlayedVoiceLine && _playerVoiceLine != null)
+        {
             _audioSourceFromPlayer?.PlayOneShot(_playerVoiceLine);
+            data.hasPlayedVoiceLine = true;
+        }
 
         _currentClipIndex++;
         if (_currentClipIndex >= _soundClips.Length)
@@ -42,12 +45,20 @@ public class AudioStations : MonoBehaviour
         
         _onButtonPressed?.Invoke();
     }
+    public void PlayPlayerVoiceLine()
+    {
+        if (_playerVoiceLine != null && _audioSourceFromPlayer != null)
+        {
+            _audioSourceFromPlayer.PlayOneShot(_playerVoiceLine);
+        }
+    }    
     void OnEnable()
     {
         if (_playOnEnable)
             PressButton();
     }
-     private AudioClip GetClipFromIndex(int index)
+    
+    private AudioClip GetClipFromIndex(int index)
     {   
         return _soundClips[index];
     }
