@@ -31,7 +31,7 @@ public class AudioStations : MonoBehaviour
         
         _audioSource?.PlayOneShot(currentClip);
 
-        if (_playerVoiceLine != null && _interactive.firstTime)
+        if (_playerVoiceLine != null && _interactive != null && _interactive.firstTime)
             _audioSourceFromPlayer?.PlayOneShot(_playerVoiceLine);
 
         _currentClipIndex++;
