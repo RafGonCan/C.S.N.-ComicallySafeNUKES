@@ -7,7 +7,6 @@ public class Interactive : MonoBehaviour
     [SerializeField] private InteractiveData _interactiveData;
     [SerializeField] private StatefulInteractive statefulPrefab;
     [SerializeField] private Transform _focusPoint;
-
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
     private List<Interactive>       _requirements;
@@ -15,13 +14,13 @@ public class Interactive : MonoBehaviour
     private Animator                _animator;
     private bool                    _requirementsMet;
     private int                     _interactionCount;
-     private StatefulInteractive    _statefulInstance;
-
+    private StatefulInteractive    _statefulInstance;
     public bool                     isOn;
     public InteractiveData          interactiveData => _interactiveData;
     public string                   inventoryName   => _interactiveData?.inventoryName;
     public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
     public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
+    public bool AreRequirementsMet => _requirementsMet;
 
     void Awake()
     {
@@ -284,6 +283,4 @@ public class Interactive : MonoBehaviour
             }
         }
     }
-    
-    public bool AreRequirementsMet => _requirementsMet;
 }

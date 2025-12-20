@@ -1277,7 +1277,6 @@ MonoBehaviour:
   _pickPrefix: Pick
   _awakeAnimationName: Awake
   _interactAnimationName: Interact
-  _rotationSpeed: 8
   _cameraFocusController: {fileID: 2145993011}
 --- !u!4 &156836305
 Transform:
@@ -2368,7 +2367,7 @@ MonoBehaviour:
   - {fileID: 82319278}
   _panel: {fileID: 877825572}
   _rightSequence: {fileID: 8300000, guid: 0cf546a8b937b5c4f8f7316fff96f6f3, type: 3}
-  _wrongSequence: {fileID: 8300000, guid: 32184803304ba0f448bebe47241faa5e, type: 3}
+  _wrongSequence: {fileID: 8300000, guid: 9a885979b8777664d8e520789196407e, type: 3}
   _panelAnimator: {fileID: 877825574}
 --- !u!65 &275278500
 BoxCollider:
@@ -12313,7 +12312,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13448,7 +13447,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14813,7 +14812,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19099,7 +19098,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -22201,7 +22200,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -23860,7 +23859,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -25969,7 +25968,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -27545,7 +27544,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e2dbd81d81c59f24fa3d954da27d43f0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

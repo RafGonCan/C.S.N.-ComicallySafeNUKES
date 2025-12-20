@@ -27,13 +27,10 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
-    [SerializeField] private float               _rotationSpeed = 100f;
     [SerializeField] private CameraFocusController _cameraFocusController;
     private PlayerInventory     _playerInventory;
     private PlayerMovement      _playerMovement;
     private Pause_Menu          _pauseMenu;
-    private GameObject          _currentInspectionModel;
-    private StatefulInteractive _currentStatefulInspection;
     private List<Interactive>   _interactives;
     public CameraFocusController CameraFocusController => _cameraFocusController;
     public PlayerInventory      playerInventory         => _playerInventory;
@@ -161,46 +158,6 @@ public class InteractionManager : MonoBehaviour
                 else
                 {
                     Debug.LogWarning($"Could not find Interactive for requirement: {requirementData.name}");
-                }
-            }
-        }
-    }
-    private void CheckForPartInteraction()
-    {
-        if (_currentInspectionModel == null) return;
-    
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-    
-        if (Physics.Raycast(ray, out hit, 3f))
-        {
-            if (hit.transform.IsChildOf(_currentInspectionModel.transform))
-            {
-                GameObject clickedObject = hit.transform.gameObject;
-            
-                if (_currentStatefulInspection != null)
-                {
-                    int partIndex;
-                    if (_currentStatefulInspection.IsToggleablePart(clickedObject, out partIndex))
-                    {
-                        _currentStatefulInspection.TogglePart(partIndex);
-                        return;
-                    }
-                }
-            
-                Transform parent = hit.transform.parent;
-                while (parent != null && parent != _currentInspectionModel.transform)
-                {
-                    if (_currentStatefulInspection != null)
-                    {
-                        int partIndex;
-                        if (_currentStatefulInspection.IsToggleablePart(parent.gameObject, out partIndex))
-                        {
-                            _currentStatefulInspection.TogglePart(partIndex);
-                            return;
-                        }
-                    }
-                    parent = parent.parent;
                 }
             }
         }
