@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
     [SerializeField] private float _maxLookDownAngle;
-
     private CharacterController _controller;
     private Transform           _head;
     private Vector3             _headRotation;
@@ -85,28 +83,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float forwardAxis   = Input.GetAxis("Forward");
         float strafeAxis    = Input.GetAxis("Strafe");
-        if (!_crouch)
-        {
-            if (forwardAxis >= 0f)
-                _velocityHor.z = forwardAxis * _maxForwardSpeed;
-            else
-                _velocityHor.z = forwardAxis * _maxBackwardSpeed;
-
-            _velocityHor.x = strafeAxis * _maxStrafeSpeed;
-        }
+        if (forwardAxis >= 0f)
+            _velocityHor.z = forwardAxis * _maxForwardSpeed;
         else
-        {
-            if (forwardAxis >= 0f)
-                _velocityHor.z = forwardAxis/2 * _maxForwardSpeed;
-            else
-                _velocityHor.z = forwardAxis/2 * _maxBackwardSpeed;
+            _velocityHor.z = forwardAxis * _maxBackwardSpeed;
 
-            _velocityHor.x = strafeAxis/2 * _maxStrafeSpeed;
-        }
-        
+        _velocityHor.x = strafeAxis * _maxStrafeSpeed;     
 
         if (_velocityHor.magnitude > _maxForwardSpeed)
+        {
             _velocityHor = _velocityHor.normalized * (forwardAxis > 0 ? _maxForwardSpeed : _maxBackwardSpeed);
+        }
+        if (_crouch)
+        {
+            _velocityHor *= 0.5f;
+        }            
     }
 
     private void UpdateVelocityVer()
