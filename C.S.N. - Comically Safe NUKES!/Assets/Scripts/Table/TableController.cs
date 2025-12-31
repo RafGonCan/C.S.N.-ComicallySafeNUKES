@@ -9,6 +9,10 @@ public class TableController : MonoBehaviour
     [SerializeField] private AudioClip _rightSequence;
     [SerializeField] private AudioClip _wrongSequence;
     [SerializeField] private Animator _panelAnimator;
+    [SerializeField] private AudioSource _playerAudioSource;
+    [SerializeField] private AudioClip _wrongVoiceline;
+    [SerializeField] private bool _hasPlayedVoiceline = false;
+    [SerializeField] private int _failAmount = 0;
     
     private List<int> currentSequence = new List<int>(); //Introduced sequence
     private bool _isSolved = false;
@@ -118,6 +122,12 @@ public class TableController : MonoBehaviour
             }
         }
         AudioSource.PlayClipAtPoint(_wrongSequence, transform.position);
+        _failAmount++;
+        if (_failAmount >= 3 && !_hasPlayedVoiceline)
+        {
+            _playerAudioSource.PlayOneShot(_wrongVoiceline);
+            _hasPlayedVoiceline = true;
+        }
     }
     /// <summary>
     /// Simple boolean checker for when you can or can't press a button
