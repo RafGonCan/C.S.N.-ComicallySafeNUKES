@@ -713,6 +713,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: ce160d44d4a79884d8359baca6dafa68, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: 389f55df00622e749a7bad1fef2bf660, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!65 &53115105
 BoxCollider:
@@ -1103,6 +1106,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: ec662491da66e634d910599f36ba35de, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 11
@@ -3377,6 +3383,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 3dc58bdd849eb514aa54dc645f34cdfa, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 10
@@ -10240,6 +10249,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 95685c26c41900b4b80b47522f949174, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!1 &600059534
 GameObject:
@@ -10310,6 +10322,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 495e1f8f2e72b0f40a4d95b0c59a87e1, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: 7025a462c75a3ab48a735188853ee01a, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &600155793 stripped
 GameObject:
@@ -17957,6 +17972,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: bbb15e97666ba9b43ae73d069cf2a7b8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: 389f55df00622e749a7bad1fef2bf660, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &796144002 stripped
 GameObject:
@@ -17999,6 +18017,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 002a5490da75f6c4b8e852c7e2739152, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: 84006c4292d4aeb44822440b70cd5902, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &804246023
 GameObject:
@@ -18439,6 +18460,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: f9335e6f37834df4aa327ab10b44eefb, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   targetObjects:
   - {fileID: 1022173705}
@@ -18461,6 +18485,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: f9335e6f37834df4aa327ab10b44eefb, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!82 &821001427
 AudioSource:
@@ -19024,6 +19051,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 97e8eab66f88a264d80098412b969654, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 6
@@ -19736,6 +19766,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 449f5c1c4c4ac684ea3a90d87fdb8760, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!114 &864528218
 MonoBehaviour:
@@ -20389,6 +20422,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!82 &907211240
 AudioSource:
@@ -21033,6 +21069,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: c22d7f6b7379e2d42a3806e095b45d5f, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 2
@@ -21384,6 +21423,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: f9b8d52dc97352b40bb4bf135dddced8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   safeController: {fileID: 1576554584}
   digitIndex: 2
@@ -21573,6 +21615,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: dd8d77d18b69f0a4d8a576a90dcd73d7, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 7
@@ -21766,6 +21811,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 2c663a817fe00724fb5a23b58ddf0774, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!1 &998168601 stripped
 GameObject:
@@ -21988,6 +22036,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: fea83ce7696cd7640bb65908f637c41f, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 4
@@ -22387,6 +22438,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 880174794af1a964b919234cb0c9e016, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!4 &1025205177 stripped
 Transform:
@@ -22532,6 +22586,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!114 &1033546685
 MonoBehaviour:
@@ -24074,6 +24131,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: c1ccf5979e7377e439d1449c8afbf5e1, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!1 &1111695129
 GameObject:
@@ -25381,6 +25441,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 6689cf4baa797fc47b1b6fbcc7775ea6, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!1001 &1166605165
 PrefabInstance:
@@ -25974,6 +26037,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 95bf6babb364fc74eadfb4240cdd2de4, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &1189454656 stripped
 GameObject:
@@ -26645,6 +26711,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: e8bf677b078dc974185de0b0d251d341, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1001 &1238562748
 PrefabInstance:
@@ -27360,6 +27429,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 3565c9bc7309bed4995b6ec5f56f07da, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!65 &1265580751
 BoxCollider:
@@ -28301,6 +28373,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!114 &1313167842
 MonoBehaviour:
@@ -29096,6 +29171,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 6b184fd3c4ddf93468205db5db040218, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 1126992747}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &1349910770
 GameObject:
@@ -31082,6 +31160,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 103cb823c2b615c4e9f25d639fc39789, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 1
@@ -31625,6 +31706,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 5bd2508244db4684884a1ea406747c4c, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &1450791705
 GameObject:
@@ -32842,6 +32926,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 713f2fafc7811774ab1e534d5c5babd8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!95 &1493052127
 Animator:
@@ -33580,6 +33667,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 8e4d72e6ad68237449bb53399c188600, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1001 &1587574484
 PrefabInstance:
@@ -34312,6 +34402,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!114 &1628625297
 MonoBehaviour:
@@ -35087,6 +35180,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: d62d6a873a1f43e4abc7e681b3b9832e, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   safeController: {fileID: 1576554584}
   digitIndex: 1
@@ -35831,6 +35927,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 8ad859c2f9d54d54ba871b2d66a9ede5, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: 2f61a29b240af8c449bf25134cae2b30, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1001 &1713272447
 PrefabInstance:
@@ -36760,6 +36859,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: df31b5f3daf3c3a4db7fdf8bf880daf8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   safeController: {fileID: 1576554584}
   digitIndex: 0
@@ -37718,6 +37820,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 5f6ec61c8e27a4d48806b62ed58397b7, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   targetObjects:
   - {fileID: 594675726}
@@ -37739,6 +37844,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 5f6ec61c8e27a4d48806b62ed58397b7, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!82 &1777372577
 AudioSource:
@@ -38147,6 +38255,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 28aec73c190ed204eb13cd5825b98d32, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!4 &1789175907 stripped
 Transform:
@@ -38749,6 +38860,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: f547cac9ceabad543af5aadd6d310ff8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!136 &1814312044
 CapsuleCollider:
@@ -39681,6 +39795,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 1c8c712073bafc54b8873eb03f26cc06, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: ff2727987e8692a4d975a094578afac9, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!4 &1861359807 stripped
 Transform:
@@ -39798,6 +39915,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: e071ca42922d9344eb52afb107efc907, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 5
@@ -42002,6 +42122,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 3ef697cdfe1d2dc48a46eda5573ec942, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   targetObjects:
   - {fileID: 995848706}
@@ -42024,6 +42147,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 3ef697cdfe1d2dc48a46eda5573ec942, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!82 &1973912253
 AudioSource:
@@ -43278,6 +43404,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 01ee5036c8861734da929d024fb0197e, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 9
@@ -43573,6 +43702,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 985b18b7ae167034583aabab8e7e8406, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 0
@@ -43925,14 +44057,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 2061847499}
-  _audioSourceFromPlayer: {fileID: 1349910776}
+  _audioSourceFromPlayer: {fileID: 0}
   _soundClips:
   - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  - {fileID: 8300000, guid: 3caf4996cabde804da688fada30a0a12, type: 3}
+  - {fileID: 8300000, guid: 4bcaa07f58034084bacd77205cb6e436, type: 3}
   - {fileID: 8300000, guid: 613e12bc5de9ce146999dc0228fd37a1, type: 3}
-  - {fileID: 8300000, guid: 7c222c4e94b3dc34cb455f0af4e0d4ac, type: 3}
+  - {fileID: 8300000, guid: f17b3b3c62fed234ab61837f9cf6dbf7, type: 3}
   - {fileID: 8300000, guid: c5a8b38a4f1c65f4da52c274dd92d718, type: 3}
-  _playerVoiceLine: {fileID: 8300000, guid: caa0d7d69b14dc84a87d6a586f3c502b, type: 3}
+  _playerVoiceLine: {fileID: 0}
   _playOnEnable: 0
 --- !u!65 &2061847501
 BoxCollider:
@@ -43970,6 +44102,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: b3875c34557008942a1055a5d52e044e, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 8300000, guid: cea7b0cba7819844690be7e63972eb54, type: 3}
+  _audioSource: {fileID: 1349910776}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!1 &2065668789 stripped
 GameObject:
@@ -44034,6 +44169,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 5e508503c3b5f774ba7fb5905d2f5d1c, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
 --- !u!4 &2065668795 stripped
 Transform:
@@ -44081,6 +44219,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 6d3564064fcfde64793dd664e7ffec83, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 3
@@ -44703,6 +44844,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: ea7fd9081fc29dd46a1bd5fa26ac7064, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 1
 --- !u!82 &2079455989
 AudioSource:
@@ -45755,6 +45899,9 @@ MonoBehaviour:
   _interactiveData: {fileID: 11400000, guid: 8930a793c065b7d4180f793cc1370b16, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
   isOn: 0
   tableController: {fileID: 275278499}
   buttonIndex: 8

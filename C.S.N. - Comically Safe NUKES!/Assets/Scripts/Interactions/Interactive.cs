@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Interactive : MonoBehaviour
@@ -8,12 +7,17 @@ public class Interactive : MonoBehaviour
     [SerializeField] private StatefulInteractive statefulPrefab;
     [SerializeField] private Transform _focusPoint;
     
+    [SerializeField] private AudioClip _requirementMetSound;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private bool _playSoundOnRequirementsMet = true;
+    
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
     private List<Interactive>       _requirements;
     private List<Interactive>       _dependents;
     private Animator                _animator;
     private bool                    _requirementsMet;
+    private bool                    _wasRequirementsMetLastFrame;
     private int                     _interactionCount;
     private StatefulInteractive    _statefulInstance;
     public bool                     isOn;
@@ -25,37 +29,46 @@ public class Interactive : MonoBehaviour
 
     void Awake()
     {
+        _requirements       = new List<Interactive>();
+        _dependents         = new List<Interactive>();
+        _animator           = GetComponent<Animator>();
+        _interactionCount   = 0;
+        _wasRequirementsMetLastFrame = false;
+        
+        if (_audioSource == null)
         {
-            _requirements       = new List<Interactive>();
-            _dependents         = new List<Interactive>();
-            _animator           = GetComponent<Animator>();
-            _interactionCount   = 0;
-            
-            if (_interactiveData != null)
+            _audioSource = GetComponent<AudioSource>();
+            if (_audioSource == null)
             {
-                _requirementsMet = _interactiveData.requirements.Length == 0;
-                isOn = _interactiveData.startsOn;
-            }
-            else
-            {
-                Debug.LogError($"Interactive {name} has no InteractiveData assigned!");
-                _requirementsMet = true;
-                isOn = true;
-            }
-
-            if (statefulPrefab != null)
-            {
-                _statefulInstance = Instantiate(statefulPrefab, transform);
-                _statefulInstance.transform.localPosition = Vector3.zero;
-                _statefulInstance.transform.localRotation = Quaternion.identity;
-                _statefulInstance.gameObject.SetActive(false);
+                _audioSource = gameObject.AddComponent<AudioSource>();
             }
         }
+        
+
+        _audioSource.playOnAwake = false;
+        _audioSource.spatialBlend = 1.0f;
+
+        if (_interactiveData != null)
+        {
+            _requirementsMet = _interactiveData.requirements.Length == 0;
+            isOn = _interactiveData.startsOn;
+        }
+
+        if (statefulPrefab != null)
+        {
+            _statefulInstance = Instantiate(statefulPrefab, transform);
+            _statefulInstance.transform.localPosition = Vector3.zero;
+            _statefulInstance.transform.localRotation = Quaternion.identity;
+            _statefulInstance.gameObject.SetActive(false);
+        }
     }
+    
     void Start()
     {
         Initialize();
+        _wasRequirementsMetLastFrame = _requirementsMet;
     }
+    
     private void Initialize()
     {
         _interactionManager = InteractionManager.instance;
@@ -68,6 +81,26 @@ public class Interactive : MonoBehaviour
         _playerInventory = _interactionManager.playerInventory;
         
         _interactionManager.RegisterInteractive(this);
+    }
+
+    void FixedUpdate()
+    {
+        if (_requirementsMet && !_wasRequirementsMetLastFrame && _playSoundOnRequirementsMet)
+        {
+            PlayRequirementMetSound();
+        }
+        
+        _wasRequirementsMetLastFrame = _requirementsMet;
+    }
+
+    private void PlayRequirementMetSound()
+    {
+        if (_audioSource != null && _requirementMetSound != null)
+        {
+            _audioSource.clip = _requirementMetSound;
+            _audioSource.Play();
+            Debug.Log($"Played requirement met sound on {gameObject.name}");
+        }
     }
 
     public StatefulInteractive GetStatefulItem()
@@ -84,6 +117,7 @@ public class Interactive : MonoBehaviour
     {
         _dependents.Add(dependent);
     }
+    
     public GameObject CreateInspectionModel()
     {
         if (_statefulInstance != null)
@@ -110,7 +144,8 @@ public class Interactive : MonoBehaviour
         
         return null;
     }
-     public void UpdateFromInspectionModel(GameObject inspectionModel)
+    
+    public void UpdateFromInspectionModel(GameObject inspectionModel)
     {
         if (_statefulInstance != null && inspectionModel != null)
         {
@@ -131,20 +166,20 @@ public class Interactive : MonoBehaviour
     }
 
     public bool GetInteractionMessage()
-{
-    if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
-        return true;
-    else if (IsType(InteractiveData.Type.InteractOnce) && _requirementsMet) 
-        return true;
-    else if (IsType(InteractiveData.Type.InteractMulti) && _requirementsMet) 
-        return true;
-    else if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
-        return true;
-    else if (!_requirementsMet && PlayerHasRequirementSelected())
-        return true;
-    
-    return false;
-}
+    {
+        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
+            return true;
+        else if (IsType(InteractiveData.Type.InteractOnce) && _requirementsMet) 
+            return true;
+        else if (IsType(InteractiveData.Type.InteractMulti) && _requirementsMet) 
+            return true;
+        else if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
+            return true;
+        else if (!_requirementsMet && PlayerHasRequirementSelected())
+            return true;
+        
+        return false;
+    }
 
     private bool PlayerHasRequirementSelected()
     {
@@ -209,6 +244,8 @@ public class Interactive : MonoBehaviour
 
     private void CheckRequirements()
     {
+        bool wasMet = _requirementsMet;
+        
         foreach (Interactive requirement in _requirements)
         {
             if (!requirement._requirementsMet || 
@@ -220,7 +257,16 @@ public class Interactive : MonoBehaviour
         }
 
         _requirementsMet = true;
-        PlayAnimation(_interactionManager.awakeAnimationName);
+        
+        if (!wasMet && _requirementsMet)
+        {
+            PlayAnimation(_interactionManager.awakeAnimationName);
+            
+            if (_playSoundOnRequirementsMet)
+            {
+                PlayRequirementMetSound();
+            }
+        }
 
         CheckDependentsRequirements();
     }
@@ -253,16 +299,20 @@ public class Interactive : MonoBehaviour
 
         CheckRequirements();
     }
+    
     public void ForceCheckRequirements()
     {
         CheckRequirements();
     }
-     public void SetRequirementsMet(bool met)
+    
+    public void SetRequirementsMet(bool met)
     {
+        bool wasMet = _requirementsMet;
         _requirementsMet = met;
         
-        if (met)
+        if (met && !wasMet && _playSoundOnRequirementsMet)
         {
+            PlayRequirementMetSound();
             PlayAnimation(_interactionManager?.awakeAnimationName);
         }
     }
@@ -279,6 +329,19 @@ public class Interactive : MonoBehaviour
             {
                 InteractionManager.instance.CameraFocusController.ExitFocus();
             }
+        }
+    }
+    public void SetRequirementMetSound(AudioClip clip)
+    {
+        _requirementMetSound = clip;
+    }
+    
+    public void PlayCustomSound(AudioClip clip)
+    {
+        if (_audioSource != null && clip != null)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
         }
     }
 }
