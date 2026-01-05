@@ -8,7 +8,8 @@ public class CameraFocusController : MonoBehaviour
     private Transform normalPosition;
     private Transform cam;
     private Transform targetFocusPoint;
-    [SerializeField]private float movespeed;
+    [SerializeField] private float movespeed;
+    [SerializeField] private PlayerMovement playermovement;
 
     private void Start()
     {
@@ -22,34 +23,41 @@ public class CameraFocusController : MonoBehaviour
     {
        if (isFocusing && targetFocusPoint != null)
        {
+            playermovement.enabled = false;
+
             cam.position = 
                 Vector3.Lerp(cam.position, targetFocusPoint.position, movespeed * Time.deltaTime);
             cam.rotation = 
                 Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, movespeed * Time.deltaTime);
+
+            if (Vector3.Distance(cam.position, targetFocusPoint.position) < 0.01f)
+            {
+                cam.position = targetFocusPoint.position;
+                cam.rotation = targetFocusPoint.rotation;
+                isFocusing = false;
+
+                EnableMouse(true);
+            }
        }
 
-        if (Vector3.Distance(cam.position, targetFocusPoint.position) < 0.01f)
-        {
-            cam.position = targetFocusPoint.position;
-            cam.rotation = targetFocusPoint.rotation;
-            isFocusing = false; // optional, depending on behavior
-        }
+       if (isReturning)
+       {
+           cam.position = 
+               Vector3.Lerp(cam.position, normalPosition.position, movespeed * Time.deltaTime);
+           cam.rotation = 
+               Quaternion.Lerp(cam.rotation, normalPosition.rotation, movespeed * Time.deltaTime);
 
-        if (isReturning)
-        {
-            cam.position = 
-                Vector3.Lerp(cam.position, normalPosition.position, movespeed * Time.deltaTime);
-            cam.rotation = 
-                Quaternion.Lerp(cam.rotation, normalPosition.rotation, movespeed * Time.deltaTime);
+           if (Vector3.Distance(cam.position, normalPosition.position)<0.01f)
+           {
+               isReturning = false;
 
-            if (Vector3.Distance(cam.position, normalPosition.position)<0.01f)
-            {
-                isReturning = false;
+               cam.localPosition = normalPosition.localPosition;
+               cam.localRotation = normalPosition.localRotation;
 
-                cam.localPosition = normalPosition.localPosition;
-                cam.localRotation = normalPosition.localRotation;
-            }
-        }
+               playermovement.enabled = true;
+               EnableMouse(false);
+           }
+       }
 
     }
 
@@ -67,6 +75,12 @@ public class CameraFocusController : MonoBehaviour
         isFocusing = false;
         isReturning = true;
         targetFocusPoint = null;
+    }
+
+    private void EnableMouse(bool enable)
+    {
+        Cursor.visible = enable;
+        Cursor.lockState = enable ? CursorLockMode.None : CursorLockMode.Locked;    
     }
 
     public bool GetFocusing() => isFocusing;
