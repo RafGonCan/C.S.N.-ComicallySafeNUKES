@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: Microwave_Door
   m_EditorClassIdentifier: 
   type: 2
-  startsOn: 1
+  startsOn: 0
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements: []
-  requirementsMessage: 
-  interactionMessages:
-  - Open
-  - Close
   inspectModel: {fileID: 0}
   inspectionDescription: 
-  inspectionNotes: 
