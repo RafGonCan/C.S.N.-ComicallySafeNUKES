@@ -7,7 +7,7 @@ public class CameraFocusController : MonoBehaviour
     private bool isReturning;
     private Transform normalPosition;
     private Transform cam;
-    private Transform targetFocousPoint;
+    private Transform targetFocusPoint;
     [SerializeField]private float movespeed;
 
     private void Start()
@@ -18,15 +18,22 @@ public class CameraFocusController : MonoBehaviour
         normalPosition.localPosition = cam.transform.localPosition;
         normalPosition.localRotation = cam.transform.localRotation;
     }
-    private void Update()
+    private void LateUpdate()
     {
-       if (isFocusing && targetFocousPoint != null)
+       if (isFocusing && targetFocusPoint != null)
        {
             cam.position = 
-                Vector3.Lerp(cam.position, targetFocousPoint.position, movespeed * Time.deltaTime);
+                Vector3.Lerp(cam.position, targetFocusPoint.position, movespeed * Time.deltaTime);
             cam.rotation = 
-                Quaternion.Lerp(cam.rotation, targetFocousPoint.rotation, movespeed * Time.deltaTime);
+                Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, movespeed * Time.deltaTime);
        }
+
+        if (Vector3.Distance(cam.position, targetFocusPoint.position) < 0.01f)
+        {
+            cam.position = targetFocusPoint.position;
+            cam.rotation = targetFocusPoint.rotation;
+            isFocusing = false; // optional, depending on behavior
+        }
 
         if (isReturning)
         {
@@ -48,16 +55,18 @@ public class CameraFocusController : MonoBehaviour
 
     public void EnterFocus(Transform focusPoint)
     {
+        if (isFocusing) return;
+
         isFocusing = true;
         isReturning = false;
-        targetFocousPoint = focusPoint;
+        targetFocusPoint = focusPoint;
     }
 
     public void ExitFocus()
     {
         isFocusing = false;
         isReturning = true;
-        targetFocousPoint = null;
+        targetFocusPoint = null;
     }
 
     public bool GetFocusing() => isFocusing;
