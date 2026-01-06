@@ -27888,8 +27888,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &1199651363
 GameObject:
   m_ObjectHideFlags: 0
@@ -28116,7 +28114,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204759692}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> 2e3735f3c06a3cc1e22d2f6e037261f6b7331bdd
 --- !u!1001 &1208689659
 PrefabInstance:
   m_ObjectHideFlags: 0
