@@ -17,5 +17,5 @@ MonoBehaviour:
   inventoryName: Antenna
   inventoryIcon: {fileID: 21300000, guid: 16fe1852418514349bf3d12652678626, type: 3}
   requirements: []
-  inspectModel: {fileID: -518470674339455465, guid: b194b41e140c0bf439fa992d42b50a3a, type: 3}
+  inspectModel: {fileID: 919132149155446097, guid: e5782a71145d4644c850f8680193d1f3, type: 3}
   inspectionDescription: Seems to be way ahead of its time
