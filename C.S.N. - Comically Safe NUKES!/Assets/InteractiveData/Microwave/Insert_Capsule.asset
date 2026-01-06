@@ -18,8 +18,5 @@ MonoBehaviour:
   inventoryIcon: {fileID: 0}
   requirements:
   - {fileID: 11400000, guid: 449f5c1c4c4ac684ea3a90d87fdb8760, type: 2}
-  requirementsMessage: Insert something inside!
-  interactionMessages: []
   inspectModel: {fileID: 0}
   inspectionDescription: 
-  inspectionNotes: 
