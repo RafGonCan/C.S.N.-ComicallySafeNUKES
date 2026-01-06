@@ -3200,6 +3200,8 @@ GameObject:
   - component: {fileID: 227599690}
   - component: {fileID: 227599694}
   - component: {fileID: 227599693}
+  - component: {fileID: 227599696}
+  - component: {fileID: 227599695}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -3232,14 +3234,14 @@ MonoBehaviour:
   AutomaticDolly:
     Enabled: 1
     Method:
-      rid: 4292958632232353947
+      rid: 4292958643241091144
   m_LegacyPosition: -1
   m_LegacyUnits: 0
   m_LegacySpline: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 4292958632232353947
+    - rid: 4292958643241091144
       type: {class: SplineAutoDolly/FixedSpeed, ns: Unity.Cinemachine, asm: Unity.Cinemachine}
       data:
         Speed: 0.3
@@ -3360,7 +3362,7 @@ MonoBehaviour:
     - m_Index: 2
       m_Value:
         LookAt: {fileID: 1895801024}
-        Offset: {x: 0, y: 0, z: 1.55}
+        Offset: {x: 0.81, y: 5.14, z: 0.29}
         Easing: 1
     - m_Index: 3.2
       m_Value:
@@ -3377,6 +3379,73 @@ MonoBehaviour:
         LookAt: {fileID: 296023639}
         Offset: {x: 0, y: 0, z: 0}
         Easing: 1
+    - m_Index: 7
+      m_Value:
+        LookAt: {fileID: 296023639}
+        Offset: {x: 0, y: 0, z: 0}
+        Easing: 1
+    - m_Index: 8
+      m_Value:
+        LookAt: {fileID: 1052847824}
+        Offset: {x: -0.48, y: 0.83, z: 0}
+        Easing: 1
+    - m_Index: 9
+      m_Value:
+        LookAt: {fileID: 1133101263}
+        Offset: {x: 0.3, y: 1.47, z: 0}
+        Easing: 1
+    - m_Index: 11
+      m_Value:
+        LookAt: {fileID: 1372186425}
+        Offset: {x: -1.2, y: 1.3, z: -0.23}
+        Easing: 1
+    - m_Index: 12
+      m_Value:
+        LookAt: {fileID: 745670301}
+        Offset: {x: 0.12, y: 0.83, z: -2.77}
+        Easing: 1
+    - m_Index: 13
+      m_Value:
+        LookAt: {fileID: 1268633873}
+        Offset: {x: -0.24, y: 0.93, z: 0}
+        Easing: 1
+    - m_Index: 13.1
+      m_Value:
+        LookAt: {fileID: 1816805774}
+        Offset: {x: 0, y: 0, z: 0}
+        Easing: 1
+--- !u!114 &227599695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227599688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals: []
+    m_Events: []
+--- !u!114 &227599696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227599688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 1
+  FrequencyGain: 1
+  m_NoiseOffsets: {x: 784.0714, y: 732.2125, z: 275.1827}
 --- !u!1 &230745209
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,8 +5818,14 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 0}
     value: {fileID: 2145993012}
+  - key: {fileID: 4016504341582782119, guid: f85bce17f60ba7648a972e7b97378ba4, type: 2}
+    value: {fileID: 2145993012}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 5576a0f008302674bba6d189e4283e2a: {fileID: 575044178}
+    - b47e65f2c89164f458ecad87eb7c67e1: {fileID: 227599691}
+    - a2fcea08fef95744fb666e1e02be4ae5: {fileID: 227599691}
+    - d62986270a7c92f4c9c62dd9685d3309: {fileID: 227599691}
 --- !u!4 &356483665
 Transform:
   m_ObjectHideFlags: 0
@@ -37104,53 +37179,53 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.72747165
+        z: -0.90049505
       TangentOut:
         x: 0
         y: 0
-        z: 0.5398656
+        z: 1.0010666
       Rotation:
         value:
-          x: -0.012601683
-          y: 0.6780206
-          z: 0.012380807
-          w: 0.73483056
+          x: -0.020453889
+          y: 0.68328136
+          z: 0.019457791
+          w: 0.72960913
     - Position:
-        x: 6.7159996
+        x: 8.486
         y: 1.579
         z: 6.2923975
       TangentIn:
         x: -0
         y: -0
-        z: -0.58190453
+        z: -0.97289044
       TangentOut:
         x: 0
         y: 0
-        z: 0.9547272
+        z: 0.86108166
       Rotation:
         value:
-          x: -0.007320596
-          y: 0.73593575
-          z: -0.02161755
-          w: 0.6766665
+          x: -0.018049428
+          y: 0.7723501
+          z: -0.009466124
+          w: 0.63487
     - Position:
-        x: 10.445
+        x: 10.769
         y: 1.704
-        z: 5.4603977
+        z: 5.2903976
       TangentIn:
         x: -0
         y: -0
-        z: -1.2072155
+        z: -0.86917007
       TangentOut:
         x: 0
         y: 0
-        z: 1.1816915
+        z: 1.0020901
       Rotation:
         value:
-          x: -0.13198559
-          y: 0.8493296
-          z: -0.10924492
-          w: 0.49928418
+          x: -0.13625613
+          y: 0.87659544
+          z: -0.099219345
+          w: 0.45074397
     - Position:
         x: 13.024
         y: 1.207
@@ -37158,17 +37233,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.63200516
+        z: -0.60419315
       TangentOut:
         x: 0
         y: 0
-        z: 0.8700656
+        z: 0.8738956
       Rotation:
         value:
-          x: -0.110498354
-          y: 0.97603506
-          z: -0.073275834
-          w: -0.17255794
+          x: -0.110299736
+          y: 0.9741175
+          z: -0.0772169
+          w: -0.18156654
     - Position:
         x: 6.147
         y: 1.025
@@ -37194,53 +37269,53 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -1.0512123
+        z: -1.0558244
       TangentOut:
         x: 0
         y: 0
-        z: 1.1771455
+        z: 1.1899282
       Rotation:
         value:
-          x: -0.00068292656
-          y: 0.9707348
-          z: 0.046346787
-          w: 0.23563857
+          x: -0.008249244
+          y: 0.9698486
+          z: 0.07665891
+          w: 0.23119044
     - Position:
         x: 10.023
-        y: 1.701
+        y: 2.183
         z: -3.5536025
       TangentIn:
         x: -0
         y: -0
-        z: -1.2453569
+        z: -1.2571236
       TangentOut:
         x: 0
         y: 0
-        z: 0.8567709
+        z: 0.8867646
       Rotation:
         value:
-          x: 0.017827548
-          y: 0.93444264
-          z: -0.043465964
-          w: 0.3530014
+          x: 0.025169348
+          y: 0.92788017
+          z: -0.065226145
+          w: 0.3662655
     - Position:
-        x: 10.202
+        x: 10.278
         y: 0.974
-        z: -6.2086024
+        z: -6.218602
       TangentIn:
-        x: -0
-        y: -0
-        z: -0.27585495
+        x: 0
+        y: 0
+        z: -0.51363355
       TangentOut:
         x: 0
         y: 0
-        z: 0.27585495
+        z: 0.30166554
       Rotation:
         value:
-          x: 0.008397377
-          y: 0.9905355
-          z: -0.132744
-          w: 0.03387992
+          x: 0.018819729
+          y: 0.87653863
+          z: -0.48020676
+          w: 0.026969187
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -37270,7 +37345,7 @@ MonoBehaviour:
       Tension: 0.5
     - Mode: 0
       Tension: 0.5
-    - Mode: 0
+    - Mode: 3
       Tension: 0.5
     m_Closed: 0
     m_IntData:
@@ -39346,6 +39421,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1816805774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1266625216331459386, guid: 5a522eb4e7e77eb418907dc83543c3d4, type: 3}
+  m_PrefabInstance: {fileID: 413538313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1818423551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40971,8 +41051,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
-  m_sharedMaterial: {fileID: 307693244200048992, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
