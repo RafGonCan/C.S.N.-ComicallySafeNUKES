@@ -21,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
     private bool                _jump;
     private bool                _crouch;
     private float               _cameraLocalPos;
+    private float               _mouseSensitivity = 2f;
+    private const string SensitivityKey = "MouseSensitivity";
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
         _head       = GetComponentInChildren<Camera>().transform;
         _cameraLocalPos = _head.localPosition.y;
+        _mouseSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 2f);
     }
 
     void Update()
@@ -42,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
-        float rotation = Input.GetAxis("Mouse X");
+        float rotation = Input.GetAxis("Mouse X") * _mouseSensitivity;
 
         transform.Rotate(0f, rotation, 0f);
     }
@@ -51,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _headRotation = _head.localEulerAngles;
 
-        _headRotation.x -= Input.GetAxis("Mouse Y");
+        _headRotation.x -= Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
         if (_headRotation.x > 180f)
             _headRotation.x = Mathf.Max(_maxLookUpAngle, _headRotation.x);
@@ -131,5 +134,13 @@ public class PlayerMovement : MonoBehaviour
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
 
         _head.localPosition = newPos;
-    }    
+    }
+
+    public void SetMouseSensitivity(float sensitivity)
+    {
+        _mouseSensitivity = sensitivity;
+        PlayerPrefs.SetFloat(SensitivityKey, sensitivity);
+        PlayerPrefs.Save();
+    }
+
 }   
