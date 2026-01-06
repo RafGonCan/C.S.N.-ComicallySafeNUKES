@@ -18,7 +18,5 @@ MonoBehaviour:
   inventoryIcon: {fileID: 0}
   requirements:
   - {fileID: 11400000, guid: 95bf6babb364fc74eadfb4240cdd2de4, type: 2}
-  requirementsMessage: 
-  interactionMessages:
-  - Open
-  - Close
+  inspectModel: {fileID: 0}
+  inspectionDescription: 
