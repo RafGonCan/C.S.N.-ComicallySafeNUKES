@@ -8,6 +8,8 @@ public class CameraFocusController : MonoBehaviour
     private Transform normalPosition;
     private Transform cam;
     private Transform targetFocusPoint;
+    private Canvas currentCanvas;
+
     [SerializeField] private float movespeed;
     [SerializeField] private PlayerMovement playermovement;
 
@@ -65,9 +67,27 @@ public class CameraFocusController : MonoBehaviour
     {
         if (isFocusing) return;
 
+        if (currentCanvas != null)
+        {
+            currentCanvas.gameObject.SetActive(false);
+            currentCanvas = null;
+        }
+
         isFocusing = true;
         isReturning = false;
         targetFocusPoint = focusPoint;
+
+        currentCanvas = focusPoint.GetComponentInChildren<Canvas>(true);
+
+        if (currentCanvas != null && currentCanvas.renderMode == RenderMode.WorldSpace)
+        {
+            currentCanvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning(
+                $"No World Space Canvas found under {focusPoint.name}");
+        }
     }
 
     public void ExitFocus()
@@ -75,6 +95,12 @@ public class CameraFocusController : MonoBehaviour
         isFocusing = false;
         isReturning = true;
         targetFocusPoint = null;
+
+        if (currentCanvas != null)
+        {
+            currentCanvas.gameObject.SetActive(false);
+            currentCanvas = null;
+        }
     }
 
     private void EnableMouse(bool enable)
