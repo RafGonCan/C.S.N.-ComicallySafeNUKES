@@ -17,6 +17,6 @@ MonoBehaviour:
   inventoryName: Plutonium Tube
   inventoryIcon: {fileID: 21300000, guid: 52554c805a644184ea49630b2f5237f2, type: 3}
   requirements: []
-  inspectModel: {fileID: 919132149155446097, guid: 8fcd8fde56ea9bf4aa69727402f929d3, type: 3}
+  inspectModel: {fileID: 919132149155446097, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
   inspectionDescription: "Highly radioactive tube of plutonium. \n\nA couple of these
     could probably power a whole nuke."

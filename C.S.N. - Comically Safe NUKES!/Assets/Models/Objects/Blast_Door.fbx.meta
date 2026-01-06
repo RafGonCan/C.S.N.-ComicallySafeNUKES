@@ -7,8 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Door_Body_Shader
+    second: {fileID: 2100000, guid: 6406aac54b0f93b41be687592bdf51a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lock_L_Shader
+    second: {fileID: 2100000, guid: 70e7739291a19ef409fb96a2b91a09b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lock_Right_Shader
+    second: {fileID: 2100000, guid: c74fa26832faba84ea751d86f0a9e1f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lock_T_B_Shader
+    second: {fileID: 2100000, guid: 5af57bf77429b1742ae8123c8791231b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Valve_Shader
+    second: {fileID: 2100000, guid: dad4c5d5f3614994c873d5104f3fd54a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 313d39290c4eb3e4cbb1d39565a98d79, type: 2}
+    second: {fileID: 2100000, guid: cbd143cd1215daa449fbc81d1002fa1c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

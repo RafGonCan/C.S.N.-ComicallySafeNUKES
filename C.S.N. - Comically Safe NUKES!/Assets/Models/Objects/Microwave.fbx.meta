@@ -7,8 +7,53 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Buttons_Shader
+    second: {fileID: 2100000, guid: 7070db7a6ca50734ea1a84b7b1616c96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_Shader
+    second: {fileID: 2100000, guid: e583b2cc32b90b74289e6c24cb7e0222, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_1_Shader
+    second: {fileID: 2100000, guid: 0f85ac8a2b37bbf48917b1dc788fd461, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_2_Shader
+    second: {fileID: 2100000, guid: d84e7aa59d7ad6a4fa780fe9d70ee663, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_3_Shader
+    second: {fileID: 2100000, guid: 60a88cc2cfef3a044ab79f1fc90d1739, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_4_Shader
+    second: {fileID: 2100000, guid: bd5fed126cc02bf4d81ec9fdca95b369, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_5_Shader
+    second: {fileID: 2100000, guid: af398b0e8e41f5e449d56c40d26df64b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Visor_Shader
+    second: {fileID: 2100000, guid: ba3413ef6085ead45b7c7186af97948c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_Shader
+    second: {fileID: 2100000, guid: 832f7c261187af848924076ba0bcd47e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 402e2907b79931f4792600ea518fa75e, type: 2}
+    second: {fileID: 2100000, guid: 355757026e14f7c47b84ee7186af35e8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

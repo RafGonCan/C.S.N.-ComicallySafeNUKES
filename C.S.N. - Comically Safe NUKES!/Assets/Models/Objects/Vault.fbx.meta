@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Dial_Shader
+    second: {fileID: 2100000, guid: 64f2cb0074e112f478fba6ed595bdc70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_Shader
+    second: {fileID: 2100000, guid: d95cb95ba06486a4180b2ff46cd61c2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Valve_Shader
+    second: {fileID: 2100000, guid: d426d0f1c38807242ae37a338628be87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 402e2907b79931f4792600ea518fa75e, type: 2}
+    second: {fileID: 2100000, guid: 8e9966c2993e0ee4f866533f35b43aab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -17,10 +17,7 @@ MonoBehaviour:
   inventoryName: Frozen Plutonium Tube
   inventoryIcon: {fileID: 21300000, guid: 016dec92bfa2db84cb867b3ce9e35b5f, type: 3}
   requirements: []
-  requirementsMessage: 
-  interactionMessages:
-  - Insert frozen plutonium
-  inspectModel: {fileID: 919132149155446097, guid: 8fcd8fde56ea9bf4aa69727402f929d3, type: 3}
+  inspectModel: {fileID: 919132149155446097, guid: b4ee4719c996262499651b2f609ba21d, type: 3}
   inspectionDescription: 'Seems to be frozen solid.
 
 

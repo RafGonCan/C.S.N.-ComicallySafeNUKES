@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Button_Shader
+    second: {fileID: 2100000, guid: 5e6cb5a6fd907fa40b4d4039f28e6a7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Visor_Shader
+    second: {fileID: 2100000, guid: 0cf0606e6fbd3654f97c6cd5a1a103d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 402e2907b79931f4792600ea518fa75e, type: 2}
+    second: {fileID: 2100000, guid: 190420f816f4a5d42b45e1b1b7e50f8e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
