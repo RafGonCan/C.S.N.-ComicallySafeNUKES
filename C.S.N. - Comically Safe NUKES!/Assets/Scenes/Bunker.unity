@@ -6041,8 +6041,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
-  m_sharedMaterial: {fileID: 307693244200048992, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a26674bcc735aef4282caa92d509d693, type: 2}
+  m_sharedMaterial: {fileID: 135137936570667150, guid: a26674bcc735aef4282caa92d509d693, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27543,8 +27543,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
-  m_sharedMaterial: {fileID: 307693244200048992, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a26674bcc735aef4282caa92d509d693, type: 2}
+  m_sharedMaterial: {fileID: 135137936570667150, guid: a26674bcc735aef4282caa92d509d693, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -40434,8 +40434,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
-  m_sharedMaterial: {fileID: 307693244200048992, guid: 8de5fd28a993be643b18eacf45c2d810, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a26674bcc735aef4282caa92d509d693, type: 2}
+  m_sharedMaterial: {fileID: 135137936570667150, guid: a26674bcc735aef4282caa92d509d693, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -40862,7 +40862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1919596335
 RectTransform:
   m_ObjectHideFlags: 0
