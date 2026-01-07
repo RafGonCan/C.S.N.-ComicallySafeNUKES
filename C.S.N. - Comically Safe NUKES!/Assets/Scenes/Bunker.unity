@@ -6010,8 +6010,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: C.S.N. - Instruction Manual
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d81dc629e1bdf3147918cd0ab88e6ed9, type: 2}
+  m_sharedMaterial: {fileID: -6012866518945723988, guid: d81dc629e1bdf3147918cd0ab88e6ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33448,8 +33448,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278226632
-  m_fontColor: {r: 0.7830189, g: 0.55779916, b: 0, a: 1}
+    rgba: 4278630633
+  m_fontColor: {r: 0.9150943, g: 0.7218182, b: 0.02158241, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -43164,8 +43164,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d81dc629e1bdf3147918cd0ab88e6ed9, type: 2}
+  m_sharedMaterial: {fileID: -6012866518945723988, guid: d81dc629e1bdf3147918cd0ab88e6ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
