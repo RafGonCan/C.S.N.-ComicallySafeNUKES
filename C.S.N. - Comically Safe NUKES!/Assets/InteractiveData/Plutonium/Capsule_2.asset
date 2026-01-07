@@ -18,5 +18,5 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: 52554c805a644184ea49630b2f5237f2, type: 3}
   requirements: []
   inspectModel: {fileID: 919132149155446097, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
-  inspectionDescription: "Highly radioactive tube of plutonium.\n\nIt's radiating
-    with power... or maybe from being heated in a microwave. \n\nSuch irresponsability."
+  inspectionDescription: "Highly radioactive tube of plutonium.\nIt's radiating with
+    power... or maybe from being heated in a microwave. \n\nSuch irresponsability."

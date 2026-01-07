@@ -1,9 +1,11 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Pause_Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject areYouSure;
     [SerializeField] private PlayerMovement playerMovement;
     private bool _isPaused;
     public bool Paused => _isPaused;
@@ -46,7 +48,14 @@ public class Pause_Menu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
+    public void YouSure()
+    {
+        areYouSure.SetActive(true);
+    }
+    public void NotSure()
+    {
+        areYouSure.SetActive(false);
+    }
     public void Exit()
     {
         _isPaused = false;

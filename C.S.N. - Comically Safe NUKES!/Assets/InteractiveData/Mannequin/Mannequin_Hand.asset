@@ -18,7 +18,7 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: 633356f0315e66b45a14a5fda65a497c, type: 3}
   requirements: []
   inspectModel: {fileID: 919132149155446097, guid: 2c82b8b9a0ad64f4db79e92e2c14ef9a, type: 3}
-  inspectionDescription: 'A simple wooden mannequin hand
+  inspectionDescription: 'A simple wooden mannequin hand.
 
 
     It has no fingerprints...
