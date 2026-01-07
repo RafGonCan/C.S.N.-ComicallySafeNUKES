@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _head       = GetComponentInChildren<Camera>().transform;
         _cameraLocalPos = _head.localPosition.y;
-        _mouseSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 2f);
+        _mouseSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 0.5f);
     }
 
     void Update()
