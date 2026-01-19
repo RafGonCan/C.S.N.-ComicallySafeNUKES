@@ -27,7 +27,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
-    [SerializeField] private CameraFocusController _cameraFocusController;
+    private CameraFocusController _cameraFocusController;
     private PlayerInventory     _playerInventory;
     private PlayerMovement      _playerMovement;
     private Pause_Menu          _pauseMenu;
@@ -89,6 +89,10 @@ public class InteractionManager : MonoBehaviour
         {
             _playerInventory = _playerMovement?.GetComponent<PlayerInventory>();
         } 
+        if (_cameraFocusController == null)
+        {
+            _cameraFocusController = _playerMovement?.GetComponentInChildren<CameraFocusController>();
+        }
         if (_pauseMenu == null)
         {
             _pauseMenu = FindFirstObjectByType<Pause_Menu>();

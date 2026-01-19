@@ -3,7 +3,7 @@ using UnityEngine;
 public class Manual_Menu : MonoBehaviour
 {
     [SerializeField] private GameObject manualMenu;
-    private bool _isManualOpen = true;
+    private bool _isManualOpen = false;
 
     void Update()
     {
