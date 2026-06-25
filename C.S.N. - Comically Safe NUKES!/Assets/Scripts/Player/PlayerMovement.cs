@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxForwardSpeed;
     [SerializeField] private float _maxBackwardSpeed;
     [SerializeField] private float _maxStrafeSpeed;
-    [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _crouchHeight;
     [SerializeField] private float _crouchTransitionSpeed;
     [SerializeField] private float _maxLookUpAngle;
@@ -18,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3             _velocityHor;
     private Vector3             _velocityVer;
     private Vector3             _motion;
-    private bool                _jump;
     private bool                _crouch;
     private float               _cameraLocalPos;
     private float               _mouseSensitivity = 2f;
@@ -38,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateRotation();
         UpdateHead();
-        CheckForJump();
         CheckForCrouch();
         UpdateCameraHeight();
     }
@@ -62,12 +59,6 @@ public class PlayerMovement : MonoBehaviour
             _headRotation.x = Mathf.Min(_maxLookDownAngle, _headRotation.x);
 
         _head.localEulerAngles = _headRotation;
-    }
-    
-    private void CheckForJump()
-    {
-        if (Input.GetButtonDown("Jump") && _controller.isGrounded)  
-            _jump = true;
     }
     private void CheckForCrouch()
     {
@@ -105,12 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateVelocityVer()
     {
-        if (_jump)
-        {
-            _velocityVer.y = _jumpSpeed;
-            _jump = false;
-        }
-        else if (_controller.isGrounded)
+        if (_controller.isGrounded)
             _velocityVer.y = -0.1f;
         else if (_velocityVer.y > -_maxFallSpeed)
         {
