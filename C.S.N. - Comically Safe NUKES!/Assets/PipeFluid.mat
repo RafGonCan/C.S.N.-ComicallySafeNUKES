@@ -40,32 +40,11 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 36a20bf4f4a8c844dbb96d9cddb42933, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 36a20bf4f4a8c844dbb96d9cddb42933, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a7abbcc9a1a417f46933fd3ad47a7a6d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: a27ba6e64eedd1c4d8a069a25d2f7d24, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Cutoff: 0.5
-    - _GlossMapScale: 1
-    - _GlossyReflections: 1
-    - _Parallax: 0.02
-    - _Smoothness: 0
-    m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.29411766}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.29411766}
+    - _AlphaClip: 0
+    - _Speed: 1
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

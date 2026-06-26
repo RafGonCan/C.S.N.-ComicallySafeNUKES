@@ -21,6 +21,7 @@ public class Pause_Menu : MonoBehaviour
             {
                 Pause();
             }
+            Debug.Log("Pause button pressed. Current state: " + (_isPaused ? "Paused" : "Resumed"));
         }
     }
 
