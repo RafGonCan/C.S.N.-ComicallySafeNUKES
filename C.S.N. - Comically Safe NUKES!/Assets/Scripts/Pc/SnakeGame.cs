@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class SnakeGame : MonoBehaviour
@@ -8,9 +9,14 @@ public class SnakeGame : MonoBehaviour
     [SerializeField] private GameObject snakeBodySegment;
     [SerializeField] private GameObject snakeHeadSegment;
     [SerializeField] private RectTransform food;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject digitalPlutonium;
+    [SerializeField] private GameObject startButton;
 
     private float gridSize = 20f;
     private Vector2 direction;
+    private int applesCollected = 0;
+    private bool gameCompleted = false;
     private Queue<Vector2> directionQueue = new Queue<Vector2>();
     private int maxQueueSize = 2;
     private List<RectTransform> snake = new List<RectTransform>();
@@ -30,7 +36,10 @@ public class SnakeGame : MonoBehaviour
     
     public void StartGame()
     {
-        if (gameStarted) return;
+        if (gameCompleted || gameStarted) return;
+
+        background.SetActive(false);
+        Cursor.visible = false;
 
         CalculateMaxCells();
 
@@ -63,6 +72,14 @@ public class SnakeGame : MonoBehaviour
         {
             moveTimer = 0;
             MoveSnake();
+            if (applesCollected >= 12)
+            {
+                gameCompleted = true;
+                digitalPlutonium.SetActive(true);
+                startButton.SetActive(false);
+                background.SetActive(true);
+                Cursor.visible = true;
+            }
         }
     }
 
@@ -104,6 +121,7 @@ public class SnakeGame : MonoBehaviour
             {
                 Debug.Log("Game Over: Snake hit itself");
                 gameStarted = false;
+                background.SetActive(true);
                 return;
             }
         }
@@ -117,6 +135,7 @@ public class SnakeGame : MonoBehaviour
         {
             AddSegment();
             SpawnFood();
+            applesCollected++;
         }
     }
 

@@ -10,6 +10,7 @@ public class Interactive : MonoBehaviour
     [SerializeField] private AudioClip _requirementMetSound;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private bool _playSoundOnRequirementsMet = true;
+    [SerializeField] private AudioClip _fallbackSound;
     
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
@@ -167,17 +168,18 @@ public class Interactive : MonoBehaviour
 
     public bool GetInteractionMessage()
     {
+        if (IsType(InteractiveData.Type.InteractOnce) || IsType(InteractiveData.Type.InteractMulti))
+            return true;
+
         if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
             return true;
-        else if (IsType(InteractiveData.Type.InteractOnce) && _requirementsMet) 
+
+        if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
             return true;
-        else if (IsType(InteractiveData.Type.InteractMulti) && _requirementsMet) 
+
+        if (!_requirementsMet && PlayerHasRequirementSelected())
             return true;
-        else if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
-            return true;
-        else if (!_requirementsMet && PlayerHasRequirementSelected())
-            return true;
-        
+
         return false;
     }
 
@@ -198,6 +200,22 @@ public class Interactive : MonoBehaviour
         }            
         else if (PlayerHasRequirementSelected())
             UseRequirementFromInventory();
+        else
+        {
+            InteractWithoutRequirements();
+        }
+    }
+    protected virtual void InteractWithoutRequirements()
+    {
+        if (_fallbackSound != null)
+        {
+            PlayCustomSound(_fallbackSound);
+        }
+        if (!string.IsNullOrEmpty(_interactionManager.fallbackAnimationName) && _animator != null)
+        {
+            _animator.SetTrigger(_interactionManager.fallbackAnimationName);
+            Debug.Log("Fallback was played");
+        }
     }
 
     protected virtual void InteractSelf(bool direct)

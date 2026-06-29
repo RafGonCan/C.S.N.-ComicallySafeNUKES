@@ -6,6 +6,7 @@ public class Pause_Menu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject areYouSure;
     [SerializeField] private PlayerMovement playerMovement;
+    private CameraFocusController cameraFocusController => InteractionManager.instance.CameraFocusController;
     private bool _isPaused;
     public bool Paused => _isPaused;
 
@@ -17,10 +18,11 @@ public class Pause_Menu : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if (!cameraFocusController.GetFocusing())
             {
                 Pause();
             }
+            else return;
             Debug.Log("Pause button pressed. Current state: " + (_isPaused ? "Paused" : "Resumed"));
         }
     }

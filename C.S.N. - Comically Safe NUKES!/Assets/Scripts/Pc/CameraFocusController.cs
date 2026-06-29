@@ -9,6 +9,12 @@ public class CameraFocusController : MonoBehaviour
     private Transform cam;
     private Transform targetFocusPoint;
     private Canvas currentCanvas;
+    private bool blockExitFocus = true;
+    public bool BlockExitFocus
+    {
+        get => blockExitFocus;
+        set => blockExitFocus = value;
+    }
 
     [SerializeField] private float movespeed;
     [SerializeField] private PlayerMovement playermovement;
@@ -36,7 +42,6 @@ public class CameraFocusController : MonoBehaviour
             {
                 cam.position = targetFocusPoint.position;
                 cam.rotation = targetFocusPoint.rotation;
-                isFocusing = false;
 
                 EnableMouse(true);
             }
@@ -62,7 +67,6 @@ public class CameraFocusController : MonoBehaviour
        }
 
     }
-
     public void EnterFocus(Transform focusPoint)
     {
         if (isFocusing) return;
@@ -92,6 +96,7 @@ public class CameraFocusController : MonoBehaviour
 
     public void ExitFocus()
     {
+        if (blockExitFocus) return;
         isFocusing = false;
         isReturning = true;
         targetFocusPoint = null;
@@ -102,6 +107,11 @@ public class CameraFocusController : MonoBehaviour
             currentCanvas = null;
         }
     }
+    public void ExitButton()
+    {
+        blockExitFocus = false;
+        ExitFocus();
+    }
 
     private void EnableMouse(bool enable)
     {
@@ -110,5 +120,6 @@ public class CameraFocusController : MonoBehaviour
     }
 
     public bool GetFocusing() => isFocusing;
+    public bool GetReturning() => isReturning;
 
 }

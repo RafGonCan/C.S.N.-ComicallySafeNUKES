@@ -7,15 +7,13 @@ using System.Collections;
 
 public class Launch : Interactive
 {
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private string sceneToLoad;
     protected override void InteractSelf(bool direct)
     {
-        StartCoroutine(LoadSceneAfterDelay(1f, sceneToLoad));
         base.InteractSelf(direct);
-    }
-    private IEnumerator LoadSceneAfterDelay(float delay, string sceneName)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneName);
+        playerMovement.enabled = false;
+        SceneManager.LoadScene(sceneToLoad);
+        Debug.Log("Launch InteractSelf called. PlayerMovement disabled and animation triggered.");
     }
 }

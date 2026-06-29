@@ -27,6 +27,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
     [SerializeField] private string             _interactAnimationName;
+    [SerializeField] private string             _fallbackAnimationName;
     private CameraFocusController _cameraFocusController;
     private PlayerInventory     _playerInventory;
     private PlayerMovement      _playerMovement;
@@ -36,6 +37,7 @@ public class InteractionManager : MonoBehaviour
     public PlayerInventory      playerInventory         => _playerInventory;
     public string               awakeAnimationName      => _awakeAnimationName;
     public string               interactAnimationName   => _interactAnimationName;
+    public string               fallbackAnimationName   => _fallbackAnimationName;
     private bool                _dependenciesProcessed  = false;
     
 

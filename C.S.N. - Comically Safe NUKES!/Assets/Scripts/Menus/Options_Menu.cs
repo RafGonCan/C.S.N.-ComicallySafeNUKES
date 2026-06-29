@@ -3,33 +3,30 @@ using UnityEngine.UI;
 
 public class Options_Menu : MonoBehaviour
 {
-    [SerializeField] private Slider volumeslider;
-    [SerializeField] private Slider sensitivityslider;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider sensitivitySlider;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private const string VolumeKey = "MasterVolume";
     private const string SensitivityKey = "MouseSensitivity";
 
-    void Start()
+    private void OnEnable()
     {
-
-        if (!PlayerPrefs.HasKey(VolumeKey))
-            PlayerPrefs.SetFloat(VolumeKey, 1f); 
-        if (!PlayerPrefs.HasKey(SensitivityKey))
-            PlayerPrefs.SetFloat(SensitivityKey, 2f); 
-        PlayerPrefs.Save();
-
-        volumeslider.onValueChanged.RemoveAllListeners();
-        sensitivityslider.onValueChanged.RemoveAllListeners();
-
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        volumeslider.value = savedVolume;
+        float savedSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 2f);
+
+        volumeSlider.value = savedVolume;
+        sensitivitySlider.value = savedSensitivity;
         AudioListener.volume = savedVolume;
 
-        float savedSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 2f);
-        sensitivityslider.value = savedSensitivity;
+        if (playerMovement != null)
+            playerMovement.SetMouseSensitivity(savedSensitivity);
 
-        volumeslider.onValueChanged.AddListener(SetVolume);
-        sensitivityslider.onValueChanged.AddListener(SetSensitivity);
+        volumeSlider.onValueChanged.RemoveAllListeners();
+        sensitivitySlider.onValueChanged.RemoveAllListeners();
+
+        volumeSlider.onValueChanged.AddListener(SetVolume);
+        sensitivitySlider.onValueChanged.AddListener(SetSensitivity);
     }
 
     public void SetVolume(float volume)
@@ -38,19 +35,13 @@ public class Options_Menu : MonoBehaviour
         PlayerPrefs.SetFloat(VolumeKey, volume);
         PlayerPrefs.Save();
     }
+
     public void SetSensitivity(float sensitivity)
     {
         PlayerPrefs.SetFloat(SensitivityKey, sensitivity);
         PlayerPrefs.Save();
-    }
 
-    void LoadVolume()
-    {
-        float volume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        AudioListener.volume = volume;
-        volumeslider.value = volume;
-
-        float savedSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 2f);
-        sensitivityslider.value = savedSensitivity;
+        if (playerMovement != null)
+            playerMovement.SetMouseSensitivity(sensitivity);
     }
 }
