@@ -17,7 +17,7 @@ MonoBehaviour:
   inventoryName: Wooden Hand
   inventoryIcon: {fileID: 21300000, guid: 633356f0315e66b45a14a5fda65a497c, type: 3}
   requirements: []
-  inspectModel: {fileID: 919132149155446097, guid: f39e25957052dcb42826084f7d31f622, type: 3}
+  inspectModel: {fileID: 919132149155446097, guid: 3d139ae8ce3b2564381ae63a36819b9e, type: 3}
   inspectionDescription: 'A simple wooden mannequin hand.
 
 
