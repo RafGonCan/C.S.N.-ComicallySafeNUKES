@@ -55,8 +55,8 @@ Material:
     - _Fresnel_Strength: 3
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Sharpness: 0.7
-    - _Static: 3
+    - _Sharpness: 0.5
+    - _Static: 0.5
     m_Colors:
     - _Background: {r: 0.0714285, g: 0.20754716, b: 0.01860092, a: 0}
     - _Fresnel_Color: {r: 0.22544685, g: 0.7075471, b: 0.20358667, a: 0}
