@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     private PlayerInteraction   _playerInteraction;
     private List<Interactive>   _inventory;
     private int                 _selectedSlotIndex;
+    private bool                firstTimeAddingItem = true;
 
     void Start()
     {
@@ -17,6 +18,11 @@ public class PlayerInventory : MonoBehaviour
     }
     public void Add(Interactive item)
     {
+        if (firstTimeAddingItem)
+        {
+            _uiManager.TriggerInspectionReminder();
+            firstTimeAddingItem = false;
+        }
         _inventory.Add(item);
 
         _uiManager.ShowInventoryIcon(_inventory.Count - 1, item.inventoryIcon);
