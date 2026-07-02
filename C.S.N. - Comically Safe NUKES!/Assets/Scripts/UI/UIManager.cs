@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _interactionCrosshair;
+    [SerializeField] private GameObject _indirectInteractionCrosshair;
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
@@ -51,6 +52,11 @@ public class UIManager : MonoBehaviour
         HideInventoryIcons();
         ResetInventorySlots();
 
+        // Ensure crosshair states start correctly
+        _interactionCrosshair.SetActive(true);
+        _indirectInteractionCrosshair.SetActive(false);
+        ShowDefaultCrosshair();
+
         if (_topBlackBar != null)
             _topBlackBar.gameObject.SetActive(false);
         if (_bottomBlackBar != null)
@@ -68,7 +74,6 @@ public class UIManager : MonoBehaviour
             _bottomBlackBar.gameObject.SetActive(false);
         }
 
-        // ---------- NEW: Cache reminder components ----------
         if (_inspectionReminer != null)
         {
             _reminderCanvasGroup = _inspectionReminer.GetComponent<CanvasGroup>();
@@ -86,7 +91,6 @@ public class UIManager : MonoBehaviour
             else
                 _originalReminderColor = Color.white;
 
-            // Start fully hidden
             _reminderCanvasGroup.alpha = 0f;
             _inspectionReminer.SetActive(false);
         }
@@ -129,17 +133,27 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+
     public void ShowDefaultCrosshair()
     {
+        _indirectInteractionCrosshair.SetActive(false);
+        _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_defaultCrosshairScale, _defaultCrosshairScale, _defaultCrosshairScale);
     }
 
     public void ShowInteractionCrosshair()
     {
+        _indirectInteractionCrosshair.SetActive(false);
+        _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
     }
 
-    // ---------- REPLACED: This now triggers the full animation ----------
+    public void ShowIndirectInteractionCrosshair()
+    {
+        _interactionCrosshair.SetActive(false);
+        _indirectInteractionCrosshair.SetActive(true);
+        _indirectInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+    }
     public void TriggerInspectionReminder()
     {
         if (_reminderCoroutine != null)
@@ -152,7 +166,6 @@ public class UIManager : MonoBehaviour
     {
         if (_inspectionReminer == null) yield break;
 
-        // --- 1. FADE IN ---
         _inspectionReminer.SetActive(true);
         _reminderCanvasGroup.alpha = 0f;
 
@@ -166,7 +179,6 @@ public class UIManager : MonoBehaviour
         }
         _reminderCanvasGroup.alpha = 1f;
 
-        // --- 2. GLOW / PULSE for a few seconds ---
         elapsed = 0f;
         while (elapsed < _reminderGlowDuration)
         {
@@ -187,7 +199,6 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
 
-        // Reset color and scale
         if (_reminderText != null)
             _reminderText.color = _originalReminderColor;
         else if (_reminderImage != null)
@@ -195,7 +206,6 @@ public class UIManager : MonoBehaviour
 
         _inspectionReminer.transform.localScale = Vector3.one;
 
-        // --- 3. FADE OUT ---
         elapsed = 0f;
         while (elapsed < _reminderFadeDuration)
         {
@@ -209,8 +219,6 @@ public class UIManager : MonoBehaviour
         _inspectionReminer.SetActive(false);
         _reminderCoroutine = null;
     }
-
-    // ---------- END OF NEW REMINDER CODE ----------
 
     public void HideInteractionPanel()
     {

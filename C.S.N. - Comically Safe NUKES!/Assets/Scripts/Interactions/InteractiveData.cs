@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InteractiveData", menuName = "Scriptable Objects/InteractiveData")]
 public class InteractiveData : ScriptableObject
 {
-    public enum Type { Pickable, InteractOnce, InteractMulti, Indirect, Focusable};
+    public enum Type { Pickable, InteractOnce, InteractMulti, Indirect, Focusable, None};
 
     public Type                 type;
     public bool                 startsOn = true;

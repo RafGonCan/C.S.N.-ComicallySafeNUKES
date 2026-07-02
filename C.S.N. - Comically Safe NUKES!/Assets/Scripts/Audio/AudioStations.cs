@@ -4,20 +4,38 @@ using UnityEngine.Events;
 public class AudioStations : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    public AudioSource AudioSource => _audioSource;
     [SerializeField] private AudioSource _audioSourceFromPlayer;
+    public AudioSource AudioSourceFromPlayer => _audioSourceFromPlayer;
     [SerializeField] private AudioClip[] _soundClips;
+    public AudioClip[] SoundClips => _soundClips;
     [SerializeField] private AudioClip _playerVoiceLine;
+    public AudioClip PlayerVoiceLine => _playerVoiceLine;
     [SerializeField] private bool _playOnEnable;
     private UnityEvent  _onButtonPressed;
+    public UnityEvent OnButtonPressed => _onButtonPressed;
     private int         _currentClipIndex = 0;
+    public int          CurrentClipIndex => _currentClipIndex;
 
-    void Start()
+    private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        
-        
         _audioSource.spatialBlend = 1f;
         _audioSource.playOnAwake = false;
+
+
+        PreloadAudioClips();
+    }
+
+    private void PreloadAudioClips()
+    {
+        if (_soundClips == null) return;
+        foreach (AudioClip clip in _soundClips)
+        {
+            if (clip != null)
+                clip.LoadAudioData();
+        }
+        Debug.Log($"Preloaded {_soundClips.Length} audio clips.");
     }
 
     public void PressButton()
@@ -58,8 +76,15 @@ public class AudioStations : MonoBehaviour
             PressButton();
     }
     
-    private AudioClip GetClipFromIndex(int index)
+    protected AudioClip GetClipFromIndex(int index)
     {   
         return _soundClips[index];
+    }
+    protected void SetCurrentClip(int index)
+    {
+        if (index >= 0 && index < _soundClips.Length)
+        {
+            _currentClipIndex = index;
+        }
     }
 }

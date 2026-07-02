@@ -68,11 +68,15 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractive         = interactive;
         _refreshCurrentInteractive  = false;
 
-        bool hasCorrectItem = interactive.GetInteractionMessage();
+        (bool hasCorrectItem, InteractiveData.Type interactionType) = interactive.GetInteractionMessage();
 
         if (hasCorrectItem)
         {
-            _uiManager.ShowInteractionCrosshair();
+            if (interactionType == InteractiveData.Type.Indirect)
+                _uiManager.ShowIndirectInteractionCrosshair();
+            else
+                _uiManager.ShowInteractionCrosshair();
+
         }
         else
         {

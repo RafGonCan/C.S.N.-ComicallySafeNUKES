@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactive : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class Interactive : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private bool _playSoundOnRequirementsMet = true;
     [SerializeField] private AudioClip _fallbackSound;
-    
+    [SerializeField] public UnityEvent<Interactive> onRequirementUsed;
+    public UnityEvent onFallbackInteract;
+    public UnityEvent onDirectInteract;
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
     private List<Interactive>       _requirements;
@@ -161,26 +164,29 @@ public class Interactive : MonoBehaviour
         }
     }
 
-    private bool IsType(InteractiveData.Type type)
+    protected bool IsType(InteractiveData.Type type)
     {
         return _interactiveData != null && _interactiveData.type == type;
     }
 
-    public bool GetInteractionMessage()
+    public (bool, InteractiveData.Type) GetInteractionMessage()
     {
         if (IsType(InteractiveData.Type.InteractOnce) || IsType(InteractiveData.Type.InteractMulti))
-            return true;
+            return (true, InteractiveData.Type.InteractMulti);
+
+        if (IsType(InteractiveData.Type.Indirect))
+            return (true, InteractiveData.Type.Indirect);
 
         if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
-            return true;
+            return (true, InteractiveData.Type.Pickable);
 
         if (IsType(InteractiveData.Type.Focusable) && _requirementsMet)
-            return true;
+            return (true, InteractiveData.Type.Focusable);
 
         if (!_requirementsMet && PlayerHasRequirementSelected())
-            return true;
+            return (true, InteractiveData.Type.InteractMulti);
 
-        return false;
+        return (false, InteractiveData.Type.None);
     }
 
     private bool PlayerHasRequirementSelected()
@@ -207,19 +213,21 @@ public class Interactive : MonoBehaviour
     }
     protected virtual void InteractWithoutRequirements()
     {
+        onFallbackInteract?.Invoke();
+
         if (_fallbackSound != null)
-        {
             PlayCustomSound(_fallbackSound);
-        }
-        if (!string.IsNullOrEmpty(_interactionManager.fallbackAnimationName) && _animator != null)
-        {
-            _animator.SetTrigger(_interactionManager.fallbackAnimationName);
-            Debug.Log("Fallback was played");
-        }
+
+        if (!string.IsNullOrEmpty(_interactionManager?.fallbackAnimationName) && _animator != null)
+            _animator.SetTrigger(_interactionManager?.fallbackAnimationName);
+        else
+        return;
     }
 
     protected virtual void InteractSelf(bool direct)
     {
+        onDirectInteract?.Invoke();
+
         if (direct && IsType(InteractiveData.Type.Indirect))
             return;
         else if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.IsFull())
@@ -308,13 +316,12 @@ public class Interactive : MonoBehaviour
     private void UseRequirementFromInventory()
     {
         Interactive requirement = _playerInventory.GetSelected();
-
         _playerInventory.Remove(requirement);
-
         ++requirement._interactionCount;
 
-        requirement.PlayAnimation(_interactionManager.interactAnimationName);
+        onRequirementUsed?.Invoke(requirement);
 
+        requirement.PlayAnimation(_interactionManager.interactAnimationName);
         CheckRequirements();
     }
     
