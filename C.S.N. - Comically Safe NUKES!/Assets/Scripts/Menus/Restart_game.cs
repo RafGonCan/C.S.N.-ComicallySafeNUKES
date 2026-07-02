@@ -1,7 +1,8 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class Exit_Game : MonoBehaviour
+public class Restart_game : MonoBehaviour
 {
     void Start()
     {
@@ -11,6 +12,6 @@ public class Exit_Game : MonoBehaviour
     private IEnumerator ExitAfterDelay()
     {
         yield return new WaitForSeconds(3f);
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }
