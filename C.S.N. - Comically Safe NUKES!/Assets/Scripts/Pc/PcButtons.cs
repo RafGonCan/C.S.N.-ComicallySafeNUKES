@@ -21,7 +21,7 @@ public class PcButtons : Interactive
                         }
                         else
                         {
-                            numoftrue = 0; //TESTE PROVAVELMENTE ERRADO 
+                            numoftrue = 0;
                         }
                     }
                 if (numoftrue == targetObjects.Length)
