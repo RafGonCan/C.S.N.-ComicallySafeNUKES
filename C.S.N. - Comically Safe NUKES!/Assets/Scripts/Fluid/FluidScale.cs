@@ -10,22 +10,46 @@ public class FluidScale : MonoBehaviour
 
     private readonly List<float> targetScales = new List<float> { 0.33f, 0.66f, 1f };
     private int plutoniumCount = 0;
-    private Coroutine currentAnimation = null;
     private bool isAnimating = false;
+    private Queue<float> pendingTargets = new Queue<float>();
+    private bool firstInBatch = false;
 
     public void ReceivePlutonium()
     {
-        if (plutoniumCount >= targetScales.Count || isAnimating)
+        if (plutoniumCount >= targetScales.Count)
             return;
 
-        isAnimating = true;
-        currentAnimation = StartCoroutine(AnimateScaleTo(targetScales[plutoniumCount]));
+        pendingTargets.Enqueue(targetScales[plutoniumCount]);
         plutoniumCount++;
+
+        if (!isAnimating)
+        {
+            firstInBatch = true;
+            StartCoroutine(ProcessQueue());
+        }
     }
 
-    private IEnumerator AnimateScaleTo(float targetY)
+    private IEnumerator ProcessQueue()
     {
-        yield return new WaitForSeconds(animationDelay);
+        isAnimating = true;
+
+        while (pendingTargets.Count > 0)
+        {
+            float targetY = pendingTargets.Dequeue();
+            
+            bool shouldDelay = firstInBatch;
+            firstInBatch = false;
+
+            yield return StartCoroutine(AnimateScaleTo(targetY, shouldDelay));
+        }
+
+        isAnimating = false;
+    }
+
+    private IEnumerator AnimateScaleTo(float targetY, bool shouldDelay)
+    {
+        if (shouldDelay)
+            yield return new WaitForSecondsRealtime(animationDelay);
 
         Transform t = fluidObject.transform;
         Vector3 startScale = t.localScale;
@@ -34,15 +58,13 @@ public class FluidScale : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < animationDuration)
         {
-            elapsed += Time.unscaledDeltaTime;
-            float tFactor = elapsed / animationDuration;
+            elapsed += Time.DeltaTime;
+            float tFactor = Mathf.Clamp01(elapsed / animationDuration);
             float newY = Mathf.Lerp(startScale.y, targetY, tFactor);
             t.localScale = new Vector3(startScale.x, newY, startScale.z);
             yield return null;
         }
 
         t.localScale = targetScale;
-        currentAnimation = null;
-        isAnimating = false;
     }
 }
