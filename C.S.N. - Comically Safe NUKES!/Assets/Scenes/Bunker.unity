@@ -2400,7 +2400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6087,8 +6087,8 @@ RectTransform:
   - {fileID: 1843239268}
   - {fileID: 1175235760}
   - {fileID: 598239467}
-  - {fileID: 1676166156}
   - {fileID: 521635166}
+  - {fileID: 1676166156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7340,7 +7340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7394,8 +7394,8 @@ CanvasGroup:
   m_GameObject: {fileID: 338327015}
   m_Enabled: 1
   m_Alpha: 0.7
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1001 &340639499
 PrefabInstance:
@@ -50544,7 +50544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8018868, g: 0.5773801, b: 0.2988163, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -57019,8 +57019,8 @@ SceneRoots:
   - {fileID: 1619880000}
   - {fileID: 804246026}
   - {fileID: 575044180}
-  - {fileID: 272367923}
   - {fileID: 962513430}
+  - {fileID: 272367923}
   - {fileID: 1349910775}
   - {fileID: 885169795}
   - {fileID: 1417428271}
