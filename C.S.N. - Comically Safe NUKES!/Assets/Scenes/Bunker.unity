@@ -5966,6 +5966,7 @@ GameObject:
   - component: {fileID: 272367920}
   - component: {fileID: 272367919}
   - component: {fileID: 272367924}
+  - component: {fileID: 272367925}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6109,6 +6110,22 @@ MonoBehaviour:
   fadeDuration: 2
   canvasGroup: {fileID: 1676166157}
   fadeOutOnStart: 1
+--- !u!114 &272367925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272367918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c03cbc3748c4d43bc15b4f13684058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1676166157}
+  fadeDuration: 2
+  playOnStart: 0
+  delayBeforeFade: 0
 --- !u!4 &274567939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6082428475273563719, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
@@ -38854,9 +38871,7 @@ MonoBehaviour:
       m_Calls: []
   isOn: 0
   playerMovement: {fileID: 1349910773}
-  sceneToLoad: Thx
-  canvasGroup: {fileID: 1676166157}
-  fadeDuration: 1.5
+  fadeOuter: {fileID: 272367925}
 --- !u!65 &1418139474
 BoxCollider:
   m_ObjectHideFlags: 0
