@@ -58,7 +58,7 @@ public class FluidScale : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < animationDuration)
         {
-            elapsed += Time.DeltaTime;
+            elapsed += Time.deltaTime;
             float tFactor = Mathf.Clamp01(elapsed / animationDuration);
             float newY = Mathf.Lerp(startScale.y, targetY, tFactor);
             t.localScale = new Vector3(startScale.x, newY, startScale.z);
