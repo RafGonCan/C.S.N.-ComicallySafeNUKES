@@ -6124,7 +6124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 521635167}
-  fadeDuration: 1.5
+  fadeDuration: 2
   playOnStart: 0
   delayBeforeFade: 0
 --- !u!4 &274567939 stripped
