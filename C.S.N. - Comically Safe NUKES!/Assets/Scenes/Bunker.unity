@@ -38855,6 +38855,8 @@ MonoBehaviour:
   isOn: 0
   playerMovement: {fileID: 1349910773}
   sceneToLoad: Thx
+  canvasGroup: {fileID: 1676166157}
+  fadeDuration: 1.5
 --- !u!65 &1418139474
 BoxCollider:
   m_ObjectHideFlags: 0
