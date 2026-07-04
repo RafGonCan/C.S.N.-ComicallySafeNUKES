@@ -16662,8 +16662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staticSource: {fileID: 666446806}
-  _staticClip: {fileID: 8300000, guid: 44a6b9d4844ebc24d9db1727f7a54f41, type: 3}
-  _staticVolume: 0.8
+  _staticClip: {fileID: 8300000, guid: 9f3b86cee2e62e844882ad81b8c89766, type: 3}
+  _staticVolume: 0.7
   _requirementSlot: {fileID: 1492913068}
   _radioMaterial: {fileID: -876546973899608171, guid: 8f7c7ecfac9b2504b9ce13234f1d9d08, type: 3}
   _buttonCollider: {fileID: 1801892476}
@@ -16683,13 +16683,13 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -48722,11 +48722,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -48744,7 +48744,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.044891357
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -48891,7 +48891,6 @@ MonoBehaviour:
   _audioSource: {fileID: 1801892473}
   _audioSourceFromPlayer: {fileID: 0}
   _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   - {fileID: 8300000, guid: 4bcaa07f58034084bacd77205cb6e436, type: 3}
   - {fileID: 8300000, guid: 613e12bc5de9ce146999dc0228fd37a1, type: 3}
   - {fileID: 8300000, guid: f17b3b3c62fed234ab61837f9cf6dbf7, type: 3}
@@ -48911,7 +48910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioStations: {fileID: 1801892479}
   _radioMaterial: {fileID: -876546973899608171, guid: 8f7c7ecfac9b2504b9ce13234f1d9d08, type: 3}
-  _silentStationIndex: 0
+  _silentStationIndex: 5
   _activeSharpness: 0.7
 --- !u!1 &1805822516
 GameObject:
