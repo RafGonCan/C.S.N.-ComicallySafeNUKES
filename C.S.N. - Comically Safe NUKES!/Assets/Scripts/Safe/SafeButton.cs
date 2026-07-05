@@ -1,23 +1,22 @@
 using UnityEngine;
 
-public class SafeButton : Interactive
+public class SafeButton : MonoBehaviour
 {
     [SerializeField] private SafeController safeController;
     [SerializeField] private int digitIndex;
-    [SerializeField] private bool isIncreaseButton;
-    /// <summary>
-    /// Overrides the InteractSelf button to add a function to also increase/decrease the value.
-    /// </summary>
-    /// <param name="direct"></param>
-    protected override void InteractSelf(bool direct)
+    private ActivateAnimation _activateAnimation => GetComponent<ActivateAnimation>();
+
+    public void GUIInteract()
     {
+        Debug.Log("SafeButton GUIInteract called");
         if (safeController != null)
         {
-            if (isIncreaseButton)
-                safeController.IncreaseNumber(digitIndex);
-            else
-                safeController.DecreaseNumber(digitIndex);
+            safeController.IncreaseNumber(digitIndex);
+            if (_activateAnimation != null)
+            {
+                _activateAnimation.Interactive();
+                _activateAnimation.PlaySound();
+            }
         }
-        base.InteractSelf(direct);
     }
 }

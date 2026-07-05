@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -10,12 +11,56 @@ public class PlayerInventory : MonoBehaviour
     private int                 _selectedSlotIndex;
     private bool                firstTimeAddingItem = true;
 
+    // Input System
+    private InputSystem_Actions _inputActions;
+    private InputAction _previousAction;
+    private InputAction _nextAction;
+
+    void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Enable();
+
+        _previousAction = _inputActions.Player.Previous;
+        _nextAction = _inputActions.Player.Next;
+
+        _previousAction.performed += OnPrevious;
+        _nextAction.performed += OnNext;
+    }
+
     void Start()
     {
         _playerInteraction  = GetComponent<PlayerInteraction>();
         _inventory          = new List<Interactive>();
         _selectedSlotIndex  = -1;
     }
+
+    private void OnDestroy()
+    {
+        if (_inputActions != null)
+        {
+            _previousAction.performed -= OnPrevious;
+            _nextAction.performed -= OnNext;
+            _inputActions.Disable();
+        }
+    }
+
+    private void OnPrevious(InputAction.CallbackContext context)
+    {
+        if (_inventory.Count == 0) return;
+        int newIndex = _selectedSlotIndex - 1;
+        if (newIndex < 0) newIndex = _inventory.Count - 1;
+        SelectInventorySlot(newIndex);
+    }
+
+    private void OnNext(InputAction.CallbackContext context)
+    {
+        if (_inventory.Count == 0) return;
+        int newIndex = _selectedSlotIndex + 1;
+        if (newIndex >= _inventory.Count) newIndex = 0;
+        SelectInventorySlot(newIndex);
+    }
+
     public void Add(Interactive item)
     {
         if (firstTimeAddingItem)
@@ -57,9 +102,7 @@ public class PlayerInventory : MonoBehaviour
     private void SelectInventorySlot(int index)
     {
         _selectedSlotIndex = index;
-
         _uiManager.SelectInventorySlot(index);
-
         _playerInteraction.RefreshCurrentInteractive();
     }
 
@@ -75,14 +118,8 @@ public class PlayerInventory : MonoBehaviour
 
     void Update()
     {
-        CheckForPlayerSlotSelection();
-    }
-
-    private void CheckForPlayerSlotSelection()
-    {
-        for (int i = 0; i < _inventory.Count; ++i)
+        for (int i = 0; i < _inventory.Count && i < 9; ++i)
             if (Input.GetKeyDown(KeyCode.Alpha1 + i) && i != _selectedSlotIndex)
                 SelectInventorySlot(i);
     }
-    
 }

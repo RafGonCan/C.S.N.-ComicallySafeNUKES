@@ -1,8 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class CameraFocusController : MonoBehaviour
 {
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject leaveFocus;
+    private Interactive _focusedInteractive;
     private bool isFocusing;
     private bool isReturning;
     private Transform normalPosition;
@@ -19,6 +25,20 @@ public class CameraFocusController : MonoBehaviour
     [SerializeField] private float movespeed;
     [SerializeField] private PlayerMovement playermovement;
 
+    private InputSystem_Actions _inputActions;
+    private InputAction _cancelAction;
+    private bool _allowCancelExit = true;
+    private bool _uiReady = false;
+    private Coroutine _uiReadyCoroutine;
+
+    private void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Enable();
+        _cancelAction = _inputActions.UI.Cancel;
+        _cancelAction.performed += OnCancel;
+    }
+
     private void Start()
     {
         cam = transform;
@@ -27,49 +47,60 @@ public class CameraFocusController : MonoBehaviour
         normalPosition.localPosition = cam.transform.localPosition;
         normalPosition.localRotation = cam.transform.localRotation;
     }
+
+    private void OnDestroy()
+    {
+        if (_inputActions != null)
+        {
+            _cancelAction.performed -= OnCancel;
+            _inputActions.Disable();
+        }
+    }
+
     private void LateUpdate()
     {
-       if (isFocusing && targetFocusPoint != null)
-       {
+        if (isFocusing && targetFocusPoint != null)
+        {
             playermovement.enabled = false;
 
-            cam.position = 
-                Vector3.Lerp(cam.position, targetFocusPoint.position, movespeed * Time.deltaTime);
-            cam.rotation = 
-                Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, movespeed * Time.deltaTime);
+            cam.position = Vector3.Lerp(cam.position, targetFocusPoint.position, movespeed * Time.deltaTime);
+            cam.rotation = Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, movespeed * Time.deltaTime);
 
             if (Vector3.Distance(cam.position, targetFocusPoint.position) < 0.01f)
             {
                 cam.position = targetFocusPoint.position;
                 cam.rotation = targetFocusPoint.rotation;
-
                 EnableMouse(true);
             }
-       }
+        }
 
-       if (isReturning)
-       {
-           cam.position = 
-               Vector3.Lerp(cam.position, normalPosition.position, movespeed * Time.deltaTime);
-           cam.rotation = 
-               Quaternion.Lerp(cam.rotation, normalPosition.rotation, movespeed * Time.deltaTime);
+        if (isReturning)
+        {
+            cam.position = Vector3.Lerp(cam.position, normalPosition.position, movespeed * Time.deltaTime);
+            cam.rotation = Quaternion.Lerp(cam.rotation, normalPosition.rotation, movespeed * Time.deltaTime);
 
-           if (Vector3.Distance(cam.position, normalPosition.position)<0.01f)
-           {
-               isReturning = false;
-
-               cam.localPosition = normalPosition.localPosition;
-               cam.localRotation = normalPosition.localRotation;
-
-               playermovement.enabled = true;
-               EnableMouse(false);
-           }
-       }
-
+            if (Vector3.Distance(cam.position, normalPosition.position) < 0.01f)
+            {
+                isReturning = false;
+                cam.localPosition = normalPosition.localPosition;
+                cam.localRotation = normalPosition.localRotation;
+                playermovement.enabled = true;
+                EnableMouse(false);
+            }
+        }
     }
-    public void EnterFocus(Transform focusPoint)
+
+    public void EnterFocus(Transform focusPoint, Interactive interactive, bool allowCancelExit = true)
     {
         if (isFocusing) return;
+
+        crosshair.SetActive(false);
+        leaveFocus.SetActive(true);
+        _focusedInteractive = interactive;
+        _allowCancelExit = allowCancelExit;
+        _uiReady = false;
+
+        blockExitFocus = true;
 
         if (currentCanvas != null)
         {
@@ -85,12 +116,35 @@ public class CameraFocusController : MonoBehaviour
 
         if (currentCanvas != null && currentCanvas.renderMode == RenderMode.WorldSpace)
         {
-            currentCanvas.gameObject.SetActive(true);
+            if (interactive.ShowCanvasOnFocus)
+            {
+                currentCanvas.gameObject.SetActive(true);
+
+                if (_uiReadyCoroutine != null)
+                    StopCoroutine(_uiReadyCoroutine);
+                _uiReadyCoroutine = StartCoroutine(EnableUIAfterDelay());
+            }
         }
-        else
+    }
+
+    private IEnumerator EnableUIAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
+        _uiReady = true;
+        _uiReadyCoroutine = null;
+
+        if (currentCanvas != null)
         {
-            Debug.LogWarning(
-                $"No World Space Canvas found under {focusPoint.name}");
+            Selectable firstSelectable = currentCanvas.GetComponentInChildren<Selectable>();
+            if (firstSelectable != null)
+            {
+                EventSystem.current.SetSelectedGameObject(firstSelectable.gameObject);
+                Debug.Log($"Selected UI element: {firstSelectable.gameObject.name}");
+            }
+            else
+            {
+                Debug.LogWarning("No selectable UI element found in the canvas.");
+            }
         }
     }
 
@@ -100,26 +154,51 @@ public class CameraFocusController : MonoBehaviour
         isFocusing = false;
         isReturning = true;
         targetFocusPoint = null;
+        crosshair.SetActive(true);
+        leaveFocus.SetActive(false);
+        _uiReady = false;
+        if (_uiReadyCoroutine != null)
+        {
+            StopCoroutine(_uiReadyCoroutine);
+            _uiReadyCoroutine = null;
+        }
+
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
 
         if (currentCanvas != null)
         {
             currentCanvas.gameObject.SetActive(false);
             currentCanvas = null;
         }
+
+        if (_focusedInteractive != null)
+        {
+            _focusedInteractive.RestoreCollider();
+            _focusedInteractive = null;
+        }
     }
+
     public void ExitButton()
     {
         blockExitFocus = false;
         ExitFocus();
     }
 
+    private void OnCancel(InputAction.CallbackContext context)
+    {
+        if (isFocusing && _uiReady && _allowCancelExit)
+        {
+            ExitFocus();
+        }
+    }
+
     private void EnableMouse(bool enable)
     {
         Cursor.visible = enable;
-        Cursor.lockState = enable ? CursorLockMode.None : CursorLockMode.Locked;    
+        Cursor.lockState = enable ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public bool GetFocusing() => isFocusing;
     public bool GetReturning() => isReturning;
-
 }

@@ -102,7 +102,7 @@ public class RadioStaticController : MonoBehaviour
         _staticSource.clip = null;
         _isStaticPlaying = false;
         SetSharpness(0f);
-        StartCoroutine(RestartStaticAfterDelay());
+        if (_isFixed == false) StartCoroutine(RestartStaticAfterDelay());         
     }
 
     private void SetSharpness(float value)

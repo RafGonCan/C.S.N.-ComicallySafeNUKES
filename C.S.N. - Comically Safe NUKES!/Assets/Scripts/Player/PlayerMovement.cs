@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float _gravityAcceleration;
     [SerializeField] private float _maxFallSpeed;
     [SerializeField] private float _maxForwardSpeed;
@@ -9,49 +11,108 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxStrafeSpeed;
     [SerializeField] private float _crouchHeight;
     [SerializeField] private float _crouchTransitionSpeed;
+
+    [Header("Camera Settings")]
     [SerializeField] private float _maxLookUpAngle;
     [SerializeField] private float _maxLookDownAngle;
+
+    [Header("Look Sensitivity")]
+    [SerializeField] private float mouseLookScale = 0.05f;
+    [SerializeField] private float gamepadLookScale = 0.5f;
+
     private CharacterController _controller;
-    private Transform           _head;
-    private Vector3             _headRotation;
-    private Vector3             _velocityHor;
-    private Vector3             _velocityVer;
-    private Vector3             _motion;
-    private bool                _crouch;
-    private float               _cameraLocalPos;
-    private float               _mouseSensitivity = 2f;
+    private Transform _head;
+    private Vector3 _headRotation;
+    private Vector3 _velocityHor;
+    private Vector3 _velocityVer;
+    private Vector3 _motion;
+    private bool _crouch;
+    private float _cameraLocalPos;
+    private float _mouseSensitivity = 1f;
     private const string SensitivityKey = "MouseSensitivity";
 
-    void Start()
+    private Vector2 _moveInput;
+    private Vector2 _lookInput;
+    private float _currentLookScale = 0.05f;
+
+    private InputSystem_Actions _inputActions;
+
+    public bool CanMove { get; set; } = true;
+
+    private void Awake()
     {
-        _controller = GetComponent<CharacterController>();
-        _head       = GetComponentInChildren<Camera>().transform;
-        _cameraLocalPos = _head.localPosition.y;
-        _mouseSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 0.5f);
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Enable();
+
+        _inputActions.Player.Move.performed += OnMove;
+        _inputActions.Player.Move.canceled += OnMove;
+        _inputActions.Player.Look.performed += OnLook;
+        _inputActions.Player.Look.canceled += OnLook;
+        _inputActions.Player.Crouch.performed += OnCrouch;
     }
 
-    void Update()
+    private void Start()
     {
-        if (!enabled) return;
+        _controller = GetComponent<CharacterController>();
+        _head = GetComponentInChildren<Camera>().transform;
+        _cameraLocalPos = _head.localPosition.y;
+        _mouseSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 1f);
+    }
+
+    private void OnDestroy()
+    {
+        if (_inputActions != null)
+        {
+            _inputActions.Player.Move.performed -= OnMove;
+            _inputActions.Player.Move.canceled -= OnMove;
+            _inputActions.Player.Look.performed -= OnLook;
+            _inputActions.Player.Look.canceled -= OnLook;
+            _inputActions.Player.Crouch.performed -= OnCrouch;
+            _inputActions.Disable();
+        }
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        _moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnLook(InputAction.CallbackContext context)
+    {
+        _lookInput = context.ReadValue<Vector2>();
+
+        if (context.control.device is Mouse)
+            _currentLookScale = mouseLookScale;
+        else if (context.control.device is Gamepad)
+            _currentLookScale = gamepadLookScale;
+        else
+            _currentLookScale = mouseLookScale; // fallback
+    }
+
+    private void OnCrouch(InputAction.CallbackContext context)
+    {
+        _crouch = !_crouch;
+    }
+
+    private void Update()
+    {
+        if (!enabled || !CanMove) return;
 
         UpdateRotation();
         UpdateHead();
-        CheckForCrouch();
         UpdateCameraHeight();
     }
 
     private void UpdateRotation()
     {
-        float rotation = Input.GetAxis("Mouse X") * _mouseSensitivity;
-
+        float rotation = _lookInput.x * _mouseSensitivity * _currentLookScale;
         transform.Rotate(0f, rotation, 0f);
     }
 
     private void UpdateHead()
     {
         _headRotation = _head.localEulerAngles;
-
-        _headRotation.x -= Input.GetAxis("Mouse Y") * _mouseSensitivity;
+        _headRotation.x -= _lookInput.y * _mouseSensitivity * _currentLookScale;
 
         if (_headRotation.x > 180f)
             _headRotation.x = Mathf.Max(_maxLookUpAngle, _headRotation.x);
@@ -60,14 +121,19 @@ public class PlayerMovement : MonoBehaviour
 
         _head.localEulerAngles = _headRotation;
     }
-    private void CheckForCrouch()
+
+    private void UpdateCameraHeight()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))        
-            _crouch = !_crouch;
-            
+        float targetHeight = _crouch ? _crouchHeight : _cameraLocalPos;
+        Vector3 newPos = _head.localPosition;
+        newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
+        _head.localPosition = newPos;
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
+        if (!enabled || !CanMove) return;
+
         UpdateVelocityHor();
         UpdateVelocityVer();
         UpdatePosition();
@@ -75,23 +141,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateVelocityHor()
     {
-        float forwardAxis   = Input.GetAxis("Forward");
-        float strafeAxis    = Input.GetAxis("Strafe");
+        float forwardAxis = _moveInput.y;
+        float strafeAxis = _moveInput.x;
+
         if (forwardAxis >= 0f)
             _velocityHor.z = forwardAxis * _maxForwardSpeed;
         else
             _velocityHor.z = forwardAxis * _maxBackwardSpeed;
 
-        _velocityHor.x = strafeAxis * _maxStrafeSpeed;     
+        _velocityHor.x = strafeAxis * _maxStrafeSpeed;
+
 
         if (_velocityHor.magnitude > _maxForwardSpeed)
         {
             _velocityHor = _velocityHor.normalized * (forwardAxis > 0 ? _maxForwardSpeed : _maxBackwardSpeed);
         }
+
         if (_crouch)
-        {
             _velocityHor *= 0.5f;
-        }            
     }
 
     private void UpdateVelocityVer()
@@ -109,18 +176,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _motion = (_velocityHor + _velocityVer) * Time.fixedDeltaTime;
         _motion = transform.TransformVector(_motion);
-
         _controller.Move(_motion);
     }
-    private void UpdateCameraHeight()
-    {
-        float targetHeight = _crouch ? _crouchHeight : _cameraLocalPos;
 
-        Vector3 newPos = _head.localPosition;
-        newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
-
-        _head.localPosition = newPos;
-    }
 
     public void SetMouseSensitivity(float sensitivity)
     {
@@ -128,5 +186,4 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetFloat(SensitivityKey, sensitivity);
         PlayerPrefs.Save();
     }
-
-}   
+}

@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _interactionCrosshair;
     [SerializeField] private GameObject _indirectInteractionCrosshair;
+    [SerializeField] private GameObject _PickupInteractionCrosshair;
+    [SerializeField] private GameObject _focusedInteractionCrosshair;
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
@@ -52,7 +54,6 @@ public class UIManager : MonoBehaviour
         HideInventoryIcons();
         ResetInventorySlots();
 
-        // Ensure crosshair states start correctly
         _interactionCrosshair.SetActive(true);
         _indirectInteractionCrosshair.SetActive(false);
         ShowDefaultCrosshair();
@@ -132,11 +133,11 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-
     public void ShowDefaultCrosshair()
     {
         _indirectInteractionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
         _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_defaultCrosshairScale, _defaultCrosshairScale, _defaultCrosshairScale);
     }
@@ -144,6 +145,8 @@ public class UIManager : MonoBehaviour
     public void ShowInteractionCrosshair()
     {
         _indirectInteractionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
         _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
     }
@@ -151,8 +154,28 @@ public class UIManager : MonoBehaviour
     public void ShowIndirectInteractionCrosshair()
     {
         _interactionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
         _indirectInteractionCrosshair.SetActive(true);
         _indirectInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+    }
+
+    public void ShowPickupInteractionCrosshair()
+    {
+        _interactionCrosshair.SetActive(false);
+        _indirectInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(true);
+        _PickupInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+    }
+
+    public void ShowFocusedInteractionCrosshair()
+    {
+        _interactionCrosshair.SetActive(false);
+        _indirectInteractionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(true);
+        _focusedInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
     }
     public void TriggerInspectionReminder()
     {

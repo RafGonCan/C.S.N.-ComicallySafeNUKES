@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
-  m_Name: Vault
+  m_Name: Vault_Valve
   m_EditorClassIdentifier: 
-  type: 3
+  type: 2
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 11400000, guid: 8e4d72e6ad68237449bb53399c188600, type: 2}
+  requirements: []
   inspectModel: {fileID: 0}
   inspectionDescription: 

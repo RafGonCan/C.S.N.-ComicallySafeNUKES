@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private string             _interactAnimationName;
     [SerializeField] private string             _fallbackAnimationName;
     private CameraFocusController _cameraFocusController;
+    private PlayerInput _playerInput;
+    public InputActionAsset inputActions => _playerInput?.actions;
     private PlayerInventory     _playerInventory;
     private PlayerMovement      _playerMovement;
     private Pause_Menu          _pauseMenu;
@@ -60,6 +63,14 @@ public class InteractionManager : MonoBehaviour
     {
         _interactives = new List<Interactive>();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (_playerInput == null)
+        {
+            _playerInput =  FindFirstObjectByType<PlayerInput>();
+        }
+        if (_playerInput != null)
+        {
+            _playerInput.actions?.Enable();
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {  
@@ -98,7 +109,7 @@ public class InteractionManager : MonoBehaviour
         if (_pauseMenu == null)
         {
             _pauseMenu = FindFirstObjectByType<Pause_Menu>();
-        }  
+        }
     }
 
     void Start()

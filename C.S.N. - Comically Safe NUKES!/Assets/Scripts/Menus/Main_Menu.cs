@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
@@ -11,10 +12,26 @@ public class Main_Menu : MonoBehaviour
     [SerializeField] private float timeOnScreen = 3f;
     [SerializeField] private float timeToFade = 1f;
 
+    private InputSystem_Actions _inputActions;
+
+    private void Awake()
+    {
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Enable();
+    }
+
     private void Update()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private void OnDestroy()
+    {
+        if (_inputActions != null)
+        {
+            _inputActions.Disable();
+        }
     }
 
     public void StartGame()
@@ -38,6 +55,7 @@ public class Main_Menu : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
     private IEnumerator FadeCanvasGroup(GameObject obj, float startAlpha, float endAlpha, float speed)
     {
         CanvasGroup cg = obj.GetComponent<CanvasGroup>();
