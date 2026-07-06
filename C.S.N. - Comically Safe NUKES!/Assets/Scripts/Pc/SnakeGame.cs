@@ -14,6 +14,8 @@ public class SnakeGame : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject digitalPlutonium;
     [SerializeField] private GameObject startButton;
+    [SerializeField] private GameObject exitButton;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private float gridSize = 20f;
     private Vector2 direction;
@@ -36,11 +38,9 @@ public class SnakeGame : MonoBehaviour
         _inputActions = new InputSystem_Actions();
         _inputActions.Enable();
 
-
         _moveAction = _inputActions.Player.Move;
         _moveAction.performed += OnMove;
         _moveAction.canceled += OnMove;
-        EventSystem.current.SetSelectedGameObject(startButton);
     }
 
     private void Start()
@@ -48,9 +48,7 @@ public class SnakeGame : MonoBehaviour
         gridSize = snakeBodySegment.GetComponent<RectTransform>().rect.width;
         Canvas.ForceUpdateCanvases();
         CalculateMaxCells();
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        ShowMenu();
     }
 
     private void OnDestroy()
@@ -63,7 +61,6 @@ public class SnakeGame : MonoBehaviour
         }
     }
 
-
     private void OnMove(InputAction.CallbackContext context)
     {
         if (!gameStarted) return;
@@ -71,30 +68,49 @@ public class SnakeGame : MonoBehaviour
         Vector2 input = context.ReadValue<Vector2>();
         if (input.magnitude < 0.1f) return;
 
-
         Vector2 newDir = Vector2.zero;
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
             newDir = input.x > 0 ? Vector2.right : Vector2.left;
         else
             newDir = input.y > 0 ? Vector2.up : Vector2.down;
 
-
         if (directionQueue.Count < maxQueueSize)
         {
-
             Vector2 lastDir = directionQueue.Count > 0 ? directionQueue.ToArray()[directionQueue.Count - 1] : direction;
             if (newDir != -lastDir && newDir != lastDir)
-            {
                 directionQueue.Enqueue(newDir);
-            }
         }
+    }
+
+    // ----- Menu / UI -----
+
+    private void ShowMenu()
+    {
+        background.SetActive(true);
+        startButton.SetActive(true);
+        if (exitButton != null) exitButton.SetActive(true);
+        digitalPlutonium.SetActive(false);
+
+        if (playerMovement != null)
+            playerMovement.CanMove = false;
+
+        gameStarted = false;
+        applesCollected = 0;
+
+        // Allow cursor in snake menu
+        InteractionManager.instance.SetCursorAllowed(true);
+
+        EventSystem.current?.SetSelectedGameObject(startButton);
     }
 
     public void StartGame()
     {
         background.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        startButton.SetActive(false);
+        if (exitButton != null) exitButton.SetActive(false);
+
+        if (playerMovement != null)
+            playerMovement.CanMove = false;
 
         CalculateMaxCells();
 
@@ -110,10 +126,16 @@ public class SnakeGame : MonoBehaviour
 
         AddSegment();
         AddSegment();
-
         SpawnFood();
         UpdateHeadRotation();
+
+        // Hide cursor during gameplay
+        InteractionManager.instance.SetCursorAllowed(false);
+
+        EventSystem.current?.SetSelectedGameObject(null);
     }
+
+    // ----- Game Loop -----
 
     private void Update()
     {
@@ -167,24 +189,43 @@ public class SnakeGame : MonoBehaviour
         }
     }
 
+    // ----- Game Over / Win -----
+
     private void GameOver()
     {
         gameStarted = false;
-        background.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        if (startButton != null) startButton.SetActive(true);
+        ShowMenu();
     }
 
     private void WinGame()
     {
         gameStarted = false;
         digitalPlutonium.SetActive(true);
-        startButton.SetActive(false);
-        background.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        ShowMenu();
     }
+
+    public void ExitGame()
+    {
+        background.SetActive(false);
+        startButton.SetActive(false);
+        if (exitButton != null) exitButton.SetActive(false);
+        digitalPlutonium.SetActive(false);
+
+        if (playerMovement != null)
+            playerMovement.CanMove = true;
+
+        InteractionManager.instance.SetCursorAllowed(false);
+
+        EventSystem.current?.SetSelectedGameObject(null);
+
+        gameStarted = false;
+        foreach (RectTransform segment in snake)
+            Destroy(segment.gameObject);
+        snake.Clear();
+        snakeGameObjects.Clear();
+    }
+
+    // ----- Snake Body Methods -----
 
     private void AddSegment()
     {

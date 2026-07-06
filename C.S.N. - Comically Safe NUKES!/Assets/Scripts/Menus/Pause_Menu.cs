@@ -91,8 +91,8 @@ public class Pause_Menu : MonoBehaviour
         if (playerMovement != null)
             playerMovement.enabled = false;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        // Allow cursor in pause menu
+        InteractionManager.instance.SetCursorAllowed(true);
 
         SelectUIElement(resumeButton);
     }
@@ -108,8 +108,8 @@ public class Pause_Menu : MonoBehaviour
         if (playerMovement != null)
             playerMovement.enabled = true;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        // Hide cursor for gameplay
+        InteractionManager.instance.SetCursorAllowed(false);
 
         EventSystem.current?.SetSelectedGameObject(null);
     }
@@ -120,26 +120,22 @@ public class Pause_Menu : MonoBehaviour
     {
         _isOptionsOpen = true;
 
-        // Hide pause menu buttons
         if (resumeButton != null) resumeButton.SetActive(false);
         if (optionsButton != null) optionsButton.SetActive(false);
         if (exitButton != null) exitButton.SetActive(false);
 
-        // Open the options panel
         if (optionsMenu != null)
             optionsMenu.OpenOptions();
         else if (optionsPanel != null)
             optionsPanel.SetActive(true);
 
-        // Wait one frame for the UI to activate, then select the first slider
         StartCoroutine(SelectFirstSlider());
     }
 
     private IEnumerator SelectFirstSlider()
     {
-        yield return null; // Wait one frame
+        yield return null;
 
-        // Try to find a slider in the options panel
         Slider slider = null;
         if (optionsMenu != null)
             slider = optionsMenu.GetComponentInChildren<Slider>();
@@ -152,7 +148,6 @@ public class Pause_Menu : MonoBehaviour
         }
         else
         {
-            // Fallback: try to select any Selectable
             Selectable selectable = null;
             if (optionsMenu != null)
                 selectable = optionsMenu.GetComponentInChildren<Selectable>();
@@ -168,22 +163,17 @@ public class Pause_Menu : MonoBehaviour
     {
         _isOptionsOpen = false;
 
-        // Close options
         if (optionsMenu != null)
             optionsMenu.CloseOptions();
         else if (optionsPanel != null)
             optionsPanel.SetActive(false);
 
-        // Re-enable pause menu buttons
         if (resumeButton != null) resumeButton.SetActive(true);
         if (optionsButton != null) optionsButton.SetActive(true);
         if (exitButton != null) exitButton.SetActive(true);
 
-        // Re-select the Resume button
         SelectUIElement(resumeButton);
     }
-
-    // ----- Exit / Confirm -----
 
     public void YouSure()
     {
@@ -205,10 +195,9 @@ public class Pause_Menu : MonoBehaviour
         pauseMenu.SetActive(false);
         areYouSure.SetActive(false);
         Time.timeScale = 1f;
+        InteractionManager.instance.SetCursorAllowed(false);
         SceneManager.LoadScene(0);
     }
-
-    // ----- Safe selection helper -----
 
     private void SelectUIElement(GameObject obj)
     {

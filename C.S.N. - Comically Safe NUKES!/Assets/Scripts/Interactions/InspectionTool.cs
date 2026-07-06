@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InspectionTool : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeedMouse = 100f;
-    [SerializeField] private float _rotationSpeedGamepad = 200f; // higher for controller
+    [SerializeField] private float _rotationSpeedGamepad = 200f;
     [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private UIManager _uiManager;
     public static event System.Action<bool, Interactive> OnInspectionStateChanged;
 
     private PlayerMovement _playerMovement;
@@ -77,10 +79,11 @@ public class InspectionTool : MonoBehaviour
         }
     }
 
+    // ----- Input Callbacks -----
+
     private void OnLook(InputAction.CallbackContext context)
     {
         _rotationInput = context.ReadValue<Vector2>();
-
         if (context.control != null)
             _isUsingGamepad = context.control.device is Gamepad;
     }
@@ -96,6 +99,8 @@ public class InspectionTool : MonoBehaviour
         if (isInspecting && !_stillInAnimation)
             EndInspection();
     }
+
+    // ----- Part Interaction -----
 
     private void CheckForPartInteraction()
     {
@@ -138,6 +143,8 @@ public class InspectionTool : MonoBehaviour
         }
     }
 
+    // ----- Start / End Inspection -----
+
     public void StartInspection(Interactive item)
     {
         OnInspectionStateChanged?.Invoke(true, item);
@@ -145,6 +152,9 @@ public class InspectionTool : MonoBehaviour
         if (isInspecting || item == null) return;
 
         _currentInspect = item;
+
+        if (_uiManager != null)
+            _uiManager.HideAllCrosshairs();
 
         _currentInspectionModel = item.CreateInspectionModel();
         if (_currentInspectionModel == null)
@@ -184,8 +194,8 @@ public class InspectionTool : MonoBehaviour
         _scaleCoroutine = StartCoroutine(ScaleInAnimation());
         _playerMovement.enabled = false;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        // Allow cursor in inspection
+        InteractionManager.instance.SetCursorAllowed(true);
     }
 
     private IEnumerator ScaleInAnimation()
@@ -326,7 +336,10 @@ public class InspectionTool : MonoBehaviour
         _currentStatefulInspection = null;
 
         _playerMovement.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
+        InteractionManager.instance.SetCursorAllowed(false);
+        EventSystem.current?.SetSelectedGameObject(null);
+            if (_uiManager != null)
+        _uiManager.ShowDefaultCrosshair();
     }
 }

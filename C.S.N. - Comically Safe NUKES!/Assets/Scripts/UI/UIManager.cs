@@ -49,7 +49,8 @@ public class UIManager : MonoBehaviour
         _inventoryIcons = _inventoryIconsContainer.GetComponentsInChildren<Image>();
         _selectedSlotIndex = -1;
 
-        HideCursor();
+        InteractionManager.instance.UpdateCursorState();
+
         HideInteractionPanel();
         HideInventoryIcons();
         ResetInventorySlots();
@@ -106,33 +107,24 @@ public class UIManager : MonoBehaviour
     {
         InspectionTool.OnInspectionStateChanged -= HandleInspectionStateChanged;
     }
+    
 
     void HandleInspectionStateChanged(bool isInspecting, Interactive item)
     {
         ShowInspectionBars(isInspecting);
 
         if (isInspecting && item != null && _inspectionInfoUI != null)
-        {
             _inspectionInfoUI.ShowInfo(item);
-        }
         else if (!isInspecting && _inspectionInfoUI != null)
-        {
             _inspectionInfoUI.HideInfo();
-        }
     }
 
     void HandleInspectionStarted(Interactive item)
     {
         if (_inspectionInfoUI != null && item != null)
-        {
             _inspectionInfoUI.ShowInfo(item);
-        }
     }
 
-    private void HideCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
     public void ShowDefaultCrosshair()
     {
         _indirectInteractionCrosshair.SetActive(false);
@@ -140,6 +132,13 @@ public class UIManager : MonoBehaviour
         _focusedInteractionCrosshair.SetActive(false);
         _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_defaultCrosshairScale, _defaultCrosshairScale, _defaultCrosshairScale);
+    }
+    public void HideAllCrosshairs()
+    {
+        _interactionCrosshair.SetActive(false);
+        _indirectInteractionCrosshair.SetActive(false);
+        _PickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
     }
 
     public void ShowInteractionCrosshair()
@@ -177,6 +176,7 @@ public class UIManager : MonoBehaviour
         _focusedInteractionCrosshair.SetActive(true);
         _focusedInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
     }
+
     public void TriggerInspectionReminder()
     {
         if (_reminderCoroutine != null)
@@ -243,10 +243,7 @@ public class UIManager : MonoBehaviour
         _reminderCoroutine = null;
     }
 
-    public void HideInteractionPanel()
-    {
-        _interactionPanel.SetActive(false);
-    }
+    public void HideInteractionPanel() => _interactionPanel.SetActive(false);
 
     public void ShowInteractionPanel(string message)
     {
@@ -254,10 +251,7 @@ public class UIManager : MonoBehaviour
         _interactionPanel.SetActive(true);
     }
 
-    public int GetInventorySlotCount()
-    {
-        return _inventorySlots.Length;
-    }
+    public int GetInventorySlotCount() => _inventorySlots.Length;
 
     public void HideInventoryIcons()
     {

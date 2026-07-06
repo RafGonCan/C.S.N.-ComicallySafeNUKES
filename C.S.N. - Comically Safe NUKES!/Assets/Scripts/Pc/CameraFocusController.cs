@@ -27,7 +27,6 @@ public class CameraFocusController : MonoBehaviour
 
     private InputSystem_Actions _inputActions;
     private InputAction _cancelAction;
-    private bool _allowCancelExit = true;
     private bool _uiReady = false;
     private Coroutine _uiReadyCoroutine;
 
@@ -70,7 +69,7 @@ public class CameraFocusController : MonoBehaviour
             {
                 cam.position = targetFocusPoint.position;
                 cam.rotation = targetFocusPoint.rotation;
-                EnableMouse(true);
+                InteractionManager.instance.UpdateCursorState();
             }
         }
 
@@ -85,7 +84,7 @@ public class CameraFocusController : MonoBehaviour
                 cam.localPosition = normalPosition.localPosition;
                 cam.localRotation = normalPosition.localRotation;
                 playermovement.enabled = true;
-                EnableMouse(false);
+                InteractionManager.instance.UpdateCursorState();
             }
         }
     }
@@ -98,6 +97,9 @@ public class CameraFocusController : MonoBehaviour
         leaveFocus.SetActive(true);
         _focusedInteractive = interactive;
         _uiReady = false;
+
+        // Allow cursor in focus mode (UI appears)
+        InteractionManager.instance.SetCursorAllowed(true);
 
         blockExitFocus = true;
 
@@ -120,6 +122,10 @@ public class CameraFocusController : MonoBehaviour
             if (_uiReadyCoroutine != null)
                 StopCoroutine(_uiReadyCoroutine);
             _uiReadyCoroutine = StartCoroutine(EnableUIAfterDelay());
+        }
+        else
+        {
+            Debug.LogWarning($"No World Space Canvas found under {focusPoint.name}");
         }
     }
 
@@ -159,6 +165,9 @@ public class CameraFocusController : MonoBehaviour
             _uiReadyCoroutine = null;
         }
 
+        // Hide cursor when leaving focus
+        InteractionManager.instance.SetCursorAllowed(false);
+
         if (EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(null);
 
@@ -183,16 +192,11 @@ public class CameraFocusController : MonoBehaviour
 
     private void OnCancel(InputAction.CallbackContext context)
     {
-        if (isFocusing && _uiReady && _allowCancelExit)
+        if (isFocusing && _uiReady)
         {
+            blockExitFocus = false;
             ExitFocus();
         }
-    }
-
-    private void EnableMouse(bool enable)
-    {
-        Cursor.visible = enable;
-        Cursor.lockState = enable ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public bool GetFocusing() => isFocusing;

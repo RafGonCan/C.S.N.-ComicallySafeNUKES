@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
+    [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject speakerIcon;
     [SerializeField] private GameObject transitionObject;
@@ -22,8 +24,11 @@ public class Main_Menu : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Enable cursor for menu
+        InteractionManager.instance.SetCursorAllowed(true);
+
+        if (EventSystem.current != null && startButton != null)
+            EventSystem.current.SetSelectedGameObject(startButton);
     }
 
     private void OnDestroy()
@@ -34,8 +39,8 @@ public class Main_Menu : MonoBehaviour
 
     public void StartGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Hide cursor for gameplay
+        InteractionManager.instance.SetCursorAllowed(false);
 
         transitionObject.SetActive(true);
         StartCoroutine(StartGameSequence());

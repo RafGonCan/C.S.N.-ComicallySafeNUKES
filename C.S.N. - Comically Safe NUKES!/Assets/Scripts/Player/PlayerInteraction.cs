@@ -20,15 +20,10 @@ public class PlayerInteraction : MonoBehaviour
         _inputActions = new InputSystem_Actions();
         _inputActions.Enable();
 
-        _inputActions.Player.Enable();
-
         _inspectAction = _inputActions.Player.Inspect;
         _inspectAction.performed += OnInspect;
 
         _inputActions.Player.Interact.performed += OnInteract;
-
-        Debug.Log("Inspect action enabled: " + _inspectAction.enabled);
-        Debug.Log("Inspect action: " + _inspectAction);
     }
 
     private void Start()
@@ -52,20 +47,19 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         if (!inspectionTool.isInspecting)
-        {
             UpdateCurrentInteractive();
-        }
         else
+            if (_currentInteractive != null) ClearCurrentInteractive();
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_currentInteractive != null)
-                ClearCurrentInteractive();
+            HandleInspect();
         }
 
-        if (_inspectAction != null && _inspectAction.WasPressedThisFrame())
+        var gamepad = Gamepad.current;
+        if (gamepad != null && gamepad.buttonWest.wasPressedThisFrame)
         {
-            Interactive selectedItem = _playerInventory.GetSelected();
-            if (selectedItem != null)
-                inspectionTool.StartInspection(selectedItem);
+            HandleInspect();
         }
     }
 
@@ -81,20 +75,24 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnInspect(InputAction.CallbackContext context)
     {
-        Debug.Log("OnInspect performed callback triggered");
-        if (inspectionTool.isInspecting) return;
+        HandleInspect();
+    }
+
+    private void HandleInspect()
+    {
+        if (inspectionTool.isInspecting)
+        {
+            inspectionTool.EndInspection();
+            return;
+        }
 
         Interactive selectedItem = _playerInventory.GetSelected();
+
         if (selectedItem != null)
         {
             inspectionTool.StartInspection(selectedItem);
         }
-        else
-        {
-            Debug.LogWarning("No item selected in inventory");
-        }
     }
-
     private void UpdateCurrentInteractive()
     {
         if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward,

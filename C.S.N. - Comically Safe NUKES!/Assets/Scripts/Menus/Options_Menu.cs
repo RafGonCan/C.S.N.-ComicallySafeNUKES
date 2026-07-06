@@ -28,7 +28,6 @@ public class Options_Menu : MonoBehaviour
     private InputSystem_Actions _inputActions;
     private bool _isOpen = false;
 
-    // Prevent saving when value hasn't changed
     private float _lastSavedVolume = -1f;
     private float _lastSavedSensitivity = -1f;
     private float _lastSavedGamma = -1f;
@@ -85,24 +84,20 @@ public class Options_Menu : MonoBehaviour
         float savedSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 1f);
         float savedGamma = PlayerPrefs.GetFloat(GammaKey, 1f);
 
-        // Set slider values WITHOUT triggering listeners
         volumeSlider.SetValueWithoutNotify(savedVolume);
         sensitivitySlider.SetValueWithoutNotify(savedSensitivity);
         if (gammaSlider != null)
             gammaSlider.SetValueWithoutNotify(savedGamma);
 
-        // Apply values directly (so they take effect immediately)
         AudioListener.volume = savedVolume;
         if (playerMovement != null)
             playerMovement.SetMouseSensitivity(savedSensitivity);
         if (gammaSlider != null) ApplyGamma(savedGamma);
 
-        // Store initial values to avoid saving on open
         _lastSavedVolume = savedVolume;
         _lastSavedSensitivity = savedSensitivity;
         _lastSavedGamma = savedGamma;
 
-        // Remove old listeners to avoid duplicates, then add new ones
         volumeSlider.onValueChanged.RemoveAllListeners();
         sensitivitySlider.onValueChanged.RemoveAllListeners();
         if (gammaSlider != null) gammaSlider.onValueChanged.RemoveAllListeners();
@@ -127,52 +122,41 @@ public class Options_Menu : MonoBehaviour
 
         if (mainMenuButtons.Length > 0 && mainMenuButtons[0] != null)
             EventSystem.current.SetSelectedGameObject(mainMenuButtons[0]);
+        else
+            EventSystem.current.SetSelectedGameObject(null);
     }
-
-    // --- Slider callbacks with guards ---
 
     public void SetVolume(float volume)
     {
-        // Only save if the value actually changed
-        if (Mathf.Approximately(volume, _lastSavedVolume))
-            return;
-
+        if (Mathf.Approximately(volume, _lastSavedVolume)) return;
         _lastSavedVolume = volume;
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat(VolumeKey, volume);
         PlayerPrefs.Save();
-        Debug.Log($"Volume saved: {volume}");
     }
 
     public void SetSensitivity(float sensitivity)
     {
-        if (Mathf.Approximately(sensitivity, _lastSavedSensitivity))
-            return;
-
+        if (Mathf.Approximately(sensitivity, _lastSavedSensitivity)) return;
         _lastSavedSensitivity = sensitivity;
         PlayerPrefs.SetFloat(SensitivityKey, sensitivity);
         PlayerPrefs.Save();
         if (playerMovement != null)
             playerMovement.SetMouseSensitivity(sensitivity);
-        Debug.Log($"Sensitivity saved: {sensitivity}");
     }
 
     public void SetGamma(float gamma)
     {
-        if (Mathf.Approximately(gamma, _lastSavedGamma))
-            return;
-
+        if (Mathf.Approximately(gamma, _lastSavedGamma)) return;
         _lastSavedGamma = gamma;
         PlayerPrefs.SetFloat(GammaKey, gamma);
         PlayerPrefs.Save();
         ApplyGamma(gamma);
-        Debug.Log($"Gamma saved: {gamma}");
     }
 
     private void ApplyGamma(float gamma)
     {
-        if (colorAdjustments == null)
-            return;
+        if (colorAdjustments == null) return;
         colorAdjustments.postExposure.value = gamma;
     }
 
