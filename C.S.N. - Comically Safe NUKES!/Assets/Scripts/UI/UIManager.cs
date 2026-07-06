@@ -7,8 +7,9 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _interactionCrosshair;
     [SerializeField] private GameObject _indirectInteractionCrosshair;
-    [SerializeField] private GameObject _PickupInteractionCrosshair;
+    [SerializeField] private GameObject _pickupInteractionCrosshair;
     [SerializeField] private GameObject _focusedInteractionCrosshair;
+    [SerializeField] private GameObject _defaultCrosshair;
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
@@ -27,6 +28,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float _reminderGlowDuration = 3.0f;
     [SerializeField] private Color _reminderGlowColor = new Color(0f, 0.5f, 0f);
 
+    [Header("Crosshair Transition")]
+    [SerializeField] private float _crosshairTransitionDuration = 0.15f;
+
     private Vector3 _topBarVisiblePos;
     private Vector3 _bottomBarVisiblePos;
     private float _barMoveDistance = 200f;
@@ -41,6 +45,10 @@ public class UIManager : MonoBehaviour
     private Image _reminderImage;
     private Coroutine _reminderCoroutine;
     private Color _originalReminderColor;
+
+    private Coroutine _crosshairCoroutine;
+    private GameObject _currentActiveCrosshair;
+    private float _currentScale = 0f;
 
     void Start()
     {
@@ -107,7 +115,6 @@ public class UIManager : MonoBehaviour
     {
         InspectionTool.OnInspectionStateChanged -= HandleInspectionStateChanged;
     }
-    
 
     void HandleInspectionStateChanged(bool isInspecting, Interactive item)
     {
@@ -125,56 +132,90 @@ public class UIManager : MonoBehaviour
             _inspectionInfoUI.ShowInfo(item);
     }
 
-    public void ShowDefaultCrosshair()
+
+    private void ActivateCrosshair(GameObject crosshair, float targetScale)
     {
-        _indirectInteractionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(false);
-        _focusedInteractionCrosshair.SetActive(false);
-        _interactionCrosshair.SetActive(true);
-        _interactionCrosshair.transform.localScale = new Vector3(_defaultCrosshairScale, _defaultCrosshairScale, _defaultCrosshairScale);
-    }
-    public void HideAllCrosshairs()
-    {
+        if (_crosshairCoroutine != null)
+            StopCoroutine(_crosshairCoroutine);
+
+        if (_currentActiveCrosshair != null && _currentActiveCrosshair.activeSelf)
+            _currentScale = _currentActiveCrosshair.transform.localScale.x;
+        else
+            _currentScale = 0f;
+
         _interactionCrosshair.SetActive(false);
         _indirectInteractionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(false);
+        _pickupInteractionCrosshair.SetActive(false);
         _focusedInteractionCrosshair.SetActive(false);
+        _defaultCrosshair.SetActive(false);
+
+        if (crosshair != null)
+        {
+            crosshair.SetActive(true);
+            crosshair.transform.localScale = new Vector3(_currentScale, _currentScale, _currentScale);
+            _currentActiveCrosshair = crosshair;
+            _crosshairCoroutine = StartCoroutine(AnimateCrosshair(crosshair, targetScale));
+        }
+    }
+
+    private IEnumerator AnimateCrosshair(GameObject crosshair, float targetScale)
+    {
+        if (crosshair == null) yield break;
+
+        float elapsed = 0f;
+        Vector3 startScale = crosshair.transform.localScale;
+        Vector3 endScale = new Vector3(targetScale, targetScale, targetScale);
+
+        while (elapsed < _crosshairTransitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / _crosshairTransitionDuration;
+            t = t * t * (3f - 2f * t);
+            crosshair.transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            yield return null;
+        }
+        crosshair.transform.localScale = endScale;
+        _crosshairCoroutine = null;
+        _currentScale = targetScale;
+    }
+    public void ShowDefaultCrosshair()
+    {
+        ActivateCrosshair(_defaultCrosshair, _defaultCrosshairScale);
+    }
+
+    public void HideAllCrosshairs()
+    {
+        if (_crosshairCoroutine != null)
+            StopCoroutine(_crosshairCoroutine);
+        _crosshairCoroutine = null;
+
+        _interactionCrosshair.SetActive(false);
+        _indirectInteractionCrosshair.SetActive(false);
+        _pickupInteractionCrosshair.SetActive(false);
+        _focusedInteractionCrosshair.SetActive(false);
+        _defaultCrosshair.SetActive(false);
+        _currentActiveCrosshair = null;
+        _currentScale = 0f;
     }
 
     public void ShowInteractionCrosshair()
     {
-        _indirectInteractionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(false);
-        _focusedInteractionCrosshair.SetActive(false);
-        _interactionCrosshair.SetActive(true);
-        _interactionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+        ActivateCrosshair(_interactionCrosshair, _interactionCrosshairScale);
     }
 
     public void ShowIndirectInteractionCrosshair()
     {
-        _interactionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(false);
-        _focusedInteractionCrosshair.SetActive(false);
-        _indirectInteractionCrosshair.SetActive(true);
-        _indirectInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+        ActivateCrosshair(_indirectInteractionCrosshair, _interactionCrosshairScale);
     }
 
     public void ShowPickupInteractionCrosshair()
     {
-        _interactionCrosshair.SetActive(false);
-        _indirectInteractionCrosshair.SetActive(false);
-        _focusedInteractionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(true);
-        _PickupInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+        ActivateCrosshair(_pickupInteractionCrosshair, _interactionCrosshairScale);
     }
 
     public void ShowFocusedInteractionCrosshair()
     {
-        _interactionCrosshair.SetActive(false);
-        _indirectInteractionCrosshair.SetActive(false);
-        _PickupInteractionCrosshair.SetActive(false);
-        _focusedInteractionCrosshair.SetActive(true);
-        _focusedInteractionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
+        ActivateCrosshair(_focusedInteractionCrosshair, _interactionCrosshairScale);
     }
 
     public void TriggerInspectionReminder()
@@ -243,6 +284,7 @@ public class UIManager : MonoBehaviour
         _reminderCoroutine = null;
     }
 
+
     public void HideInteractionPanel() => _interactionPanel.SetActive(false);
 
     public void ShowInteractionPanel(string message)
@@ -282,7 +324,6 @@ public class UIManager : MonoBehaviour
             _selectedSlotIndex = index;
         }
     }
-
     public void ShowInspectionBars(bool show)
     {
         if (_barAnimationCoroutine != null)
