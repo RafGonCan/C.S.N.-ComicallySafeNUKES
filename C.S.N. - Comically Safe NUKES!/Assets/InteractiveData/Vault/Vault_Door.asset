@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
   m_Name: Vault_Door
   m_EditorClassIdentifier: 
-  type: 2
+  type: 4
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
-  requirements:
-  - {fileID: 11400000, guid: 95bf6babb364fc74eadfb4240cdd2de4, type: 2}
+  requirements: []
   inspectModel: {fileID: 0}
   inspectionDescription: 

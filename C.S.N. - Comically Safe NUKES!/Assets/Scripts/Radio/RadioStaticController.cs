@@ -17,6 +17,7 @@ public class RadioStaticController : MonoBehaviour
     private Interactive _radioInteractive;
     private bool _isFixed = false;
     private bool _isStaticPlaying = false;
+    private readonly WaitForSeconds _staticCheckInterval = new WaitForSeconds(5f);
 
     void Start()
     {
@@ -79,12 +80,16 @@ public class RadioStaticController : MonoBehaviour
         else
             StartStatic();
     }
+    private IEnumerator RestartStaticAfterDelay()
+    {
+        yield return _staticCheckInterval;
+        StartStatic();
+    }
 
     private void StartStatic()
     {
         if (_staticClip == null || _isStaticPlaying) return;
         _staticSource.clip = _staticClip;
-        _staticSource.loop = true;
         _staticSource.Play();
         _isStaticPlaying = true;
         SetSharpness(0.95f);
@@ -97,6 +102,7 @@ public class RadioStaticController : MonoBehaviour
         _staticSource.clip = null;
         _isStaticPlaying = false;
         SetSharpness(0f);
+        if (_isFixed == false) StartCoroutine(RestartStaticAfterDelay());         
     }
 
     private void SetSharpness(float value)

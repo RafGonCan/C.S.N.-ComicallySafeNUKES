@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
+    [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject speakerIcon;
     [SerializeField] private GameObject transitionObject;
@@ -11,16 +14,34 @@ public class Main_Menu : MonoBehaviour
     [SerializeField] private float timeOnScreen = 3f;
     [SerializeField] private float timeToFade = 1f;
 
-    private void Update()
+    private InputSystem_Actions _inputActions;
+
+    private void Awake()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        _inputActions = new InputSystem_Actions();
+        _inputActions.Enable();
+    }
+
+    private void Start()
+    {
+        // Enable cursor for menu
+        InteractionManager.instance.SetCursorAllowed(true);
+
+        if (EventSystem.current != null && startButton != null)
+            EventSystem.current.SetSelectedGameObject(startButton);
+    }
+
+    private void OnDestroy()
+    {
+        if (_inputActions != null)
+            _inputActions.Disable();
     }
 
     public void StartGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Hide cursor for gameplay
+        InteractionManager.instance.SetCursorAllowed(false);
+
         transitionObject.SetActive(true);
         StartCoroutine(StartGameSequence());
     }
@@ -28,16 +49,13 @@ public class Main_Menu : MonoBehaviour
     private IEnumerator StartGameSequence()
     {
         yield return StartCoroutine(FadeCanvasGroup(blackScreen, 0f, 1f, fadeSpeed));
-
         yield return StartCoroutine(FadeCanvasGroup(speakerIcon, 0f, 1f, fadeSpeed));
-
         yield return new WaitForSeconds(timeOnScreen);
-
         float fadeOutSpeed = 1f / timeToFade;
         yield return StartCoroutine(FadeCanvasGroup(speakerIcon, 1f, 0f, fadeOutSpeed));
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
     private IEnumerator FadeCanvasGroup(GameObject obj, float startAlpha, float endAlpha, float speed)
     {
         CanvasGroup cg = obj.GetComponent<CanvasGroup>();
@@ -46,11 +64,9 @@ public class Main_Menu : MonoBehaviour
             Debug.LogError("GameObject " + obj.name + " does not have a CanvasGroup component!");
             yield break;
         }
-
         cg.alpha = startAlpha;
         float elapsed = 0f;
         float duration = Mathf.Abs(endAlpha - startAlpha) / speed;
-
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -58,7 +74,6 @@ public class Main_Menu : MonoBehaviour
             cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
             yield return null;
         }
-
         cg.alpha = endAlpha;
     }
 

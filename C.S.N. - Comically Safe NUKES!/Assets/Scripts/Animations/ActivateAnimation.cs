@@ -5,6 +5,7 @@ public class ActivateAnimation : MonoBehaviour
 {
     public Animator _awakeAnimation;
     public Animator _interactAnimation;
+    public Animator _interactWrongAnimation;
     public AudioSource _audioSource;
 
     public void Activate()
@@ -18,7 +19,13 @@ public class ActivateAnimation : MonoBehaviour
     {
         if (_interactAnimation == null)
             return;
-        _interactAnimation.SetTrigger("Activate");
+        _interactAnimation.SetTrigger("Interact");
+    }
+    public void InteractWrong()
+    {
+        if (_interactWrongAnimation == null)
+            return;
+        _interactAnimation.SetTrigger("InteractWrong");
     }
 
     public void PlaySound()

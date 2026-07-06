@@ -15,6 +15,8 @@ public class Interactive : MonoBehaviour
     [SerializeField] public UnityEvent<Interactive> onRequirementUsed;
     public UnityEvent onFallbackInteract;
     public UnityEvent onDirectInteract;
+
+    private Collider _collider;
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
     private List<Interactive>       _requirements;
@@ -342,13 +344,28 @@ public class Interactive : MonoBehaviour
         }
     }
 
+    private Collider GetCollider()
+    {
+        if (_collider == null)
+        {
+            _collider = GetComponent<Collider>();
+            if (_collider == null)
+            {
+                _collider = GetComponentInChildren<Collider>();
+            }
+        }
+        return _collider;
+    }
+
     private void TriggerCameraFocus()
     {
-        if(_focusPoint  != null)
+        if (_focusPoint != null)
         {
             if (!InteractionManager.instance.CameraFocusController.GetFocusing())
             {
-                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint);
+                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint, this);
+                Collider col = GetCollider();
+                if (col != null) col.enabled = false;
             }
             else
             {
@@ -356,6 +373,13 @@ public class Interactive : MonoBehaviour
             }
         }
     }
+
+    public void RestoreCollider()
+    {
+        Collider col = GetCollider();
+        if (col != null) col.enabled = true;
+    }
+
     public void SetRequirementMetSound(AudioClip clip)
     {
         _requirementMetSound = clip;
