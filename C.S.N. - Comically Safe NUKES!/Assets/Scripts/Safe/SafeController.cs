@@ -14,7 +14,6 @@ public class SafeController : Interactive
     public int _minNumber = 0;
     public int _maxNumber = 9;
 
-    public override bool ShowCanvasOnFocus => !IsUnlocked;
 
     public void IncreaseNumber(int digitIndex)
     {

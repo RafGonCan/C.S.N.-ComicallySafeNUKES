@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEditor.Build.Content;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -84,6 +85,16 @@ public class InteractionManager : MonoBehaviour
         
         FindSceneReferences();      
         _dependenciesProcessed = false;
+        if (scene.buildIndex == 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         
         Debug.Log($"Interactives count after clearing: {_interactives.Count}");
     }

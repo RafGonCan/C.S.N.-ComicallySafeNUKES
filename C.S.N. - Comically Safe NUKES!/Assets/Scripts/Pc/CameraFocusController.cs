@@ -90,14 +90,13 @@ public class CameraFocusController : MonoBehaviour
         }
     }
 
-    public void EnterFocus(Transform focusPoint, Interactive interactive, bool allowCancelExit = true)
+    public void EnterFocus(Transform focusPoint, Interactive interactive)
     {
         if (isFocusing) return;
 
         crosshair.SetActive(false);
         leaveFocus.SetActive(true);
         _focusedInteractive = interactive;
-        _allowCancelExit = allowCancelExit;
         _uiReady = false;
 
         blockExitFocus = true;
@@ -116,14 +115,11 @@ public class CameraFocusController : MonoBehaviour
 
         if (currentCanvas != null && currentCanvas.renderMode == RenderMode.WorldSpace)
         {
-            if (interactive.ShowCanvasOnFocus)
-            {
-                currentCanvas.gameObject.SetActive(true);
+            currentCanvas.gameObject.SetActive(true);
 
-                if (_uiReadyCoroutine != null)
-                    StopCoroutine(_uiReadyCoroutine);
-                _uiReadyCoroutine = StartCoroutine(EnableUIAfterDelay());
-            }
+            if (_uiReadyCoroutine != null)
+                StopCoroutine(_uiReadyCoroutine);
+            _uiReadyCoroutine = StartCoroutine(EnableUIAfterDelay());
         }
     }
 

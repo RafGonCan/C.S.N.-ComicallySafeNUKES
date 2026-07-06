@@ -16,10 +16,6 @@ public class Interactive : MonoBehaviour
     public UnityEvent onFallbackInteract;
     public UnityEvent onDirectInteract;
 
-    [SerializeField] private bool _allowCancelExit = true;
-    [SerializeField] private bool _showCanvasOnFocus = true;
-    public virtual bool ShowCanvasOnFocus => _showCanvasOnFocus;
-
     private Collider _collider;
     private InteractionManager      _interactionManager;
     private PlayerInventory         _playerInventory;
@@ -367,7 +363,7 @@ public class Interactive : MonoBehaviour
         {
             if (!InteractionManager.instance.CameraFocusController.GetFocusing())
             {
-                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint, this, _allowCancelExit);
+                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint, this);
                 Collider col = GetCollider();
                 if (col != null) col.enabled = false;
             }

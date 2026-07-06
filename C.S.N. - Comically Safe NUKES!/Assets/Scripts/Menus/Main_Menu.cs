@@ -20,7 +20,7 @@ public class Main_Menu : MonoBehaviour
         _inputActions.Enable();
     }
 
-    private void Update()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -29,15 +29,14 @@ public class Main_Menu : MonoBehaviour
     private void OnDestroy()
     {
         if (_inputActions != null)
-        {
             _inputActions.Disable();
-        }
     }
 
     public void StartGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
         transitionObject.SetActive(true);
         StartCoroutine(StartGameSequence());
     }
@@ -45,14 +44,10 @@ public class Main_Menu : MonoBehaviour
     private IEnumerator StartGameSequence()
     {
         yield return StartCoroutine(FadeCanvasGroup(blackScreen, 0f, 1f, fadeSpeed));
-
         yield return StartCoroutine(FadeCanvasGroup(speakerIcon, 0f, 1f, fadeSpeed));
-
         yield return new WaitForSeconds(timeOnScreen);
-
         float fadeOutSpeed = 1f / timeToFade;
         yield return StartCoroutine(FadeCanvasGroup(speakerIcon, 1f, 0f, fadeOutSpeed));
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -64,11 +59,9 @@ public class Main_Menu : MonoBehaviour
             Debug.LogError("GameObject " + obj.name + " does not have a CanvasGroup component!");
             yield break;
         }
-
         cg.alpha = startAlpha;
         float elapsed = 0f;
         float duration = Mathf.Abs(endAlpha - startAlpha) / speed;
-
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -76,7 +69,6 @@ public class Main_Menu : MonoBehaviour
             cg.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
             yield return null;
         }
-
         cg.alpha = endAlpha;
     }
 
