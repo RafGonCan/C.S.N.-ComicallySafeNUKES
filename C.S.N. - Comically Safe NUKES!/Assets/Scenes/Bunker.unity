@@ -535,6 +535,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!1001 &13676965
 PrefabInstance:
@@ -665,6 +666,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -1611,6 +1613,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!4 &61115144 stripped
 Transform:
@@ -2251,17 +2254,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96666879}
-  m_LocalRotation: {x: -0.00022126391, y: 0.040204074, z: -0.0054972395, w: 0.9991763}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01}
+  m_LocalRotation: {x: -0.0005255072, y: 0.040201247, z: -0.013058722, w: 0.9991061}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2069473276}
   m_Father: {fileID: 1289608785}
-  m_LocalEulerAnglesHint: {x: 0, y: 4.608, z: -0.63}
+  m_LocalEulerAnglesHint: {x: 0, y: 4.608, z: -1.498}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.178, y: -0.002000004}
-  m_SizeDelta: {x: 0.365075, y: 0}
+  m_AnchoredPosition: {x: 0.17621876, y: -0.0009499788}
+  m_SizeDelta: {x: 0.35243753, y: 0.0018999577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &96666881
 MonoBehaviour:
@@ -2283,7 +2287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3312,6 +3316,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 6
@@ -4889,6 +4894,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 2
@@ -5052,6 +5058,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 0
@@ -5487,6 +5494,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!65 &201647910
 BoxCollider:
@@ -6577,6 +6585,7 @@ MonoBehaviour:
   _reminderFadeDuration: 0.5
   _reminderGlowDuration: 3
   _reminderGlowColor: {r: 0.49810803, g: 0.990566, b: 0.051397298, a: 1}
+  _crosshairTransitionDuration: 0.15
 --- !u!114 &272367920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8996,6 +9005,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 7
@@ -9863,6 +9873,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!1001 &425799364
 PrefabInstance:
@@ -10860,6 +10871,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -11416,6 +11428,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   targetObjects:
   - {fileID: 1184643173}
@@ -12469,6 +12482,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   targetObjects:
   - {fileID: 587276242}
@@ -15397,6 +15411,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!1 &600155793 stripped
 GameObject:
@@ -17597,6 +17612,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!65 &666446803
 BoxCollider:
@@ -17633,7 +17649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _staticSource: {fileID: 666446806}
   _staticClip: {fileID: 8300000, guid: 9f3b86cee2e62e844882ad81b8c89766, type: 3}
-  _staticVolume: 0.7
+  _staticVolume: 0.4
   _requirementSlot: {fileID: 1492913068}
   _radioMaterial: {fileID: -876546973899608171, guid: 8f7c7ecfac9b2504b9ce13234f1d9d08, type: 3}
   _buttonCollider: {fileID: 1801892476}
@@ -19028,6 +19044,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -25740,6 +25757,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!95 &782634359
 Animator:
@@ -26527,6 +26545,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -26825,6 +26844,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 3
@@ -28123,6 +28143,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 0
   isOn: 0
 --- !u!65 &879501357
 BoxCollider:
@@ -28166,6 +28187,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 0.8, z: 0.8}
   m_Center: {x: -0.4, y: 0.5, z: 0.4}
+--- !u!82 &879501361
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879501354}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: d405f8afc8a344547be300e26400e001, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &881565660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f0262cba8a42f4442b58b5495def574a, type: 3}
@@ -28769,6 +28887,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -28988,6 +29107,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -29311,6 +29431,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!95 &926352967
 Animator:
@@ -29977,6 +30098,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -30099,7 +30221,7 @@ MonoBehaviour:
   background: {fileID: 1759899973}
   digitalPlutonium: {fileID: 1467986774}
   startButton: {fileID: 1649084423}
-  exitButton: {fileID: 0}
+  exitButton: {fileID: 1569574459}
   playerMovement: {fileID: 0}
 --- !u!224 &950624527
 RectTransform:
@@ -30320,6 +30442,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 10
@@ -31023,6 +31146,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 9
@@ -31165,6 +31289,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!82 &1008792038
 AudioSource:
@@ -32195,6 +32320,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7725722708412619893, guid: 5a522eb4e7e77eb418907dc83543c3d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 879501356}
+    - targetCorrespondingSourceObject: {fileID: 7725722708412619893, guid: 5a522eb4e7e77eb418907dc83543c3d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879501361}
     - targetCorrespondingSourceObject: {fileID: 7210557651671393600, guid: 5a522eb4e7e77eb418907dc83543c3d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1418139474}
@@ -32212,6 +32340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1050725808}
   - component: {fileID: 1050725809}
+  - component: {fileID: 1050725811}
+  - component: {fileID: 1050725810}
   m_Layer: 0
   m_Name: LoadingManager
   m_TagString: Untagged
@@ -32255,11 +32385,208 @@ MonoBehaviour:
   progressBar: {fileID: 1289608786}
   mainMenuPanel: {fileID: 1759899973}
   minDuration: 3
-  maxDuration: 8
+  maxDuration: 6
   fadeDuration: 1
   jumpFrequency: 0.1
-  jumpAmount: 0.3
-  minProgress: 0.05
+  jumpAmount: 0.5
+  settleDuration: 0.5
+  smoothingSpeed: 1.5
+  stutterChance: 0.03
+  _bootUp: {fileID: 8300000, guid: 0708f84c3b95c1b458cc36ab2b593280, type: 3}
+--- !u!82 &1050725810
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050725807}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0708f84c3b95c1b458cc36ab2b593280, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1050725811
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050725807}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1052847824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b871a0d7aad1e64da77a813331fbe84, type: 3}
@@ -32579,6 +32906,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 1
 --- !u!65 &1059223667
 BoxCollider:
@@ -33096,6 +33424,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!65 &1083015884
 BoxCollider:
@@ -33304,6 +33633,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -33427,6 +33757,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -33519,6 +33850,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!4 &1100381337 stripped
 Transform:
@@ -37429,81 +37761,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2eaa207fb98b2c04caebf00266107dfe, type: 3}
   m_PrefabInstance: {fileID: 1245652327}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1248973573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1248973574}
-  - component: {fileID: 1248973576}
-  - component: {fileID: 1248973575}
-  m_Layer: 5
-  m_Name: Fill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1248973574
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248973573}
-  m_LocalRotation: {x: -0.000000007064954, y: 0.037145548, z: -9.3132246e-10, w: 0.9993099}
-  m_LocalPosition: {x: 0, y: 0, z: -0.001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2069473276}
-  m_LocalEulerAnglesHint: {x: 0, y: 4.258, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.001000002, y: 0}
-  m_SizeDelta: {x: -0.030000119, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1248973575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248973573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.20002449, g: 0.5, b: 0.06367925, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1248973576
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248973573}
-  m_CullTransparentMesh: 1
 --- !u!1 &1251221031
 GameObject:
   m_ObjectHideFlags: 0
@@ -38211,7 +38468,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 96666880}
-  - {fileID: 2069473276}
   - {fileID: 868175115}
   m_Father: {fileID: 149996854}
   m_LocalEulerAnglesHint: {x: 4.654, y: -183.564, z: 0.932}
@@ -38261,28 +38517,16 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1374019641}
-  m_FillRect: {fileID: 1248973574}
-  m_HandleRect: {fileID: 1374019640}
+  m_FillRect: {fileID: 1468881469}
+  m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1865525709}
-        m_TargetAssemblyTypeName: Options_Menu, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1295036655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38558,6 +38802,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!82 &1300545027
 AudioSource:
@@ -40438,6 +40683,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!65 &1370401226
 BoxCollider:
@@ -40574,7 +40820,7 @@ RectTransform:
   m_Father: {fileID: 868175115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.01, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -40838,6 +41084,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -41547,6 +41794,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   playerMovement: {fileID: 1349910773}
   fadeOuter: {fileID: 272367925}
@@ -42446,6 +42694,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 1
@@ -43154,6 +43403,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!95 &1464549181
 Animator:
@@ -43350,6 +43600,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.026}
   m_SizeDelta: {x: 0.15, y: 0.15}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1468881468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468881469}
+  - component: {fileID: 1468881471}
+  - component: {fileID: 1468881470}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1468881469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468881468}
+  m_LocalRotation: {x: 0.00000003713649, y: 0.0000000037252903, z: 9.313226e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2069473276}
+  m_LocalEulerAnglesHint: {x: 0, y: 4.608, z: -1.498}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.02, y: 0.02}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1468881470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468881468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2749386, g: 0.4716981, b: 0.18022428, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1468881471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468881468}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1471804588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44104,6 +44429,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 1
 --- !u!4 &1495769034 stripped
 Transform:
@@ -44553,6 +44879,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 11
@@ -45766,9 +46093,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.034408808, a: 1}
+    m_PressedColor: {r: 0.09011213, g: 0.764151, b: 0.19607994, a: 1}
+    m_SelectedColor: {r: 0.40571427, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -45791,6 +46118,30 @@ MonoBehaviour:
       - m_Target: {fileID: 2145993011}
         m_TargetAssemblyTypeName: CameraFocusController, Assembly-CSharp
         m_MethodName: ExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 950624526}
+        m_TargetAssemblyTypeName: SnakeGame, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 879501361}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45989,6 +46340,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 4
@@ -47219,6 +47571,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 5
@@ -47412,9 +47765,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5481838, g: 0.9811321, b: 0.1064436, a: 1}
+    m_PressedColor: {r: 0.56155646, g: 0.7924528, b: 0.22801706, a: 1}
+    m_SelectedColor: {r: 0.20611043, g: 0.8773585, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -48971,6 +49324,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!1001 &1713272447
 PrefabInstance:
@@ -50297,6 +50651,7 @@ GameObject:
   - component: {fileID: 1759899974}
   - component: {fileID: 1759899976}
   - component: {fileID: 1759899975}
+  - component: {fileID: 1759899977}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -50365,6 +50720,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759899973}
   m_CullTransparentMesh: 1
+--- !u!82 &1759899977
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759899973}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e2b0465d32d60b941b84fa1b089e80c9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1760822185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51967,6 +52419,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _allowCancelExit: 1
   isOn: 1
 --- !u!114 &1801892479
 MonoBehaviour:
@@ -52811,6 +53264,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!65 &1837629958
 BoxCollider:
@@ -53464,6 +53918,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!1001 &1863844043
 PrefabInstance:
@@ -54483,6 +54938,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!4 &1919134064 stripped
 Transform:
@@ -55420,6 +55876,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 8
@@ -56338,6 +56795,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   currentNumbers: 000000000000000000000000
   correctCombination: 070000000200000005000000
@@ -57604,6 +58062,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   eatParticles: {fileID: 740804215}
   particleLifetime: 1
@@ -58176,18 +58635,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069473275}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: 0.000000029860526, y: -0, z: 8.567439e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1248973574}
-  m_Father: {fileID: 1289608785}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  - {fileID: 1468881469}
+  m_Father: {fileID: 96666880}
+  m_LocalEulerAnglesHint: {x: 0, y: 4.608, z: -1.498}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.173, y: 0}
-  m_SizeDelta: {x: 0.3605375, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2070053027
 PrefabInstance:
@@ -59617,6 +60076,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
   targetObjects:
   - {fileID: 563230509}
@@ -60872,6 +61332,7 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls: []
+  _allowCancelExit: 1
   isOn: 0
 --- !u!114 &7272638916735758892
 MonoBehaviour:

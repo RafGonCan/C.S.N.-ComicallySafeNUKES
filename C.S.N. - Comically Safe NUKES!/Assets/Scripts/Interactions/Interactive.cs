@@ -12,9 +12,10 @@ public class Interactive : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private bool _playSoundOnRequirementsMet = true;
     [SerializeField] private AudioClip _fallbackSound;
-    [SerializeField] public UnityEvent<Interactive> onRequirementUsed;
+    public UnityEvent<Interactive> onRequirementUsed;
     public UnityEvent onFallbackInteract;
     public UnityEvent onDirectInteract;
+    [SerializeField] private bool _allowCancelExit = true;
 
     private Collider _collider;
     private InteractionManager      _interactionManager;
@@ -363,7 +364,7 @@ public class Interactive : MonoBehaviour
         {
             if (!InteractionManager.instance.CameraFocusController.GetFocusing())
             {
-                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint, this);
+                InteractionManager.instance.CameraFocusController.EnterFocus(_focusPoint, this, _allowCancelExit);
                 Collider col = GetCollider();
                 if (col != null) col.enabled = false;
             }

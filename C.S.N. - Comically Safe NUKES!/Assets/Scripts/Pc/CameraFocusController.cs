@@ -30,6 +30,9 @@ public class CameraFocusController : MonoBehaviour
     private bool _uiReady = false;
     private Coroutine _uiReadyCoroutine;
 
+    // 👇 Store the allow flag
+    private bool _allowCancelExit = true;
+
     private void Awake()
     {
         _inputActions = new InputSystem_Actions();
@@ -89,17 +92,17 @@ public class CameraFocusController : MonoBehaviour
         }
     }
 
-    public void EnterFocus(Transform focusPoint, Interactive interactive)
+    public void EnterFocus(Transform focusPoint, Interactive interactive, bool allowCancelExit = true)
     {
         if (isFocusing) return;
 
         crosshair.SetActive(false);
-        leaveFocus.SetActive(true);
         _focusedInteractive = interactive;
         _uiReady = false;
+        _allowCancelExit = allowCancelExit; // 👈 store
 
-        // Allow cursor in focus mode (UI appears)
-        InteractionManager.instance.SetCursorAllowed(true);
+        // Show leave button only if exit is allowed
+        leaveFocus.SetActive(allowCancelExit);
 
         blockExitFocus = true;
 
@@ -165,9 +168,6 @@ public class CameraFocusController : MonoBehaviour
             _uiReadyCoroutine = null;
         }
 
-        // Hide cursor when leaving focus
-        InteractionManager.instance.SetCursorAllowed(false);
-
         if (EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(null);
 
@@ -192,7 +192,7 @@ public class CameraFocusController : MonoBehaviour
 
     private void OnCancel(InputAction.CallbackContext context)
     {
-        if (isFocusing && _uiReady)
+        if (isFocusing && _uiReady && _allowCancelExit)
         {
             blockExitFocus = false;
             ExitFocus();

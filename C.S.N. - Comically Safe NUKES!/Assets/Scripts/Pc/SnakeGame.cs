@@ -253,8 +253,8 @@ public class SnakeGame : MonoBehaviour
         float rotationAngle = 0f;
         if (direction == Vector2.up) rotationAngle = 0f;
         else if (direction == Vector2.down) rotationAngle = 180f;
-        else if (direction == Vector2.right) rotationAngle = -90f;
-        else if (direction == Vector2.left) rotationAngle = 90f;
+        else if (direction == Vector2.right) rotationAngle = 90f;
+        else if (direction == Vector2.left) rotationAngle = -90f;
         head.transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
     }
 
