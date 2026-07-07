@@ -10346,9 +10346,6 @@ PrefabInstance:
       addedObject: {fileID: 1837629960}
     - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1837629962}
-    - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1837629964}
     - targetCorrespondingSourceObject: {fileID: -8254564374808016372, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
       insertIndex: -1
@@ -32927,8 +32924,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0786879, y: 0.25073642, z: 0.09909898}
-  m_Center: {x: -0.0122734085, y: -0.10036822, z: 0.0015480502}
+  m_Size: {x: 0.08, y: 0.5, z: 0.1}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!1 &1064784666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -40629,10 +40626,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cceb43b81e9c448bd39e289bd26ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _awakeAnimation: {fileID: 0}
+  _awakeAnimation: {fileID: 1100381334}
   _interactAnimation: {fileID: 1837629960}
   _interactWrongAnimation: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1837629964}
 --- !u!95 &1370401224
 Animator:
   serializedVersion: 7
@@ -42324,7 +42321,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.17
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.90106344, z: 0}
@@ -53252,7 +53249,7 @@ MonoBehaviour:
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
   _requirementMetSound: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1837629964}
   _playSoundOnRequirementsMet: 0
   _fallbackSound: {fileID: 0}
   onRequirementUsed:
@@ -53309,22 +53306,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1837629962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837629955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cceb43b81e9c448bd39e289bd26ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _awakeAnimation: {fileID: 1100381334}
-  _interactAnimation: {fileID: 0}
-  _interactWrongAnimation: {fileID: 0}
-  _audioSource: {fileID: 1837629964}
 --- !u!82 &1837629964
 AudioSource:
   m_ObjectHideFlags: 0
