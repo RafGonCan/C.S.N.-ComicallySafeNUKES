@@ -4378,6 +4378,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1790008156}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884612795}
     - targetCorrespondingSourceObject: {fileID: 4638514012337674749, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
@@ -4453,6 +4456,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1692447681}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2083710169}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2083710168}
     - targetCorrespondingSourceObject: {fileID: 6980270319644334844, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 173603917}
@@ -15402,6 +15411,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1974364695}
+        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
+        m_MethodName: ActivateDrawing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -17590,7 +17611,19 @@ MonoBehaviour:
   _fallbackSound: {fileID: 0}
   onRequirementUsed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1974364695}
+        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
+        m_MethodName: ActivateDrawing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls:
@@ -49315,6 +49348,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1974364695}
+        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
+        m_MethodName: ActivateDrawing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -51703,6 +51748,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
   m_PrefabInstance: {fileID: 2017208919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1790008155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1790008156}
+  m_Layer: 0
+  m_Name: Focus Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1790008156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790008155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.59017, y: 0.24067442, z: -0.16739412, w: 0.7521665}
+  m_LocalPosition: {x: -1.181, y: 1.68, z: -0.5999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 960548553}
+  m_LocalEulerAnglesHint: {x: 75.555, y: 41.249, z: 7.431}
 --- !u!1 &1790458479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -53884,6 +53960,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1757005743}
         m_TargetAssemblyTypeName: FluidScale, Assembly-CSharp
         m_MethodName: ReceivePlutonium
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1974364695}
+        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
+        m_MethodName: ActivateDrawing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -56414,6 +56502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974364694}
+  - component: {fileID: 1974364695}
   m_Layer: 0
   m_Name: Symbols
   m_TagString: Untagged
@@ -56448,6 +56537,34 @@ Transform:
   - {fileID: 2085377709}
   m_Father: {fileID: 175796878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974364695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974364693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f98355cfc18879498687d22e54e6f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drawings:
+  - {fileID: 121023308}
+  - {fileID: 2024216188}
+  - {fileID: 1301550923}
+  - {fileID: 1243465424}
+  - {fileID: 230745209}
+  - {fileID: 2085377708}
+  - {fileID: 1851704629}
+  - {fileID: 1723909438}
+  - {fileID: 835605173}
+  - {fileID: 1257881327}
+  - {fileID: 1614341614}
+  - {fileID: 1841903051}
+  fadeDuration: 0.5
+  delayBetween: 0.5
+  groupSize: 4
 --- !u!1 &1980191447
 GameObject:
   m_ObjectHideFlags: 0
@@ -59186,6 +59303,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf03c69ec669a7c44bff401169693759, type: 3}
   m_PrefabInstance: {fileID: 2080632998}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2083710167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
+  m_PrefabInstance: {fileID: 173603887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2083710168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083710167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactiveData: {fileID: 11400000, guid: 89cfdc9f038d3d0458b1b77fe2791465, type: 2}
+  statefulPrefab: {fileID: 0}
+  _focusPoint: {fileID: 1790008156}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
+  _fallbackSound: {fileID: 0}
+  onRequirementUsed:
+    m_PersistentCalls:
+      m_Calls: []
+  onFallbackInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onDirectInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  _allowCancelExit: 1
+  isOn: 0
+--- !u!65 &2083710169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083710167}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.790359, y: 0.27608895, z: 0.5145097}
+  m_Center: {x: -1.0836372, y: 0.8778126, z: -0.40889525}
 --- !u!1001 &2084623760
 PrefabInstance:
   m_ObjectHideFlags: 0

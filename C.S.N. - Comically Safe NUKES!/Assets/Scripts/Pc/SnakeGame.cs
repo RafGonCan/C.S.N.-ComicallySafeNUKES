@@ -19,7 +19,7 @@ public class SnakeGame : MonoBehaviour
 
     private float gridSize = 20f;
     private Vector2 direction;
-    private int applesCollected = 0;
+    private int _applesCollected = 0;
     private Queue<Vector2> directionQueue = new Queue<Vector2>();
     private int maxQueueSize = 2;
     private List<RectTransform> snake = new List<RectTransform>();
@@ -87,19 +87,24 @@ public class SnakeGame : MonoBehaviour
     private void ShowMenu()
     {
         background.SetActive(true);
-        startButton.SetActive(true);
         if (exitButton != null) exitButton.SetActive(true);
-        digitalPlutonium.SetActive(false);
-
+        if (_applesCollected >= 12)
+        {
+            startButton.SetActive(false);
+            digitalPlutonium.SetActive(true);
+            EventSystem.current?.SetSelectedGameObject(exitButton);
+        }
+        else
+        {
+            startButton.SetActive(true);
+            _applesCollected = 0;
+        }
         if (playerMovement != null)
             playerMovement.CanMove = false;
 
         gameStarted = false;
-        applesCollected = 0;
 
-        // Allow cursor in snake menu
         InteractionManager.instance.SetCursorAllowed(true);
-
         EventSystem.current?.SetSelectedGameObject(startButton);
     }
 
@@ -117,7 +122,7 @@ public class SnakeGame : MonoBehaviour
         gameStarted = true;
         direction = Vector2.right;
         moveTimer = 0;
-        applesCollected = 0;
+        _applesCollected = 0;
 
         foreach (RectTransform segment in snake)
             Destroy(segment.gameObject);
@@ -147,7 +152,7 @@ public class SnakeGame : MonoBehaviour
             moveTimer = 0;
             MoveSnake();
 
-            if (applesCollected >= 12)
+            if (_applesCollected >= 12)
             {
                 WinGame();
                 return;
@@ -185,7 +190,7 @@ public class SnakeGame : MonoBehaviour
         {
             AddSegment();
             SpawnFood();
-            applesCollected++;
+            _applesCollected++;
         }
     }
 
@@ -200,7 +205,6 @@ public class SnakeGame : MonoBehaviour
     private void WinGame()
     {
         gameStarted = false;
-        digitalPlutonium.SetActive(true);
         ShowMenu();
     }
 

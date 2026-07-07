@@ -29,8 +29,6 @@ public class CameraFocusController : MonoBehaviour
     private InputAction _cancelAction;
     private bool _uiReady = false;
     private Coroutine _uiReadyCoroutine;
-
-    // 👇 Store the allow flag
     private bool _allowCancelExit = true;
 
     private void Awake()
@@ -99,9 +97,10 @@ public class CameraFocusController : MonoBehaviour
         crosshair.SetActive(false);
         _focusedInteractive = interactive;
         _uiReady = false;
-        _allowCancelExit = allowCancelExit; // 👈 store
+        _allowCancelExit = allowCancelExit;
 
-        // Show leave button only if exit is allowed
+        InteractionManager.instance.SetCursorAllowed(true);
+
         leaveFocus.SetActive(allowCancelExit);
 
         blockExitFocus = true;
@@ -167,6 +166,8 @@ public class CameraFocusController : MonoBehaviour
             StopCoroutine(_uiReadyCoroutine);
             _uiReadyCoroutine = null;
         }
+
+        InteractionManager.instance.SetCursorAllowed(false);
 
         if (EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(null);
