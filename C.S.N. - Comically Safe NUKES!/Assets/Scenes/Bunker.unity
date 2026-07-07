@@ -48276,7 +48276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1676166156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59528,6 +59528,8 @@ GameObject:
   - component: {fileID: 2088333425}
   - component: {fileID: 2088333427}
   - component: {fileID: 2088333426}
+  - component: {fileID: 2088333429}
+  - component: {fileID: 2088333428}
   m_Layer: 0
   m_Name: pizza_01 slice 02 (2)
   m_TagString: Untagged
@@ -59603,6 +59605,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088333424}
   m_Mesh: {fileID: 2951200278936151375, guid: f0262cba8a42f4442b58b5495def574a, type: 3}
+--- !u!65 &2088333428
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088333424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29392824, y: 0.035489485, z: 0.42373595}
+  m_Center: {x: -0.023696411, y: 0.0036334202, z: -0.07957921}
+--- !u!114 &2088333429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088333424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
+  statefulPrefab: {fileID: 0}
+  _focusPoint: {fileID: 0}
+  _requirementMetSound: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _playSoundOnRequirementsMet: 1
+  _fallbackSound: {fileID: 0}
+  onRequirementUsed:
+    m_PersistentCalls:
+      m_Calls: []
+  onFallbackInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onDirectInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  _allowCancelExit: 1
+  isOn: 0
+  eatParticles: {fileID: 740804215}
+  particleLifetime: 1
+  spawnDistance: 0.3
+  eatSounds:
+  - {fileID: 8300000, guid: 463e558b807ff4c4e972c2a97cc75f55, type: 3}
+  - {fileID: 8300000, guid: f612809127357b04a89daede0926a78f, type: 3}
+  - {fileID: 8300000, guid: c463ffd4e1083714b8987667185c6562, type: 3}
+  - {fileID: 8300000, guid: 3630c4d655c2b304ea0015a5837c86b6, type: 3}
+  - {fileID: 8300000, guid: c342fc6f993226843af9e2092632f33c, type: 3}
+  - {fileID: 8300000, guid: 9236b829cf05f4848afd756219a4c654, type: 3}
+  - {fileID: 8300000, guid: 1134c348292b01f48be066df9f50d33e, type: 3}
+  - {fileID: 8300000, guid: e688c812551290b47a5bd848a32f54b7, type: 3}
+  playerAudioSource: {fileID: 1349910776}
+  soundInterval: 0.15
+  soundCount: 4
 --- !u!1001 &2093261585
 PrefabInstance:
   m_ObjectHideFlags: 0
