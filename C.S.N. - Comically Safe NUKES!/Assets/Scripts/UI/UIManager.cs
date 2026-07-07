@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
+    [SerializeField] private GameObject _inventoryPanelContainer;
     [SerializeField] private int _defaultCrosshairScale;
     [SerializeField] private int _interactionCrosshairScale;
     [SerializeField] private Color _unselectedSlotColor;
@@ -311,6 +312,10 @@ public class UIManager : MonoBehaviour
     {
         _inventoryIcons[index].sprite = icon;
         _inventoryIcons[index].enabled = true;
+    }
+    public void ShowInventory(bool var)
+    {
+        _inventoryPanelContainer.SetActive(var);
     }
 
     public void SelectInventorySlot(int index)

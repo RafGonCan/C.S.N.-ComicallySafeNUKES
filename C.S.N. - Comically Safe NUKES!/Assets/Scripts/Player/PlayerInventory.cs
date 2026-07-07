@@ -11,7 +11,6 @@ public class PlayerInventory : MonoBehaviour
     private int                 _selectedSlotIndex;
     private bool                firstTimeAddingItem = true;
 
-    // Input System
     private InputSystem_Actions _inputActions;
     private InputAction _previousAction;
     private InputAction _nextAction;

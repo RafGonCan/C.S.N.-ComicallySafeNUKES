@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class LoadingScreen : MonoBehaviour
@@ -9,38 +8,46 @@ public class LoadingScreen : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private GameObject loadingPanel;
     [SerializeField] private Slider progressBar;
-    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private SnakeGame snakeGame;
 
     [Header("Settings")]
     [SerializeField] private float minDuration = 3f;
     [SerializeField] private float maxDuration = 5f;
     [SerializeField] private float fadeDuration = 1f;
 
-    [Header("Erratic Animation (very chaotic)")]
-    [SerializeField] private float jumpFrequency = 0.8f;        // how often jumps occur (higher = more jumps)
-    [SerializeField] private float jumpAmount = 0.5f;            // max jump size (can be negative)
+    [Header("Erratic Animation")]
+    [SerializeField] private float jumpFrequency = 0.8f;
+    [SerializeField] private float jumpAmount = 0.5f;
     [SerializeField] private float settleDuration = 0.5f;
-    [SerializeField] private float smoothingSpeed = 1.5f;        // lower = slower to follow, more smooth; higher = more jagged
-    [SerializeField] private float stutterChance = 0.05f;        // chance per frame to freeze or jump back to 0
-
-    [SerializeField] private AudioClip _bootUp;
+    [SerializeField] private float smoothingSpeed = 1.5f;
+    [SerializeField] private float stutterChance = 0.05f;
+    [SerializeField] private AudioClip _ac;
     private AudioSource _as => GetComponent<AudioSource>();
+
     private float _targetProgress = 0f;
     private float _currentProgress = 0f;
-    public bool LoadingComplete { get; private set; } = false;
+
+    private static bool _hasLoaded = false;
 
     private void Start()
     {
+        if (snakeGame != null)
+            snakeGame.HideAll();
+
+        if (_hasLoaded)
+        {
+            Debug.Log("Loading skipped – showing snake menu.");
+            ShowSnakeMenu();
+            return;
+        }
+
         StartCoroutine(LoadingRoutine());
     }
 
     private IEnumerator LoadingRoutine()
     {
-        if (!LoadingComplete && _as != null && _bootUp != null)
-            _as.PlayOneShot(_bootUp);
-
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetActive(false);
+        if (_ac != null && _as != null)
+            _as.PlayOneShot(_ac);
 
         if (loadingPanel != null)
             loadingPanel.SetActive(true);
@@ -53,28 +60,18 @@ public class LoadingScreen : MonoBehaviour
         float totalDuration = Random.Range(minDuration, maxDuration);
         float elapsed = 0f;
 
-        // ----- Chaotic phase -----
         while (_currentProgress < 0.95f)
         {
             elapsed += Time.deltaTime;
-
-            // Base progress (overall increase)
             float baseProgress = Mathf.Clamp01(elapsed / totalDuration);
 
-            // ----- Stutter: freeze or drop to 0 -----
             if (Random.value < stutterChance * Time.deltaTime * 10f)
             {
-                // Freeze for a moment or drop to zero
                 if (Random.value < 0.5f)
-                {
                     _targetProgress = Mathf.Clamp01(_targetProgress - Random.Range(0.1f, 0.5f));
-                }
                 else
-                {
                     _targetProgress = 0f;
-                }
             }
-            // ----- Normal erratic jump -----
             else if (Random.value < jumpFrequency * Time.deltaTime * 2f)
             {
                 float jump = Random.Range(-jumpAmount, jumpAmount);
@@ -82,14 +79,10 @@ public class LoadingScreen : MonoBehaviour
             }
             else
             {
-                // Slow drift toward base, but with some inertia
                 _targetProgress = Mathf.Lerp(_targetProgress, baseProgress, Time.deltaTime * 1.2f);
             }
 
-            // Move current toward target with **low** smoothing (so it's more jagged)
             _currentProgress = Mathf.Lerp(_currentProgress, _targetProgress, Time.deltaTime * smoothingSpeed);
-
-            // Clamp and update UI
             _currentProgress = Mathf.Clamp01(_currentProgress);
             if (progressBar != null)
                 progressBar.value = _currentProgress;
@@ -97,7 +90,6 @@ public class LoadingScreen : MonoBehaviour
             yield return null;
         }
 
-        // ----- Settle phase: smoothly reach 1.0 -----
         float settleElapsed = 0f;
         float startProgress = _currentProgress;
         while (settleElapsed < settleDuration)
@@ -118,15 +110,34 @@ public class LoadingScreen : MonoBehaviour
         if (loadingPanel != null)
             loadingPanel.SetActive(false);
 
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetActive(true);
 
-        EventSystem.current?.SetSelectedGameObject(
-            mainMenuPanel.GetComponentInChildren<Button>()?.gameObject
-        );
+        ShowSnakeMenu();
 
-        LoadingComplete = true;
-        Debug.Log("Loading complete – main menu shown.");
+        _hasLoaded = true;
+        Debug.Log("Loading complete – snake menu shown.");
+    }
+
+    private void ShowSnakeMenu()
+    {
+        if (!snakeGame.gameObject.activeSelf)
+        {
+            Debug.Log("Activating SnakeGame GameObject");
+            snakeGame.gameObject.SetActive(true);
+        }
+
+        Transform parent = snakeGame.transform.parent;
+        while (parent != null)
+        {
+            if (!parent.gameObject.activeSelf)
+            {
+                Debug.Log($"Activating parent: {parent.name}");
+                parent.gameObject.SetActive(true);
+            }
+            parent = parent.parent;
+        }
+
+        snakeGame.ShowMenu();
+        Debug.Log("Snake menu shown successfully.");
     }
 
     private IEnumerator FadeToBlack()
@@ -144,9 +155,9 @@ public class LoadingScreen : MonoBehaviour
         cg.alpha = 0f;
     }
 
-    public void RestartLoading()
+    public void ResetLoadState()
     {
-        LoadingComplete = false;
-        StartCoroutine(LoadingRoutine());
+        _hasLoaded = false;
+        Debug.Log("Load state reset.");
     }
 }

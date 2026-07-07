@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,34 @@ using UnityEngine.EventSystems;
 
 public class SnakeGame : MonoBehaviour
 {
-    [Header("References")]
+    // ----- LOADING SCREEN -----
+
+    [Header("Loading Screen")]
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private Slider progressBar;
+
+    [Header("Loading Settings")]
+    [SerializeField] private float minDuration = 1.5f;
+    [SerializeField] private float maxDuration = 2.5f;
+    [SerializeField] private float fadeDuration = 1f;
+
+    [Header("Erratic Animation")]
+    [SerializeField] private float jumpFrequency = 0.35f;
+    [SerializeField] private float jumpAmount = 0.2f;
+    [SerializeField] private float settleDuration = 0.5f;
+    [SerializeField] private float smoothingSpeed = 3f;
+    [SerializeField] private float stutterChance = 0.01f;
+    [SerializeField] private AudioClip _bootUp;
+    private AudioSource _as => GetComponent<AudioSource>();
+
+    private float _targetProgress = 0f;
+    private float _currentProgress = 0f;
+    private static bool _hasLoaded = false;
+    private bool _isLoading = false;
+
+    // ----- SNAKE GAME -----
+
+    [Header("Snake Game")]
     [SerializeField] private RectTransform gameArea;
     [SerializeField] private GameObject snakeBodySegment;
     [SerializeField] private GameObject snakeHeadSegment;
@@ -15,7 +43,7 @@ public class SnakeGame : MonoBehaviour
     [SerializeField] private GameObject digitalPlutonium;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject exitButton;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private UIManager uiManager;
 
     private float gridSize = 20f;
     private Vector2 direction;
@@ -33,6 +61,8 @@ public class SnakeGame : MonoBehaviour
     private InputSystem_Actions _inputActions;
     private InputAction _moveAction;
 
+    // ----- Lifecycle -----
+
     private void Awake()
     {
         _inputActions = new InputSystem_Actions();
@@ -48,7 +78,24 @@ public class SnakeGame : MonoBehaviour
         gridSize = snakeBodySegment.GetComponent<RectTransform>().rect.width;
         Canvas.ForceUpdateCanvases();
         CalculateMaxCells();
-        ShowMenu();
+        uiManager.ShowInventory(false);
+    }
+
+    private void OnEnable()
+    {
+        if (_hasLoaded)
+        {
+            // Already loaded – skip animation and show menu
+            ShowMenu();
+            return;
+        }
+
+        // First time – hide everything and start loading
+        HideAll();
+        if (!_isLoading)
+        {
+            StartCoroutine(LoadingRoutine());
+        }
     }
 
     private void OnDestroy()
@@ -60,6 +107,178 @@ public class SnakeGame : MonoBehaviour
             _inputActions.Disable();
         }
     }
+
+    // ----- LOADING ROUTINE -----
+
+    private IEnumerator LoadingRoutine()
+    {
+        _isLoading = true;
+
+        if (_bootUp != null && _as != null)
+            _as.PlayOneShot(_bootUp);
+
+        if (loadingPanel != null)
+            loadingPanel.SetActive(true);
+
+        _currentProgress = 0f;
+        _targetProgress = 0f;
+        if (progressBar != null)
+            progressBar.value = 0f;
+
+        float totalDuration = Random.Range(minDuration, maxDuration);
+        float elapsed = 0f;
+
+        while (_currentProgress < 0.95f)
+        {
+            elapsed += Time.deltaTime;
+            float baseProgress = Mathf.Clamp01(elapsed / totalDuration);
+
+            if (Random.value < stutterChance * Time.deltaTime * 10f)
+            {
+                if (Random.value < 0.5f)
+                    _targetProgress = Mathf.Clamp01(_targetProgress - Random.Range(0.1f, 0.3f));
+                else
+                    _targetProgress = 0f;
+            }
+            else if (Random.value < jumpFrequency * Time.deltaTime * 2f)
+            {
+                float jump = Random.Range(-jumpAmount, jumpAmount);
+                _targetProgress = Mathf.Clamp01(baseProgress + jump);
+            }
+            else
+            {
+                _targetProgress = Mathf.Lerp(_targetProgress, baseProgress, Time.deltaTime * 1.5f);
+            }
+
+            _currentProgress = Mathf.Lerp(_currentProgress, _targetProgress, Time.deltaTime * smoothingSpeed);
+            _currentProgress = Mathf.Clamp01(_currentProgress);
+            if (progressBar != null)
+                progressBar.value = _currentProgress;
+
+            yield return null;
+        }
+
+        float settleElapsed = 0f;
+        float startProgress = _currentProgress;
+        while (settleElapsed < settleDuration)
+        {
+            settleElapsed += Time.deltaTime;
+            float t = settleElapsed / settleDuration;
+            _currentProgress = Mathf.Lerp(startProgress, 1f, t);
+            if (progressBar != null)
+                progressBar.value = _currentProgress;
+            yield return null;
+        }
+
+        if (progressBar != null)
+            progressBar.value = 1f;
+
+        yield return FadeToBlack();
+
+        if (loadingPanel != null)
+            loadingPanel.SetActive(false);
+
+        // Loading complete – show the menu
+        ShowMenu();
+        _hasLoaded = true;
+        _isLoading = false;
+        Debug.Log("Loading complete – snake menu shown.");
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        CanvasGroup cg = loadingPanel?.GetComponent<CanvasGroup>();
+        if (cg == null) yield break;
+
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+            yield return null;
+        }
+        cg.alpha = 0f;
+    }
+
+    // ----- MENU / UI -----
+
+    public void ShowMenu()
+    {
+        // Ensure this GameObject and parents are active
+        if (!gameObject.activeSelf)
+        {
+            Debug.Log("Activating SnakeGame GameObject");
+            gameObject.SetActive(true);
+        }
+
+        Transform parent = transform.parent;
+        while (parent != null)
+        {
+            if (!parent.gameObject.activeSelf)
+            {
+                Debug.Log($"Activating parent: {parent.name}");
+                parent.gameObject.SetActive(true);
+            }
+            parent = parent.parent;
+        }
+
+        // Show the menu
+        background.SetActive(true);
+        if (exitButton != null) exitButton.SetActive(true);
+        if (_applesCollected >= 12)
+        {
+            startButton.SetActive(false);
+            digitalPlutonium.SetActive(true);
+            EventSystem.current?.SetSelectedGameObject(exitButton);
+        }
+        else
+        {
+            startButton.SetActive(true);
+            _applesCollected = 0;
+        }
+
+        gameStarted = false;
+        InteractionManager.instance.SetCursorAllowed(true);
+        EventSystem.current?.SetSelectedGameObject(startButton);
+    }
+
+    public void HideAll()
+    {
+        background.SetActive(false);
+        startButton.SetActive(false);
+        if (exitButton != null) exitButton.SetActive(false);
+        digitalPlutonium.SetActive(false);
+        gameStarted = false;
+    }
+
+    public void StartGame()
+    {
+        background.SetActive(false);
+        startButton.SetActive(false);
+        if (exitButton != null) exitButton.SetActive(false);
+
+        CalculateMaxCells();
+
+        gameStarted = true;
+        direction = Vector2.right;
+        moveTimer = 0;
+        _applesCollected = 0;
+
+        foreach (RectTransform segment in snake)
+            Destroy(segment.gameObject);
+        snake.Clear();
+        snakeGameObjects.Clear();
+
+        AddSegment();
+        AddSegment();
+        SpawnFood();
+        UpdateHeadRotation();
+
+        InteractionManager.instance.SetCursorAllowed(false);
+        EventSystem.current?.SetSelectedGameObject(null);
+    }
+
+    // ----- GAME LOOP -----
 
     private void OnMove(InputAction.CallbackContext context)
     {
@@ -81,66 +300,6 @@ public class SnakeGame : MonoBehaviour
                 directionQueue.Enqueue(newDir);
         }
     }
-
-    // ----- Menu / UI -----
-
-    private void ShowMenu()
-    {
-        background.SetActive(true);
-        if (exitButton != null) exitButton.SetActive(true);
-        if (_applesCollected >= 12)
-        {
-            startButton.SetActive(false);
-            digitalPlutonium.SetActive(true);
-            EventSystem.current?.SetSelectedGameObject(exitButton);
-        }
-        else
-        {
-            startButton.SetActive(true);
-            _applesCollected = 0;
-        }
-        if (playerMovement != null)
-            playerMovement.CanMove = false;
-
-        gameStarted = false;
-
-        InteractionManager.instance.SetCursorAllowed(true);
-        EventSystem.current?.SetSelectedGameObject(startButton);
-    }
-
-    public void StartGame()
-    {
-        background.SetActive(false);
-        startButton.SetActive(false);
-        if (exitButton != null) exitButton.SetActive(false);
-
-        if (playerMovement != null)
-            playerMovement.CanMove = false;
-
-        CalculateMaxCells();
-
-        gameStarted = true;
-        direction = Vector2.right;
-        moveTimer = 0;
-        _applesCollected = 0;
-
-        foreach (RectTransform segment in snake)
-            Destroy(segment.gameObject);
-        snake.Clear();
-        snakeGameObjects.Clear();
-
-        AddSegment();
-        AddSegment();
-        SpawnFood();
-        UpdateHeadRotation();
-
-        // Hide cursor during gameplay
-        InteractionManager.instance.SetCursorAllowed(false);
-
-        EventSystem.current?.SetSelectedGameObject(null);
-    }
-
-    // ----- Game Loop -----
 
     private void Update()
     {
@@ -194,7 +353,7 @@ public class SnakeGame : MonoBehaviour
         }
     }
 
-    // ----- Game Over / Win -----
+    // ----- GAME OVER / WIN -----
 
     private void GameOver()
     {
@@ -215,11 +374,7 @@ public class SnakeGame : MonoBehaviour
         if (exitButton != null) exitButton.SetActive(false);
         digitalPlutonium.SetActive(false);
 
-        if (playerMovement != null)
-            playerMovement.CanMove = true;
-
         InteractionManager.instance.SetCursorAllowed(false);
-
         EventSystem.current?.SetSelectedGameObject(null);
 
         gameStarted = false;
@@ -227,9 +382,10 @@ public class SnakeGame : MonoBehaviour
             Destroy(segment.gameObject);
         snake.Clear();
         snakeGameObjects.Clear();
+        uiManager.ShowInventory(true);
     }
 
-    // ----- Snake Body Methods -----
+    // ----- SNAKE BODY METHODS -----
 
     private void AddSegment()
     {
@@ -328,5 +484,14 @@ public class SnakeGame : MonoBehaviour
             wrappedPos.y = halfHeight - gridSize;
 
         return wrappedPos;
+    }
+
+    // ----- PUBLIC RESET -----
+
+    public void ResetLoadState()
+    {
+        _hasLoaded = false;
+        _isLoading = false;
+        Debug.Log("Load state reset.");
     }
 }
