@@ -43,7 +43,6 @@ public class SnakeGame : MonoBehaviour
     [SerializeField] private GameObject digitalPlutonium;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject exitButton;
-    [SerializeField] private UIManager uiManager;
 
     private float gridSize = 20f;
     private Vector2 direction;
@@ -78,19 +77,16 @@ public class SnakeGame : MonoBehaviour
         gridSize = snakeBodySegment.GetComponent<RectTransform>().rect.width;
         Canvas.ForceUpdateCanvases();
         CalculateMaxCells();
-        uiManager.ShowInventory(false);
     }
 
     private void OnEnable()
     {
         if (_hasLoaded)
         {
-            // Already loaded – skip animation and show menu
             ShowMenu();
             return;
         }
 
-        // First time – hide everything and start loading
         HideAll();
         if (!_isLoading)
         {
@@ -382,7 +378,6 @@ public class SnakeGame : MonoBehaviour
             Destroy(segment.gameObject);
         snake.Clear();
         snakeGameObjects.Clear();
-        uiManager.ShowInventory(true);
     }
 
     // ----- SNAKE BODY METHODS -----

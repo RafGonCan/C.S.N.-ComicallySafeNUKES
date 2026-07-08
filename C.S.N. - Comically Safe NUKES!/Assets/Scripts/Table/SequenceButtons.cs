@@ -9,9 +9,44 @@ public class SequenceButton : Interactive
     [SerializeField] private float pressIntensity = 0.2f;
     [SerializeField] private float fadeDuration = 0.5f;
 
+    [Header("Power State")]
+    [SerializeField] private Material poweredMaterial;
+    [SerializeField] private Material unpoweredMaterial;
+
     private Light spotLight => GetComponentInChildren<Light>(true);
     private bool _isPressed;
     private Coroutine _fadeCoroutine;
+    private bool _isPowered = false;
+    private Renderer _renderer;
+
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+        if (_renderer == null)
+            _renderer = GetComponentInChildren<Renderer>();
+    }
+
+    public void SetPoweredState(bool powered)
+    {
+        _isPowered = powered;
+
+        if (_renderer != null)
+            _renderer.material = powered ? poweredMaterial : unpoweredMaterial;
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+            col.enabled = powered;
+
+        isOn = powered;
+    }
+
+    public override void Interact()
+    {
+        if (!isOn || !_isPowered)
+            return;
+
+        InteractSelf(true);
+    }
 
     protected override void InteractSelf(bool direct)
     {
@@ -22,7 +57,8 @@ public class SequenceButton : Interactive
 
         FadeLightTo(pressIntensity);
 
-        base.InteractSelf(direct);
+        // Fire the direct interaction event (if any) – optional
+        onDirectInteract?.Invoke();
 
         _isPressed = true;
         if (tableController != null)
@@ -38,10 +74,8 @@ public class SequenceButton : Interactive
     public void FadeLightTo(float targetIntensity)
     {
         if (spotLight == null) return;
-
         if (_fadeCoroutine != null)
             StopCoroutine(_fadeCoroutine);
-
         _fadeCoroutine = StartCoroutine(FadeLightCoroutine(targetIntensity));
     }
 
@@ -57,7 +91,6 @@ public class SequenceButton : Interactive
             spotLight.intensity = Mathf.Lerp(startIntensity, targetIntensity, t);
             yield return null;
         }
-
         spotLight.intensity = targetIntensity;
         _fadeCoroutine = null;
     }

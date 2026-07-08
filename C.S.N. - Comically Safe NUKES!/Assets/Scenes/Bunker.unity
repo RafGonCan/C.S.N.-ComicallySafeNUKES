@@ -3202,8 +3202,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3315,13 +3315,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 120327212}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 6
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &120327214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4364,6 +4378,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6469656716600242201, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
     - target: {fileID: 919132149155446097, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       propertyPath: m_Name
       value: World_Map_Table
@@ -4471,9 +4489,6 @@ PrefabInstance:
       addedObject: {fileID: 173603916}
     - targetCorrespondingSourceObject: {fileID: 6980270319644334844, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 173603923}
-    - targetCorrespondingSourceObject: {fileID: 6980270319644334844, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 173603922}
     - targetCorrespondingSourceObject: {fileID: -5929295750984383730, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4484,9 +4499,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5929295750984383730, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1444226699}
-    - targetCorrespondingSourceObject: {fileID: -5929295750984383730, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1444226703}
     - targetCorrespondingSourceObject: {fileID: -5929295750984383730, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1444226702}
@@ -4501,9 +4513,6 @@ PrefabInstance:
       addedObject: {fileID: 173603912}
     - targetCorrespondingSourceObject: {fileID: -8739975580240559468, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 173603919}
-    - targetCorrespondingSourceObject: {fileID: -8739975580240559468, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 173603918}
     - targetCorrespondingSourceObject: {fileID: 3026989599280289601, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4514,9 +4523,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3026989599280289601, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 826216940}
-    - targetCorrespondingSourceObject: {fileID: 3026989599280289601, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 826216944}
     - targetCorrespondingSourceObject: {fileID: 3026989599280289601, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 826216943}
@@ -4531,9 +4537,6 @@ PrefabInstance:
       addedObject: {fileID: 1578283497}
     - targetCorrespondingSourceObject: {fileID: 903915122621401796, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1578283501}
-    - targetCorrespondingSourceObject: {fileID: 903915122621401796, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1578283500}
     - targetCorrespondingSourceObject: {fileID: 8174573972251489949, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4544,9 +4547,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8174573972251489949, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1646292233}
-    - targetCorrespondingSourceObject: {fileID: 8174573972251489949, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1646292237}
     - targetCorrespondingSourceObject: {fileID: 8174573972251489949, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1646292236}
@@ -4561,9 +4561,6 @@ PrefabInstance:
       addedObject: {fileID: 120327212}
     - targetCorrespondingSourceObject: {fileID: 3292755473166912930, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1794069358}
-    - targetCorrespondingSourceObject: {fileID: 3292755473166912930, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1794069357}
     - targetCorrespondingSourceObject: {fileID: -4432076607082508311, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4574,9 +4571,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4432076607082508311, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 386865582}
-    - targetCorrespondingSourceObject: {fileID: -4432076607082508311, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 386865586}
     - targetCorrespondingSourceObject: {fileID: -4432076607082508311, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 386865585}
@@ -4591,9 +4585,6 @@ PrefabInstance:
       addedObject: {fileID: 1954094826}
     - targetCorrespondingSourceObject: {fileID: -9043189131613902713, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1954094830}
-    - targetCorrespondingSourceObject: {fileID: -9043189131613902713, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1954094829}
     - targetCorrespondingSourceObject: {fileID: -287764467033083337, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4604,9 +4595,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -287764467033083337, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1001113672}
-    - targetCorrespondingSourceObject: {fileID: -287764467033083337, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1001113676}
     - targetCorrespondingSourceObject: {fileID: -287764467033083337, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1001113675}
@@ -4621,9 +4609,6 @@ PrefabInstance:
       addedObject: {fileID: 953486551}
     - targetCorrespondingSourceObject: {fileID: 7117301504809708037, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 953486555}
-    - targetCorrespondingSourceObject: {fileID: 7117301504809708037, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 953486554}
     - targetCorrespondingSourceObject: {fileID: 994849941897352272, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
@@ -4634,9 +4619,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 994849941897352272, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1521951831}
-    - targetCorrespondingSourceObject: {fileID: 994849941897352272, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1521951835}
     - targetCorrespondingSourceObject: {fileID: 994849941897352272, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1521951834}
@@ -4787,8 +4769,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4900,13 +4882,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173603912}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 2
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &173603914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4939,8 +4935,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5053,13 +5049,13 @@ MonoBehaviour:
   onDirectInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 173603915}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5071,6 +5067,8 @@ MonoBehaviour:
   buttonIndex: 0
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &173603917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5114,24 +5112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &173603919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!95 &173603922
 Animator:
   serializedVersion: 7
@@ -5154,24 +5134,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &173603923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &175796877
 GameObject:
   m_ObjectHideFlags: 0
@@ -8899,8 +8861,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -9012,13 +8974,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 386865582}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 7
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &386865584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9062,24 +9038,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &386865586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &393198643
 GameObject:
   m_ObjectHideFlags: 0
@@ -15410,18 +15368,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1974364695}
-        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
-        m_MethodName: ActivateDrawing
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -17610,19 +17556,7 @@ MonoBehaviour:
   _fallbackSound: {fileID: 0}
   onRequirementUsed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1974364695}
-        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
-        m_MethodName: ActivateDrawing
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls:
@@ -26759,8 +26693,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -26872,13 +26806,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 826216940}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 3
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &826216942
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26922,24 +26870,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &826216944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &826660935
 GameObject:
   m_ObjectHideFlags: 0
@@ -30263,7 +30193,6 @@ MonoBehaviour:
   digitalPlutonium: {fileID: 1467986774}
   startButton: {fileID: 1649084423}
   exitButton: {fileID: 1569574459}
-  uiManager: {fileID: 272367919}
 --- !u!224 &950624527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30468,8 +30397,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -30581,13 +30510,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 953486551}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 10
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &953486553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30631,24 +30574,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &953486555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!4 &960548553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 612ef9741a2f60b4b9466e1c426dcbcb, type: 3}
@@ -31172,8 +31097,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -31285,13 +31210,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1001113672}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 9
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1001113674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31335,24 +31274,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1001113676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &1008792028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2860597356391253530, guid: 69d40c6522910e04cb234949e1029041, type: 3}
@@ -32730,6 +32651,13 @@ MonoBehaviour:
   _wrongVoiceline: {fileID: 8300000, guid: 7eb899d20dcc96d4298df189b192b16e, type: 3}
   _hasPlayedVoiceline: 0
   _failAmount: 0
+  _lightSfx: {fileID: 8300000, guid: 5137524d41a90074c85250b6534b896f, type: 3}
+  roomLights:
+  - {fileID: 843460584}
+  emissiveObjects:
+  - {fileID: 1074217014}
+  emissionOn: {r: 1, g: 1, b: 1, a: 1}
+  emissionOff: {r: 0, g: 0, b: 0, a: 1}
 --- !u!65 &1056823632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32810,8 +32738,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.5, z: 0.1}
-  m_Center: {x: 0, y: 0.03, z: 0}
+  m_Size: {x: 0.17833534, y: 0.5890604, z: 0.21863744}
+  m_Center: {x: 0.0056563173, y: 0.074530244, z: -0.006791144}
 --- !u!1 &1064784666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -42564,8 +42492,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -42677,13 +42605,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1444226699}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 1
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1444226701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42727,24 +42669,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1444226703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1001 &1448039457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44749,8 +44673,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -44862,13 +44786,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1521951831}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 11
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1521951833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44912,24 +44850,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1521951835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &1526088404
 GameObject:
   m_ObjectHideFlags: 0
@@ -46210,8 +46130,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -46323,13 +46243,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1578283497}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 4
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1578283499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46373,24 +46307,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1578283501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1001 &1583214167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47441,8 +47357,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -47554,13 +47470,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646292233}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 5
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1646292235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47604,24 +47534,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1646292237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1001 &1647202168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48276,7 +48188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1676166156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49302,9 +49214,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1974364695}
-        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
-        m_MethodName: ActivateDrawing
+      - m_Target: {fileID: 1056823631}
+        m_TargetAssemblyTypeName: TableController, Assembly-CSharp
+        m_MethodName: ActivatePlutonium
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51914,24 +51826,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1794069358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &1797501547
 GameObject:
   m_ObjectHideFlags: 0
@@ -53924,9 +53818,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1974364695}
-        m_TargetAssemblyTypeName: WallDrawings, Assembly-CSharp
-        m_MethodName: ActivateDrawing
+      - m_Target: {fileID: 1056823631}
+        m_TargetAssemblyTypeName: TableController, Assembly-CSharp
+        m_MethodName: ActivatePlutonium
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55786,8 +55680,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -55899,13 +55793,27 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1954094826}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
   tableController: {fileID: 1056823631}
   buttonIndex: 8
   pressIntensity: 0.2
   fadeDuration: 0.5
+  poweredMaterial: {fileID: 2100000, guid: b9049ddc24e3c9a46a1a04266e89d123, type: 2}
+  unpoweredMaterial: {fileID: 2100000, guid: eb4bf4ae18202bb41ad985eec1063df9, type: 2}
 --- !u!65 &1954094828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55949,24 +55857,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1954094830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173603895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
-  _audioSourceFromPlayer: {fileID: 0}
-  _soundClips:
-  - {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
-  _playerVoiceLine: {fileID: 0}
-  _playOnEnable: 0
 --- !u!1 &1954437998
 GameObject:
   m_ObjectHideFlags: 0
@@ -56457,7 +56347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974364694}
-  - component: {fileID: 1974364695}
   m_Layer: 0
   m_Name: Symbols
   m_TagString: Untagged
@@ -56492,34 +56381,6 @@ Transform:
   - {fileID: 2085377709}
   m_Father: {fileID: 175796878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1974364695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974364693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f98355cfc18879498687d22e54e6f70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _drawings:
-  - {fileID: 121023308}
-  - {fileID: 2024216188}
-  - {fileID: 1301550923}
-  - {fileID: 1243465424}
-  - {fileID: 230745209}
-  - {fileID: 2085377708}
-  - {fileID: 1851704629}
-  - {fileID: 1723909438}
-  - {fileID: 835605173}
-  - {fileID: 1257881327}
-  - {fileID: 1614341614}
-  - {fileID: 1841903051}
-  fadeDuration: 0.5
-  delayBetween: 0.5
-  groupSize: 4
 --- !u!1 &1980191447
 GameObject:
   m_ObjectHideFlags: 0
@@ -60969,6 +60830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshair: {fileID: 290608720}
   leaveFocus: {fileID: 395791656}
+  _uiManager: {fileID: 272367919}
   movespeed: 10
   playermovement: {fileID: 1349910773}
 --- !u!1 &2146421506

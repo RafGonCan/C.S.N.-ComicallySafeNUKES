@@ -8,6 +8,7 @@ public class CameraFocusController : MonoBehaviour
 {
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject leaveFocus;
+    [SerializeField] private UIManager _uiManager;
     private Interactive _focusedInteractive;
     private bool isFocusing;
     private bool isReturning;
@@ -93,6 +94,7 @@ public class CameraFocusController : MonoBehaviour
     public void EnterFocus(Transform focusPoint, Interactive interactive, bool allowCancelExit = true)
     {
         if (isFocusing) return;
+        _uiManager.ShowInventory(false);
 
         crosshair.SetActive(false);
         _focusedInteractive = interactive;
@@ -153,8 +155,9 @@ public class CameraFocusController : MonoBehaviour
     }
 
     public void ExitFocus()
-    {
+    {     
         if (blockExitFocus) return;
+        _uiManager.ShowInventory(true);
         isFocusing = false;
         isReturning = true;
         targetFocusPoint = null;

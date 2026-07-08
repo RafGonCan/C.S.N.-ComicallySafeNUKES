@@ -201,7 +201,7 @@ public class Interactive : MonoBehaviour
         return false;
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         if (_requirementsMet)
         {
