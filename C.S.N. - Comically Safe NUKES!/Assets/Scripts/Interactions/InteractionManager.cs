@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using System.Linq;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.EventSystems;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class InteractionManager : MonoBehaviour
     private bool _cursorAllowed = false;
     private bool _forceMouseState = false;
 
+    private GameObject _defaultSelected = null;
+
     private CameraFocusController _cameraFocusController;
     private PlayerInput _playerInput;
     public InputActionAsset inputActions => _playerInput?.actions;
@@ -47,8 +50,6 @@ public class InteractionManager : MonoBehaviour
     public string fallbackAnimationName => _fallbackAnimationName;
     private bool _dependenciesProcessed = false;
 
-    // ----- Public Cursor Control -----
-
     public void SetCursorAllowed(bool allowed)
     {
         _cursorAllowed = allowed;
@@ -57,7 +58,6 @@ public class InteractionManager : MonoBehaviour
 
     public void UpdateCursorState()
     {
-        // Gameplay: force cursor hidden
         if (!_cursorAllowed)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -65,7 +65,6 @@ public class InteractionManager : MonoBehaviour
             return;
         }
 
-        // Menus: respect showMouse (auto‑detected or user toggle)
         if (showMouse)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -85,11 +84,13 @@ public class InteractionManager : MonoBehaviour
         UpdateCursorState();
     }
 
-    // ----- Input Detection (auto‑toggle) -----
+    public void SetDefaultSelected(GameObject obj)
+    {
+        _defaultSelected = obj;
+    }
 
     private void Update()
     {
-        // Only auto‑detect if menus are allowed (not during gameplay)
         if (!_cursorAllowed) return;
 
         bool controllerUsed = IsControllerUsed();
@@ -102,6 +103,14 @@ public class InteractionManager : MonoBehaviour
                 showMouse = false;
                 UpdateCursorState();
             }
+            if (EventSystem.current != null && _defaultSelected != null)
+            {
+                GameObject current = EventSystem.current.currentSelectedGameObject;
+                if (current == null || !current.activeInHierarchy)
+                {
+                    EventSystem.current.SetSelectedGameObject(_defaultSelected);
+                }
+            }
         }
         else if (mouseOrKeyboardUsed)
         {
@@ -109,6 +118,11 @@ public class InteractionManager : MonoBehaviour
             {
                 showMouse = true;
                 UpdateCursorState();
+            }
+
+            if (EventSystem.current != null)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
             }
         }
     }
@@ -144,9 +158,6 @@ public class InteractionManager : MonoBehaviour
 
         return false;
     }
-
-    // ----- Lifecycle -----
-
     void Awake()
     {
         if (_instance == null)
