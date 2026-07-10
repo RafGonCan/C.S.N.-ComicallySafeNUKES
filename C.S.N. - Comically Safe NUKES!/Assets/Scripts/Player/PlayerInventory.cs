@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
-
+    [SerializeField] private AudioClip _pickUp;
+    private AudioSource         _audioSource;
     private PlayerInteraction   _playerInteraction;
     private List<Interactive>   _inventory;
     private int                 _selectedSlotIndex;
     private bool                firstTimeAddingItem = true;
-
     private InputSystem_Actions _inputActions;
     private InputAction _previousAction;
     private InputAction _nextAction;
@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
     void Awake()
     {
         _inputActions = new InputSystem_Actions();
+        _audioSource = GetComponent<AudioSource>();
         _inputActions.Enable();
 
         _previousAction = _inputActions.Player.Previous;
@@ -68,6 +69,10 @@ public class PlayerInventory : MonoBehaviour
             firstTimeAddingItem = false;
         }
         _inventory.Add(item);
+        _audioSource.pitch = Random.Range(0.75f, 1.5f);
+        _audioSource.PlayOneShot(_pickUp);
+        _audioSource.pitch = 1;
+        
 
         _uiManager.ShowInventoryIcon(_inventory.Count - 1, item.inventoryIcon);
 

@@ -7,6 +7,10 @@ public class RadioStaticController : MonoBehaviour
     [SerializeField] private AudioSource _staticSource;
     [SerializeField] private AudioClip _staticClip;
     [SerializeField] private float _staticVolume = 0.8f;
+    [SerializeField] private float _staticWhenOn = 0.5f;
+    [SerializeField] private float _staticWhenOff = 0.2f;
+    private bool _stationsToggle = true;
+    private AudioStations _audioStations => GetComponent<AudioStations>();
 
     [Header("Fix & Dependencies")]
     [SerializeField] private Interactive _requirementSlot;
@@ -23,6 +27,7 @@ public class RadioStaticController : MonoBehaviour
     {
         if (_buttonCollider != null)
             _buttonCollider.enabled = false;
+
         _radioInteractive = GetComponent<Interactive>();
 
         if (_staticSource == null)
@@ -39,13 +44,14 @@ public class RadioStaticController : MonoBehaviour
         StartStatic();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!_isFixed && _radioInteractive != null && _radioInteractive.AreRequirementsMet)
         {
             FixRadio();
         }
     }
+
     private void OnAntennaPlaced(Interactive usedItem)
     {
         if (_isFixed) return;
@@ -58,18 +64,27 @@ public class RadioStaticController : MonoBehaviour
         _isFixed = true;
 
         if (_buttonCollider != null)
-        _buttonCollider.enabled = true;
-        _radioCollider.enabled = false;
+            _buttonCollider.enabled = true;
+        if (_radioCollider != null)
+            _radioCollider.enabled = false;
 
         if (_isStaticPlaying)
             StopStatic();
-        else
-            SetSharpness(0f);
 
         if (_radioInteractive != null)
             _radioInteractive.enabled = false;
 
         Debug.Log("Radio fixed – static stopped, button enabled.");
+    }
+
+    public void OnStationToggled()
+    {
+        if (!_isFixed) return;
+        if (_radioMaterial == null) return;
+
+        float target = _stationsToggle ? _staticWhenOn : _staticWhenOff;
+        SetSharpness(target);
+        _stationsToggle = !_stationsToggle;
     }
 
     public void ToggleStatic()
@@ -80,6 +95,7 @@ public class RadioStaticController : MonoBehaviour
         else
             StartStatic();
     }
+
     private IEnumerator RestartStaticAfterDelay()
     {
         yield return _staticCheckInterval;
@@ -92,7 +108,7 @@ public class RadioStaticController : MonoBehaviour
         _staticSource.clip = _staticClip;
         _staticSource.Play();
         _isStaticPlaying = true;
-        SetSharpness(0.95f);
+        SetSharpness(0.7f);
     }
 
     private void StopStatic()
@@ -102,7 +118,7 @@ public class RadioStaticController : MonoBehaviour
         _staticSource.clip = null;
         _isStaticPlaying = false;
         SetSharpness(0f);
-        if (_isFixed == false) StartCoroutine(RestartStaticAfterDelay());         
+        if (!_isFixed) StartCoroutine(RestartStaticAfterDelay());
     }
 
     private void SetSharpness(float value)
