@@ -19,6 +19,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: openPBR_shader1
     second: {fileID: 2100000, guid: 3d89245e0d730cd49ae2fdec14cb74d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__Glass_Shader
+    second: {fileID: 2100000, guid: 08139ce30d25dd442aea7517929a284d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__Nuclear_Charger_Shader
+    second: {fileID: 2100000, guid: e7bd3cf6b1b09c645a103276afc0cc86, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -80,7 +90,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
