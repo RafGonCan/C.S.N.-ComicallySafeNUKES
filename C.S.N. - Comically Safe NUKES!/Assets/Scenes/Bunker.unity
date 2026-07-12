@@ -24071,8 +24071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _awakeAnimation: {fileID: 808161787}
-  _interactAnimation: {fileID: 0}
-  _interactWrongAnimation: {fileID: 0}
+  _interactAnimation: {fileID: 926352967}
+  _interactWrongAnimation: {fileID: 926352967}
   _audioSource: {fileID: 0}
 --- !u!82 &926352973
 AudioSource:
@@ -35104,7 +35104,7 @@ MonoBehaviour:
   _maxLookUpAngle: 320
   _maxLookDownAngle: 80
   mouseLookScale: 0.05
-  gamepadLookScale: 0.5
+  gamepadLookScale: 1
 --- !u!143 &1349910774
 CharacterController:
   m_ObjectHideFlags: 0
