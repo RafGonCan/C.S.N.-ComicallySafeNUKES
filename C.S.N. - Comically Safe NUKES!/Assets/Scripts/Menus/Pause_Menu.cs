@@ -84,6 +84,7 @@ public class Pause_Menu : MonoBehaviour
     {
         if (_isPaused) return;
         _isPaused = true;
+        AudioListener.pause = true;
 
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -101,6 +102,7 @@ public class Pause_Menu : MonoBehaviour
     {
         if (!_isPaused) return;
         _isPaused = false;
+        AudioListener.pause = false;
 
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;

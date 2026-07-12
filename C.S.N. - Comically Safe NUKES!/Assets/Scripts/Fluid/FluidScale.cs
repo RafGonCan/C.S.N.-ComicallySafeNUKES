@@ -7,6 +7,7 @@ public class FluidScale : MonoBehaviour
     [SerializeField] private GameObject fluidObject;
     [SerializeField] private float animationDelay = 2f;
     [SerializeField] private float animationDuration = 1f;
+    [SerializeField] private AudioSource audioSource;
 
     private readonly List<float> targetScales = new List<float> { 0.33f, 0.66f, 1f };
     private int plutoniumCount = 0;
@@ -21,6 +22,7 @@ public class FluidScale : MonoBehaviour
 
         pendingTargets.Enqueue(targetScales[plutoniumCount]);
         plutoniumCount++;
+        audioSource.volume = 0.5f;
 
         if (!isAnimating)
         {
@@ -64,7 +66,7 @@ public class FluidScale : MonoBehaviour
             t.localScale = new Vector3(startScale.x, newY, startScale.z);
             yield return null;
         }
-
+        audioSource.volume = 0.2f;
         t.localScale = targetScale;
     }
 }

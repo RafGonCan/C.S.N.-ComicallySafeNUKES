@@ -6,7 +6,6 @@ public class RadioStaticController : MonoBehaviour
     [Header("Static")]
     [SerializeField] private AudioSource _staticSource;
     [SerializeField] private AudioClip _staticClip;
-    [SerializeField] private float _staticVolume = 0.8f;
     [SerializeField] private float _staticWhenOn = 0.5f;
     [SerializeField] private float _staticWhenOff = 0.2f;
     private bool _stationsToggle = true;
@@ -34,7 +33,6 @@ public class RadioStaticController : MonoBehaviour
             _staticSource = gameObject.AddComponent<AudioSource>();
         _staticSource.spatialBlend = 1f;
         _staticSource.playOnAwake = false;
-        _staticSource.volume = _staticVolume;
 
         if (_requirementSlot != null)
             _requirementSlot.onRequirementUsed.AddListener(OnAntennaPlaced);

@@ -18,7 +18,7 @@ public class PlayerInventory : MonoBehaviour
     void Awake()
     {
         _inputActions = new InputSystem_Actions();
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponentInChildren<AudioSource>();
         _inputActions.Enable();
 
         _previousAction = _inputActions.Player.Previous;
@@ -71,7 +71,6 @@ public class PlayerInventory : MonoBehaviour
         _inventory.Add(item);
         _audioSource.pitch = Random.Range(0.75f, 1.5f);
         _audioSource.PlayOneShot(_pickUp);
-        _audioSource.pitch = 1;
         
 
         _uiManager.ShowInventoryIcon(_inventory.Count - 1, item.inventoryIcon);

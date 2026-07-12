@@ -11,7 +11,6 @@ public class TableController : MonoBehaviour
     [SerializeField] private Animator _panelAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioClip _wrongVoiceline;
-    [SerializeField] private bool _hasPlayedVoiceline = false;
     [SerializeField] private int _failAmount = 0;
     [SerializeField] private AudioClip _lightSfx;
 
@@ -183,10 +182,10 @@ public class TableController : MonoBehaviour
         }
         AudioSource.PlayClipAtPoint(_wrongSequence, transform.position);
         _failAmount++;
-        if (_failAmount >= 3 && !_hasPlayedVoiceline)
+        if (_failAmount >= 3)
         {
             _playerAudioSource.PlayOneShot(_wrongVoiceline);
-            _hasPlayedVoiceline = true;
+            _failAmount = 0;
         }
     }
 
