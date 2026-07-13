@@ -47,9 +47,11 @@ public class SubtitleManager : MonoBehaviour
             {
                 continue;
             }
-
+            List<(float, float, string)> parsedLines = ParseTrack(_trackData[i]);
             subtitleDict.Add(key, ParseTrack(_trackData[i]));
+            Debug.Log($"[SubtitleManager] Track registada: key='{key}' ({parsedLines.Count} falas)");
         }
+        Debug.Log($"[SubtitleManager] Total de tracks carregadas: {subtitleDict.Count} -> [{string.Join(", ", subtitleDict.Keys)}]");
     }
 
     private List<(float startTime, float endTime, string text)> ParseTrack(string s)
