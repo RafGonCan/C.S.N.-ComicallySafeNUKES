@@ -23137,7 +23137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4d12609fca7013e4286c2bf63a603501, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.27
+      value: 8.262
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d12609fca7013e4286c2bf63a603501, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23145,7 +23145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d12609fca7013e4286c2bf63a603501, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.026
+      value: 1.011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d12609fca7013e4286c2bf63a603501, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23189,7 +23189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d12609fca7013e4286c2bf63a603501, type: 3}
       propertyPath: m_Name
-      value: Antenna 1
+      value: Antenna
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -56709,7 +56709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2dec451cf58a2b4a8ed2da652f6f5e2, type: 3}
       propertyPath: m_Name
-      value: Desk 1
+      value: Desk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
