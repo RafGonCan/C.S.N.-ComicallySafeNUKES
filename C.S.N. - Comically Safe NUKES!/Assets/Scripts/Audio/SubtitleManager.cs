@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -25,9 +26,10 @@ public class SubtitleManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        DictionaryBuilder();
     }
 
-    private void DisctionaryBuilder()
+    private void DictionaryBuilder()
     {
         subtitleDict = new Dictionary<string, List<(float, float, string)>>();
 
@@ -45,8 +47,49 @@ public class SubtitleManager : MonoBehaviour
                 continue;
             }
 
-            subtitleDict.Add(key, new List<(float, float, string)>());
+            subtitleDict.Add(key, ParseTrack(_trackData[i]));
         }
+    }
+
+    private List<(float startTime, float endTime, string text)> ParseTrack(string s)
+    {
+        List<(float, float, string)> result = new List<(float, float, string)>();
+
+        if (string.IsNullOrEmpty(s))
+        {
+            return result;
+        }
+
+        string[] rows = s.Split('\n');
+        foreach (string sRow in rows)
+        {
+            string row = sRow.Trim('\r', '\n', ' ');
+            if (string.IsNullOrWhiteSpace(row))
+            {
+                continue;
+            }
+
+            string[] parts = row.Split('|');
+            if (parts.Length < 3)
+            {
+                continue;
+            }
+
+            if (!float.TryParse(parts[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out float start))
+            {
+                continue;
+            }
+
+            if (!float.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out float duration))
+            {
+                continue;
+            }
+
+            result.Add((start, start + duration, parts[2].Trim()));
+        }
+
+        result.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+        return result;
     }
 
     private void ShowText(string text)
