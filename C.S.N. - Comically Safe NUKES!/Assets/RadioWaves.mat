@@ -56,7 +56,7 @@ Material:
     - _On: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Sharpness: 0
+    - _Sharpness: 0.5
     - _Static: 3
     m_Colors:
     - _Background: {r: 0.0714285, g: 0.20754716, b: 0.01860092, a: 0}

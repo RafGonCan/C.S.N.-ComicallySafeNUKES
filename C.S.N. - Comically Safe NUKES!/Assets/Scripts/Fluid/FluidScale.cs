@@ -69,4 +69,9 @@ public class FluidScale : MonoBehaviour
         audioSource.volume = 0.2f;
         t.localScale = targetScale;
     }
+    public int PlutoniumGet()
+    {
+        return plutoniumCount;
+    }
+    
 }

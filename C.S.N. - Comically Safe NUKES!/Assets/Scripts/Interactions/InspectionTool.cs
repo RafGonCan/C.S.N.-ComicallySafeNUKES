@@ -148,6 +148,7 @@ public class InspectionTool : MonoBehaviour
     public void StartInspection(Interactive item)
     {
         OnInspectionStateChanged?.Invoke(true, item);
+        AudioListener.pause = true;
 
         if (isInspecting || item == null) return;
 
@@ -285,6 +286,7 @@ public class InspectionTool : MonoBehaviour
             _scaleCoroutine = null;
         }
         StartCoroutine(ScaleOutAndEnd());
+        AudioListener.pause = false;
     }
 
     private IEnumerator ScaleOutAndEnd()

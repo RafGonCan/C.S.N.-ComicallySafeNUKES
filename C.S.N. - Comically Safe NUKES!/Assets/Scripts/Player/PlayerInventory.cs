@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private AudioClip _pickUp;
-    private AudioSource         _audioSource;
+    [SerializeField] private AudioSource _audioSource;
     private PlayerInteraction   _playerInteraction;
     private List<Interactive>   _inventory;
     private int                 _selectedSlotIndex;
@@ -18,7 +18,6 @@ public class PlayerInventory : MonoBehaviour
     void Awake()
     {
         _inputActions = new InputSystem_Actions();
-        _audioSource = GetComponentInChildren<AudioSource>();
         _inputActions.Enable();
 
         _previousAction = _inputActions.Player.Previous;
