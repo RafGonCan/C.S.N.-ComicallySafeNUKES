@@ -20,6 +20,9 @@ public class AudioStations : MonoBehaviour
     [SerializeField] private GameObject _previousButton;
     [SerializeField] private GameObject _nextButton;
 
+    [SerializeField] private string[] _subtitleKeys;
+    [SerializeField] private string _voiceLineSubtitleKey;
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -54,6 +57,11 @@ public class AudioStations : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        SubtitleManager.Instance?.StopSubtitles();
+    }
+
     // For normal objects like open‑close doors
     public void PressButton()
     {
@@ -67,6 +75,7 @@ public class AudioStations : MonoBehaviour
         if (data != null && !data.hasPlayedVoiceLine && _playerVoiceLine != null)
         {
             _audioSourceFromPlayer?.PlayOneShot(_playerVoiceLine);
+            SubtitleManager.Instance?.PlaySubtitles(GetVoiceLineSubtitleKey(), _audioSourceFromPlayer, _playerVoiceLine.length);
             data.hasPlayedVoiceLine = true;
         }
 
@@ -95,6 +104,9 @@ public class AudioStations : MonoBehaviour
     {
         if (_audioSource.isPlaying)
             _audioSource.Stop();
+
+        SubtitleManager.Instance?.StopSubtitles();
+
         if (audioOn)
             PlayCurrentClip();
     }
@@ -103,6 +115,7 @@ public class AudioStations : MonoBehaviour
     {
         if (_playerVoiceLine != null && _audioSourceFromPlayer != null)
             _audioSourceFromPlayer.PlayOneShot(_playerVoiceLine);
+        SubtitleManager.Instance?.PlaySubtitles(GetVoiceLineSubtitleKey(), _audioSourceFromPlayer, _playerVoiceLine.length);
     }
 
     protected AudioClip GetClipFromIndex(int index)
@@ -123,7 +136,10 @@ public class AudioStations : MonoBehaviour
         if (audioOn)
             PlayCurrentClip();
         else
+        {
             _audioSource.Stop();
+            SubtitleManager.Instance?.StopSubtitles();
+        }
     }
 
     private void PlayCurrentClip()
@@ -138,5 +154,30 @@ public class AudioStations : MonoBehaviour
             _audioSource.Stop();
 
         _audioSource.PlayOneShot(clip);
+
+        SubtitleManager.Instance?.PlaySubtitles(GetSubtitleKey(_currentClipIndex), _audioSource, clip.length);
+    }
+
+    private string GetSubtitleKey(int index)
+    {
+        if (_subtitleKeys != null && index >= 0 && index < _subtitleKeys.Length && !string.IsNullOrEmpty(_subtitleKeys[index]))
+        {
+            return _subtitleKeys[index];
+        }
+
+        if (_soundClips != null && index >= 0 && index < _soundClips.Length && _soundClips[index] != null)
+        {
+            return _soundClips[index].name;
+        }
+
+        return null;
+    }
+
+    private string GetVoiceLineSubtitleKey()
+    {
+        if (!string.IsNullOrEmpty(_voiceLineSubtitleKey))
+            return _voiceLineSubtitleKey;
+
+        return _playerVoiceLine != null ? _playerVoiceLine.name : null;
     }
 }
