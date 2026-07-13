@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class Interactive : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class Interactive : MonoBehaviour
     public Sprite                   inventoryIcon   => _interactiveData.inventoryIcon;
     public StatefulInteractive      CurrentStatefulItem => _statefulInstance;
     public bool                     AreRequirementsMet => _requirementsMet;
+
+    [SerializeField] private string _requirementMetSubtitleKey;
+    [SerializeField] private string _fallbackSubtitleKey;
 
     void Awake()
     {
@@ -102,10 +106,9 @@ public class Interactive : MonoBehaviour
 
     private void PlayRequirementMetSound()
     {
-        if (_audioSource != null && _requirementMetSound != null)
+        if (_requirementMetSound != null)
         {
-            _audioSource.clip = _requirementMetSound;
-            _audioSource.Play();
+            PlayCustomSound(_requirementMetSound, _requirementMetSubtitleKey);
             Debug.Log($"Played requirement met sound on {gameObject.name}");
         }
     }
@@ -386,12 +389,15 @@ public class Interactive : MonoBehaviour
         _requirementMetSound = clip;
     }
     
-    public void PlayCustomSound(AudioClip clip)
+    public void PlayCustomSound(AudioClip clip, string subtitleKeyOverride = null)
     {
         if (_audioSource != null && clip != null)
         {
             _audioSource.clip = clip;
             _audioSource.Play();
+
+            string key = !string.IsNullOrEmpty(subtitleKeyOverride) ? subtitleKeyOverride : clip.name;
+            SubtitleManager.Instance?.PlaySubtitles(key, _audioSource, clip.length);
         }
     }
 }

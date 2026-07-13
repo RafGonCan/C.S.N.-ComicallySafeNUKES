@@ -537,6 +537,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!1001 &13676965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -668,6 +670,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -1615,6 +1619,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!4 &61115144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
@@ -3330,6 +3336,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 6
   pressIntensity: 0.2
@@ -4897,6 +4905,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 2
   pressIntensity: 0.2
@@ -5063,6 +5073,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 0
   pressIntensity: 0.2
@@ -5594,6 +5606,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &201647910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6766,6 +6780,7 @@ RectTransform:
   - {fileID: 1843239268}
   - {fileID: 234880056}
   - {fileID: 395791657}
+  - {fileID: 433211968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9154,6 +9169,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 7
   pressIntensity: 0.2
@@ -10013,6 +10030,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!1001 &425799364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10172,6 +10191,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf03c69ec669a7c44bff401169693759, type: 3}
   m_PrefabInstance: {fileID: 432125702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &433211968 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+  m_PrefabInstance: {fileID: 8364850511422930333}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &433560837
 PrefabInstance:
@@ -11009,6 +11033,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -11571,6 +11597,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   targetObjects:
   - {fileID: 1230539173}
   - {fileID: 481113492}
@@ -11598,6 +11626,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!82 &477738228
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12633,6 +12663,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   targetObjects:
   - {fileID: 824763510}
   - {fileID: 2119228165}
@@ -12756,6 +12788,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!95 &507505623
 Animator:
   serializedVersion: 7
@@ -13410,6 +13444,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &531472037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15461,6 +15497,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!1 &600155793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -18441,6 +18479,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -20316,6 +20356,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!95 &782634359
 Animator:
   serializedVersion: 7
@@ -20381,6 +20423,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!82 &782634365
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21107,6 +21151,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -21423,6 +21469,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 3
   pressIntensity: 0.2
@@ -22706,6 +22754,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 0
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &879501357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23266,6 +23316,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 1
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &901835040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23631,6 +23683,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -23851,6 +23905,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -24170,6 +24226,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!95 &926352967
 Animator:
   serializedVersion: 7
@@ -24327,6 +24385,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &930028471
 GameObject:
   m_ObjectHideFlags: 0
@@ -24956,6 +25016,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -25422,6 +25484,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 10
   pressIntensity: 0.2
@@ -26122,6 +26186,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 9
   pressIntensity: 0.2
@@ -26249,6 +26315,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!82 &1008792038
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26368,6 +26436,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &1009367875
 GameObject:
   m_ObjectHideFlags: 0
@@ -27121,6 +27191,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!114 &1034424225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27287,6 +27359,8 @@ MonoBehaviour:
   audioOn: 0
   _previousButton: {fileID: 1495111324}
   _nextButton: {fileID: 531472032}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &1040212640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -27858,6 +27932,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 1
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &1059223667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28376,6 +28452,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &1083015884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28585,6 +28663,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -28709,6 +28789,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -28802,6 +28884,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!4 &1100381337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
@@ -33561,6 +33645,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!82 &1300545027
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33680,6 +33766,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &1301550923
 GameObject:
   m_ObjectHideFlags: 0
@@ -35549,6 +35637,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &1370401226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36047,6 +36137,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -36769,6 +36861,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   playerMovement: {fileID: 1349910773}
   fadeOuter: {fileID: 272367925}
   fluidScale: {fileID: 1651154462}
@@ -37779,6 +37873,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 1
   pressIntensity: 0.2
@@ -38472,6 +38568,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!95 &1464549181
 Animator:
   serializedVersion: 7
@@ -38634,6 +38732,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &1467986774
 GameObject:
   m_ObjectHideFlags: 0
@@ -39558,6 +39658,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!4 &1495769034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd6108e232fcd1c4988a7b5102678663, type: 3}
@@ -40015,6 +40117,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 11
   pressIntensity: 0.2
@@ -40414,13 +40518,13 @@ PrefabInstance:
       addedObject: {fileID: 926352965}
     - targetCorrespondingSourceObject: {fileID: -6696500164993022282, guid: 51308403407494d4c9900becee652845, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 926352966}
+      addedObject: {fileID: 926352970}
     - targetCorrespondingSourceObject: {fileID: -6696500164993022282, guid: 51308403407494d4c9900becee652845, type: 3}
       insertIndex: -1
       addedObject: {fileID: 926352967}
     - targetCorrespondingSourceObject: {fileID: -6696500164993022282, guid: 51308403407494d4c9900becee652845, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 926352970}
+      addedObject: {fileID: 926352966}
     - targetCorrespondingSourceObject: {fileID: -6696500164993022282, guid: 51308403407494d4c9900becee652845, type: 3}
       insertIndex: -1
       addedObject: {fileID: 926352973}
@@ -41484,6 +41588,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 4
   pressIntensity: 0.2
@@ -42716,6 +42822,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 5
   pressIntensity: 0.2
@@ -44583,6 +44691,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!1001 &1713272447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45852,6 +45962,8 @@ MonoBehaviour:
   audioOn: 0
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!1 &1759899973
 GameObject:
   m_ObjectHideFlags: 0
@@ -48344,6 +48456,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &1837629958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48994,6 +49108,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!1001 &1863844043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49628,6 +49744,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &1886284240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55060,6 +55178,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!4 &1919134064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98a4a7f77a7260f4caa7eb0935dd53f7, type: 3}
@@ -55924,6 +56044,8 @@ MonoBehaviour:
         m_CallState: 2
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   tableController: {fileID: 1056823631}
   buttonIndex: 8
   pressIntensity: 0.2
@@ -56804,6 +56926,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   currentNumbers: 000000000000000000000000
   correctCombination: 070000000200000005000000
   vaultDoor: {fileID: 1155298510890894952}
@@ -58071,6 +58195,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -59247,6 +59373,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!65 &2083710169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59610,6 +59738,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   eatParticles: {fileID: 0}
   particleLifetime: 1
   spawnDistance: 0.3
@@ -60214,6 +60344,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
   targetObjects:
   - {fileID: 1587069268}
   - {fileID: 481113492}
@@ -60337,6 +60469,8 @@ MonoBehaviour:
   audioOn: 1
   _previousButton: {fileID: 0}
   _nextButton: {fileID: 0}
+  _subtitleKeys: []
+  _voiceLineSubtitleKey: 
 --- !u!95 &2121837720
 Animator:
   serializedVersion: 7
@@ -61474,6 +61608,8 @@ MonoBehaviour:
       m_Calls: []
   _allowCancelExit: 1
   isOn: 0
+  _requirementMetSubtitleKey: 
+  _fallbackSubtitleKey: 
 --- !u!114 &7272638916735758892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61599,6 +61735,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2786688, y: 0.2797316, z: 0.17345138}
   m_Center: {x: -0.0000004900381, y: 0.0000027269125, z: 0.094561346}
+--- !u!1001 &8364850511422930333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 272367923}
+    m_Modifications:
+    - target: {fileID: 5016238145390598132, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_Name
+      value: SubTitles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139226748530723165, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e41a5968a0131af4c873be27aebfa4f3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
