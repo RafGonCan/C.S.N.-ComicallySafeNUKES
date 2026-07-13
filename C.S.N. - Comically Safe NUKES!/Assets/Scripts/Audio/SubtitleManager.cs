@@ -49,4 +49,18 @@ public class SubtitleManager : MonoBehaviour
         }
     }
 
+    private void ShowText(string text)
+    {
+        if (subtitleCoroutine != null) return;
+        subtitleText.text = text;
+        subtitleText.gameObject.SetActive(true);
+    }
+
+    private void HideText()
+    {
+        if (subtitleText == null) return;
+        subtitleText.gameObject.SetActive(false);
+        subtitleText.text = string.Empty;
+    }
+
 }
