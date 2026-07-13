@@ -13,6 +13,9 @@ public class SubtitleManager : MonoBehaviour
 
     [SerializeField, TextArea(3, 15)] private List<string> _trackData = new List<string>();
 
+    private Dictionary<string, List<(float startTime, float endTime, string text)>> subtitleDict;
+    private Coroutine subtitleCoroutine;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,6 +25,28 @@ public class SubtitleManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void DisctionaryBuilder()
+    {
+        subtitleDict = new Dictionary<string, List<(float, float, string)>>();
+
+        int count = Mathf.Min(_trackKeys.Count, _trackData.Count);
+        for (int i = 0; i < count; i++)
+        {
+            string key = _trackKeys[i];
+            if (string.IsNullOrEmpty(key))
+            {
+                continue;
+            }
+
+            if (subtitleDict.ContainsKey(key))
+            {
+                continue;
+            }
+
+            subtitleDict.Add(key, new List<(float, float, string)>());
+        }
     }
 
 }
