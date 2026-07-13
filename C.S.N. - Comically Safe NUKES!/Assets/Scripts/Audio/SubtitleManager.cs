@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -28,6 +27,7 @@ public class SubtitleManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         DictionaryBuilder();
+        HideText();
     }
 
     private void DictionaryBuilder()
@@ -95,6 +95,8 @@ public class SubtitleManager : MonoBehaviour
 
     public void PlaySubtitles(string key, AudioSource source, float clipLenght)
     {
+        StopSubtitles();
+
         if (string.IsNullOrEmpty(key)|| subtitleDict == null || !subtitleDict.ContainsKey(key))
         {
             return;
@@ -103,7 +105,7 @@ public class SubtitleManager : MonoBehaviour
         subtitleCoroutine = StartCoroutine(RunSubtitles(subtitleDict[key], source, clipLenght));
     }
 
-    private IEnumerator RunSubtitles(List<(float startTime, float duration, string text)> lines, AudioSource source, float clipLength)
+    private IEnumerator RunSubtitles(List<(float startTime, float endTime, string text)> lines, AudioSource source, float clipLength)
     {
         float elapsed = 0f;
 
@@ -122,7 +124,7 @@ public class SubtitleManager : MonoBehaviour
 
             ShowText(line.text);
 
-            float lineEnd = Mathf.Min(line.startTime + line.duration, clipLength);
+            float lineEnd = Mathf.Min(line.endTime, clipLength);
             while (elapsed < lineEnd)
             {
                 if (source == null || !source.isPlaying)
@@ -139,10 +141,18 @@ public class SubtitleManager : MonoBehaviour
         subtitleCoroutine = null;
     }
 
+    public void StopSubtitles()
+    {
+        if (subtitleCoroutine != null)
+        {
+            StopCoroutine(subtitleCoroutine);
+            subtitleCoroutine = null;
+        }
+        HideText();
+    }
 
     private void ShowText(string text)
     {
-        if (subtitleCoroutine != null) return;
         subtitleText.text = text;
         subtitleText.gameObject.SetActive(true);
     }
