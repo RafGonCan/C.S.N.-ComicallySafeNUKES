@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
@@ -91,6 +92,53 @@ public class SubtitleManager : MonoBehaviour
         result.Sort((a, b) => a.Item1.CompareTo(b.Item1));
         return result;
     }
+
+    public void PlaySubtitles(string key, AudioSource source, float clipLenght)
+    {
+        if (string.IsNullOrEmpty(key)|| subtitleDict == null || !subtitleDict.ContainsKey(key))
+        {
+            return;
+        }
+
+        subtitleCoroutine = StartCoroutine(RunSubtitles(subtitleDict[key], source, clipLenght));
+    }
+
+    private IEnumerator RunSubtitles(List<(float startTime, float duration, string text)> lines, AudioSource source, float clipLength)
+    {
+        float elapsed = 0f;
+
+        foreach (var line in lines)
+        {
+            while (elapsed < line.startTime)
+            {
+                if (source == null || !source.isPlaying)
+                {
+                    HideText();
+                    yield break;
+                }
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            ShowText(line.text);
+
+            float lineEnd = Mathf.Min(line.startTime + line.duration, clipLength);
+            while (elapsed < lineEnd)
+            {
+                if (source == null || !source.isPlaying)
+                {
+                    HideText();
+                    yield break;
+                }
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            HideText();
+        }
+        subtitleCoroutine = null;
+    }
+
 
     private void ShowText(string text)
     {
