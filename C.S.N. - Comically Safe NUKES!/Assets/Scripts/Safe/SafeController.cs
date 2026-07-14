@@ -5,6 +5,7 @@ public class SafeController : Interactive
 {
     [SerializeField] private int[] currentNumbers = new int[3] {0, 0, 0};
     [SerializeField] private int[] correctCombination = new int[3] {5, 2, 7};
+    [SerializeField] private CameraFocusController focusCamera;
     private ActivateAnimation _activateAnimation => GetComponent<ActivateAnimation>();
     [SerializeField] private GameObject vaultDoor;
     private ActivateAnimation vaultDoorActivateAnimation => vaultDoor.GetComponentInChildren<ActivateAnimation>();
@@ -20,7 +21,6 @@ public class SafeController : Interactive
         currentNumbers[digitIndex]++;
         if (currentNumbers[digitIndex] > _maxNumber)
             currentNumbers[digitIndex] = _minNumber;
-        CheckCombination();
     }
 
     public void DecreaseNumber(int digitIndex)
@@ -28,7 +28,6 @@ public class SafeController : Interactive
         currentNumbers[digitIndex]--;
         if (currentNumbers[digitIndex] < _minNumber)
             currentNumbers[digitIndex] = _maxNumber;
-        CheckCombination();
     }
 
     private void CheckCombination()
@@ -39,6 +38,7 @@ public class SafeController : Interactive
         {
             _unlocked = true;
             SetRequirementsMet(true);
+            focusCamera.ExitButton();
         }
         else if (!isCorrect && _unlocked)
         {
@@ -64,5 +64,9 @@ public class SafeController : Interactive
                 _activateAnimation.PlaySound();
             }
         }
+    }
+    public void InteractUI()
+    {
+        InteractSelf(true);
     }
 }
