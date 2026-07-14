@@ -188,6 +188,9 @@ public class InteractionManager : MonoBehaviour
     {
         Debug.Log($"OnSceneLoaded: {scene.name}");
 
+        AudioListener.pause = false;
+        Time.timeScale = 1f;
+
         if (_interactives != null)
         {
             Debug.Log($"Clearing {_interactives.Count} old interactives from previous scene");

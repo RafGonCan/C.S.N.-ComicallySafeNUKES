@@ -185,6 +185,7 @@ public class TableController : MonoBehaviour
         if (_failAmount >= 3)
         {
             _playerAudioSource.PlayOneShot(_wrongVoiceline);
+            SubtitleManager.Instance?.PlaySubtitles(_wrongVoiceline.name, _playerAudioSource, _wrongVoiceline.length);
             _failAmount = 0;
         }
     }

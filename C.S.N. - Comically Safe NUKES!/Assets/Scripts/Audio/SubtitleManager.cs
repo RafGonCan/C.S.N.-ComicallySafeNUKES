@@ -48,63 +48,48 @@ public class SubtitleManager : MonoBehaviour
                 continue;
             }
             List<(float, float, string)> parsedLines = ParseTrack(_trackData[i]);
-            subtitleDict.Add(key, ParseTrack(_trackData[i]));
-            Debug.Log($"[SubtitleManager] Track registada: key='{key}' ({parsedLines.Count} falas)");
+            subtitleDict.Add(key, parsedLines);
         }
-        Debug.Log($"[SubtitleManager] Total de tracks carregadas: {subtitleDict.Count} -> [{string.Join(", ", subtitleDict.Keys)}]");
     }
 
     private List<(float startTime, float endTime, string text)> ParseTrack(string s)
     {
         List<(float, float, string)> result = new List<(float, float, string)>();
+        if (string.IsNullOrEmpty(s)) return result;
 
-        if (string.IsNullOrEmpty(s))
-        {
-            return result;
-        }
-
+        float cursor = 0f;
         string[] rows = s.Split('\n');
         foreach (string sRow in rows)
         {
             string row = sRow.Trim('\r', '\n', ' ');
-            if (string.IsNullOrWhiteSpace(row))
-            {
-                continue;
-            }
+            if (string.IsNullOrWhiteSpace(row)) continue;
 
             string[] parts = row.Split('|');
-            if (parts.Length < 3)
-            {
-                continue;
-            }
-
-            if (!float.TryParse(parts[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out float start))
-            {
-                continue;
-            }
+            if (parts.Length < 3) continue;
 
             if (!float.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out float duration))
-            {
                 continue;
-            }
 
-            result.Add((start, start + duration, parts[2].Trim()));
+            float start = cursor;
+            float end = start + duration;
+            result.Add((start, end, parts[2].Trim()));
+            cursor = end;
         }
 
-        result.Sort((a, b) => a.Item1.CompareTo(b.Item1));
         return result;
     }
 
-    public void PlaySubtitles(string key, AudioSource source, float clipLenght)
+    public void PlaySubtitles(string key, AudioSource source, float clipLength)
     {
         StopSubtitles();
 
-        if (string.IsNullOrEmpty(key)|| subtitleDict == null || !subtitleDict.ContainsKey(key))
+        bool found = subtitleDict != null && subtitleDict.ContainsKey(key);
+        if (string.IsNullOrEmpty(key) || subtitleDict == null || !subtitleDict.ContainsKey(key))
         {
             return;
         }
 
-        subtitleCoroutine = StartCoroutine(RunSubtitles(subtitleDict[key], source, clipLenght));
+        subtitleCoroutine = StartCoroutine(RunSubtitles(subtitleDict[key], source, clipLength));
     }
 
     private IEnumerator RunSubtitles(List<(float startTime, float endTime, string text)> lines, AudioSource source, float clipLength)
@@ -155,6 +140,7 @@ public class SubtitleManager : MonoBehaviour
 
     private void ShowText(string text)
     {
+        if (subtitleText == null) return;
         subtitleText.text = text;
         subtitleText.gameObject.SetActive(true);
     }
@@ -165,5 +151,4 @@ public class SubtitleManager : MonoBehaviour
         subtitleText.gameObject.SetActive(false);
         subtitleText.text = string.Empty;
     }
-
 }
