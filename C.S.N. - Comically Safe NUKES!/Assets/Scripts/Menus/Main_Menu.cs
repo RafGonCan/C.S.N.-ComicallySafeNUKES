@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Main_Menu : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Main_Menu : MonoBehaviour
     {
         // Hide cursor for gameplay
         InteractionManager.instance.SetCursorAllowed(false);
+        EventSystem.current.SetSelectedGameObject(null);
 
         transitionObject.SetActive(true);
         StartCoroutine(StartGameSequence());
@@ -76,7 +78,6 @@ public class Main_Menu : MonoBehaviour
         }
         cg.alpha = endAlpha;
     }
-
     public void QuitGame()
     {
         Application.Quit();
