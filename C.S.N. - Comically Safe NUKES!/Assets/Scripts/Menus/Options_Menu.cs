@@ -21,6 +21,9 @@ public class Options_Menu : MonoBehaviour
     [Header("UI Navigation")]
     [SerializeField] private Button backButton;
 
+    [Header("Fade Settings")]
+    [SerializeField] private float fadeDuration = 0.5f;
+
     private const string VolumeKey = "MasterVolume";
     private const string SensitivityKey = "MouseSensitivity";
     private const string GammaKey = "Gamma";
@@ -33,26 +36,36 @@ public class Options_Menu : MonoBehaviour
     private float _lastSavedSensitivity = -1f;
     private float _lastSavedGamma = -1f;
 
+    private CanvasGroup _canvasGroup;
+    private Coroutine _fadeCoroutine;
+
+    // ----- Lifecycle -----
+
     private void Awake()
     {
+        _canvasGroup = GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
         _inputActions = new InputSystem_Actions();
         _inputActions.Enable();
         _inputActions.UI.Cancel.performed += OnCancel;
-    }
 
-    private void Start()
-    {
         if (postProcessVolume != null && postProcessVolume.profile != null)
         {
             if (postProcessVolume.profile.TryGet<ColorAdjustments>(out var ca))
                 colorAdjustments = ca;
         }
 
+        ApplySavedSettings();
+
         SetSliderNavigation(volumeSlider);
         SetSliderNavigation(sensitivitySlider);
         SetSliderNavigation(gammaSlider);
 
-        gameObject.SetActive(false);
+        _canvasGroup.alpha = 0f;
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.interactable = false;
     }
 
     private void OnDestroy()
@@ -64,15 +77,39 @@ public class Options_Menu : MonoBehaviour
         }
     }
 
-    private void OnCancel(InputAction.CallbackContext context)
+    // ----- Apply saved settings at start -----
+
+    private void ApplySavedSettings()
     {
-        if (_isOpen)
-            CloseSettings();
+        float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
+        float savedSensitivity = PlayerPrefs.GetFloat(SensitivityKey, 1f);
+        float savedGamma = PlayerPrefs.GetFloat(GammaKey, 1f);
+
+        AudioListener.volume = savedVolume;
+        if (playerMovement != null)
+            playerMovement.SetMouseSensitivity(savedSensitivity);
+        if (colorAdjustments != null)
+            colorAdjustments.postExposure.value = savedGamma;
+
+        _lastSavedVolume = savedVolume;
+        _lastSavedSensitivity = savedSensitivity;
+        _lastSavedGamma = savedGamma;
     }
+
+    // ----- UI Show/Hide -----
 
     public void OpenSettings()
     {
-        gameObject.SetActive(true);
+        if (_fadeCoroutine != null)
+        {
+            StopCoroutine(_fadeCoroutine);
+            _fadeCoroutine = null;
+        }
+
+        _canvasGroup.alpha = 1f;
+        _canvasGroup.blocksRaycasts = true;
+        _canvasGroup.interactable = true;
+
         _isOpen = true;
 
         foreach (GameObject btn in mainMenuButtons)
@@ -110,15 +147,32 @@ public class Options_Menu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(volumeSlider.gameObject);
     }
 
+    // Fade-out version (used from main menu)
     public void CloseSettings()
     {
-        StartCoroutine(FadeOut());
+        if (_fadeCoroutine != null)
+        {
+            StopCoroutine(_fadeCoroutine);
+            _fadeCoroutine = null;
+        }
+
+        _isOpen = false;
+        _fadeCoroutine = StartCoroutine(FadeOutCoroutine());
     }
 
-    private IEnumerator FadeOut()
+    // Immediate close (used from pause menu)
+    public void CloseSettingsImmediate()
     {
-        yield return new WaitForSeconds(1.5f);
-        gameObject.SetActive(false);
+        if (_fadeCoroutine != null)
+        {
+            StopCoroutine(_fadeCoroutine);
+            _fadeCoroutine = null;
+        }
+
+        _canvasGroup.alpha = 0f;
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.interactable = false;
+
         _isOpen = false;
 
         foreach (GameObject btn in mainMenuButtons)
@@ -132,6 +186,47 @@ public class Options_Menu : MonoBehaviour
         else
             EventSystem.current.SetSelectedGameObject(null);
     }
+
+    private IEnumerator FadeOutCoroutine()
+    {
+        float elapsed = 0f;
+        float startAlpha = _canvasGroup.alpha;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / fadeDuration;
+            _canvasGroup.alpha = Mathf.Lerp(startAlpha, 0f, t);
+            yield return null;
+        }
+
+        _canvasGroup.alpha = 0f;
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.interactable = false;
+
+        foreach (GameObject btn in mainMenuButtons)
+            if (btn != null) btn.SetActive(true);
+
+        if (playerMovement != null)
+            playerMovement.CanMove = true;
+
+        if (mainMenuButtons.Length > 0 && mainMenuButtons[0] != null)
+            EventSystem.current.SetSelectedGameObject(mainMenuButtons[0]);
+        else
+            EventSystem.current.SetSelectedGameObject(null);
+
+        _fadeCoroutine = null;
+    }
+
+    // ----- Cancel input -----
+
+    private void OnCancel(InputAction.CallbackContext context)
+    {
+        if (_isOpen)
+            CloseSettings();
+    }
+
+    // ----- Slider callbacks -----
 
     public void SetVolume(float volume)
     {

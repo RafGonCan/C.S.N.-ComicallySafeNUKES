@@ -2953,7 +2953,7 @@ RectTransform:
   m_Father: {fileID: 854790058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7717,7 +7717,7 @@ RectTransform:
   m_Father: {fileID: 1683296589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22222,8 +22222,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1107959531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.75, y: 0}
-  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26411,6 +26411,7 @@ GameObject:
   - component: {fileID: 962513428}
   - component: {fileID: 962513427}
   - component: {fileID: 962513431}
+  - component: {fileID: 962513432}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -26516,11 +26517,24 @@ MonoBehaviour:
   pauseMenu: {fileID: 1919596334}
   areYouSure: {fileID: 1636014080}
   optionsPanel: {fileID: 1865525705}
+  menu: {fileID: 1919596334}
   resumeButton: {fileID: 1490538220}
   optionsButton: {fileID: 1200840367}
   exitButton: {fileID: 1488995972}
   playerMovement: {fileID: 1349910773}
   optionsMenu: {fileID: 1865525709}
+--- !u!225 &962513432
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962513426}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &965176032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -34007,8 +34021,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1108720118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.64285713, y: 0}
-  m_AnchorMax: {x: 0.64285713, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -38278,8 +38292,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1826533514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -47220,7 +47234,7 @@ RectTransform:
   m_Father: {fileID: 914822304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.64285713, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -51583,6 +51597,7 @@ MonoBehaviour:
   postProcessVolume: {fileID: 575044179}
   mainMenuButtons: []
   backButton: {fileID: 40531967}
+  fadeDuration: 0.5
 --- !u!1001 &1869675295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57576,7 +57591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1919596335
 RectTransform:
   m_ObjectHideFlags: 0
