@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Credits_Menu : MonoBehaviour
@@ -14,6 +15,12 @@ public class Credits_Menu : MonoBehaviour
 
     public void CloseCreditsMenu()
     {
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
     }
 }

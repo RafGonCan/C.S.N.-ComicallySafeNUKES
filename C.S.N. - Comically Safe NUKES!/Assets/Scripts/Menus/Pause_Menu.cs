@@ -127,7 +127,7 @@ public class Pause_Menu : MonoBehaviour
         if (exitButton != null) exitButton.SetActive(false);
 
         if (optionsMenu != null)
-            optionsMenu.OpenOptions();
+            optionsMenu.OpenSettings();
         else if (optionsPanel != null)
             optionsPanel.SetActive(true);
 
@@ -166,7 +166,7 @@ public class Pause_Menu : MonoBehaviour
         _isOptionsOpen = false;
 
         if (optionsMenu != null)
-            optionsMenu.CloseOptions();
+            optionsMenu.CloseSettings();
         else if (optionsPanel != null)
             optionsPanel.SetActive(false);
 

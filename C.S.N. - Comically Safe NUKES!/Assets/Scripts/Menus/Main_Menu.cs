@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 
 public class Main_Menu : MonoBehaviour
 {
+    [SerializeField] private GameObject[] cameras;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject speakerIcon;
@@ -78,6 +80,28 @@ public class Main_Menu : MonoBehaviour
         }
         cg.alpha = endAlpha;
     }
+
+    public void SettingsCamera()
+    {
+        cameras[0].SetActive(false);
+        cameras[1].SetActive(true);
+        cameras[2].SetActive(false);
+    }
+
+    public void CreditsCamera()
+    {
+        cameras[0].SetActive(false);
+        cameras[1].SetActive(false);
+        cameras[2].SetActive(true);
+    }
+
+    public void MenuCamera()
+    {
+        cameras[0].SetActive(true);
+        cameras[1].SetActive(false);
+        cameras[2].SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

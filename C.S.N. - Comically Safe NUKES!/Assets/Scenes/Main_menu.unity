@@ -803,7 +803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &117931610
 Transform:
   m_ObjectHideFlags: 0
@@ -910,7 +910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &128483025
 Transform:
   m_ObjectHideFlags: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 1
+    m_Value: 2
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -1277,17 +1277,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173137090}
-  m_LocalRotation: {x: 0, y: -0, z: 0.16762927, w: -0.98585016}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalRotation: {x: -0.09744398, y: -0.02611005, z: 0.25749874, w: 0.9609981}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 0.004, y: 0.004, z: 0.004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1111226307}
   m_Father: {fileID: 1675370836}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 340.7}
+  m_LocalEulerAnglesHint: {x: -10.011, y: -5.85, z: 30.513}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.24289998, y: -0.049900018}
+  m_AnchoredPosition: {x: 0.474, y: -0.107}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173137092
@@ -1556,6 +1556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e2ff620039b7145bf2047ae49cb779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameras:
+  - {fileID: 1131894729}
+  - {fileID: 117931609}
+  - {fileID: 128483024}
   startButton: {fileID: 1049027619}
   blackScreen: {fileID: 1130594485}
   speakerIcon: {fileID: 1796564997}
@@ -2758,7 +2762,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: 4ff067f57ab1a274884ae336ed4687d7, type: 2}
 --- !u!1 &456467520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,8 +3971,11 @@ PlayableDirector:
     value: {fileID: 1022573212}
   - key: {fileID: 7640107573182952839, guid: 85d28696012b00643bdc0dd150705b47, type: 2}
     value: {fileID: 187495844}
+  - key: {fileID: -6005819531243104346, guid: 85d28696012b00643bdc0dd150705b47, type: 2}
+    value: {fileID: 187495844}
   m_ExposedReferences:
     m_References:
+    - fa441069d4442084599e9b5c197ca616: {fileID: 1675370832}
     - 72a69cc957161604489c206856ab9cbc: {fileID: 1131894729}
     - d1ba4bcfdae411c4ebf3e73b48eead57: {fileID: 1131894731}
     - bb7d2c0da19009d40a19e843f707b311: {fileID: 1238093248}
@@ -5732,17 +5739,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049027619}
-  m_LocalRotation: {x: 0, y: -0, z: 0.16762927, w: -0.98585016}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalRotation: {x: -0.08647838, y: -0.0477759, z: 0.48120552, w: 0.87102246}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 543594141}
   m_Father: {fileID: 1675370836}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 340.7}
+  m_LocalEulerAnglesHint: {x: -6.008, y: -9.635, z: 58.345}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3409, y: 0.2297}
+  m_AnchoredPosition: {x: -0.369, y: -0.018}
   m_SizeDelta: {x: 50, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049027621
@@ -6684,17 +6691,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148928171}
-  m_LocalRotation: {x: 0, y: -0, z: 0.16762927, w: -0.98585016}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalRotation: {x: -0.08160152, y: -0.021865068, z: 0.25789386, w: 0.9624728}
+  m_LocalPosition: {x: 0, y: 0, z: -0.043}
+  m_LocalScale: {x: 0.004, y: 0.004, z: 0.004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 661345290}
   m_Father: {fileID: 1675370836}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 340.7}
+  m_LocalEulerAnglesHint: {x: -8.384, y: -4.881, z: 30.358}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2746, y: 0.040699985}
+  m_AnchoredPosition: {x: 0.296, y: -0.029}
   m_SizeDelta: {x: 70, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148928173
@@ -6744,6 +6751,18 @@ MonoBehaviour:
       - m_Target: {fileID: 247198893}
         m_TargetAssemblyTypeName: Credits_Menu, Assembly-CSharp
         m_MethodName: OpenCreditsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 187495846}
+        m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
+        m_MethodName: CreditsCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8753,6 +8772,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 187495846}
+        m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
+        m_MethodName: MenuCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1401738376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9611,17 +9642,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565542947}
-  m_LocalRotation: {x: 0, y: -0, z: 0.16762927, w: -0.98585016}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalRotation: {x: -0.1489233, y: -0.020504609, z: 0.12325893, w: 0.98092234}
+  m_LocalPosition: {x: 0, y: 0, z: -0.038}
+  m_LocalScale: {x: 0.004, y: 0.004, z: 0.004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1499671042}
   m_Father: {fileID: 1675370836}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 340.7}
+  m_LocalEulerAnglesHint: {x: -16.685, y: -4.607, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.30699998, y: 0.13299999}
+  m_AnchoredPosition: {x: -0.022, y: -0.035}
   m_SizeDelta: {x: 80, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1565542949
@@ -9670,7 +9701,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1156787382}
         m_TargetAssemblyTypeName: Options_Menu, Assembly-CSharp
-        m_MethodName: OpenOptions
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 187495846}
+        m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
+        m_MethodName: SettingsCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10266,7 +10309,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1156787382}
         m_TargetAssemblyTypeName: Options_Menu, Assembly-CSharp
-        m_MethodName: CloseOptions
+        m_MethodName: CloseSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 187495846}
+        m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
+        m_MethodName: MenuCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

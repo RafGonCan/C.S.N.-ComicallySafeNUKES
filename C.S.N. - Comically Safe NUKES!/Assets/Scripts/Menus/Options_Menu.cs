@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Options_Menu : MonoBehaviour
 {
@@ -66,10 +67,10 @@ public class Options_Menu : MonoBehaviour
     private void OnCancel(InputAction.CallbackContext context)
     {
         if (_isOpen)
-            CloseOptions();
+            CloseSettings();
     }
 
-    public void OpenOptions()
+    public void OpenSettings()
     {
         gameObject.SetActive(true);
         _isOpen = true;
@@ -109,10 +110,16 @@ public class Options_Menu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(volumeSlider.gameObject);
     }
 
-    public void CloseOptions()
+    public void CloseSettings()
     {
-        _isOpen = false;
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
+        _isOpen = false;
 
         foreach (GameObject btn in mainMenuButtons)
             if (btn != null) btn.SetActive(true);
