@@ -39,6 +39,10 @@ public class Pause_Menu : MonoBehaviour
         _cancelAction = _inputActions.UI.Cancel;
         _cancelAction.performed += OnCancel;
     }
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
 
     private void OnDestroy()
     {
@@ -166,7 +170,7 @@ public class Pause_Menu : MonoBehaviour
         _isOptionsOpen = false;
 
         if (optionsMenu != null)
-            optionsMenu.CloseSettings();
+            optionsMenu.CloseSettingsImmediate();
         else if (optionsPanel != null)
             optionsPanel.SetActive(false);
 
