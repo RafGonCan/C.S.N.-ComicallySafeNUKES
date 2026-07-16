@@ -20,6 +20,5 @@ MonoBehaviour:
   inspectModel: {fileID: 919132149155446097, guid: b4ee4719c996262499651b2f609ba21d, type: 3}
   inspectionDescription: 'Seems to be frozen solid.
 
-
-    There must be a way to
-    remove all this ice.'
+    There must be a way to remove
+    all this ice.'

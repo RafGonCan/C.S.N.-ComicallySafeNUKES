@@ -58,7 +58,7 @@ Material:
     - _Sharpness: 0.5
     - _Static: 0.5
     m_Colors:
-    - _Background: {r: 0.0714285, g: 0.20754716, b: 0.01860092, a: 0}
+    - _Background: {r: 0.071428485, g: 0.20754713, b: 0.01860092, a: 0}
     - _Fresnel_Color: {r: 0.22544685, g: 0.7075471, b: 0.20358667, a: 0}
     - _Line_Color: {r: 0.18588087, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

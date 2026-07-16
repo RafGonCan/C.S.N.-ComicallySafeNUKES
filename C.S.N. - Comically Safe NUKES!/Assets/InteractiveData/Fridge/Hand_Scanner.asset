@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da79969b3ffb2c4f8817f9c07bf0d0c, type: 3}
   m_Name: Hand_Scanner
   m_EditorClassIdentifier: 
-  type: 3
+  type: 2
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements:
   - {fileID: 11400000, guid: ce160d44d4a79884d8359baca6dafa68, type: 2}
-  requirementsMessage: Too many Fingerprints
-  interactionMessages:
-  - Just the right amount
+  inspectModel: {fileID: 0}
+  inspectionDescription: 
