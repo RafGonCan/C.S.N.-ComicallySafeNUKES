@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxForwardSpeed;
     [SerializeField] private float _maxBackwardSpeed;
     [SerializeField] private float _maxStrafeSpeed;
-    [SerializeField] private float _crouchHeight;
-    [SerializeField] private float _crouchTransitionSpeed;
+    //[SerializeField] private float _crouchHeight;
+    //[SerializeField] private float _crouchTransitionSpeed;
 
     [Header("Camera Settings")]
     [SerializeField] private float _maxLookUpAngle;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _velocityHor;
     private Vector3 _velocityVer;
     private Vector3 _motion;
-    private bool _crouch;
+    //private bool _crouch;
     private float _cameraLocalPos;
     private float _mouseSensitivity = 1f;
     private const string SensitivityKey = "MouseSensitivity";
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         _inputActions.Player.Move.canceled += OnMove;
         _inputActions.Player.Look.performed += OnLook;
         _inputActions.Player.Look.canceled += OnLook;
-        _inputActions.Player.Crouch.performed += OnCrouch;
+        //_inputActions.Player.Crouch.performed += OnCrouch;
     }
 
     private void Start()
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             _inputActions.Player.Move.canceled -= OnMove;
             _inputActions.Player.Look.performed -= OnLook;
             _inputActions.Player.Look.canceled -= OnLook;
-            _inputActions.Player.Crouch.performed -= OnCrouch;
+            //_inputActions.Player.Crouch.performed -= OnCrouch;
             _inputActions.Disable();
         }
     }
@@ -89,10 +89,10 @@ public class PlayerMovement : MonoBehaviour
             _currentLookScale = mouseLookScale; // fallback
     }
 
-    private void OnCrouch(InputAction.CallbackContext context)
+    /*private void OnCrouch(InputAction.CallbackContext context)
     {
         _crouch = !_crouch;
-    }
+    }*/
 
     private void Update()
     {
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateRotation();
         UpdateHead();
-        UpdateCameraHeight();
+        //UpdateCameraHeight();
     }
 
     private void UpdateRotation()
@@ -122,13 +122,13 @@ public class PlayerMovement : MonoBehaviour
         _head.localEulerAngles = _headRotation;
     }
 
-    private void UpdateCameraHeight()
+    /*private void UpdateCameraHeight()
     {
         float targetHeight = _crouch ? _crouchHeight : _cameraLocalPos;
         Vector3 newPos = _head.localPosition;
         newPos.y = Mathf.Lerp(newPos.y, targetHeight, Time.deltaTime * _crouchTransitionSpeed);
         _head.localPosition = newPos;
-    }
+    }*/
 
     private void FixedUpdate()
     {
@@ -157,8 +157,9 @@ public class PlayerMovement : MonoBehaviour
             _velocityHor = _velocityHor.normalized * (forwardAxis > 0 ? _maxForwardSpeed : _maxBackwardSpeed);
         }
 
-        if (_crouch)
+        /*if (_crouch)
             _velocityHor *= 0.5f;
+        */
     }
 
     private void UpdateVelocityVer()
