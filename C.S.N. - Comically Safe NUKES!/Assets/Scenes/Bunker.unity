@@ -12132,7 +12132,12 @@ MonoBehaviour:
   - {fileID: 1230539173}
   - {fileID: 481113492}
   - {fileID: 2119228165}
-  numoftrue: 0
+  allPipes:
+  - {fileID: 1230539173}
+  - {fileID: 824763510}
+  - {fileID: 1587069268}
+  - {fileID: 481113492}
+  - {fileID: 2119228165}
   microwave: {fileID: 1837629957}
 --- !u!114 &477738227
 MonoBehaviour:
@@ -13201,7 +13206,12 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 824763510}
   - {fileID: 2119228165}
-  numoftrue: 0
+  allPipes:
+  - {fileID: 1230539173}
+  - {fileID: 824763510}
+  - {fileID: 1587069268}
+  - {fileID: 481113492}
+  - {fileID: 2119228165}
   microwave: {fileID: 1837629957}
 --- !u!82 &507505621
 AudioSource:
@@ -63095,7 +63105,12 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 1587069268}
   - {fileID: 481113492}
-  numoftrue: 0
+  allPipes:
+  - {fileID: 1230539173}
+  - {fileID: 824763510}
+  - {fileID: 1587069268}
+  - {fileID: 481113492}
+  - {fileID: 2119228165}
   microwave: {fileID: 1837629957}
 --- !u!82 &2121837718
 AudioSource:
