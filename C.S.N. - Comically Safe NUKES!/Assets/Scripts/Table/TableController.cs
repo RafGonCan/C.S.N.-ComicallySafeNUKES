@@ -25,12 +25,12 @@ public class TableController : MonoBehaviour
     private bool _lightsOn = false;
 
     private List<int> currentSequence = new List<int>();
-    private bool _isSolved = false;
+    private static bool _isSolved = false;
     private List<int> pressedButtons = new List<int>();
 
     private int _plutoniumCount = 0;
     public bool IsPowered => _plutoniumCount >= 2;
-    public bool IsSolved => _isSolved;
+    public static bool IsSolved => _isSolved;
 
     void Start()
     {
@@ -162,6 +162,7 @@ public class TableController : MonoBehaviour
         _isSolved = true;
         _panelAnimator.SetBool("Solved", true);
         AudioSource.PlayClipAtPoint(_rightSequence, transform.position);
+        Debug.Log("table solved");
     }
 
     private void PuzzleFailed()

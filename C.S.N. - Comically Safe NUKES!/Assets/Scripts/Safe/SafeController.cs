@@ -1,4 +1,5 @@
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class SafeController : Interactive
@@ -10,8 +11,8 @@ public class SafeController : Interactive
     [SerializeField] private GameObject vaultDoor;
     private ActivateAnimation vaultDoorActivateAnimation => vaultDoor.GetComponentInChildren<ActivateAnimation>();
     
-    public bool IsUnlocked => _unlocked;
-    private bool _unlocked = false;
+    public static bool IsUnlocked => _unlocked;
+    private static bool _unlocked = false;
     public int _minNumber = 0;
     public int _maxNumber = 9;
 
@@ -57,6 +58,7 @@ public class SafeController : Interactive
                 if (vaultDoorActivateAnimation != null) vaultDoorActivateAnimation.Interactive();
                 _activateAnimation.Interactive();
                 _activateAnimation.PlaySound();
+                Debug.Log("safe achievement");
             }
             else
             {

@@ -3,12 +3,15 @@ using System.Collections;
 
 public class InteractiveConsumable : Interactive
 {
-    [Header("Eating Effects")]
+    private static int _pizzasEaten = 0;
+    public static int PizzasEaten => _pizzasEaten;
+
+    public static void ResetPizzaCount() => _pizzasEaten = 0;
+
     [SerializeField] private ParticleSystem eatParticles;
     [SerializeField] private float particleLifetime = 2f;
     [SerializeField] private float spawnDistance = 1.5f;
 
-    [Header("Eating Sounds (random queue)")]
     [SerializeField] private AudioClip[] eatSounds;
     [SerializeField] private AudioSource playerAudioSource;
     [SerializeField] private float soundInterval = 0.15f;
@@ -21,14 +24,19 @@ public class InteractiveConsumable : Interactive
         if (_wasPickedUp) return;
         _wasPickedUp = true;
 
-        // Disable mesh and collider immediately – object "disappears"
+        _pizzasEaten++;
+        Debug.Log($"Pizza eaten! Total: {_pizzasEaten}");
+        if (_pizzasEaten >= 12)
+        {
+            Debug.Log("pizza achiev");
+        }
+
         Renderer rend = GetComponent<Renderer>();
         if (rend != null) rend.enabled = false;
 
         Collider col = GetComponent<Collider>();
         if (col != null) col.enabled = false;
 
-        // Spawn particles on camera
         if (eatParticles != null)
         {
             Camera cam = Camera.main;
@@ -46,7 +54,6 @@ public class InteractiveConsumable : Interactive
             }
         }
 
-        // Play sounds, then fully deactivate the object
         StartCoroutine(PlayRandomSoundsAndDisable());
 
         base.InteractSelf(direct);
@@ -75,7 +82,6 @@ public class InteractiveConsumable : Interactive
             yield return new WaitForSeconds(soundInterval);
         }
 
-        // Fully disable the object after all sounds
         gameObject.SetActive(false);
     }
 }

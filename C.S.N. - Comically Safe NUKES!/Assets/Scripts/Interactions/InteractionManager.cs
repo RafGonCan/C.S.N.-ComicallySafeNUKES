@@ -33,6 +33,11 @@ public class InteractionManager : MonoBehaviour
     public bool showMouse = false;
     private bool _cursorAllowed = false;
     private bool _forceMouseState = false;
+    private bool _pizzaAchievement = false;
+    private bool _safeAchievement = false;
+    private bool _capsule2Achievement = false;
+    private bool _tableAchievement = false;
+    private bool _snakeAchievement = false;
 
     private GameObject _defaultSelected = null;
 
@@ -125,6 +130,16 @@ public class InteractionManager : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(null);
             }
         }
+        if (SnakeGame.GameWon && !_snakeAchievement)
+        {
+            Debug.Log("won snake");
+            _snakeAchievement = true;
+        }
+    }
+    public void SetCapsule2PickedUp()
+    {
+        if (!_capsule2Achievement) Debug.Log("capsule2 achiev");
+        _capsule2Achievement = true;
     }
 
     private bool IsControllerUsed()

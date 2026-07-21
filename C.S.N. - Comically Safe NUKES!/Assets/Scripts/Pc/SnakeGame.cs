@@ -28,6 +28,8 @@ public class SnakeGame : MonoBehaviour
     private AudioSource _as => GetComponent<AudioSource>();
 
     private float _targetProgress = 0f;
+    private static bool _gameWon = false;
+    public static bool GameWon => _gameWon;
     private float _currentProgress = 0f;
     private static bool _hasLoaded = false;
     private bool _isLoading = false;
@@ -226,6 +228,7 @@ public class SnakeGame : MonoBehaviour
             startButton.SetActive(false);
             digitalPlutonium.SetActive(true);
             EventSystem.current?.SetSelectedGameObject(exitButton);
+            _gameWon = true;
         }
         else
         {
