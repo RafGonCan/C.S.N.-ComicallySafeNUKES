@@ -1,5 +1,4 @@
 using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class SafeController : Interactive
@@ -58,7 +57,7 @@ public class SafeController : Interactive
                 if (vaultDoorActivateAnimation != null) vaultDoorActivateAnimation.Interactive();
                 _activateAnimation.Interactive();
                 _activateAnimation.PlaySound();
-                Debug.Log("safe achievement");
+                InteractionManager.instance.steamManager.UnlockAchievement(eAchievement.CSN_P1);
             }
             else
             {

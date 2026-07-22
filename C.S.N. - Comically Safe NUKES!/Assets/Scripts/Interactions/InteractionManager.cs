@@ -33,10 +33,7 @@ public class InteractionManager : MonoBehaviour
     public bool showMouse = false;
     private bool _cursorAllowed = false;
     private bool _forceMouseState = false;
-    private bool _pizzaAchievement = false;
-    private bool _safeAchievement = false;
     private bool _capsule2Achievement = false;
-    private bool _tableAchievement = false;
     private bool _snakeAchievement = false;
 
     private GameObject _defaultSelected = null;
@@ -50,6 +47,8 @@ public class InteractionManager : MonoBehaviour
     private List<Interactive> _interactives;
     public CameraFocusController CameraFocusController => _cameraFocusController;
     public PlayerInventory playerInventory => _playerInventory;
+    private SteamManager _steamManager;
+    public SteamManager steamManager => _steamManager;
     public string awakeAnimationName => _awakeAnimationName;
     public string interactAnimationName => _interactAnimationName;
     public string fallbackAnimationName => _fallbackAnimationName;
@@ -132,13 +131,13 @@ public class InteractionManager : MonoBehaviour
         }
         if (SnakeGame.GameWon && !_snakeAchievement)
         {
-            Debug.Log("won snake");
+            steamManager.UnlockAchievement(eAchievement.CSN_SNAKE);
             _snakeAchievement = true;
         }
     }
     public void SetCapsule2PickedUp()
     {
-        if (!_capsule2Achievement) Debug.Log("capsule2 achiev");
+        if (!_capsule2Achievement) steamManager.UnlockAchievement(eAchievement.CSN_P2);
         _capsule2Achievement = true;
     }
 
@@ -236,6 +235,8 @@ public class InteractionManager : MonoBehaviour
             _cameraFocusController = _playerMovement?.GetComponentInChildren<CameraFocusController>();
         if (_pauseMenu == null)
             _pauseMenu = FindFirstObjectByType<Pause_Menu>();
+        if (_steamManager == null)
+            _steamManager = GetComponent<SteamManager>();
     }
 
     void Start()
