@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: openPBRSurface2
-    second: {fileID: 2100000, guid: 08139ce30d25dd442aea7517929a284d, type: 2}
+    second: {fileID: 2100000, guid: 64928e4f3af2c9843b3bbcc24468f6dd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: openPBRSurface3
-    second: {fileID: 2100000, guid: a69f977e37cd62c47807068809b0a8aa, type: 2}
+    second: {fileID: 2100000, guid: 09ac0b7420937654588812e012458238, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: openPBRSurface4
-    second: {fileID: 2100000, guid: 3af0a9c6e29cfda46ab38c64bbe5cba8, type: 2}
+    second: {fileID: 2100000, guid: 5fe6a658604e86345881f45cb188c8e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,7 +28,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 3bf864ee6dd92ec45a6e2a438303e1ab, type: 2}
+    second: {fileID: 2100000, guid: 23cc50b9ca5f872418b1e21d293399e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
