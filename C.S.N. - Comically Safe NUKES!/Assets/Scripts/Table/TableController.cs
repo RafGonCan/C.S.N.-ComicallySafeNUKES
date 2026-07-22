@@ -162,7 +162,7 @@ public class TableController : MonoBehaviour
         _isSolved = true;
         _panelAnimator.SetBool("Solved", true);
         AudioSource.PlayClipAtPoint(_rightSequence, transform.position);
-        InteractionManager.instance.steamManager.UnlockAchievement(eAchievement.CSN_P3);
+        InteractionManager.instance.steamManager.UnlockAchievement("CSN_P3");
     }
 
     private void PuzzleFailed()

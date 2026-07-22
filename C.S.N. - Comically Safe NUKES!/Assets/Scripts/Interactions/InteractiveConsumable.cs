@@ -28,7 +28,7 @@ public class InteractiveConsumable : Interactive
         Debug.Log($"Pizza eaten! Total: {_pizzasEaten}");
         if (_pizzasEaten >= 18)
         {
-            InteractionManager.instance.steamManager.UnlockAchievement(eAchievement.CSN_PIZZA);
+            InteractionManager.instance.steamManager.UnlockAchievement("CSN_PIZZA");
         }
 
         Renderer rend = GetComponent<Renderer>();

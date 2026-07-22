@@ -57,7 +57,7 @@ public class SafeController : Interactive
                 if (vaultDoorActivateAnimation != null) vaultDoorActivateAnimation.Interactive();
                 _activateAnimation.Interactive();
                 _activateAnimation.PlaySound();
-                InteractionManager.instance.steamManager.UnlockAchievement(eAchievement.CSN_P1);
+                InteractionManager.instance.steamManager.UnlockAchievement("CSN_P1");
             }
             else
             {
