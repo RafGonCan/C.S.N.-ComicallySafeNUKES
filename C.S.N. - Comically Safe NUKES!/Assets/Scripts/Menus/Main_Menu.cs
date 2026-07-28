@@ -1,9 +1,11 @@
 using System.Collections;
 using Unity.Cinemachine;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class Main_Menu : MonoBehaviour
@@ -13,6 +15,7 @@ public class Main_Menu : MonoBehaviour
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject speakerIcon;
     [SerializeField] private GameObject transitionObject;
+    [SerializeField] private GameObject timeline;
     [SerializeField] private float fadeSpeed = 1f;
     [SerializeField] private float timeOnScreen = 3f;
     [SerializeField] private float timeToFade = 1f;
@@ -45,6 +48,7 @@ public class Main_Menu : MonoBehaviour
         // Hide cursor for gameplay
         InteractionManager.instance.SetCursorAllowed(false);
         EventSystem.current.SetSelectedGameObject(null);
+        timeline.SetActive(false);
 
         transitionObject.SetActive(true);
         StartCoroutine(StartGameSequence());
