@@ -131,8 +131,8 @@ public class InteractionManager : MonoBehaviour
         }
         if (SnakeGame.GameWon && !_snakeAchievement)
         {
-            steamManager.UnlockAchievement("CSN_SNAKE");
             _snakeAchievement = true;
+            steamManager.UnlockAchievement("CSN_SNAKE");
         }
     }
     public void SetCapsule2PickedUp()
