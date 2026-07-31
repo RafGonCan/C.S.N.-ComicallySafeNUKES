@@ -251,8 +251,8 @@ public class Interactive : MonoBehaviour
 
     private void PickUpInteractive()
     {
-        _playerInventory.Add(this);
         gameObject.SetActive(false);
+        _playerInventory.Add(this);
     }
 
     private void DoDirectInteraction()

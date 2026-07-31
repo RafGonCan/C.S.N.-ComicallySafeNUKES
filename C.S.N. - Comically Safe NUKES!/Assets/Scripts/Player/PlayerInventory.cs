@@ -14,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
     private InputSystem_Actions _inputActions;
     private InputAction _previousAction;
     private InputAction _nextAction;
+    [SerializeField] private InteractiveData capsule2Data;
 
     void Awake()
     {
@@ -76,6 +77,10 @@ public class PlayerInventory : MonoBehaviour
 
         if (_selectedSlotIndex == -1)
             SelectInventorySlot(0);
+        if (item.interactiveData == capsule2Data)
+        {
+            InteractionManager.instance.SetCapsule2PickedUp();
+        }
     }
 
     public void Remove(Interactive item)

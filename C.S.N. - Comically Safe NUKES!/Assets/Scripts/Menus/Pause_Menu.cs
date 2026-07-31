@@ -200,6 +200,7 @@ public class Pause_Menu : MonoBehaviour
         _isPaused = false;
         pauseMenu.SetActive(false);
         areYouSure.SetActive(false);
+        InteractiveConsumable.ResetPizzaCount();
         Time.timeScale = 1f;
         InteractionManager.instance.SetCursorAllowed(false);
         SceneManager.LoadScene(0);
