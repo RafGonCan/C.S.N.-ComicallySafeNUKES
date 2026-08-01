@@ -40709,6 +40709,7 @@ MonoBehaviour:
   _uiManager: {fileID: 272367919}
   _pickUp: {fileID: 8300000, guid: ef04da874614813479739b1b24959195, type: 3}
   _audioSource: {fileID: 194153045}
+  capsule2Data: {fileID: 11400000, guid: 5e508503c3b5f774ba7fb5905d2f5d1c, type: 2}
 --- !u!114 &1349910773
 MonoBehaviour:
   m_ObjectHideFlags: 0

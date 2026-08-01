@@ -26,10 +26,7 @@ public class InteractiveConsumable : Interactive
 
         _pizzasEaten++;
         Debug.Log($"Pizza eaten! Total: {_pizzasEaten}");
-        if (_pizzasEaten >= 18)
-        {
-            InteractionManager.instance.steamManager.UnlockAchievement("CSN_PIZZA");
-        }
+
 
         Renderer rend = GetComponent<Renderer>();
         if (rend != null) rend.enabled = false;
@@ -57,6 +54,10 @@ public class InteractiveConsumable : Interactive
         StartCoroutine(PlayRandomSoundsAndDisable());
 
         base.InteractSelf(direct);
+        if (_pizzasEaten >= 18)
+        {
+            InteractionManager.instance.steamManager.UnlockAchievement("CSN_PIZZA");
+        }
     }
 
     private IEnumerator PlayRandomSoundsAndDisable()
