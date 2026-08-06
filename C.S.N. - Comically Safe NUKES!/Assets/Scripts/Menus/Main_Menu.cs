@@ -1,12 +1,7 @@
 using System.Collections;
-using Unity.Cinemachine;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
-using UnityEngine.UI;
 
 public class Main_Menu : MonoBehaviour
 {

@@ -3623,8 +3623,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227599688}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0052160784, y: 0.9382236, z: -0.014156318, w: -0.34570065}
-  m_LocalPosition: {x: -6.1543636, y: 0.94695985, z: -0.21459997}
+  m_LocalRotation: {x: 0.23863529, y: 0.010494498, z: -0.0025790224, w: 0.97104913}
+  m_LocalPosition: {x: -0.010694981, y: 0.94847333, z: -1.928042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3810,7 +3810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SplineSettings:
     Spline: {fileID: 889946246}
-    Position: 2.15
+    Position: 24.833143
     Units: 2
   SplineOffset: {x: 0, y: 0, z: 0}
   CameraRotation: 3
@@ -5823,6 +5823,10 @@ PlayableDirector:
     value: {fileID: 2008960935}
   - key: {fileID: -4097759370597023678, guid: f85bce17f60ba7648a972e7b97378ba4, type: 2}
     value: {fileID: 1457184770}
+  - key: {fileID: 4897730249272703466, guid: f85bce17f60ba7648a972e7b97378ba4, type: 2}
+    value: {fileID: 2008960935}
+  - key: {fileID: -8973034786755550027, guid: f85bce17f60ba7648a972e7b97378ba4, type: 2}
+    value: {fileID: 2008960935}
   m_ExposedReferences:
     m_References:
     - f327f938a9982a645b90774de7a64af5: {fileID: 148936546}
@@ -32656,14 +32660,14 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978398059}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 3
   m_Range: 0.5
-  m_SpotAngle: 85.68889
-  m_InnerSpotAngle: 68.73984
+  m_SpotAngle: 85
+  m_InnerSpotAngle: 68
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
