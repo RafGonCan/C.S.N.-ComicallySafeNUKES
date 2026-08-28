@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: Plutonium Tube
+  inventoryName: Plutonium Tube III
   inventoryIcon: {fileID: 21300000, guid: 52554c805a644184ea49630b2f5237f2, type: 3}
   requirements: []
   inspectModel: {fileID: 919132149155446097, guid: ebe26dc87526d82489bb9a42d220dbec, type: 3}
