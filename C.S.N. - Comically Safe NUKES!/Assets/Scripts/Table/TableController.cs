@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class TableController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class TableController : MonoBehaviour
     [SerializeField] private AudioClip _wrongVoiceline;
     [SerializeField] private int _failAmount = 0;
     [SerializeField] private AudioClip _lightSfx;
+    [SerializeField] private int lightTimer = 3;
 
     [Header("Lights & Emission")]
     [SerializeField] private Light[] roomLights;
@@ -54,7 +56,7 @@ public class TableController : MonoBehaviour
 
         if (_plutoniumCount >= 2 && !_lightsOn)
         {
-            TurnOnRoomLights();
+            StartCoroutine(ActivateRoomLights());
         }
     }
 
@@ -68,6 +70,11 @@ public class TableController : MonoBehaviour
                 seq.SetPoweredState(powered);
         }
     }
+    private IEnumerator ActivateRoomLights()
+    {
+        yield return new WaitForSeconds(lightTimer);
+        TurnOnRoomLights();
+    }
 
     private void TurnOnRoomLights()
     {
@@ -80,6 +87,8 @@ public class TableController : MonoBehaviour
                     light.enabled = true;
             }
         }
+        
+
 
         if (emissiveObjects != null)
         {
