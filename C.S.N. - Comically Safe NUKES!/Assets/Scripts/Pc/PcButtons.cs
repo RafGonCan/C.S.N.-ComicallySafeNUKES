@@ -4,6 +4,8 @@ public class PcButtons : Interactive
 {
     [SerializeField] private GameObject[] targetObjects;
     [SerializeField] private GameObject[] allPipes;
+    [SerializeField] private AudioClip completionSound;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private Interactive microwave;
 
     protected override void InteractSelf(bool direct)
@@ -17,7 +19,10 @@ public class PcButtons : Interactive
 
         if (microwave != null)
             microwave.isOn = (activeCount == allPipes.Length);
-
+        
+        if (microwave.isOn)
+            audioSource.PlayOneShot(completionSound);
+ 
         base.InteractSelf(direct);
     }
 }

@@ -9503,6 +9503,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 401422023}
+        m_TargetAssemblyTypeName: ActivateAnimation, Assembly-CSharp
+        m_MethodName: Interactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls:
@@ -11762,6 +11774,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8068073526183931155, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1837629964}
+    - targetCorrespondingSourceObject: {fileID: 5918938163398764993, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 433560839}
     - targetCorrespondingSourceObject: {fileID: -8254564374808016372, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1083015884}
@@ -11775,6 +11790,108 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1083015888}
   m_SourcePrefab: {fileID: 100100000, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
+--- !u!1 &433560838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5918938163398764993, guid: f2495b7ea56d303419ff607a75d13a44, type: 3}
+  m_PrefabInstance: {fileID: 433560837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &433560839
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433560838}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &434149349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aec5644a71a7c4f488b47a04701c457c, type: 3}
@@ -13260,6 +13377,8 @@ MonoBehaviour:
   - {fileID: 1587069268}
   - {fileID: 481113492}
   - {fileID: 2119228165}
+  completionSound: {fileID: 8300000, guid: 9ad5454e40a1bc84c9736094968ee2d2, type: 3}
+  audioSource: {fileID: 433560839}
   microwave: {fileID: 1837629957}
 --- !u!114 &477738227
 MonoBehaviour:
@@ -14572,6 +14691,8 @@ MonoBehaviour:
   - {fileID: 1587069268}
   - {fileID: 481113492}
   - {fileID: 2119228165}
+  completionSound: {fileID: 8300000, guid: 9ad5454e40a1bc84c9736094968ee2d2, type: 3}
+  audioSource: {fileID: 433560839}
   microwave: {fileID: 1837629957}
 --- !u!82 &507505621
 AudioSource:
@@ -68757,6 +68878,8 @@ MonoBehaviour:
   - {fileID: 1587069268}
   - {fileID: 481113492}
   - {fileID: 2119228165}
+  completionSound: {fileID: 8300000, guid: 9ad5454e40a1bc84c9736094968ee2d2, type: 3}
+  audioSource: {fileID: 433560839}
   microwave: {fileID: 1837629957}
 --- !u!82 &2121837718
 AudioSource:
