@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Interactive : MonoBehaviour
 {
+    [SerializeField] private AudioClip _pickupSound;
+    [SerializeField] private string _pickupSubtitleKey;
     [SerializeField] private InteractiveData _interactiveData;
     [SerializeField] private StatefulInteractive statefulPrefab;
     [SerializeField] private Transform _focusPoint;
@@ -251,7 +253,12 @@ public class Interactive : MonoBehaviour
 
     private void PickUpInteractive()
     {
-        gameObject.SetActive(false);
+        if (_pickupSound != null)
+        {
+            PlayCustomSound(_pickupSound, _pickupSubtitleKey);
+        }
+
+        gameObject.SetActive(false); 
         _playerInventory.Add(this);
     }
 

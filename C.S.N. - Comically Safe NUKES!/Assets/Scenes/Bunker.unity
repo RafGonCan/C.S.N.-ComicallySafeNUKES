@@ -514,6 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: f84f573563a68c54e81edaca8141d73d, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 1732804953}
@@ -1451,6 +1453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 713f2fafc7811774ab1e534d5c5babd8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -3160,6 +3164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -3326,6 +3332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 97e8eab66f88a264d80098412b969654, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -5149,6 +5157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: c22d7f6b7379e2d42a3806e095b45d5f, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -5317,6 +5327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 985b18b7ae167034583aabab8e7e8406, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -5802,6 +5814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: a1bba68018651f04bbdf8268ce6a1b18, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 2059443006}
@@ -8047,6 +8061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -9487,6 +9503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: bbb15e97666ba9b43ae73d069cf2a7b8, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -10174,6 +10192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: dd8d77d18b69f0a4d8a576a90dcd73d7, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -10902,6 +10922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: e8bf677b078dc974185de0b0d251d341, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -13291,6 +13313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -13364,6 +13388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 5f6ec61c8e27a4d48806b62ed58397b7, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -14381,6 +14407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -14679,6 +14707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 3ef697cdfe1d2dc48a46eda5573ec942, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -15333,6 +15363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: c2fdc317b7272314697f8ec6237e8034, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -18061,6 +18093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 495e1f8f2e72b0f40a4d95b0c59a87e1, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -22989,6 +23023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -24111,6 +24147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 6d3564064fcfde64793dd664e7ffec83, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -24416,6 +24454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -26139,6 +26179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 6b184fd3c4ddf93468205db5db040218, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 1083794224}
@@ -26321,6 +26363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -26982,6 +27026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 28aec73c190ed204eb13cd5825b98d32, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -28689,6 +28735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 3dc58bdd849eb514aa54dc645f34cdfa, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -29702,6 +29750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 01ee5036c8861734da929d024fb0197e, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -29843,6 +29893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -30841,6 +30893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 3565c9bc7309bed4995b6ec5f56f07da, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -32028,6 +32082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: ce160d44d4a79884d8359baca6dafa68, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -32723,6 +32779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 002a5490da75f6c4b8e852c7e2739152, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -32948,6 +33006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -33170,6 +33230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 5e508503c3b5f774ba7fb5905d2f5d1c, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -36728,6 +36790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -37721,6 +37785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -39140,6 +39206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -41436,11 +41504,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 8300000, guid: 01be76b8ffbf97744ae9d916684acd9c, type: 3}
+  _pickupSubtitleKey: MCVL_PK_FrozenPlut_1
   _interactiveData: {fileID: 11400000, guid: 449f5c1c4c4ac684ea3a90d87fdb8760, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
   _requirementMetSound: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1349910776}
   _playSoundOnRequirementsMet: 1
   _fallbackSound: {fileID: 0}
   onRequirementUsed:
@@ -42621,6 +42691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676f84e78c0da704ab5af2a1b77ed14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 94d7b93e1f4af09419c4898ca256f777, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -43197,6 +43269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -43751,6 +43825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 103cb823c2b615c4e9f25d639fc39789, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -45457,6 +45533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: c2fdc317b7272314697f8ec6237e8034, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -46136,6 +46214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: ec662491da66e634d910599f36ba35de, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -47587,6 +47667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: fea83ce7696cd7640bb65908f637c41f, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -48076,6 +48158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -48963,6 +49047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: e071ca42922d9344eb52afb107efc907, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -50183,6 +50269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -51023,6 +51111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -51307,6 +51397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 8ad859c2f9d54d54ba871b2d66a9ede5, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -55524,6 +55616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: ea7fd9081fc29dd46a1bd5fa26ac7064, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -56067,6 +56161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -56254,6 +56350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 1c8c712073bafc54b8873eb03f26cc06, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -56940,6 +57038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b3875c34557008942a1055a5d52e044e, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -62531,6 +62631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -62775,6 +62877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 5bd2508244db4684884a1ea406747c4c, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -63823,6 +63927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: a61d36e4d0507f54d853e85f0b8dfbce, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -64056,6 +64162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5407b9cc9c77bb4429be7e219a94bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 8930a793c065b7d4180f793cc1370b16, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -64726,6 +64834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -65549,6 +65659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98962096074c79245919b92a914aeaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 8e4d72e6ad68237449bb53399c188600, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -67014,6 +67126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -68061,6 +68175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 89cfdc9f038d3d0458b1b77fe2791465, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 1790008156}
@@ -68908,6 +69024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2642da8a8bf3e4cac4fcbd6e1a2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: f9335e6f37834df4aa327ab10b44eefb, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -69990,6 +70108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c0fdb033075414db5ace63051df62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: b1779571d0b30004dbd8f090457f1c4b, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -70547,6 +70667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _pickupSubtitleKey: 
   _interactiveData: {fileID: 11400000, guid: 95bf6babb364fc74eadfb4240cdd2de4, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
