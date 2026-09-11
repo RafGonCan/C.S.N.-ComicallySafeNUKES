@@ -2366,7 +2366,13 @@ PrefabInstance:
       addedObject: {fileID: 1059223667}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f39e25957052dcb42826084f7d31f622, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1059223670}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f39e25957052dcb42826084f7d31f622, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1059223666}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f39e25957052dcb42826084f7d31f622, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059223671}
   m_SourcePrefab: {fileID: 100100000, guid: f39e25957052dcb42826084f7d31f622, type: 3}
 --- !u!1 &96666879
 GameObject:
@@ -7186,8 +7192,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 0cf546a8b937b5c4f8f7316fff96f6f3, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10775,7 +10781,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0cf546a8b937b5c4f8f7316fff96f6f3, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10873,11 +10879,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe8f82bda8d1104b89cf70a5697ca68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 267303342}
+  _audioSource: {fileID: 401422017}
   _audioSourceFromPlayer: {fileID: 0}
   _soundClips:
   - {fileID: 8300000, guid: 1d239ec79f3e4d5409d37052c867dbf6, type: 3}
-  - {fileID: 8300000, guid: c6ca13e4f88823b46991c6b02019dd29, type: 3}
   _playerVoiceLine: {fileID: 0}
   _playOnEnable: 0
   audioOn: 1
@@ -10906,7 +10911,19 @@ MonoBehaviour:
   _fallbackSound: {fileID: 8300000, guid: e09b1ea4624fd8e408f806d947ba86c1, type: 3}
   onRequirementUsed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1059223666}
+        m_TargetAssemblyTypeName: Interactive, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFallbackInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -10952,9 +10969,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _awakeAnimation: {fileID: 1015887684}
-  _interactAnimation: {fileID: 401422021}
+  _interactAnimation: {fileID: 1059223670}
   _interactWrongAnimation: {fileID: 1015887684}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 267303342}
 --- !u!65 &401422025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32052,6 +32069,44 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17833534, y: 0.5890604, z: 0.21863744}
   m_Center: {x: 0.0056563173, y: 0.074530244, z: -0.006791144}
+--- !u!95 &1059223670
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059223664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13a1a1d9874e55a468f59449dbe93b44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1059223671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059223664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cceb43b81e9c448bd39e289bd26ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _awakeAnimation: {fileID: 0}
+  _interactAnimation: {fileID: 401422021}
+  _interactWrongAnimation: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!1 &1064784666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60557d10bb1a3104e8b23d892e9055a1, type: 3}
@@ -41398,7 +41453,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _allowCancelExit: 1
-  isOn: 0
+  isOn: 1
   _requirementMetSubtitleKey: 
   _fallbackSubtitleKey: 
 --- !u!65 &1370401226
@@ -42607,7 +42662,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _allowCancelExit: 1
-  isOn: 0
+  isOn: 1
   _requirementMetSubtitleKey: 
   _fallbackSubtitleKey: 
   playerMovement: {fileID: 1349910773}
@@ -45672,6 +45727,22 @@ PrefabInstance:
     - target: {fileID: 4884371310296406929, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.8686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884371310296406929, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884371310296406929, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884371310296406929, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884371310296406929, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7169851437996481298, guid: 4ea803e28a0ef5b41a38ffd5548cd467, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -69725,7 +69796,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 25
-  field of view: 70
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
