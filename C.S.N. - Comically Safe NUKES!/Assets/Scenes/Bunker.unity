@@ -42625,9 +42625,9 @@ MonoBehaviour:
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
   _requirementMetSound: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1418139478}
   _playSoundOnRequirementsMet: 1
-  _fallbackSound: {fileID: 0}
+  _fallbackSound: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
   onRequirementUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -42636,11 +42636,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1418139478}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: f3d98ea8aa33ec34498376457786447c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -42648,20 +42648,8 @@ MonoBehaviour:
         m_CallState: 2
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1418139478}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _allowCancelExit: 1
+      m_Calls: []
+  _allowCancelExit: 0
   isOn: 1
   _requirementMetSubtitleKey: 
   _fallbackSubtitleKey: 
@@ -42700,7 +42688,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: d7790a12de1558a44b017990c7d67bb0, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.65
@@ -42823,7 +42811,7 @@ MonoBehaviour:
   _awakeAnimation: {fileID: 1418139479}
   _interactAnimation: {fileID: 1418139479}
   _interactWrongAnimation: {fileID: 1418139479}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1418139478}
 --- !u!1001 &1418255128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49357,9 +49345,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: cbb8bbda1d2e23545b813e312219bc70, type: 3}
+  m_Resource: {fileID: 8300000, guid: d1f4e70188d1881428071d62ffc1d8fd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -49367,7 +49355,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 4.4447584
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
