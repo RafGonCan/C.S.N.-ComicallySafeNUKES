@@ -33230,13 +33230,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupSound: {fileID: 0}
-  _pickupSubtitleKey: 
+  _pickupSound: {fileID: 8300000, guid: 0ef5ffb40ea9990418094aa5db6d92eb, type: 3}
+  _pickupSubtitleKey: MCVL_Pk_Plut2_Microwave
   _interactiveData: {fileID: 11400000, guid: 5e508503c3b5f774ba7fb5905d2f5d1c, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
   _requirementMetSound: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1349910776}
   _playSoundOnRequirementsMet: 1
   _fallbackSound: {fileID: 0}
   onRequirementUsed:
@@ -33247,19 +33247,7 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1349910776}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0ef5ffb40ea9990418094aa5db6d92eb, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _allowCancelExit: 1
   isOn: 1
   _requirementMetSubtitleKey: 
@@ -41516,8 +41504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90187edd6ec0da7488dbf9ea5ec1885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupSound: {fileID: 8300000, guid: 01be76b8ffbf97744ae9d916684acd9c, type: 3}
-  _pickupSubtitleKey: MCVL_PK_FrozenPlut_1
+  _pickupSound: {fileID: 8300000, guid: 2c7ae44fc38afde4083f67732af0cec8, type: 3}
+  _pickupSubtitleKey: MCVL_PK_FrozenPlut
   _interactiveData: {fileID: 11400000, guid: 449f5c1c4c4ac684ea3a90d87fdb8760, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
@@ -41533,19 +41521,7 @@ MonoBehaviour:
       m_Calls: []
   onDirectInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1349910776}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 2c7ae44fc38afde4083f67732af0cec8, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _allowCancelExit: 1
   isOn: 1
   _requirementMetSubtitleKey: 
@@ -56387,7 +56363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickupSound: {fileID: 0}
-  _pickupSubtitleKey: 
+  _pickupSubtitleKey: Ins_Plut2
   _interactiveData: {fileID: 11400000, guid: 1c8c712073bafc54b8873eb03f26cc06, type: 2}
   statefulPrefab: {fileID: 0}
   _focusPoint: {fileID: 0}
