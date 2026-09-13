@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Bunker.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Final_cutscene.unity
+    guid: 71258a67da8829241b4a724f65e1d78d
+  - enabled: 1
     path: Assets/Scenes/Thx.unity
     guid: afde2165d8fb37b47857c5d04bfd422c
   - enabled: 1
